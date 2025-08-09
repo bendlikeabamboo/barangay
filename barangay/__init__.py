@@ -1,5 +1,5 @@
 """
-Barangay list
+List of Barangay in the Philippines
 """
 
 BARANGAY = {
