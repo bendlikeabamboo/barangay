@@ -1,6 +1,6 @@
 [project]
 name = "barangay"
-version = "0.1.0"
+version = "0.1.1"
 description = "Nested dictionary of Philippine barangay. Updated as of 2025."
 authors = [
     {name = "bendlikeabamboo",email = "manuelb@hawitsu.xyz"}
