@@ -1,11 +1,12 @@
 # barangay
-[![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/)
+[<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<p>
+<p>
 
 A Python package providing a nested dictionary of all Philippine barangays,
-cities/municipalities, provinces, and regions. This project is
+cities, municipalities, provinces, and regions. This project is
 intended for geographic data analysis, lookup, and mapping applications.
 
-__UPDATED AS OF__: [July 8, 2025 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694)
+__SOURCE FILE__: [205-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694)
 
 ## Features
 
@@ -24,9 +25,17 @@ pip install barangay
 ```python
 from barangay import BARANGAY
 
-# Lookup of all barangays with region, province/huc, and municipality/city provided
-brgys_of_binondo = BARANGAY["National Capital Region (NCR)"]["City of Manila"][
-    "Binondo"
+# Example lookup process and dictionary traversal
+all_regions = BARANGAY.keys()
+
+ncr_cities_and_municipalities =  BARANGAY["National Capital Region (NCR)"].keys()
+
+municipalities_of_manila = BARANGAY["National Capital Region (NCR)"][
+  "City of Manila"
+].keys()
+
+brgy_of_binondo = BARBARANGAY["National Capital Region (NCR)"]["City of Manila"][
+  "Binondo"
 ]
 print(brgys_of_binondo)
 ```

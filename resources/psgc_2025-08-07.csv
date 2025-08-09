@@ -1,4 +1,4 @@
-psgc_id,name,correspondence_code,geographic_level,old_names,city_class,income_classification,settlement_type, population,,barangay_status
+psgc_id,name,correspondence_code,geographic_level,old_names,city_class,income_classification,settlement_type,population,,barangay_status
 1300000000,National Capital Region (NCR),130000000,Reg,,,,,"  13,484,462 ",,
 1380100000,City of Caloocan,137501000,City,,HUC,1st,,"  1,661,584 ",,
 1380100001,Barangay 1,137501001,Bgy,,,,U,"  2,319 ",,
