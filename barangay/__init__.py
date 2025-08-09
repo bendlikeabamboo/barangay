@@ -14,7 +14,7 @@ BARANGAY = {
                 "Manguso",
                 "Semut",
                 "Caddayan",
-                "Linongan"
+                "Linongan",
             ],
             "Al-Barka": [
                 "Bato-bato",
@@ -32,7 +32,7 @@ BARANGAY = {
                 "Lookbisaya",
                 "Kinukutan",
                 "Magcawa",
-                "Apil-apil"
+                "Apil-apil",
             ],
             "City of Lamitan ": [
                 "Maligaya",
@@ -79,7 +79,7 @@ BARANGAY = {
                 "Ulame",
                 "Boheibu",
                 "Limo-ok",
-                "Bulingan"
+                "Bulingan",
             ],
             "Hadji Mohammad Ajul": [
                 "Pintasan",
@@ -92,7 +92,7 @@ BARANGAY = {
                 "Langong",
                 "Langil",
                 "Languyan",
-                "Basakan"
+                "Basakan",
             ],
             "Hadji Muhtamad": [
                 "Mananggal",
@@ -104,7 +104,7 @@ BARANGAY = {
                 "Tausan",
                 "Palahangan",
                 "Panducan",
-                "Sangbay Small"
+                "Sangbay Small",
             ],
             "Lantawan": [
                 "Paniongan",
@@ -131,7 +131,7 @@ BARANGAY = {
                 "Bulanza",
                 "Lower Ba\u00f1as",
                 "Lawila",
-                "Switch Yakal"
+                "Switch Yakal",
             ],
             "Maluso": [
                 "Port Holland Zone II Pob.",
@@ -153,7 +153,7 @@ BARANGAY = {
                 "Abong-Abong",
                 "Guanan South",
                 "Port Holland Zone III Pob.",
-                "Tubigan"
+                "Tubigan",
             ],
             "Sumisip": [
                 "Manaul",
@@ -184,7 +184,7 @@ BARANGAY = {
                 "Sahaya Bohe Bato",
                 "Benembengan Upper",
                 "Mangal ",
-                "Luuk-Bait"
+                "Luuk-Bait",
             ],
             "Tabuan-Lasa": [
                 "Suligan",
@@ -198,7 +198,7 @@ BARANGAY = {
                 "Balanting",
                 "Lanawan",
                 "Boloh-boloh",
-                "Kaumpurnah"
+                "Kaumpurnah",
             ],
             "Tipo-Tipo": [
                 "Banah",
@@ -211,7 +211,7 @@ BARANGAY = {
                 "Bangcuang",
                 "Baguindan",
                 "Bohelebung",
-                "Lagayas"
+                "Lagayas",
             ],
             "Tuburan": [
                 "Lower Sinangkapan",
@@ -223,7 +223,7 @@ BARANGAY = {
                 "Lower Tablas",
                 "Katipunan",
                 "Tablas Usew",
-                "Duga-a"
+                "Duga-a",
             ],
             "Ungkaya Pukan": [
                 "Matata",
@@ -237,8 +237,8 @@ BARANGAY = {
                 "Materling",
                 "Bohe-Suyak",
                 "Danit",
-                "Tongbato"
-            ]
+                "Tongbato",
+            ],
         },
         "Lanao del Sur": {
             "Amai Manabilang": [
@@ -258,7 +258,7 @@ BARANGAY = {
                 "Lambanogan",
                 "Sumugot",
                 "Bagumbayan",
-                "Pagalamatan"
+                "Pagalamatan",
             ],
             "Bacolod-Kalawi": [
                 "Madanding",
@@ -286,7 +286,7 @@ BARANGAY = {
                 "Poblacion II",
                 "Dilabayan",
                 "Rorowan",
-                "Bagoaingud"
+                "Bagoaingud",
             ],
             "Balabagan": [
                 "Lalabuan",
@@ -315,7 +315,7 @@ BARANGAY = {
                 "Calilangan",
                 "Narra",
                 "Lorenzo",
-                "Molimoc"
+                "Molimoc",
             ],
             "Balindong": [
                 "Lalabuan",
@@ -355,7 +355,7 @@ BARANGAY = {
                 "Lumbac Wato",
                 "Pagayawan",
                 "Lumbac Lalan",
-                "Magarang"
+                "Magarang",
             ],
             "Bayang": [
                 "Cadingilan Oriental",
@@ -406,7 +406,7 @@ BARANGAY = {
                 "Bubong Raya",
                 "Porotan",
                 "Lalapung Central",
-                "Bagoaingud"
+                "Bagoaingud",
             ],
             "Binidayan": [
                 "Kialilidan",
@@ -434,7 +434,7 @@ BARANGAY = {
                 "Badak",
                 "Tambac",
                 "Bubonga-Ranao",
-                "Olama"
+                "Olama",
             ],
             "Buadiposo-Buntong": [
                 "Bacolod",
@@ -469,7 +469,7 @@ BARANGAY = {
                 "Paling",
                 "Ragondingan East",
                 "Buadiposo Lilod",
-                "Sapot"
+                "Sapot",
             ],
             "Bubong": [
                 "Madanding",
@@ -507,7 +507,7 @@ BARANGAY = {
                 "Dilabayan",
                 "Bagoaingud",
                 "Pagayawan",
-                "Batangan"
+                "Batangan",
             ],
             "Butig": [
                 "Malungun",
@@ -525,7 +525,7 @@ BARANGAY = {
                 "Ragayan",
                 "Butig Proper",
                 "Pindolonan",
-                "Dilimbayan"
+                "Dilimbayan",
             ],
             "Calanogas": [
                 "Piksan",
@@ -544,7 +544,7 @@ BARANGAY = {
                 "Inudaran",
                 "Pindolonan",
                 "Pagalongan",
-                "Luguna"
+                "Luguna",
             ],
             "City of Marawi ": [
                 "Sabala Manao Proper",
@@ -647,7 +647,7 @@ BARANGAY = {
                 "Ambolong",
                 "Bubonga Marawi",
                 "Datu Naga",
-                "Pugaan"
+                "Pugaan",
             ],
             "Ditsaan-Ramain": [
                 "Ditsaan",
@@ -684,7 +684,7 @@ BARANGAY = {
                 "Buayaan Raya",
                 "Sundiga Bayabao",
                 "Polo",
-                "Pagalongan Buadiadingan"
+                "Pagalongan Buadiadingan",
             ],
             "Ganassi": [
                 "Macabao",
@@ -718,7 +718,7 @@ BARANGAY = {
                 "Dapaan",
                 "Baya",
                 "Bagoaingud",
-                "Pagalongan"
+                "Pagalongan",
             ],
             "Kapai": [
                 "Parao",
@@ -740,7 +740,7 @@ BARANGAY = {
                 "Gadongan",
                 "Kining",
                 "Dilabayan",
-                "Pagalongan"
+                "Pagalongan",
             ],
             "Kapatagan": [
                 "Salaman",
@@ -757,7 +757,7 @@ BARANGAY = {
                 "Tabuan",
                 "Kapatagan",
                 "Inudaran",
-                "Lusain"
+                "Lusain",
             ],
             "Lumba-Bayabao": [
                 "Salaman",
@@ -797,7 +797,7 @@ BARANGAY = {
                 "Sarigidan Madiar",
                 "Gambai",
                 "Pagayawan",
-                "Sabala Bantayao"
+                "Sabala Bantayao",
             ],
             "Lumbaca-Unayan": [
                 "Beta",
@@ -808,7 +808,7 @@ BARANGAY = {
                 "Calalon",
                 "Dimapaok",
                 "Bangon",
-                "Lumbac Dilausan"
+                "Lumbac Dilausan",
             ],
             "Lumbatan": [
                 "Lalapung",
@@ -831,7 +831,7 @@ BARANGAY = {
                 "Tambac",
                 "Dago-ok",
                 "Dalama",
-                "Lunay"
+                "Lunay",
             ],
             "Lumbayanague": [
                 "Mapantao-Balangas",
@@ -855,7 +855,7 @@ BARANGAY = {
                 "Bualan",
                 "Lamin",
                 "Singcara",
-                "Balaigay"
+                "Balaigay",
             ],
             "Madalum": [
                 "Dibarosan",
@@ -894,7 +894,7 @@ BARANGAY = {
                 "Kormatan",
                 "Bagoaingud",
                 "Pagayawan",
-                "Udangun"
+                "Udangun",
             ],
             "Madamba": [
                 "Pagayonan",
@@ -920,7 +920,7 @@ BARANGAY = {
                 "Dibarusan",
                 "Bawang",
                 "Lumbaca Ingud",
-                "Madamba"
+                "Madamba",
             ],
             "Maguing": [
                 "Bubong Bayabao",
@@ -956,7 +956,7 @@ BARANGAY = {
                 "Pilimoknan",
                 "Buadiangkay",
                 "Lumbac-Dimarao",
-                "Pagalongan"
+                "Pagalongan",
             ],
             "Malabang": [
                 "Campo Muslim",
@@ -995,7 +995,7 @@ BARANGAY = {
                 "Inandayan",
                 "Montay",
                 "Bagoaingud",
-                "Tuboc"
+                "Tuboc",
             ],
             "Marantao": [
                 "Bacong",
@@ -1031,7 +1031,7 @@ BARANGAY = {
                 "Punud Proper",
                 "Pagalongan Bacayawan",
                 "Tuca Kialdan",
-                "Maul Lumbaca Ingud"
+                "Maul Lumbaca Ingud",
             ],
             "Marogong": [
                 "Cahera",
@@ -1057,7 +1057,7 @@ BARANGAY = {
                 "Mapantao",
                 "Marogong East",
                 "Marogong Proper ",
-                "Mayaman"
+                "Mayaman",
             ],
             "Masiu": [
                 "Putad Marandang Buisan",
@@ -1094,7 +1094,7 @@ BARANGAY = {
                 "Lumbaca Ingud",
                 "Caramian Alim Raya",
                 "Abdullah Buisan",
-                "Matao Araza"
+                "Matao Araza",
             ],
             "Mulondo": [
                 "Guilopa",
@@ -1122,7 +1122,7 @@ BARANGAY = {
                 "Lumbaca Ingud",
                 "Buadi-Insuba",
                 "Dalama",
-                "Bagoaingud"
+                "Bagoaingud",
             ],
             "Pagayawan": [
                 "Pinalangca",
@@ -1142,7 +1142,7 @@ BARANGAY = {
                 "Linindingan",
                 "Diampaca",
                 "Bangon ",
-                "Guiarong"
+                "Guiarong",
             ],
             "Piagapo": [
                 "Mamaanun",
@@ -1181,7 +1181,7 @@ BARANGAY = {
                 "Paling",
                 "Bualan",
                 "Tapocan",
-                "Bagoaingud"
+                "Bagoaingud",
             ],
             "Picong": [
                 "Ilian",
@@ -1202,7 +1202,7 @@ BARANGAY = {
                 "Pindolonan",
                 "Anas",
                 "Biasong",
-                "Mapantao"
+                "Mapantao",
             ],
             "Poona Bayabao": [
                 "Madanding",
@@ -1229,7 +1229,7 @@ BARANGAY = {
                 "Calupaan",
                 "Bualan",
                 "Bugaran",
-                "Lumbaca Ingud"
+                "Lumbaca Ingud",
             ],
             "Pualas": [
                 "Tambo ",
@@ -1254,7 +1254,7 @@ BARANGAY = {
                 "Bualan",
                 "Porug",
                 "Tamlang",
-                "Danugan"
+                "Danugan",
             ],
             "Saguiaran": [
                 "Alinun",
@@ -1286,7 +1286,7 @@ BARANGAY = {
                 "Cadayon",
                 "Mapantao",
                 "Bagoaingud",
-                "Batangan"
+                "Batangan",
             ],
             "Sultan Dumalondong": [
                 "Malalis",
@@ -1295,7 +1295,7 @@ BARANGAY = {
                 "Lumbac",
                 "Buta",
                 "Dinganun Guilopa",
-                "Pagalongan"
+                "Pagalongan",
             ],
             "Tagoloan Ii": [
                 "Kingan",
@@ -1316,7 +1316,7 @@ BARANGAY = {
                 "Mama-an Pagalongan",
                 "Kianibong",
                 "Bagoaingud",
-                "Malinao"
+                "Malinao",
             ],
             "Tamparan": [
                 "Ginaopan",
@@ -1362,7 +1362,7 @@ BARANGAY = {
                 "Poblacion III",
                 "Tatayawan North",
                 "Pagayawan",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Taraka": [
                 "Lumbac Bubong Maindang",
@@ -1407,7 +1407,7 @@ BARANGAY = {
                 "Masolun",
                 "Dilabayan",
                 "Bandera Buisan",
-                "Borowa"
+                "Borowa",
             ],
             "Tubaran": [
                 "Dinaigan",
@@ -1430,7 +1430,7 @@ BARANGAY = {
                 "Madaya",
                 "Tubaran Proper",
                 "Alog",
-                "Campo"
+                "Campo",
             ],
             "Tugaya": [
                 "Sugod I",
@@ -1455,7 +1455,7 @@ BARANGAY = {
                 "Pagalamatan",
                 "Mapantao",
                 "Bagoaingud",
-                "Pandiaranao"
+                "Pandiaranao",
             ],
             "Wao": [
                 "Balatin",
@@ -1483,8 +1483,8 @@ BARANGAY = {
                 "Mimbuaya",
                 "Buntongun",
                 "Extension Poblacion",
-                "Pagalongan"
-            ]
+                "Pagalongan",
+            ],
         },
         "Maguindanao del Norte": {
             "Barira": [
@@ -1501,7 +1501,7 @@ BARANGAY = {
                 "Panggao",
                 "Gadung",
                 "Lipa",
-                "Togaig"
+                "Togaig",
             ],
             "Buldon": [
                 "Kulimpang",
@@ -1518,7 +1518,7 @@ BARANGAY = {
                 "Edcor",
                 "Pantawan",
                 "Cabayuan",
-                "Dinganen"
+                "Dinganen",
             ],
             "City of Cotabato": [
                 "Poblacion VI",
@@ -1557,7 +1557,7 @@ BARANGAY = {
                 "Poblacion III",
                 "Poblacion VII",
                 "Kalanganan I",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Datu Blah T. Sinsuat": [
                 "Meti",
@@ -1572,7 +1572,7 @@ BARANGAY = {
                 "Pura",
                 "Laguitan",
                 "Kinimi",
-                "Resa"
+                "Resa",
             ],
             "Datu Odin Sinsuat": [
                 "Dulangan",
@@ -1608,7 +1608,7 @@ BARANGAY = {
                 "Badak",
                 "Benolen",
                 "Baka",
-                "Dinaig Proper"
+                "Dinaig Proper",
             ],
             "Kabuntalan": [
                 "Katidtuan",
@@ -1627,7 +1627,7 @@ BARANGAY = {
                 "Liong",
                 "Langeban",
                 "Gambar",
-                "Bagumbayan"
+                "Bagumbayan",
             ],
             "Matanog": [
                 "Bugasan Norte",
@@ -1637,7 +1637,7 @@ BARANGAY = {
                 "Langco",
                 "Sapad",
                 "Langkong",
-                "Bugasan Sur "
+                "Bugasan Sur ",
             ],
             "Northern Kabuntalan": [
                 "Gayonga",
@@ -1650,7 +1650,7 @@ BARANGAY = {
                 "Balong",
                 "Montay",
                 "Indatuan",
-                "Guiawa"
+                "Guiawa",
             ],
             "Parang": [
                 "Landasan",
@@ -1677,7 +1677,7 @@ BARANGAY = {
                 "Macasandag",
                 "Poblacion II",
                 "Cotongan",
-                "Manion"
+                "Manion",
             ],
             "Sultan Kudarat": [
                 "Calsada",
@@ -1718,7 +1718,7 @@ BARANGAY = {
                 "Katamlangan",
                 "Rebuken",
                 "Senditan",
-                "Gang"
+                "Gang",
             ],
             "Sultan Mastura": [
                 "Solon",
@@ -1733,7 +1733,7 @@ BARANGAY = {
                 "Tuka",
                 "Bungabong",
                 "Tambo",
-                "Kirkir"
+                "Kirkir",
             ],
             "Talitay": [
                 "Talitay",
@@ -1744,7 +1744,7 @@ BARANGAY = {
                 "Kiladap",
                 "Gadungan",
                 "Kilalan",
-                "Manggay"
+                "Manggay",
             ],
             "Upi": [
                 "Kibleg",
@@ -1769,8 +1769,8 @@ BARANGAY = {
                 "Bungcog",
                 "Renede",
                 "Bugabungan",
-                "Rifao"
-            ]
+                "Rifao",
+            ],
         },
         "Maguindanao del Sur": {
             "Ampatuan": [
@@ -1784,7 +1784,7 @@ BARANGAY = {
                 "Tubak",
                 "Saniag",
                 "Kakal",
-                "Kauran"
+                "Kauran",
             ],
             "Buluan": [
                 "Lower Siling",
@@ -1793,7 +1793,7 @@ BARANGAY = {
                 "Digal",
                 "Maslabeng",
                 "Poblacion",
-                "Popol"
+                "Popol",
             ],
             "Datu Abdullah Sangki": [
                 "Maranding",
@@ -1805,7 +1805,7 @@ BARANGAY = {
                 "Talisawa",
                 "Sugadol",
                 "Tukanolocong",
-                "Kaya-kaya"
+                "Kaya-kaya",
             ],
             "Datu Anggal Midtimbang": [
                 "Brar",
@@ -1814,7 +1814,7 @@ BARANGAY = {
                 "Nunangan",
                 "Adaon",
                 "Tugal",
-                "Midtimbang "
+                "Midtimbang ",
             ],
             "Datu Hoffer Ampatuan": [
                 "Kubentong",
@@ -1827,7 +1827,7 @@ BARANGAY = {
                 "Limpongo",
                 "Talibadok",
                 "Tuayan",
-                "Tuntungan"
+                "Tuntungan",
             ],
             "Datu Paglas": [
                 "Sepaka",
@@ -1852,7 +1852,7 @@ BARANGAY = {
                 "Datang",
                 "Damawato",
                 "Bulod",
-                "Lipao"
+                "Lipao",
             ],
             "Datu Piang": [
                 "Kanguan",
@@ -1870,7 +1870,7 @@ BARANGAY = {
                 "Montay",
                 "Magaslong",
                 "Alonganan",
-                "Reina Regente"
+                "Reina Regente",
             ],
             "Datu Salibo": [
                 "Pagatin",
@@ -1889,7 +1889,7 @@ BARANGAY = {
                 "Balanakan",
                 "Penditen",
                 "Magaslong",
-                "Alonganan"
+                "Alonganan",
             ],
             "Datu Saudi Ampatuan": [
                 "Kitango",
@@ -1899,7 +1899,7 @@ BARANGAY = {
                 "Dapiawan",
                 "Elian",
                 "Kabengi",
-                "Gawang"
+                "Gawang",
             ],
             "Datu Unsay": [
                 "Maitumaig",
@@ -1909,7 +1909,7 @@ BARANGAY = {
                 "Bulayan",
                 "Iganagampong",
                 "Tuntungan",
-                "Panangeti"
+                "Panangeti",
             ],
             "Gen. S.K. Pendatun": [
                 "Midconding",
@@ -1930,7 +1930,7 @@ BARANGAY = {
                 "Kaladturan",
                 "Panosolen",
                 "Pidtiguian",
-                "Bulod"
+                "Bulod",
             ],
             "Guindulungan": [
                 "Tambunan II",
@@ -1943,7 +1943,7 @@ BARANGAY = {
                 "Muti",
                 "Lambayao",
                 "Muslim",
-                "Ahan"
+                "Ahan",
             ],
             "Mamasapano": [
                 "Dasikil",
@@ -1959,7 +1959,7 @@ BARANGAY = {
                 "Libutan",
                 "Lusay",
                 "Pidsandawan",
-                "Tukanalipao"
+                "Tukanalipao",
             ],
             "Mangudadatu": [
                 "Tenok",
@@ -1969,7 +1969,7 @@ BARANGAY = {
                 "Luayan",
                 "Kalian",
                 "Tumbao",
-                "Daladagan"
+                "Daladagan",
             ],
             "Pagagawan": [
                 "Maridagao",
@@ -1982,7 +1982,7 @@ BARANGAY = {
                 "Bulod",
                 "Tunggol",
                 "Nabundas",
-                "Pagagawan"
+                "Pagagawan",
             ],
             "Pagalungan": [
                 "Linandangan",
@@ -1996,7 +1996,7 @@ BARANGAY = {
                 "Bagoenged",
                 "Kilangan",
                 "Inug-ug",
-                "Kudal"
+                "Kudal",
             ],
             "Paglat": [
                 "Damakling",
@@ -2006,7 +2006,7 @@ BARANGAY = {
                 "Salam",
                 "Campo",
                 "Kakal",
-                "Tual"
+                "Tual",
             ],
             "Pandag": [
                 "Lower Dilag",
@@ -2016,7 +2016,7 @@ BARANGAY = {
                 "Kayupo",
                 "Upper Dilag",
                 "Pandag",
-                "Kayaga"
+                "Kayaga",
             ],
             "Rajah Buayan": [
                 "Baital",
@@ -2029,7 +2029,7 @@ BARANGAY = {
                 "Sapakan ",
                 "Tabungao",
                 "Panadtaban",
-                "Malibpolok"
+                "Malibpolok",
             ],
             "Shariff Aguak": [
                 "Bialong",
@@ -2044,7 +2044,7 @@ BARANGAY = {
                 "Tina",
                 "Kuloy",
                 "Malingao",
-                "Labu-labu"
+                "Labu-labu",
             ],
             "Shariff Saydona Mustapha": [
                 "Pagatin",
@@ -2062,7 +2062,7 @@ BARANGAY = {
                 "Libutan",
                 "Pagatin (Pagatin I)",
                 "Datu Bakal",
-                "Nabundas"
+                "Nabundas",
             ],
             "South Upi": [
                 "Itaw",
@@ -2075,7 +2075,7 @@ BARANGAY = {
                 "Kuya",
                 "Pilar",
                 "San Jose",
-                "Biarong"
+                "Biarong",
             ],
             "Sultan Sa Barongis": [
                 "Langgapanan",
@@ -2089,7 +2089,7 @@ BARANGAY = {
                 "Gadungan",
                 "Papakan",
                 "Bulod",
-                "Tugal"
+                "Tugal",
             ],
             "Talayan": [
                 "Linamunan",
@@ -2106,8 +2106,8 @@ BARANGAY = {
                 "Boboguiron",
                 "Marader",
                 "Binangga South",
-                "Binangga North"
-            ]
+                "Binangga North",
+            ],
         },
         "Special Geographic Area": {
             "Kadayangan": [
@@ -2117,7 +2117,7 @@ BARANGAY = {
                 "Mudseng",
                 "Tugal",
                 "Kapinpilan",
-                "Malingao"
+                "Malingao",
             ],
             "Kapalawan": [
                 "Pebpoloan",
@@ -2126,7 +2126,7 @@ BARANGAY = {
                 "Tupig",
                 "Manarapan",
                 "Kitulaan",
-                "Kib-Ayao"
+                "Kib-Ayao",
             ],
             "Ligawasan": [
                 "Bulol",
@@ -2135,7 +2135,7 @@ BARANGAY = {
                 "Kabasalan",
                 "Barungis",
                 "Bagoaingud",
-                "Gligli"
+                "Gligli",
             ],
             "Malidegao": [
                 "Fort Pikit",
@@ -2144,7 +2144,7 @@ BARANGAY = {
                 "Nunguan",
                 "Balungis",
                 "Gokoton",
-                "Nabundas"
+                "Nabundas",
             ],
             "Nabalawag": [
                 "Kudarangan",
@@ -2153,7 +2153,7 @@ BARANGAY = {
                 "Nabalawag",
                 "Dunguan",
                 "Damatulan",
-                "Kadigasan"
+                "Kadigasan",
             ],
             "Old Kaabakan": [
                 "Buluan",
@@ -2162,7 +2162,7 @@ BARANGAY = {
                 "Sanggadong",
                 "Tamped",
                 "Simbuhay",
-                "Nanga-an"
+                "Nanga-an",
             ],
             "Pahamuddin": [
                 "Matilac",
@@ -2176,7 +2176,7 @@ BARANGAY = {
                 "Lower Pangangkalan",
                 "Buricain",
                 "Datu Mantil",
-                "Patot"
+                "Patot",
             ],
             "Tugunan": [
                 "Lagunde",
@@ -2187,8 +2187,8 @@ BARANGAY = {
                 "Macabual",
                 "Bualan",
                 "Panicupan",
-                "Macasendeg"
-            ]
+                "Macasendeg",
+            ],
         },
         "Sulu": {
             "Hadji Panglima Tahil": [
@@ -2196,7 +2196,7 @@ BARANGAY = {
                 "Bubuan",
                 "Pag-asinan",
                 "Bangas ",
-                "Kabuukan"
+                "Kabuukan",
             ],
             "Indanan": [
                 "Kuppong",
@@ -2232,7 +2232,7 @@ BARANGAY = {
                 "Bangalan",
                 "Malimbaya",
                 "Langpas",
-                "Lambayong"
+                "Lambayong",
             ],
             "Jolo ": [
                 "Tulay",
@@ -2242,7 +2242,7 @@ BARANGAY = {
                 "San Raymundo",
                 "Chinese Pier",
                 "Alat",
-                "Walled City "
+                "Walled City ",
             ],
             "Kalingalan Caluang": [
                 "Pangdan Pangdan",
@@ -2253,7 +2253,7 @@ BARANGAY = {
                 "Pitogo",
                 "Pang",
                 "Tunggol",
-                "Kambing"
+                "Kambing",
             ],
             "Lugus": [
                 "Tingkangan",
@@ -2272,7 +2272,7 @@ BARANGAY = {
                 "Huwit-huwit Bas Nonok",
                 "Mantan",
                 "Gapas Tubig Tuwak",
-                "Gapas Rugasan"
+                "Gapas Rugasan",
             ],
             "Luuk": [
                 "Mananti",
@@ -2286,7 +2286,7 @@ BARANGAY = {
                 "Niog-niog",
                 "Kan-Bulak",
                 "Tubig-Puti ",
-                "Lingah"
+                "Lingah",
             ],
             "Maimbung": [
                 "Lagasan Asibih",
@@ -2315,7 +2315,7 @@ BARANGAY = {
                 "Lapa",
                 "Tubig-Samin",
                 "Ratag Limbon",
-                "Ipil"
+                "Ipil",
             ],
             "Old Panamao": [
                 "Datag",
@@ -2348,7 +2348,7 @@ BARANGAY = {
                 "Tubig Jati",
                 "Kawasan",
                 "Tinah",
-                "Pugad Manaul"
+                "Pugad Manaul",
             ],
             "Omar": [
                 "Tangkuan",
@@ -2358,7 +2358,7 @@ BARANGAY = {
                 "Niangkaan",
                 "Capual Island",
                 "Sucuban",
-                "Andalan"
+                "Andalan",
             ],
             "Pandami": [
                 "South Manubul",
@@ -2376,7 +2376,7 @@ BARANGAY = {
                 "Kabbon",
                 "North Manubul",
                 "Lahi",
-                "Sibaud Proper"
+                "Sibaud Proper",
             ],
             "Panglima Estino": [
                 "Pandakan",
@@ -2390,7 +2390,7 @@ BARANGAY = {
                 "Gata-gata",
                 "Paiksa",
                 "Lubuk-lubuk",
-                "Marsada"
+                "Marsada",
             ],
             "Pangutaran": [
                 "Lantong Babag",
@@ -2408,7 +2408,7 @@ BARANGAY = {
                 "Pandan Niog",
                 "Tonggasang",
                 "Panducan",
-                "Bangkilay"
+                "Bangkilay",
             ],
             "Parang": [
                 "Lower Sampunay",
@@ -2450,7 +2450,7 @@ BARANGAY = {
                 "Duyan Kabao",
                 "Piyahan",
                 "Kaha",
-                "Gimba Lagasan"
+                "Gimba Lagasan",
             ],
             "Pata": [
                 "Kamawi",
@@ -2466,7 +2466,7 @@ BARANGAY = {
                 "Andalan",
                 "Kiput",
                 "Pisak-pisak",
-                "Kayawan "
+                "Kayawan ",
             ],
             "Patikul": [
                 "Langhub",
@@ -2498,7 +2498,7 @@ BARANGAY = {
                 "Pangdanon",
                 "Bakong",
                 "Danag",
-                "Tugas"
+                "Tugas",
             ],
             "Siasi": [
                 "Siowing",
@@ -2550,7 +2550,7 @@ BARANGAY = {
                 "Sablay",
                 "Ipil",
                 "Tengah Laminusa",
-                "Singko"
+                "Singko",
             ],
             "Talipao": [
                 "Mabahay",
@@ -2604,7 +2604,7 @@ BARANGAY = {
                 "Niog-Sangahan",
                 "Kulamboh",
                 "Marsada",
-                "Upper Binuang"
+                "Upper Binuang",
             ],
             "Tapul": [
                 "Kamaunggi",
@@ -2621,7 +2621,7 @@ BARANGAY = {
                 "Sayli",
                 "Alu-Kabingaan",
                 "Banting",
-                "Puok"
+                "Puok",
             ],
             "Tongkil": [
                 "Tattalan",
@@ -2637,8 +2637,8 @@ BARANGAY = {
                 "Tainga-Bakkao",
                 "Dungon",
                 "Tambun-bun",
-                "North Paarol"
-            ]
+                "North Paarol",
+            ],
         },
         "Tawi-Tawi": {
             "Bongao ": [
@@ -2676,7 +2676,7 @@ BARANGAY = {
                 "Kamagong",
                 "Pag-asa",
                 "Luuk Pandan",
-                "Montay Montay"
+                "Montay Montay",
             ],
             "Languyan": [
                 "Bakaw-bakaw",
@@ -2698,7 +2698,7 @@ BARANGAY = {
                 "Bas-bas Proper",
                 "Simalak",
                 "Bakong",
-                "Jakarta"
+                "Jakarta",
             ],
             "Mapun": [
                 "Pawan",
@@ -2715,7 +2715,7 @@ BARANGAY = {
                 "Liyubud",
                 "Duhul Batu",
                 "Mahalo",
-                "Kompang"
+                "Kompang",
             ],
             "Panglima Sugala": [
                 "Kulape",
@@ -2734,7 +2734,7 @@ BARANGAY = {
                 "Tabunan",
                 "Magsaggaw",
                 "Dungon",
-                "Luuk Buntal"
+                "Luuk Buntal",
             ],
             "Sapa-Sapa": [
                 "Mantabuan Tabunan",
@@ -2759,7 +2759,7 @@ BARANGAY = {
                 "Lakit-lakit",
                 "Tapian Bohe South",
                 "Pamasan",
-                "Latuan"
+                "Latuan",
             ],
             "Sibutu": [
                 "Sheik Makdum",
@@ -2777,7 +2777,7 @@ BARANGAY = {
                 "Datu Amilhamja Jaafar",
                 "Ambulong Sapal",
                 "Tongsibalo",
-                "Ligayan"
+                "Ligayan",
             ],
             "Simunul": [
                 "Tonggosong",
@@ -2794,7 +2794,7 @@ BARANGAY = {
                 "Bagid*",
                 "Mongkay",
                 "Tubig Indangan",
-                "Pagasinan"
+                "Pagasinan",
             ],
             "Sitangkai": [
                 "Sitangkai Poblacion",
@@ -2805,7 +2805,7 @@ BARANGAY = {
                 "Tongmageng",
                 "South Larap",
                 "Panglima Alari",
-                "Datu Baguinda Putih"
+                "Datu Baguinda Putih",
             ],
             "South Ubian": [
                 "Tinda-tindahan",
@@ -2838,7 +2838,7 @@ BARANGAY = {
                 "Tubig Dayang Center",
                 "Bunay Bunay Lookan",
                 "Tubig Dayang",
-                "Bengkol"
+                "Bengkol",
             ],
             "Tandubas": [
                 "Kakoong",
@@ -2860,13 +2860,10 @@ BARANGAY = {
                 "Lahay-lahay",
                 "Ballak",
                 "Tandubato",
-                "Tongbangkaw"
+                "Tongbangkaw",
             ],
-            "Turtle Islands": [
-                "Taganak Poblacion",
-                "Likud Bakkao"
-            ]
-        }
+            "Turtle Islands": ["Taganak Poblacion", "Likud Bakkao"],
+        },
     },
     "Cordillera Administrative Region (CAR)": {
         "Abra": {
@@ -2901,7 +2898,7 @@ BARANGAY = {
                 "Ba\u00f1acao",
                 "Sagap",
                 "Zone 1 Pob.",
-                "Malita"
+                "Malita",
             ],
             "Boliney": [
                 "Danac East",
@@ -2911,7 +2908,7 @@ BARANGAY = {
                 "Danac West",
                 "Poblacion",
                 "Dao-angan",
-                "Amti"
+                "Amti",
             ],
             "Bucay": [
                 "Bangbangcag",
@@ -2934,20 +2931,10 @@ BARANGAY = {
                 "Salnec",
                 "Bangcagan",
                 "Abang",
-                "Bugbog"
+                "Bugbog",
             ],
-            "Bucloc": [
-                "Lingey",
-                "Labaan",
-                "Ducligan",
-                "Lamao "
-            ],
-            "Daguioman": [
-                "Pikek",
-                "Tui ",
-                "Cabaruyan",
-                "Ableg"
-            ],
+            "Bucloc": ["Lingey", "Labaan", "Ducligan", "Lamao "],
+            "Daguioman": ["Pikek", "Tui ", "Cabaruyan", "Ableg"],
             "Danglas": [
                 "Cabaruan",
                 "Abaquid",
@@ -2955,7 +2942,7 @@ BARANGAY = {
                 "Nagaparan",
                 "Padangitan",
                 "Danglas",
-                "Caupasan "
+                "Caupasan ",
             ],
             "Dolores": [
                 "Talogtog",
@@ -2972,7 +2959,7 @@ BARANGAY = {
                 "Cabaroan",
                 "Lub-lubba",
                 "Salucag",
-                "Bayaan"
+                "Bayaan",
             ],
             "La Paz": [
                 "San Gregorio",
@@ -2986,7 +2973,7 @@ BARANGAY = {
                 "Liguis",
                 "Udangan",
                 "Pidipid",
-                "Benben"
+                "Benben",
             ],
             "Lacub": [
                 "Guinguinabang",
@@ -2994,7 +2981,7 @@ BARANGAY = {
                 "Poblacion",
                 "Bacag",
                 "Lan-ag",
-                "Buneg"
+                "Buneg",
             ],
             "Lagangilang": [
                 "Pawa",
@@ -3013,22 +3000,16 @@ BARANGAY = {
                 "Paganao",
                 "Lagben",
                 "Cayapa",
-                "Tagodtod"
+                "Tagodtod",
             ],
-            "Lagayan": [
-                "Pulot",
-                "Ba-i",
-                "Collago",
-                "Pang-ot",
-                "Poblacion"
-            ],
+            "Lagayan": ["Pulot", "Ba-i", "Collago", "Pang-ot", "Poblacion"],
             "Langiden": [
                 "Mabungtot",
                 "Quillat",
                 "Baac",
                 "Poblacion",
                 "Dalayap",
-                "Malapaao"
+                "Malapaao",
             ],
             "Licuan-Baay": [
                 "Domenglay",
@@ -3041,7 +3022,7 @@ BARANGAY = {
                 "Subagan",
                 "Mapisla",
                 "Cawayan",
-                "Bulbulala"
+                "Bulbulala",
             ],
             "Luba": [
                 "Lul-luno",
@@ -3051,7 +3032,7 @@ BARANGAY = {
                 "Barit",
                 "Ampalioc",
                 "Luzong",
-                "Nagbukel-Tuquipa"
+                "Nagbukel-Tuquipa",
             ],
             "Malibcong": [
                 "Taripan",
@@ -3065,7 +3046,7 @@ BARANGAY = {
                 "Duldulao",
                 "Dulao",
                 "Buanao",
-                "Bayabas"
+                "Bayabas",
             ],
             "Manabo": [
                 "San Jose Sur",
@@ -3078,7 +3059,7 @@ BARANGAY = {
                 "Catacdegan Viejo",
                 "San Ramon East",
                 "San Juan Norte",
-                "Ayyeng "
+                "Ayyeng ",
             ],
             "Pe\u00f1arrubia": [
                 "Lusuac",
@@ -3089,7 +3070,7 @@ BARANGAY = {
                 "Santa Rosa",
                 "Malamsit",
                 "Tattawa",
-                "Namarabar"
+                "Namarabar",
             ],
             "Pidigan": [
                 "Suyo",
@@ -3106,7 +3087,7 @@ BARANGAY = {
                 "Arab",
                 "Naguirayan",
                 "Immuli",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "Pilar": [
                 "San Juan East",
@@ -3127,7 +3108,7 @@ BARANGAY = {
                 "Kinabiti",
                 "Pang-ot",
                 "Patad",
-                "San Juan West"
+                "San Juan West",
             ],
             "Sallapadan": [
                 "Gangal ",
@@ -3138,7 +3119,7 @@ BARANGAY = {
                 "Subusob",
                 "Ud-udiao",
                 "Naguilian",
-                "Sallapadan"
+                "Sallapadan",
             ],
             "San Isidro": [
                 "Manayday",
@@ -3149,7 +3130,7 @@ BARANGAY = {
                 "Langbaban",
                 "Sabtan-olo",
                 "San Marcial",
-                "Cabayogan"
+                "Cabayogan",
             ],
             "San Juan": [
                 "Daoidao",
@@ -3170,7 +3151,7 @@ BARANGAY = {
                 "Badas",
                 "Supi-il",
                 "Lumobang",
-                "Sabangan"
+                "Sabangan",
             ],
             "San Quintin": [
                 "Villa Mercedes",
@@ -3178,7 +3159,7 @@ BARANGAY = {
                 "Labaan",
                 "Poblacion",
                 "Pantoc",
-                "Palang"
+                "Palang",
             ],
             "Tayum": [
                 "Patucannay",
@@ -3191,7 +3172,7 @@ BARANGAY = {
                 "Gaddani",
                 "Bagalay",
                 "Cabaroan",
-                "Basbasa"
+                "Basbasa",
             ],
             "Tineg": [
                 "Belaat",
@@ -3203,7 +3184,7 @@ BARANGAY = {
                 "Cogon",
                 "Lapat-Balantay",
                 "Alaoa",
-                "Caganayan"
+                "Caganayan",
             ],
             "Tubo": [
                 "Wayangan",
@@ -3215,7 +3196,7 @@ BARANGAY = {
                 "Alangtin",
                 "Amtuagan",
                 "Tiempo",
-                "Tabacda"
+                "Tabacda",
             ],
             "Villaviciosa": [
                 "Ap-apaya",
@@ -3225,8 +3206,8 @@ BARANGAY = {
                 "Lumaba",
                 "Tamac",
                 "Bol-lilising",
-                "Cal-lao"
-            ]
+                "Cal-lao",
+            ],
         },
         "Apayao": {
             "Calanasan": [
@@ -3247,7 +3228,7 @@ BARANGAY = {
                 "Don Roque Ablan Sr.",
                 "Tanglagan",
                 "Naguilian",
-                "Tubang"
+                "Tubang",
             ],
             "Conner": [
                 "Katablangan",
@@ -3270,7 +3251,7 @@ BARANGAY = {
                 "Caglayan",
                 "Guinamgaman",
                 "Ripang",
-                "Karikitan"
+                "Karikitan",
             ],
             "Flora": [
                 "Atok",
@@ -3288,7 +3269,7 @@ BARANGAY = {
                 "Balluyan",
                 "Malayugan",
                 "San Jose",
-                "Allig"
+                "Allig",
             ],
             "Kabugao ": [
                 "Musimut",
@@ -3311,7 +3292,7 @@ BARANGAY = {
                 "Kumao",
                 "Madduang",
                 "Luttuacan",
-                "Lucab"
+                "Lucab",
             ],
             "Luna": [
                 "Cagandungan",
@@ -3335,7 +3316,7 @@ BARANGAY = {
                 "Tumog",
                 "Santa Lina",
                 "Salvacion",
-                "Dagupan"
+                "Dagupan",
             ],
             "Pudtol": [
                 "Amado",
@@ -3359,7 +3340,7 @@ BARANGAY = {
                 "San Antonio",
                 "San Mariano",
                 "Upper Maton",
-                "Cabatacan"
+                "Cabatacan",
             ],
             "Santa Marcela": [
                 "San Juan",
@@ -3374,8 +3355,8 @@ BARANGAY = {
                 "Malekkeg",
                 "Marcela ",
                 "Emiliana",
-                "Nueva"
-            ]
+                "Nueva",
+            ],
         },
         "Benguet": {
             "Atok": [
@@ -3386,7 +3367,7 @@ BARANGAY = {
                 "Cattubo",
                 "Pasdong",
                 "Topdac",
-                "Abiang"
+                "Abiang",
             ],
             "Bakun": [
                 "Kayapa",
@@ -3395,7 +3376,7 @@ BARANGAY = {
                 "Ampusongan",
                 "Gambang",
                 "Sinacbat",
-                "Dalipey"
+                "Dalipey",
             ],
             "Bokod": [
                 "Karao",
@@ -3407,7 +3388,7 @@ BARANGAY = {
                 "Bobok-Bisal",
                 "Daclan",
                 "Ekip",
-                "Nawal"
+                "Nawal",
             ],
             "Buguias": [
                 "Abatan",
@@ -3423,7 +3404,7 @@ BARANGAY = {
                 "Amgaleyguey",
                 "Buyacaoan",
                 "Calamagan",
-                "Natubleng"
+                "Natubleng",
             ],
             "Itogon": [
                 "Virac",
@@ -3434,7 +3415,7 @@ BARANGAY = {
                 "Poblacion",
                 "Tuding",
                 "Dalupirip",
-                "Gumatdang"
+                "Gumatdang",
             ],
             "Kabayan": [
                 "Duacan",
@@ -3449,7 +3430,7 @@ BARANGAY = {
                 "Kabayan Barrio",
                 "Gusaran",
                 "Adaoay",
-                "Bashoy"
+                "Bashoy",
             ],
             "Kapangan": [
                 "Datakan",
@@ -3466,7 +3447,7 @@ BARANGAY = {
                 "Sagubo",
                 "Boklaoan",
                 "Taba-ao",
-                "Gaswiling"
+                "Gaswiling",
             ],
             "Kibungan": [
                 "Lubo",
@@ -3475,7 +3456,7 @@ BARANGAY = {
                 "Badeo",
                 "Madaymen",
                 "Sagpat",
-                "Palina"
+                "Palina",
             ],
             "La Trinidad ": [
                 "Bahong",
@@ -3493,7 +3474,7 @@ BARANGAY = {
                 "Bineng",
                 "Lubas",
                 "Ambiong",
-                "Alapang"
+                "Alapang",
             ],
             "Mankayan": [
                 "Tabio",
@@ -3507,7 +3488,7 @@ BARANGAY = {
                 "Sapid",
                 "Colalo",
                 "Cabiten",
-                "Guinaoang"
+                "Guinaoang",
             ],
             "Sablan": [
                 "Kamog",
@@ -3517,7 +3498,7 @@ BARANGAY = {
                 "Bagong",
                 "Banengbeng",
                 "Banangan",
-                "Bayabas"
+                "Bayabas",
             ],
             "Tuba": [
                 "Camp 3",
@@ -3532,7 +3513,7 @@ BARANGAY = {
                 "Camp 4",
                 "Nangalisan",
                 "Taloy Norte",
-                "Ansagan"
+                "Ansagan",
             ],
             "Tublay": [
                 "Ambassador",
@@ -3542,8 +3523,8 @@ BARANGAY = {
                 "Tublay Central",
                 "Daclan",
                 "Tuel",
-                "Caponga "
-            ]
+                "Caponga ",
+            ],
         },
         "Ifugao": {
             "Aguinaldo": [
@@ -3562,7 +3543,7 @@ BARANGAY = {
                 "Halag",
                 "Posnaan",
                 "Awayan",
-                "Butac"
+                "Butac",
             ],
             "Alfonso Lista": [
                 "Santa Maria",
@@ -3584,7 +3565,7 @@ BARANGAY = {
                 "Pinto",
                 "Calupaan",
                 "Dolowog",
-                "Namillangan"
+                "Namillangan",
             ],
             "Asipulo": [
                 "Liwon",
@@ -3596,7 +3577,7 @@ BARANGAY = {
                 "Nungawa",
                 "Cawayan",
                 "Antipolo",
-                "Namal"
+                "Namal",
             ],
             "Banaue": [
                 "Bocos",
@@ -3616,7 +3597,7 @@ BARANGAY = {
                 "Tam-an",
                 "Kinakin",
                 "Ohaj",
-                "Balawis"
+                "Balawis",
             ],
             "Hingyon": [
                 "Mompolia",
@@ -3630,7 +3611,7 @@ BARANGAY = {
                 "Anao",
                 "Cababuyan",
                 "Namulditan",
-                "Umalbong"
+                "Umalbong",
             ],
             "Hungduan": [
                 "Abatan",
@@ -3641,7 +3622,7 @@ BARANGAY = {
                 "Ba-ang",
                 "Hapao",
                 "Bangbang",
-                "Bokiawan"
+                "Bokiawan",
             ],
             "Kiangan": [
                 "Dalligan",
@@ -3657,7 +3638,7 @@ BARANGAY = {
                 "Nagacadan",
                 "Tuplac",
                 "Lingay",
-                "Bokiawan"
+                "Bokiawan",
             ],
             "Lagawe ": [
                 "Olilicon",
@@ -3679,7 +3660,7 @@ BARANGAY = {
                 "Poblacion West",
                 "Caba",
                 "Poblacion East",
-                "Montabiong"
+                "Montabiong",
             ],
             "Lamut": [
                 "Mabatobato",
@@ -3699,7 +3680,7 @@ BARANGAY = {
                 "Panopdopan",
                 "Sanafe",
                 "Lucban",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "Mayoyao": [
                 "Ayangan",
@@ -3728,7 +3709,7 @@ BARANGAY = {
                 "Magulon",
                 "Chaya",
                 "Aduyongan",
-                "Talboc"
+                "Talboc",
             ],
             "Tinoc": [
                 "Wangwang",
@@ -3742,8 +3723,8 @@ BARANGAY = {
                 "Binablayan",
                 "Gumhang",
                 "Eheb",
-                "Luhong"
-            ]
+                "Luhong",
+            ],
         },
         "Kalinga": {
             "Balbalan": [
@@ -3760,7 +3741,7 @@ BARANGAY = {
                 "Dao-angan",
                 "Talalang",
                 "Balbalasang",
-                "Poswoy"
+                "Poswoy",
             ],
             "City of Tabuk ": [
                 "Calanan",
@@ -3805,7 +3786,7 @@ BARANGAY = {
                 "Dilag",
                 "Cudal",
                 "Laya East",
-                "Naneng"
+                "Naneng",
             ],
             "Lubuagan": [
                 "Mabilong",
@@ -3816,7 +3797,7 @@ BARANGAY = {
                 "Lower Uma",
                 "Uma del Norte",
                 "Mabongtot",
-                "Upper Uma"
+                "Upper Uma",
             ],
             "Pasil": [
                 "Balinciagao Norte",
@@ -3832,7 +3813,7 @@ BARANGAY = {
                 "Balatoc",
                 "Colayo",
                 "Balenciagao Sur",
-                "Pugong"
+                "Pugong",
             ],
             "Pinukpuk": [
                 "Socbot",
@@ -3857,7 +3838,7 @@ BARANGAY = {
                 "Aciga",
                 "Mapaco",
                 "Pinococ",
-                "Wagud"
+                "Wagud",
             ],
             "Rizal": [
                 "San Pascual",
@@ -3873,7 +3854,7 @@ BARANGAY = {
                 "San Francisco",
                 "Santor",
                 "Liwan East",
-                "Bulbol"
+                "Bulbol",
             ],
             "Tanudan": [
                 "Upper Taloctoc",
@@ -3891,7 +3872,7 @@ BARANGAY = {
                 "Gaang",
                 "Anggacan Sur",
                 "Babbanoy",
-                "Lay-asan"
+                "Lay-asan",
             ],
             "Tinglayan": [
                 "Mallango",
@@ -3913,8 +3894,8 @@ BARANGAY = {
                 "Butbut",
                 "Tulgao West",
                 "Belong Manubal",
-                "Bugnay"
-            ]
+                "Bugnay",
+            ],
         },
         "Mountain Province": {
             "Barlig": [
@@ -3928,7 +3909,7 @@ BARANGAY = {
                 "Lias Silangan",
                 "Latang",
                 "Gawana ",
-                "Lunas"
+                "Lunas",
             ],
             "Bauko": [
                 "Bagnen Proper",
@@ -3952,7 +3933,7 @@ BARANGAY = {
                 "Otucan Norte",
                 "Leseb",
                 "Mount Data",
-                "Guinzadan Sur"
+                "Guinzadan Sur",
             ],
             "Besao": [
                 "Banguitan",
@@ -3968,7 +3949,7 @@ BARANGAY = {
                 "Besao West",
                 "Kin-iway ",
                 "Agawa",
-                "Lacmaan"
+                "Lacmaan",
             ],
             "Bontoc ": [
                 "Gonogon",
@@ -3986,7 +3967,7 @@ BARANGAY = {
                 "Samoki",
                 "Bayyo",
                 "Alab Oriente",
-                "Alab Proper"
+                "Alab Proper",
             ],
             "Natonin": [
                 "Balangao",
@@ -3999,7 +3980,7 @@ BARANGAY = {
                 "Tonglayan",
                 "Alunogan",
                 "Saliok",
-                "Butac"
+                "Butac",
             ],
             "Paracelis": [
                 "Butigue",
@@ -4010,7 +3991,7 @@ BARANGAY = {
                 "Bunot",
                 "Buringal",
                 "Bananao",
-                "Anonat"
+                "Anonat",
             ],
             "Sabangan": [
                 "Gayang",
@@ -4027,7 +4008,7 @@ BARANGAY = {
                 "Supang",
                 "Data",
                 "Napua",
-                "Capinitan"
+                "Capinitan",
             ],
             "Sadanga": [
                 "Anabel",
@@ -4037,7 +4018,7 @@ BARANGAY = {
                 "Poblacion",
                 "Sacasacan",
                 "Saclit",
-                "Betwagan"
+                "Betwagan",
             ],
             "Sagada": [
                 "Madongo",
@@ -4058,7 +4039,7 @@ BARANGAY = {
                 "Demang ",
                 "Angkeling",
                 "Suyo",
-                "Antadao"
+                "Antadao",
             ],
             "Tadian": [
                 "Bunga",
@@ -4079,8 +4060,8 @@ BARANGAY = {
                 "Batayan",
                 "Mabalite",
                 "Sumadel",
-                "Bantey"
-            ]
+                "Bantey",
+            ],
         },
         "City of Baguio": [
             "Salud Mitra",
@@ -4211,8 +4192,8 @@ BARANGAY = {
             "Cresencia Village",
             "Dontogan",
             "Camp Allen",
-            "Irisan"
-        ]
+            "Irisan",
+        ],
     },
     "MIMAROPA Region": {
         "Marinduque": {
@@ -4277,7 +4258,7 @@ BARANGAY = {
                 "Mercado ",
                 "Tanza",
                 "Balimbing",
-                "Poctoy"
+                "Poctoy",
             ],
             "Buenavista": [
                 "Sihi",
@@ -4294,7 +4275,7 @@ BARANGAY = {
                 "Barangay III ",
                 "Bagtingon",
                 "Caigangan",
-                "Bicas-bicas"
+                "Bicas-bicas",
             ],
             "Gasan": [
                 "Bacongbacong",
@@ -4321,7 +4302,7 @@ BARANGAY = {
                 "Bangbang",
                 "Matandang Gasan",
                 "Bachao Ilaya",
-                "Mangiliol"
+                "Mangiliol",
             ],
             "Mogpog": [
                 "Sumangga",
@@ -4360,7 +4341,7 @@ BARANGAY = {
                 "Malayak",
                 "Malusak",
                 "Mendez",
-                "Sayao"
+                "Sayao",
             ],
             "Santa Cruz": [
                 "Kaganhao",
@@ -4417,7 +4398,7 @@ BARANGAY = {
                 "Ipil",
                 "Angas",
                 "Maniwaya",
-                "Buyabod"
+                "Buyabod",
             ],
             "Torrijos": [
                 "Bolo",
@@ -4444,8 +4425,8 @@ BARANGAY = {
                 "Tigwi",
                 "Malibago",
                 "Malinao",
-                "Poctoy"
-            ]
+                "Poctoy",
+            ],
         },
         "Occidental Mindoro": {
             "Abra De Ilog": [
@@ -4458,7 +4439,7 @@ BARANGAY = {
                 "Udalo",
                 "Tibag",
                 "Sta. Maria",
-                "Armado"
+                "Armado",
             ],
             "Calintaan": [
                 "Concepcion",
@@ -4467,7 +4448,7 @@ BARANGAY = {
                 "Iriron",
                 "Poypoy",
                 "New Dagupan",
-                "Malpalon"
+                "Malpalon",
             ],
             "Looc": [
                 "Ambil",
@@ -4478,7 +4459,7 @@ BARANGAY = {
                 "Kanluran ",
                 "Agkawayan",
                 "Talaotao",
-                "Guitna "
+                "Guitna ",
             ],
             "Lubang": [
                 "Tangal",
@@ -4496,7 +4477,7 @@ BARANGAY = {
                 "Tilik",
                 "Bagong Sikat ",
                 "Banaag ng Pag-asa ",
-                "Maliig"
+                "Maliig",
             ],
             "Magsaysay": [
                 "Santa Teresa",
@@ -4510,7 +4491,7 @@ BARANGAY = {
                 "Nicolas",
                 "Caguray",
                 "Gapasan",
-                "Purnaga"
+                "Purnaga",
             ],
             "Mamburao ": [
                 "Payompon",
@@ -4527,7 +4508,7 @@ BARANGAY = {
                 "Poblacion 5",
                 "Poblacion 7",
                 "Talabaan",
-                "Tayamaan"
+                "Tayamaan",
             ],
             "Paluan": [
                 "Mananao",
@@ -4541,7 +4522,7 @@ BARANGAY = {
                 "Handang Tumulong Pob.",
                 "Mapalad Pob.",
                 "Harrison",
-                "Silahis Ng Pag-Asa Pob."
+                "Silahis Ng Pag-Asa Pob.",
             ],
             "Rizal": [
                 "San Pedro",
@@ -4554,7 +4535,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Aguas",
                 "Adela",
-                "Rumbang"
+                "Rumbang",
             ],
             "Sablayan": [
                 "San Agustin",
@@ -4578,7 +4559,7 @@ BARANGAY = {
                 "Tagumpay",
                 "Ibud",
                 "Burgos",
-                "Tuban"
+                "Tuban",
             ],
             "San Jose": [
                 "Catayungan",
@@ -4619,7 +4600,7 @@ BARANGAY = {
                 "Ansiray",
                 "Mabini",
                 "Ipil",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Santa Cruz": [
                 "Barahan",
@@ -4632,8 +4613,8 @@ BARANGAY = {
                 "Poblacion II",
                 "Mulawin",
                 "Dayap",
-                "Casague"
-            ]
+                "Casague",
+            ],
         },
         "Oriental Mindoro": {
             "Baco": [
@@ -4663,7 +4644,7 @@ BARANGAY = {
                 "Bangkatan",
                 "Tagumpay",
                 "Dulangan I",
-                "Mangangan II"
+                "Mangangan II",
             ],
             "Bansud": [
                 "Proper Tiguisan",
@@ -4678,7 +4659,7 @@ BARANGAY = {
                 "Villa Pag-Asa",
                 "Sumagui",
                 "Bato",
-                "Alcadesma"
+                "Alcadesma",
             ],
             "Bongabong": [
                 "Mapang",
@@ -4716,7 +4697,7 @@ BARANGAY = {
                 "Bagumbayan I",
                 "Lisap",
                 "Malitbog",
-                "Kaligtasan"
+                "Kaligtasan",
             ],
             "Bulalacao": [
                 "San Juan",
@@ -4733,7 +4714,7 @@ BARANGAY = {
                 "Cambunang ",
                 "Cabugao",
                 "San Roque ",
-                "Maasin"
+                "Maasin",
             ],
             "City of Calapan ": [
                 "Camansihan",
@@ -4797,7 +4778,7 @@ BARANGAY = {
                 "Navotas",
                 "Pachoca",
                 "Guinobatan",
-                "Panggalaan"
+                "Panggalaan",
             ],
             "Gloria": [
                 "Santa Maria",
@@ -4826,7 +4807,7 @@ BARANGAY = {
                 "Banus",
                 "Andres Bonifacio",
                 "Gaudencio Antonino",
-                "Maligaya "
+                "Maligaya ",
             ],
             "Mansalay": [
                 "Manaul",
@@ -4845,7 +4826,7 @@ BARANGAY = {
                 "Santa Brigida",
                 "Waygan",
                 "Wasig",
-                "Don Pedro"
+                "Don Pedro",
             ],
             "Naujan": [
                 "Melgar A",
@@ -4917,7 +4898,7 @@ BARANGAY = {
                 "Mabini",
                 "Tigkan",
                 "Malinao",
-                "Bancuro"
+                "Bancuro",
             ],
             "Pinamalayan": [
                 "Lumambayan",
@@ -4956,7 +4937,7 @@ BARANGAY = {
                 "Pambisan Malaki",
                 "Sabang",
                 "Calingag",
-                "Bangbang"
+                "Bangbang",
             ],
             "Pola": [
                 "Puting Cacao",
@@ -4981,7 +4962,7 @@ BARANGAY = {
                 "Tagumpay",
                 "Bacawan",
                 "Malibago",
-                "Calubasanhon"
+                "Calubasanhon",
             ],
             "Puerto Galera": [
                 "Dulangan",
@@ -4996,7 +4977,7 @@ BARANGAY = {
                 "Sinandigan",
                 "Santo Ni\u00f1o",
                 "Villaflor",
-                "Tabinay"
+                "Tabinay",
             ],
             "Roxas": [
                 "Cantil",
@@ -5018,7 +4999,7 @@ BARANGAY = {
                 "San Miguel",
                 "Paclasan ",
                 "Bagumbayan ",
-                "San Mariano"
+                "San Mariano",
             ],
             "San Teodoro": [
                 "Calangatan",
@@ -5028,7 +5009,7 @@ BARANGAY = {
                 "Caagutayan",
                 "Tacligan",
                 "Calsapa",
-                "Bigaan"
+                "Bigaan",
             ],
             "Socorro": [
                 "Malugay",
@@ -5056,7 +5037,7 @@ BARANGAY = {
                 "Catiningan",
                 "Monteverde",
                 "Mabuhay II",
-                "Leuteboro II"
+                "Leuteboro II",
             ],
             "Victoria": [
                 "Concepcion",
@@ -5090,8 +5071,8 @@ BARANGAY = {
                 "Poblacion III",
                 "Mabini",
                 "Malabo",
-                "Poblacion IV"
-            ]
+                "Poblacion IV",
+            ],
         },
         "Palawan": {
             "Aborlan": [
@@ -5113,7 +5094,7 @@ BARANGAY = {
                 "Barake",
                 "Plaridel",
                 "Magbabadil",
-                "Mabini"
+                "Mabini",
             ],
             "Agutaya": [
                 "Concepcion",
@@ -5125,7 +5106,7 @@ BARANGAY = {
                 "Maracanao",
                 "Bangcal ",
                 "Cambian ",
-                "Villafria"
+                "Villafria",
             ],
             "Araceli": [
                 "Madoldolon",
@@ -5140,7 +5121,7 @@ BARANGAY = {
                 "Balogo",
                 "Tinintinan",
                 "Taloto",
-                "Dagman"
+                "Dagman",
             ],
             "Balabac": [
                 "Indalawan",
@@ -5162,7 +5143,7 @@ BARANGAY = {
                 "Salang",
                 "Poblacion II",
                 "Poblacion III",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Bataraza": [
                 "Puring",
@@ -5186,7 +5167,7 @@ BARANGAY = {
                 "Sarong",
                 "Bono-bono",
                 "Bulalacao",
-                "Iwahig"
+                "Iwahig",
             ],
             "Brooke's Point": [
                 "Tubtub",
@@ -5206,7 +5187,7 @@ BARANGAY = {
                 "Amas",
                 "Oring-oring",
                 "Ipilan",
-                "Maasin"
+                "Maasin",
             ],
             "Busuanga": [
                 "Bogtong",
@@ -5222,7 +5203,7 @@ BARANGAY = {
                 "Buluang",
                 "Santo Ni\u00f1o",
                 "Sagrada",
-                "Old Busuanga"
+                "Old Busuanga",
             ],
             "Cagayancillo": [
                 "Nusa",
@@ -5236,7 +5217,7 @@ BARANGAY = {
                 "Tacas ",
                 "Convento ",
                 "Lipot South ",
-                "Talaga"
+                "Talaga",
             ],
             "Coron": [
                 "Decalachao",
@@ -5261,7 +5242,7 @@ BARANGAY = {
                 "Guadalupe",
                 "Barangay I ",
                 "Banuang Daan",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Culion": [
                 "Halsey",
@@ -5277,7 +5258,7 @@ BARANGAY = {
                 "Luac",
                 "Binudac",
                 "Libis",
-                "Culango"
+                "Culango",
             ],
             "Cuyo": [
                 "Lubid",
@@ -5296,7 +5277,7 @@ BARANGAY = {
                 "Lagaoriao ",
                 "Tocadan ",
                 "Lungsod ",
-                "Balading"
+                "Balading",
             ],
             "Dr. Jose P. Rizal": [
                 "Culasian",
@@ -5309,7 +5290,7 @@ BARANGAY = {
                 "Iraan",
                 "Candawaga",
                 "Punta Baja",
-                "Campong Ulay"
+                "Campong Ulay",
             ],
             "Dumaran": [
                 "Culasian",
@@ -5327,7 +5308,7 @@ BARANGAY = {
                 "Danleg",
                 "Itangil",
                 "Bohol",
-                "Dumaran "
+                "Dumaran ",
             ],
             "El Nido": [
                 "Masagana Pob.",
@@ -5347,11 +5328,9 @@ BARANGAY = {
                 "Mabini",
                 "Buena Suerte Pob.",
                 "Villa Libertad",
-                "Manlag"
+                "Manlag",
             ],
-            "Kalayaan": [
-                "Pag-Asa "
-            ],
+            "Kalayaan": ["Pag-Asa "],
             "Linapacan": [
                 "Cabunlawan",
                 "New Culaylayan",
@@ -5362,7 +5341,7 @@ BARANGAY = {
                 "Decabaitot",
                 "Barangonan",
                 "San Nicolas",
-                "Maroyogroyog"
+                "Maroyogroyog",
             ],
             "Magsaysay": [
                 "Igabas",
@@ -5375,7 +5354,7 @@ BARANGAY = {
                 "Emilod",
                 "Lucbuan",
                 "Alcoba",
-                "Cocoro"
+                "Cocoro",
             ],
             "Narra": [
                 "Sandoval",
@@ -5400,7 +5379,7 @@ BARANGAY = {
                 "Dumague\u00f1a",
                 "Panacan 2",
                 "Estrella Village",
-                "Malinao"
+                "Malinao",
             ],
             "Quezon": [
                 "Pinaglabanan",
@@ -5416,7 +5395,7 @@ BARANGAY = {
                 "Quinlogan",
                 "Calumpang",
                 "Aramaywan",
-                "Maasin"
+                "Maasin",
             ],
             "Roxas": [
                 "Sandoval",
@@ -5449,7 +5428,7 @@ BARANGAY = {
                 "Antonino",
                 "Tinitian",
                 "Barangay IV ",
-                "Tumarbong"
+                "Tumarbong",
             ],
             "San Vicente": [
                 "San Isidro",
@@ -5461,7 +5440,7 @@ BARANGAY = {
                 "Port Barton",
                 "Santo Ni\u00f1o",
                 "Alimanguan",
-                "New Agutaya"
+                "New Agutaya",
             ],
             "Sofronio Espa\u00f1ola": [
                 "Iraray",
@@ -5472,7 +5451,7 @@ BARANGAY = {
                 "Abo-abo",
                 "Punang",
                 "Pulot Center",
-                "Pulot Interior"
+                "Pulot Interior",
             ],
             "Taytay": [
                 "Sandoval",
@@ -5505,8 +5484,8 @@ BARANGAY = {
                 "Libertad",
                 "Calawag",
                 "Maytegued",
-                "Old Guinlo"
-            ]
+                "Old Guinlo",
+            ],
         },
         "Romblon": {
             "Alcantara": [
@@ -5521,7 +5500,7 @@ BARANGAY = {
                 "Calagonsao",
                 "Comod-om",
                 "Gui-ob",
-                "Camili"
+                "Camili",
             ],
             "Banton": [
                 "Sibay",
@@ -5540,7 +5519,7 @@ BARANGAY = {
                 "Hambi-an",
                 "Banice",
                 "Tan-Ag",
-                "Yabawon"
+                "Yabawon",
             ],
             "Cajidiocan": [
                 "Alibagon",
@@ -5556,7 +5535,7 @@ BARANGAY = {
                 "Sugod",
                 "Lico",
                 "Lumbang Weste",
-                "Gutivan"
+                "Gutivan",
             ],
             "Calatrava": [
                 "San Roque",
@@ -5565,7 +5544,7 @@ BARANGAY = {
                 "Pagsangahan",
                 "Balogo",
                 "Talisay",
-                "Pangulo"
+                "Pangulo",
             ],
             "Concepcion": [
                 "San Pedro",
@@ -5576,7 +5555,7 @@ BARANGAY = {
                 "San Vicente",
                 "Bachawan",
                 "Sampong",
-                "Masudsud"
+                "Masudsud",
             ],
             "Corcuera": [
                 "San Roque",
@@ -5593,7 +5572,7 @@ BARANGAY = {
                 "Tacasan",
                 "Labnig",
                 "Mabini",
-                "Mahaba"
+                "Mahaba",
             ],
             "Ferrol": [
                 "Poblacion",
@@ -5601,7 +5580,7 @@ BARANGAY = {
                 "Claro M. Recto",
                 "Bunsoran",
                 "Hinaguman",
-                "Agnonoc"
+                "Agnonoc",
             ],
             "Looc": [
                 "Manhac",
@@ -5615,7 +5594,7 @@ BARANGAY = {
                 "Balatucan",
                 "Tuguis",
                 "Buenavista",
-                "Punta"
+                "Punta",
             ],
             "Magdiwang": [
                 "Dulangan",
@@ -5626,7 +5605,7 @@ BARANGAY = {
                 "Silum",
                 "Agsao",
                 "Tampayan",
-                "Ipil"
+                "Ipil",
             ],
             "Odiongan": [
                 "Tabing Dagat ",
@@ -5653,7 +5632,7 @@ BARANGAY = {
                 "Ligaya ",
                 "Amatong",
                 "Canduyong",
-                "Poctoy"
+                "Poctoy",
             ],
             "Romblon ": [
                 "Lonos",
@@ -5686,7 +5665,7 @@ BARANGAY = {
                 "Agbudia",
                 "Barangay I ",
                 "Barangay IV ",
-                "Lunas"
+                "Lunas",
             ],
             "San Agustin": [
                 "Binonga-an",
@@ -5703,7 +5682,7 @@ BARANGAY = {
                 "Cawayan",
                 "Hinugusan",
                 "Camantaya",
-                "Dubduban"
+                "Dubduban",
             ],
             "San Andres": [
                 "Do\u00f1a Trinidad",
@@ -5718,7 +5697,7 @@ BARANGAY = {
                 "Victoria",
                 "Marigondon Sur",
                 "Calunacon",
-                "Mabini"
+                "Mabini",
             ],
             "San Fernando": [
                 "Agtiwa",
@@ -5732,15 +5711,9 @@ BARANGAY = {
                 "Canjalon",
                 "Mabini",
                 "Espa\u00f1a",
-                "Campalingo"
+                "Campalingo",
             ],
-            "San Jose": [
-                "Pinamihagan",
-                "Combot",
-                "Poblacion",
-                "Lanas",
-                "Busay"
-            ],
+            "San Jose": ["Pinamihagan", "Combot", "Poblacion", "Lanas", "Busay"],
             "Santa Fe": [
                 "Guintigbasan",
                 "Magsaysay",
@@ -5752,7 +5725,7 @@ BARANGAY = {
                 "Agmanic",
                 "Danao Norte",
                 "Canyayo",
-                "Danao Sur"
+                "Danao Sur",
             ],
             "Santa Maria": [
                 "San Isidro",
@@ -5760,8 +5733,8 @@ BARANGAY = {
                 "Concepcion Sur",
                 "Santo Ni\u00f1o",
                 "Paroyhog",
-                "Concepcion Norte "
-            ]
+                "Concepcion Norte ",
+            ],
         },
         "City of Puerto Princesa ": [
             "Bagong Pag-Asa ",
@@ -5829,8 +5802,8 @@ BARANGAY = {
             "Maunlad ",
             "Model ",
             "Mabuhay ",
-            "Maligaya "
-        ]
+            "Maligaya ",
+        ],
     },
     "National Capital Region (NCR)": {
         "City of Manila": {
@@ -5844,7 +5817,7 @@ BARANGAY = {
                 "Barangay 288",
                 "Barangay 291",
                 "Barangay 294",
-                "Barangay 293"
+                "Barangay 293",
             ],
             "Ermita": [
                 "Barangay 667",
@@ -5859,14 +5832,14 @@ BARANGAY = {
                 "Barangay 661",
                 "Barangay 668",
                 "Barangay 660",
-                "Barangay 659"
+                "Barangay 659",
             ],
             "Intramuros": [
                 "Barangay 654",
                 "Barangay 656",
                 "Barangay 657",
                 "Barangay 655",
-                "Barangay 658"
+                "Barangay 658",
             ],
             "Malate": [
                 "Barangay 717",
@@ -5925,7 +5898,7 @@ BARANGAY = {
                 "Barangay 707",
                 "Barangay 718",
                 "Barangay 729",
-                "Barangay 692"
+                "Barangay 692",
             ],
             "Paco": [
                 "Barangay 664-A",
@@ -5970,7 +5943,7 @@ BARANGAY = {
                 "Barangay 826",
                 "Barangay 829",
                 "Barangay 825",
-                "Barangay 815"
+                "Barangay 815",
             ],
             "Pandacan": [
                 "Barangay 845",
@@ -6010,14 +5983,14 @@ BARANGAY = {
                 "Barangay 850",
                 "Barangay 864",
                 "Barangay 838",
-                "Barangay 863"
+                "Barangay 863",
             ],
             "Port Area": [
                 "Barangay 649",
                 "Barangay 650",
                 "Barangay 652",
                 "Barangay 653",
-                "Barangay 651"
+                "Barangay 651",
             ],
             "Quiapo": [
                 "Barangay 390",
@@ -6035,7 +6008,7 @@ BARANGAY = {
                 "Barangay 392",
                 "Barangay 386",
                 "Barangay 383",
-                "Barangay 385"
+                "Barangay 385",
             ],
             "Sampaloc": [
                 "Barangay 425",
@@ -6280,7 +6253,7 @@ BARANGAY = {
                 "Barangay 580",
                 "Barangay 608",
                 "Barangay 512",
-                "Barangay 519"
+                "Barangay 519",
             ],
             "San Miguel": [
                 "Barangay 644",
@@ -6294,7 +6267,7 @@ BARANGAY = {
                 "Barangay 646",
                 "Barangay 639",
                 "Barangay 647",
-                "Barangay 638"
+                "Barangay 638",
             ],
             "San Nicolas": [
                 "Barangay 272",
@@ -6311,7 +6284,7 @@ BARANGAY = {
                 "Barangay 284",
                 "Barangay 286",
                 "Barangay 274",
-                "Barangay 285"
+                "Barangay 285",
             ],
             "Santa Ana": [
                 "Barangay 782",
@@ -6412,7 +6385,7 @@ BARANGAY = {
                 "Barangay 866",
                 "Barangay 794",
                 "Barangay 759",
-                "Barangay 880"
+                "Barangay 880",
             ],
             "Santa Cruz": [
                 "Barangay 378",
@@ -6496,7 +6469,7 @@ BARANGAY = {
                 "Barangay 353",
                 "Barangay 381",
                 "Barangay 360",
-                "Barangay 357"
+                "Barangay 357",
             ],
             "Tondo I/II": [
                 "Barangay 68",
@@ -6757,8 +6730,8 @@ BARANGAY = {
                 "Barangay 139",
                 "Barangay 106",
                 "Barangay 248",
-                "Barangay 89"
-            ]
+                "Barangay 89",
+            ],
         },
         "City of Caloocan": [
             "Barangay 68",
@@ -6953,7 +6926,7 @@ BARANGAY = {
             "Barangay 139",
             "Barangay 113",
             "Barangay 106",
-            "Barangay 89"
+            "Barangay 89",
         ],
         "City of Las Pi\u00f1as": [
             "B. F. International Village",
@@ -6975,7 +6948,7 @@ BARANGAY = {
             "Manuyo Uno",
             "Talon Singko",
             "Pulang Lupa Uno",
-            "Daniel Fajardo"
+            "Daniel Fajardo",
         ],
         "City of Makati": [
             "Santa Cruz",
@@ -7000,7 +6973,7 @@ BARANGAY = {
             "Urdaneta",
             "Guadalupe Nuevo",
             "San Antonio",
-            "Dasmari\u00f1as"
+            "Dasmari\u00f1as",
         ],
         "City of Malabon": [
             "Concepcion",
@@ -7023,7 +6996,7 @@ BARANGAY = {
             "Bayan-bayanan",
             "Ta\u00f1ong ",
             "Longos",
-            "Dampalit"
+            "Dampalit",
         ],
         "City of Mandaluyong": [
             "Malamig",
@@ -7052,7 +7025,7 @@ BARANGAY = {
             "Mabini-J. Rizal",
             "Plainview",
             "Pag-asa",
-            "Old Za\u00f1iga"
+            "Old Za\u00f1iga",
         ],
         "City of Marikina": [
             "San Roque",
@@ -7070,7 +7043,7 @@ BARANGAY = {
             "Calumpang",
             "Malanday",
             "Concepcion Dos",
-            "Fortune"
+            "Fortune",
         ],
         "City of Muntinlupa": [
             "Bayanan",
@@ -7081,7 +7054,7 @@ BARANGAY = {
             "Buli",
             "Alabang",
             "Sucat",
-            "Cupang"
+            "Cupang",
         ],
         "City of Navotas": [
             "San Roque",
@@ -7101,7 +7074,7 @@ BARANGAY = {
             "Daanghari",
             "Tangos North",
             "Navotas East",
-            "Bangculasi"
+            "Bangculasi",
         ],
         "City of Para\u00f1aque": [
             "Merville",
@@ -7119,7 +7092,7 @@ BARANGAY = {
             "Santo Ni\u00f1o",
             "B. F. Homes",
             "La Huerta",
-            "Tambo"
+            "Tambo",
         ],
         "City of Pasig": [
             "Pinagbuhatan",
@@ -7151,7 +7124,7 @@ BARANGAY = {
             "Kapitolyo",
             "Pineda",
             "Caniogan",
-            "Malinao"
+            "Malinao",
         ],
         "City of San Juan": [
             "Batis",
@@ -7174,7 +7147,7 @@ BARANGAY = {
             "Maytunas",
             "Isabelita",
             "Halo-halo",
-            "Progreso"
+            "Progreso",
         ],
         "City of Taguig": [
             "Post Proper Southside",
@@ -7214,7 +7187,7 @@ BARANGAY = {
             "North Signal Village",
             "Palingon",
             "Lower Bicutan",
-            "Ligid-Tipas"
+            "Ligid-Tipas",
         ],
         "City of Valenzuela": [
             "Ugong",
@@ -7249,7 +7222,7 @@ BARANGAY = {
             "Viente Reales",
             "Pulo",
             "Karuhatan",
-            "Malanday"
+            "Malanday",
         ],
         "Pasay City": [
             "Barangay 68",
@@ -7452,7 +7425,7 @@ BARANGAY = {
             "Barangay 139",
             "Barangay 113",
             "Barangay 106",
-            "Barangay 89"
+            "Barangay 89",
         ],
         "Quezon City": [
             "Sauyo",
@@ -7596,7 +7569,7 @@ BARANGAY = {
             "Paligsahan",
             "Maharlika",
             "N.S. Amoranto",
-            "Mariana"
+            "Mariana",
         ],
         "Pateros": [
             "San Roque",
@@ -7608,8 +7581,8 @@ BARANGAY = {
             "Santo Rosario-Silangan",
             "Santa Ana",
             "Martires Del 96",
-            "Santo Rosario-Kanluran"
-        ]
+            "Santo Rosario-Kanluran",
+        ],
     },
     "Negros Island Region (NIR)": {
         "Negros Occidental": {
@@ -7629,7 +7602,7 @@ BARANGAY = {
                 "San Jose",
                 "Payao",
                 "San Teodoro ",
-                "Santo Rosario "
+                "Santo Rosario ",
             ],
             "Calatrava": [
                 "Lo-ok ",
@@ -7671,7 +7644,7 @@ BARANGAY = {
                 "Paghumayan",
                 "Calampisawan",
                 "Macasilao",
-                "Laga-an"
+                "Laga-an",
             ],
             "Candoni": [
                 "Cabia-an",
@@ -7682,7 +7655,7 @@ BARANGAY = {
                 "Payauan",
                 "Banga",
                 "Agboy",
-                "Haba"
+                "Haba",
             ],
             "Cauayan": [
                 "Sura",
@@ -7709,7 +7682,7 @@ BARANGAY = {
                 "Talacdan",
                 "Mambugsay",
                 "Linaon",
-                "Guiljungan"
+                "Guiljungan",
             ],
             "City of Bago": [
                 "Caridad",
@@ -7735,7 +7708,7 @@ BARANGAY = {
                 "Bagroy",
                 "Jorge L. Araneta",
                 "Napoles",
-                "Bacong-Montilla"
+                "Bacong-Montilla",
             ],
             "City of Cadiz": [
                 "Sicaba",
@@ -7759,7 +7732,7 @@ BARANGAY = {
                 "Barangay 2 Pob.",
                 "Burgos",
                 "Mabini",
-                "Barangay 6 Pob."
+                "Barangay 6 Pob.",
             ],
             "City of Escalante": [
                 "Magsaysay",
@@ -7782,7 +7755,7 @@ BARANGAY = {
                 "Balintawak ",
                 "Hacienda Fe",
                 "Tamlang",
-                "Mabini"
+                "Mabini",
             ],
             "City of Himamaylan": [
                 "Mambagaton",
@@ -7803,7 +7776,7 @@ BARANGAY = {
                 "San Antonio",
                 "Libacao",
                 "Barangay I ",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "City of Kabankalan": [
                 "Hilamonan",
@@ -7837,7 +7810,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Binicuil",
                 "Pinaguinpinan",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "City of La Carlota": [
                 "Nagasi",
@@ -7853,7 +7826,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Yubo",
                 "Ayungon",
-                "Cubay"
+                "Cubay",
             ],
             "City of Sagay": [
                 "Rafaela Barrera",
@@ -7880,7 +7853,7 @@ BARANGAY = {
                 "Bulanon",
                 "Poblacion II",
                 "Plaridel",
-                "Andres Bonifacio"
+                "Andres Bonifacio",
             ],
             "City of San Carlos": [
                 "Barangay VI ",
@@ -7900,7 +7873,7 @@ BARANGAY = {
                 "Barangay III ",
                 "Palampas",
                 "Codcod",
-                "Punao"
+                "Punao",
             ],
             "City of Silay": [
                 "Balaring",
@@ -7918,7 +7891,7 @@ BARANGAY = {
                 "Barangay III ",
                 "Barangay VI Pob.",
                 "Barangay IV ",
-                "Eustaquio Lopez"
+                "Eustaquio Lopez",
             ],
             "City of Sipalay": [
                 "Cabadiangan",
@@ -7937,7 +7910,7 @@ BARANGAY = {
                 "San Jose",
                 "Barangay 1 ",
                 "Barangay 5 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "City of Talisay": [
                 "Concepcion",
@@ -7966,7 +7939,7 @@ BARANGAY = {
                 "Zone 15 ",
                 "Dos Hermanas",
                 "Zone 9 ",
-                "Zone 3 "
+                "Zone 3 ",
             ],
             "City of Victorias": [
                 "Barangay XII",
@@ -7994,7 +7967,7 @@ BARANGAY = {
                 "Barangay XIII",
                 "Barangay IX",
                 "Barangay IV ",
-                "Barangay VI-A"
+                "Barangay VI-A",
             ],
             "Enrique B. Magalona": [
                 "Madalag",
@@ -8019,7 +7992,7 @@ BARANGAY = {
                 "Tomongtong",
                 "Consing",
                 "Poblacion III",
-                "Tanza"
+                "Tanza",
             ],
             "Hinigaran": [
                 "Camalobalo",
@@ -8045,7 +8018,7 @@ BARANGAY = {
                 "Baga-as",
                 "Barangay I ",
                 "Camba-og",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Hinoba-an": [
                 "Culipapa",
@@ -8060,7 +8033,7 @@ BARANGAY = {
                 "Alim",
                 "Barangay I ",
                 "Po-ok",
-                "Damutan"
+                "Damutan",
             ],
             "Ilog": [
                 "Pinggot",
@@ -8077,7 +8050,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Vista Alegre",
                 "Andulauan",
-                "Manalad"
+                "Manalad",
             ],
             "Isabela": [
                 "Limalima",
@@ -8109,7 +8082,7 @@ BARANGAY = {
                 "Libas",
                 "Barangay 2 ",
                 "Riverside",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "La Castellana": [
                 "Masulog",
@@ -8124,7 +8097,7 @@ BARANGAY = {
                 "Manghanoy",
                 "Lalagsan",
                 "Cabacungan",
-                "Nato"
+                "Nato",
             ],
             "Manapla": [
                 "Santa Teresa",
@@ -8138,7 +8111,7 @@ BARANGAY = {
                 "Tortosa",
                 "Barangay I ",
                 "Punta Salong",
-                "San Pablo"
+                "San Pablo",
             ],
             "Moises Padilla": [
                 "Barangay 7 ",
@@ -8155,7 +8128,7 @@ BARANGAY = {
                 "Barangay 1 ",
                 "Barangay 5 ",
                 "Barangay 6 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "Murcia": [
                 "Zone I ",
@@ -8180,7 +8153,7 @@ BARANGAY = {
                 "Salvacion",
                 "Alegria",
                 "Minoyan",
-                "Damsite"
+                "Damsite",
             ],
             "Pontevedra": [
                 "Buenavista Gibong",
@@ -8202,7 +8175,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Don Salvador Benedicto",
                 "Burgos",
-                "Mabini"
+                "Mabini",
             ],
             "Pulupandan": [
                 "Barangay Zone 7 ",
@@ -8224,7 +8197,7 @@ BARANGAY = {
                 "Barangay Zone 1-A ",
                 "Barangay Zone 3 ",
                 "Crossing Pulupandan",
-                "Barangay Zone 2 "
+                "Barangay Zone 2 ",
             ],
             "Salvador Benedicto": [
                 "Pandanon",
@@ -8233,7 +8206,7 @@ BARANGAY = {
                 "Pinowayan",
                 "Kumaliskis",
                 "Bagong Silang",
-                "Bago"
+                "Bago",
             ],
             "San Enrique": [
                 "Baliwagan",
@@ -8245,7 +8218,7 @@ BARANGAY = {
                 "Sibucao",
                 "Nayon",
                 "Tibsoc",
-                "Bagonawa"
+                "Bagonawa",
             ],
             "Toboso": [
                 "San Isidro",
@@ -8256,7 +8229,7 @@ BARANGAY = {
                 "Bug-ang",
                 "Bandila",
                 "General Luna",
-                "San Jose"
+                "San Jose",
             ],
             "Valladolid": [
                 "Central Tabao",
@@ -8274,8 +8247,8 @@ BARANGAY = {
                 "Mabini",
                 "Ayungon",
                 "Bagumbayan",
-                "Bayabas"
-            ]
+                "Bayabas",
+            ],
         },
         "Negros Oriental": {
             "Amlan": [
@@ -8286,7 +8259,7 @@ BARANGAY = {
                 "Mag-abo",
                 "Tandayag",
                 "Silab",
-                "Tambojangin"
+                "Tambojangin",
             ],
             "Ayungon": [
                 "Kilaban",
@@ -8312,7 +8285,7 @@ BARANGAY = {
                 "Lamigan",
                 "Candana-ay",
                 "Tampocon II",
-                "Mabato"
+                "Mabato",
             ],
             "Bacong": [
                 "West Poblacion",
@@ -8336,7 +8309,7 @@ BARANGAY = {
                 "North Poblacion",
                 "San Miguel",
                 "Malabago",
-                "Balayagmanok"
+                "Balayagmanok",
             ],
             "Basay": [
                 "Cabalayongan",
@@ -8348,7 +8321,7 @@ BARANGAY = {
                 "Bongalonan",
                 "Linantayan",
                 "Bal-os",
-                "Actin"
+                "Actin",
             ],
             "Bindoy": [
                 "Atotes",
@@ -8372,7 +8345,7 @@ BARANGAY = {
                 "Tinaogan",
                 "Camudlas",
                 "Bulod",
-                "Batangan"
+                "Batangan",
             ],
             "City of Bais": [
                 "Cambanjao",
@@ -8409,7 +8382,7 @@ BARANGAY = {
                 "Tagpo",
                 "Barangay I ",
                 "Cambaguio",
-                "Tangculogan"
+                "Tangculogan",
             ],
             "City of Bayawan": [
                 "Tayawan",
@@ -8439,7 +8412,7 @@ BARANGAY = {
                 "San Miguel",
                 "Suba ",
                 "Kalamtukan",
-                "Narra"
+                "Narra",
             ],
             "City of Canlaon": [
                 "Masulog",
@@ -8453,7 +8426,7 @@ BARANGAY = {
                 "Lumapao",
                 "Ninoy Aquino",
                 "Linothangan",
-                "Mabigo "
+                "Mabigo ",
             ],
             "City of Dumaguete ": [
                 "Poblacion No. 6",
@@ -8485,7 +8458,7 @@ BARANGAY = {
                 "Bajumpandan",
                 "Calindagan",
                 "Candau-ay",
-                "Cantil-e"
+                "Cantil-e",
             ],
             "City of Guihulngan": [
                 "Magsaysay",
@@ -8520,7 +8493,7 @@ BARANGAY = {
                 "Imelda",
                 "Hilaitan",
                 "Nagsaha",
-                "Banwaque"
+                "Banwaque",
             ],
             "City of Tanjay": [
                 "Santa Cruz Nuevo",
@@ -8546,7 +8519,7 @@ BARANGAY = {
                 "Polo",
                 "Poblacion VII",
                 "Manipis",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Dauin": [
                 "Magsaysay",
@@ -8571,7 +8544,7 @@ BARANGAY = {
                 "Anhawan",
                 "Poblacion II",
                 "Poblacion III",
-                "Masaplod Sur"
+                "Masaplod Sur",
             ],
             "Jimalalud": [
                 "Mambaid",
@@ -8601,7 +8574,7 @@ BARANGAY = {
                 "North Poblacion",
                 "Malabago",
                 "Sampiniton",
-                "Owacan"
+                "Owacan",
             ],
             "La Libertad": [
                 "Manluminsag",
@@ -8632,7 +8605,7 @@ BARANGAY = {
                 "Elecia",
                 "Kansumandig",
                 "Talayong",
-                "Manghulyawon"
+                "Manghulyawon",
             ],
             "Mabinay": [
                 "Luyang",
@@ -8666,7 +8639,7 @@ BARANGAY = {
                 "Bugnay",
                 "Himocdongon",
                 "Campanun-an",
-                "Canggohob"
+                "Canggohob",
             ],
             "Manjuyod": [
                 "Concepcion",
@@ -8695,7 +8668,7 @@ BARANGAY = {
                 "Salvacion",
                 "Tanglad",
                 "Bantolinao",
-                "Lamogong"
+                "Lamogong",
             ],
             "Pamplona": [
                 "Mangoto",
@@ -8713,7 +8686,7 @@ BARANGAY = {
                 "Fatima",
                 "Magsusunog",
                 "Datagon",
-                "Mamburao"
+                "Mamburao",
             ],
             "San Jose": [
                 "San Roque",
@@ -8729,7 +8702,7 @@ BARANGAY = {
                 "Basiao",
                 "Santo Ni\u00f1o",
                 "Se\u00f1ora Ascion",
-                "Tapon Norte"
+                "Tapon Norte",
             ],
             "Santa Catalina": [
                 "Manalongon",
@@ -8753,7 +8726,7 @@ BARANGAY = {
                 "Talalak",
                 "Mabuhay",
                 "San Miguel",
-                "Nagbinlod"
+                "Nagbinlod",
             ],
             "Siaton": [
                 "Datag",
@@ -8781,7 +8754,7 @@ BARANGAY = {
                 "Giliga-on",
                 "Sumaliring",
                 "Poblacion III",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Sibulan": [
                 "Maslog",
@@ -8798,7 +8771,7 @@ BARANGAY = {
                 "San Antonio",
                 "Maningcao",
                 "Calabnugan",
-                "Tubtubon"
+                "Tubtubon",
             ],
             "Tayasan": [
                 "Lag-it",
@@ -8828,7 +8801,7 @@ BARANGAY = {
                 "Matauta",
                 "Suquib",
                 "Tanlad",
-                "Ilaya-Tayasan"
+                "Ilaya-Tayasan",
             ],
             "Valencia": [
                 "Malaunay",
@@ -8854,7 +8827,7 @@ BARANGAY = {
                 "Calayugan",
                 "Malabo",
                 "Apolong",
-                "Balabag East"
+                "Balabag East",
             ],
             "Vallehermoso": [
                 "Macapso",
@@ -8871,7 +8844,7 @@ BARANGAY = {
                 "Cabulihan",
                 "Guba",
                 "Tagbino",
-                "Pinocawan"
+                "Pinocawan",
             ],
             "Zamboanguita": [
                 "Maluay",
@@ -8883,8 +8856,8 @@ BARANGAY = {
                 "Malongcay Diot",
                 "Calango",
                 "Najandig",
-                "Mayabon"
-            ]
+                "Mayabon",
+            ],
         },
         "Siquijor": {
             "Enrique Villanueva": [
@@ -8901,7 +8874,7 @@ BARANGAY = {
                 "Olave",
                 "Camogao",
                 "Parian",
-                "Lomangcapan"
+                "Lomangcapan",
             ],
             "Larena": [
                 "Canlasog",
@@ -8926,7 +8899,7 @@ BARANGAY = {
                 "Sabang",
                 "Cang-allas",
                 "Helen",
-                "Candigum"
+                "Candigum",
             ],
             "Lazi": [
                 "Gabayan",
@@ -8946,7 +8919,7 @@ BARANGAY = {
                 "Simacolong",
                 "Kimba",
                 "Nagerong",
-                "Catamboan "
+                "Catamboan ",
             ],
             "Maria": [
                 "Minalulan",
@@ -8970,7 +8943,7 @@ BARANGAY = {
                 "Bogo",
                 "Sawang",
                 "Saguing",
-                "Cabal-asan"
+                "Cabal-asan",
             ],
             "San Juan": [
                 "Canasagan",
@@ -8987,7 +8960,7 @@ BARANGAY = {
                 "Lala-o",
                 "Tag-ibo",
                 "Maite",
-                "Tambisan"
+                "Tambisan",
             ],
             "Siquijor ": [
                 "Songculan",
@@ -9031,8 +9004,8 @@ BARANGAY = {
                 "Candanay Norte",
                 "Cang-alwang",
                 "San Antonio",
-                "Canal"
-            ]
+                "Canal",
+            ],
         },
         "City of Bacolod ": [
             "Barangay 32 ",
@@ -9095,14 +9068,12 @@ BARANGAY = {
             "Sum-ag",
             "Barangay 13 ",
             "Barangay 37 ",
-            "Barangay 6 "
-        ]
+            "Barangay 6 ",
+        ],
     },
     "Region I (Ilocos Region)": {
         "Ilocos Norte": {
-            "Adams": [
-                "Adams"
-            ],
+            "Adams": ["Adams"],
             "Bacarra": [
                 "San Simon I ",
                 "San Simon II ",
@@ -9146,7 +9117,7 @@ BARANGAY = {
                 "Pasngal",
                 "Pasiocan",
                 "Santo Cristo I ",
-                "Santo Cristo II "
+                "Santo Cristo II ",
             ],
             "Badoc": [
                 "Nagrebcan",
@@ -9179,7 +9150,7 @@ BARANGAY = {
                 "Pagsanahan Sur",
                 "Saud",
                 "Paltit",
-                "Santa Cruz Sur"
+                "Santa Cruz Sur",
             ],
             "Bangui": [
                 "Baruyen",
@@ -9195,7 +9166,7 @@ BARANGAY = {
                 "Taguiporo",
                 "Malasin",
                 "Abaca",
-                "Bacsil"
+                "Bacsil",
             ],
             "Banna": [
                 "Bangsar",
@@ -9217,7 +9188,7 @@ BARANGAY = {
                 "Lorenzo ",
                 "Sinamar",
                 "Macayepyep",
-                "Valenciano "
+                "Valenciano ",
             ],
             "Burgos": [
                 "Agaga",
@@ -9230,13 +9201,9 @@ BARANGAY = {
                 "Paayas",
                 "Tanap",
                 "Pagali",
-                "Ablan Sarat"
+                "Ablan Sarat",
             ],
-            "Carasi": [
-                "Virbira",
-                "Angset",
-                "Barbaqueso "
-            ],
+            "Carasi": ["Virbira", "Angset", "Barbaqueso "],
             "City of Batac": [
                 "Ricarte Pob.",
                 "Colo",
@@ -9280,7 +9247,7 @@ BARANGAY = {
                 "Biningan",
                 "Dariwdiw",
                 "Maipalig",
-                "Quiling Norte"
+                "Quiling Norte",
             ],
             "City of Laoag ": [
                 "Bgy. No. 47, Bengcag",
@@ -9362,7 +9329,7 @@ BARANGAY = {
                 "Bry. No. 18, San Quirino ",
                 "Bgy. No. 14, Santo Tomas ",
                 "Bgy. No. 7-B, Nstra. Sra. De Natividad ",
-                "Bgy. No. 60-B, Madiladig"
+                "Bgy. No. 60-B, Madiladig",
             ],
             "Currimao": [
                 "Maglaoi Sur",
@@ -9387,7 +9354,7 @@ BARANGAY = {
                 "Maglaoi Norte",
                 "Anggapang Sur",
                 "Poblacion II",
-                "Comcomloong"
+                "Comcomloong",
             ],
             "Dingras": [
                 "Mandaloque",
@@ -9420,14 +9387,9 @@ BARANGAY = {
                 "Suyo",
                 "Elizabeth",
                 "Cali",
-                "Root"
+                "Root",
             ],
-            "Dumalneg": [
-                "Quibel",
-                "San Isidro",
-                "Kalaw",
-                "Cabaritan"
-            ],
+            "Dumalneg": ["Quibel", "San Isidro", "Kalaw", "Cabaritan"],
             "Marcos": [
                 "Escoda",
                 "Tabucbuc",
@@ -9441,7 +9403,7 @@ BARANGAY = {
                 "Fortuna",
                 "Lydia ",
                 "Elizabeth",
-                "Pacifico"
+                "Pacifico",
             ],
             "Nueva Era": [
                 "Bugayong",
@@ -9454,7 +9416,7 @@ BARANGAY = {
                 "Acnam",
                 "Barangobong",
                 "Santo Ni\u00f1o",
-                "Naguillan"
+                "Naguillan",
             ],
             "Pagudpud": [
                 "Balaoi",
@@ -9472,7 +9434,7 @@ BARANGAY = {
                 "Caunayan",
                 "Saguigui",
                 "Dampig",
-                "Burayoc"
+                "Burayoc",
             ],
             "Paoay": [
                 "San Blas ",
@@ -9505,7 +9467,7 @@ BARANGAY = {
                 "Pasil",
                 "Sangladan Pob.",
                 "Pambaran",
-                "Cabangaran"
+                "Cabangaran",
             ],
             "Pasuquin": [
                 "Nagsanga",
@@ -9540,7 +9502,7 @@ BARANGAY = {
                 "Poblacion 4",
                 "Sulongan",
                 "Dadaeman",
-                "Puyupuyan"
+                "Puyupuyan",
             ],
             "Piddig": [
                 "Sucsuquen",
@@ -9565,7 +9527,7 @@ BARANGAY = {
                 "Ab-abut",
                 "Tangaoan",
                 "Callusa",
-                "San Antonio"
+                "San Antonio",
             ],
             "Pinili": [
                 "Upon",
@@ -9592,7 +9554,7 @@ BARANGAY = {
                 "Tartarabang",
                 "Sacritan",
                 "Lumbaan-Bicbica",
-                "Gulpeng"
+                "Gulpeng",
             ],
             "San Nicolas": [
                 "San Miguel ",
@@ -9618,7 +9580,7 @@ BARANGAY = {
                 "San Bartolome ",
                 "San Baltazar ",
                 "San Rufino ",
-                "San Pablo"
+                "San Pablo",
             ],
             "Sarrat": [
                 "San Vicente ",
@@ -9644,7 +9606,7 @@ BARANGAY = {
                 "San Antonio",
                 "San Agustin ",
                 "San Bernabe",
-                "Santa Barbara "
+                "Santa Barbara ",
             ],
             "Solsona": [
                 "Bagbago",
@@ -9668,7 +9630,7 @@ BARANGAY = {
                 "Capurictan",
                 "Maananteng",
                 "Juan ",
-                "Santiago"
+                "Santiago",
             ],
             "Vintar": [
                 "Namoroc",
@@ -9703,8 +9665,8 @@ BARANGAY = {
                 "Margaay",
                 "Cabangaran",
                 "Pedro F. Alviar",
-                "Visaya"
-            ]
+                "Visaya",
+            ],
         },
         "Ilocos Sur": {
             "Alilem": [
@@ -9716,7 +9678,7 @@ BARANGAY = {
                 "Apaya",
                 "Anaao",
                 "Amilongan",
-                "Alilem Daya "
+                "Alilem Daya ",
             ],
             "Banayoyo": [
                 "Guardia",
@@ -9732,7 +9694,7 @@ BARANGAY = {
                 "Elefante",
                 "Lopez",
                 "Lintic",
-                "Banbanaal"
+                "Banbanaal",
             ],
             "Bantay": [
                 "Paing",
@@ -9768,7 +9730,7 @@ BARANGAY = {
                 "Malingeb",
                 "Guimod",
                 "Barangay 6 ",
-                "Taleb"
+                "Taleb",
             ],
             "Burgos": [
                 "Mambug",
@@ -9796,7 +9758,7 @@ BARANGAY = {
                 "Taliao",
                 "Paduros",
                 "Subadi Norte",
-                "Dayanki"
+                "Dayanki",
             ],
             "Cabugao": [
                 "Nagsincaoan",
@@ -9831,7 +9793,7 @@ BARANGAY = {
                 "Maradodon",
                 "Rizal ",
                 "Margaay",
-                "Dardarat"
+                "Dardarat",
             ],
             "Caoayan": [
                 "Caparacadan",
@@ -9850,7 +9812,7 @@ BARANGAY = {
                 "Pantay Tamurong",
                 "Nansuagao",
                 "Naguilian",
-                "Fuerte"
+                "Fuerte",
             ],
             "Cervantes": [
                 "San Juan",
@@ -9865,7 +9827,7 @@ BARANGAY = {
                 "Malaya",
                 "Comillas North",
                 "Remedios",
-                "Rosario "
+                "Rosario ",
             ],
             "City of Candon": [
                 "Patpata Primero",
@@ -9909,7 +9871,7 @@ BARANGAY = {
                 "Tamurong Primero",
                 "Parioc Primero",
                 "Bugnay",
-                "Bagani Tocgo"
+                "Bagani Tocgo",
             ],
             "City of Vigan ": [
                 "Barangay VIII",
@@ -9950,7 +9912,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Mindoro",
                 "Bongtolan",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Galimuyod": [
                 "Legaspi",
@@ -9976,7 +9938,7 @@ BARANGAY = {
                 "Calongbuyan",
                 "Mabayag",
                 "Kilang",
-                "Sabangan-Bato"
+                "Sabangan-Bato",
             ],
             "Gregorio del Pilar": [
                 "Concepcion",
@@ -9985,7 +9947,7 @@ BARANGAY = {
                 "Dapdappig",
                 "Bussot",
                 "Matue-Butarag",
-                "Alfonso"
+                "Alfonso",
             ],
             "Lidlidda": [
                 "Banucal",
@@ -9998,7 +9960,7 @@ BARANGAY = {
                 "Labut",
                 "Bugui",
                 "San Vicente",
-                "Calungbuyan"
+                "Calungbuyan",
             ],
             "Magsingal": [
                 "Macatcatud",
@@ -10030,7 +9992,7 @@ BARANGAY = {
                 "San Basilio ",
                 "Puro",
                 "Dacutan",
-                "Miramar"
+                "Miramar",
             ],
             "Nagbukel": [
                 "Cadacad",
@@ -10044,7 +10006,7 @@ BARANGAY = {
                 "Bantugo",
                 "Cosocos",
                 "Lapting",
-                "Mission"
+                "Mission",
             ],
             "Narvacan": [
                 "Dasay",
@@ -10080,7 +10042,7 @@ BARANGAY = {
                 "Margaay",
                 "Lanipao",
                 "Ambulogan",
-                "Lungog"
+                "Lungog",
             ],
             "Quirino": [
                 "Namitpit",
@@ -10091,7 +10053,7 @@ BARANGAY = {
                 "Patiacan",
                 "Malideg",
                 "Legleg ",
-                "Patungcaleo"
+                "Patungcaleo",
             ],
             "Salcedo": [
                 "Balidbid",
@@ -10114,7 +10076,7 @@ BARANGAY = {
                 "Maligcong",
                 "Ubbog",
                 "Bulala-Leguey",
-                "San Tiburcio"
+                "San Tiburcio",
             ],
             "San Emilio": [
                 "Matibuey",
@@ -10124,7 +10086,7 @@ BARANGAY = {
                 "Lancuas",
                 "Kalumsing",
                 "San Miliano",
-                "Sibsibbu"
+                "Sibsibbu",
             ],
             "San Esteban": [
                 "San Rafael",
@@ -10136,7 +10098,7 @@ BARANGAY = {
                 "San Nicolas",
                 "Apatot",
                 "Villa Quirino",
-                "San Pablo"
+                "San Pablo",
             ],
             "San Ildefonso": [
                 "Dongalo",
@@ -10153,7 +10115,7 @@ BARANGAY = {
                 "Sagsagat",
                 "Arnap",
                 "Belen",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "San Juan": [
                 "Immayos Norte",
@@ -10187,7 +10149,7 @@ BARANGAY = {
                 "Sunggiam",
                 "Sabangan",
                 "Dardarat",
-                "Lapting"
+                "Lapting",
             ],
             "San Vicente": [
                 "Lubong",
@@ -10196,7 +10158,7 @@ BARANGAY = {
                 "Bayubay Sur",
                 "Poblacion",
                 "Pudoc",
-                "San Sebastian"
+                "San Sebastian",
             ],
             "Santa": [
                 "Calungboyan",
@@ -10224,7 +10186,7 @@ BARANGAY = {
                 "Oribi",
                 "Marcos ",
                 "Cabangaran",
-                "Tabucolan"
+                "Tabucolan",
             ],
             "Santa Catalina": [
                 "Paratong",
@@ -10235,7 +10197,7 @@ BARANGAY = {
                 "Tamorong",
                 "Cabaroan",
                 "Pangada",
-                "Cabuloan"
+                "Cabuloan",
             ],
             "Santa Cruz": [
                 "Bacsayan",
@@ -10286,7 +10248,7 @@ BARANGAY = {
                 "Villa Garcia",
                 "Suyo",
                 "Daligan",
-                "Amarao"
+                "Amarao",
             ],
             "Santa Lucia": [
                 "Suagayan",
@@ -10324,7 +10286,7 @@ BARANGAY = {
                 "Luba",
                 "Alincaoeg",
                 "Paoc Sur",
-                "Pila West"
+                "Pila West",
             ],
             "Santa Maria": [
                 "Danuman West",
@@ -10359,7 +10321,7 @@ BARANGAY = {
                 "Laslasong Sur",
                 "Sumagui",
                 "Pacang",
-                "Ag-agrao"
+                "Ag-agrao",
             ],
             "Santiago": [
                 "Baybayabas",
@@ -10385,7 +10347,7 @@ BARANGAY = {
                 "Al-aludig",
                 "Caburao",
                 "Olo-olo Norte",
-                "Sabangan"
+                "Sabangan",
             ],
             "Santo Domingo": [
                 "Santa Cruz",
@@ -10423,7 +10385,7 @@ BARANGAY = {
                 "Calay-ab",
                 "Paguraper",
                 "San Pablo",
-                "Pussuac"
+                "Pussuac",
             ],
             "Sigay": [
                 "Poblacion",
@@ -10432,7 +10394,7 @@ BARANGAY = {
                 "Santo Rosario",
                 "San Elias",
                 "Mabileg",
-                "Matallucod"
+                "Matallucod",
             ],
             "Sinait": [
                 "Calanutian",
@@ -10478,7 +10440,7 @@ BARANGAY = {
                 "Masadag",
                 "Sapriana",
                 "Teppeng",
-                "Namnama "
+                "Namnama ",
             ],
             "Sugpon": [
                 "Danac",
@@ -10486,7 +10448,7 @@ BARANGAY = {
                 "Caoayan",
                 "Balbalayang ",
                 "Banga",
-                "Licungan"
+                "Licungan",
             ],
             "Suyo": [
                 "Poblacion",
@@ -10496,7 +10458,7 @@ BARANGAY = {
                 "Uso",
                 "Baringcucurong",
                 "Cabugao",
-                "Man-atong"
+                "Man-atong",
             ],
             "Tagudin": [
                 "Cabugbugan",
@@ -10541,8 +10503,8 @@ BARANGAY = {
                 "Sawat",
                 "Cabulanglangan",
                 "Ambalayat",
-                "Dardarat"
-            ]
+                "Dardarat",
+            ],
         },
         "La Union": {
             "Agoo": [
@@ -10594,7 +10556,7 @@ BARANGAY = {
                 "San Agustin Sur",
                 "San Antonio",
                 "Santa Rita Sur",
-                "Santa Barbara "
+                "Santa Barbara ",
             ],
             "Aringay": [
                 "San Juan East",
@@ -10620,7 +10582,7 @@ BARANGAY = {
                 "San Simon East",
                 "San Antonio",
                 "Gallano",
-                "San Juan West"
+                "San Juan West",
             ],
             "Bacnotan": [
                 "Legleg",
@@ -10669,7 +10631,7 @@ BARANGAY = {
                 "Mabanengbeng 2nd",
                 "Narra",
                 "Sayoan",
-                "Sipulo"
+                "Sipulo",
             ],
             "Bagulin": [
                 "Libbo",
@@ -10681,7 +10643,7 @@ BARANGAY = {
                 "Cambaly",
                 "Dagup",
                 "Cardiz",
-                "Tagudtud"
+                "Tagudtud",
             ],
             "Balaoan": [
                 "Sinapangan Norte",
@@ -10719,7 +10681,7 @@ BARANGAY = {
                 "Pagleddegan",
                 "Paraoir",
                 "Antonino",
-                "San Pablo"
+                "San Pablo",
             ],
             "Bangar": [
                 "Sinapangan Norte",
@@ -10754,7 +10716,7 @@ BARANGAY = {
                 "Paratong No. 4",
                 "Bangaoilan West",
                 "Mindoro",
-                "Bangaoilan East"
+                "Bangaoilan East",
             ],
             "Bauang": [
                 "Baccuit Norte",
@@ -10795,7 +10757,7 @@ BARANGAY = {
                 "Santiago",
                 "Urayong",
                 "Payocpoc Norte Oeste",
-                "Bucayab"
+                "Bucayab",
             ],
             "Burgos": [
                 "Linuan",
@@ -10809,7 +10771,7 @@ BARANGAY = {
                 "Agpay",
                 "New Poblacion",
                 "Lower Tumapoc",
-                "Upper Tumapoc"
+                "Upper Tumapoc",
             ],
             "Caba": [
                 "San Fermin",
@@ -10828,7 +10790,7 @@ BARANGAY = {
                 "Sobredillo",
                 "San Cornelio",
                 "San Carlos",
-                "San Jose"
+                "San Jose",
             ],
             "City of San Fernando ": [
                 "Sagayad",
@@ -10889,7 +10851,7 @@ BARANGAY = {
                 "Mameltac",
                 "Langcuas",
                 "Barangay IV ",
-                "Parian"
+                "Parian",
             ],
             "Luna": [
                 "Nagrebcan",
@@ -10931,7 +10893,7 @@ BARANGAY = {
                 "Oaqui No. 2",
                 "Magallanes ",
                 "Suyo",
-                "Cantoria No. 1"
+                "Cantoria No. 1",
             ],
             "Naguilian": [
                 "Baraoas Norte",
@@ -10970,7 +10932,7 @@ BARANGAY = {
                 "Suguidan Norte",
                 "Bariquir",
                 "Dal-lipaoen",
-                "Sili"
+                "Sili",
             ],
             "Pugo": [
                 "Cuenca",
@@ -10986,7 +10948,7 @@ BARANGAY = {
                 "Saytan",
                 "Ambalite",
                 "Poblacion West",
-                "Palina"
+                "Palina",
             ],
             "Rosario": [
                 "Concepcion",
@@ -11021,7 +10983,7 @@ BARANGAY = {
                 "Bani",
                 "Ambangonan",
                 "Inabaan Norte",
-                "Nagtagaan"
+                "Nagtagaan",
             ],
             "San Gabriel": [
                 "Daking",
@@ -11038,7 +11000,7 @@ BARANGAY = {
                 "Lipay Este",
                 "Polipol",
                 "Lipay Norte",
-                "Bayabas"
+                "Bayabas",
             ],
             "San Juan": [
                 "Legleg",
@@ -11081,7 +11043,7 @@ BARANGAY = {
                 "Urbiztondo",
                 "Casilagan",
                 "Catdongan",
-                "Duplas"
+                "Duplas",
             ],
             "Santo Tomas": [
                 "Baybay",
@@ -11107,7 +11069,7 @@ BARANGAY = {
                 "Casilagan",
                 "Malabago",
                 "Narvacan",
-                "Cupang"
+                "Cupang",
             ],
             "Santol": [
                 "Mangaan",
@@ -11120,7 +11082,7 @@ BARANGAY = {
                 "Paagan",
                 "Tubaday",
                 "Ramot",
-                "Puguil"
+                "Puguil",
             ],
             "Sudipen": [
                 "Bigbiga",
@@ -11139,7 +11101,7 @@ BARANGAY = {
                 "Maliclico",
                 "San Jose",
                 "San Francisco Sur",
-                "San Francisco Norte"
+                "San Francisco Norte",
             ],
             "Tubao": [
                 "Linapew",
@@ -11159,8 +11121,8 @@ BARANGAY = {
                 "Lloren",
                 "Garcia",
                 "Halog West",
-                "Anduyan"
-            ]
+                "Anduyan",
+            ],
         },
         "Pangasinan": {
             "Agno": [
@@ -11180,7 +11142,7 @@ BARANGAY = {
                 "Macaboboni",
                 "Dangley",
                 "Patar",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "Aguilar": [
                 "Baybay",
@@ -11198,7 +11160,7 @@ BARANGAY = {
                 "Laoag",
                 "San Jose",
                 "Bayaoas",
-                "Panacol"
+                "Panacol",
             ],
             "Alcala": [
                 "Pindangan West",
@@ -11221,7 +11183,7 @@ BARANGAY = {
                 "Bersamin",
                 "Poblacion East",
                 "Pindangan East",
-                "Anulid"
+                "Anulid",
             ],
             "Anda": [
                 "Sablig",
@@ -11241,7 +11203,7 @@ BARANGAY = {
                 "Siapar",
                 "Dolaoan",
                 "Namagbagan",
-                "Batiarao"
+                "Batiarao",
             ],
             "Asingan": [
                 "Carosucan Sur",
@@ -11264,7 +11226,7 @@ BARANGAY = {
                 "Toboy",
                 "Cabalitian",
                 "Calepaan",
-                "Dupac"
+                "Dupac",
             ],
             "Balungao": [
                 "San Aurelio 3rd",
@@ -11286,7 +11248,7 @@ BARANGAY = {
                 "Pugaro",
                 "Capulaan",
                 "Angayan Sur",
-                "Mabini"
+                "Mabini",
             ],
             "Bani": [
                 "Ranao",
@@ -11315,7 +11277,7 @@ BARANGAY = {
                 "San Miguel",
                 "Tugui Grande",
                 "Quinaoayanan",
-                "Aporao"
+                "Aporao",
             ],
             "Basista": [
                 "Palma",
@@ -11330,7 +11292,7 @@ BARANGAY = {
                 "Nalneran",
                 "Mapolopolo",
                 "Dumpay",
-                "Obong"
+                "Obong",
             ],
             "Bautista": [
                 "Nibaliw Norte",
@@ -11350,7 +11312,7 @@ BARANGAY = {
                 "Primicias",
                 "Baluyot",
                 "Poblacion West",
-                "Nandacan"
+                "Nandacan",
             ],
             "Bayambang": [
                 "Magsaysay",
@@ -11429,7 +11391,7 @@ BARANGAY = {
                 "Manambong Parte",
                 "Tampog",
                 "Tambac",
-                "Zone VII "
+                "Zone VII ",
             ],
             "Binalonan": [
                 "Pasileng Norte",
@@ -11455,7 +11417,7 @@ BARANGAY = {
                 "Bued",
                 "Dumayat",
                 "Santiago",
-                "San Pablo"
+                "San Pablo",
             ],
             "Binmaley": [
                 "Salapingao",
@@ -11490,7 +11452,7 @@ BARANGAY = {
                 "Dulag",
                 "Malindong",
                 "Papagueyan",
-                "Manat"
+                "Manat",
             ],
             "Bolinao": [
                 "Catuday",
@@ -11522,7 +11484,7 @@ BARANGAY = {
                 "Luciente 2.0",
                 "Dewey",
                 "Victory",
-                "Binabalian"
+                "Binabalian",
             ],
             "Bugallon": [
                 "Gueset",
@@ -11548,7 +11510,7 @@ BARANGAY = {
                 "Bolaoen",
                 "Salomague Norte",
                 "Umanday",
-                "Hacienda"
+                "Hacienda",
             ],
             "Burgos": [
                 "San Pascual",
@@ -11564,7 +11526,7 @@ BARANGAY = {
                 "San Vicente",
                 "Sapa Peque\u00f1a",
                 "Tambacan",
-                "Anapao"
+                "Anapao",
             ],
             "Calasiao": [
                 "Lasip",
@@ -11590,7 +11552,7 @@ BARANGAY = {
                 "Malabago",
                 "Talibaew",
                 "Longos",
-                "Nalsian"
+                "Nalsian",
             ],
             "City of Alaminos": [
                 "Baleyadaan",
@@ -11631,7 +11593,7 @@ BARANGAY = {
                 "San Antonio",
                 "Polo",
                 "Sabangan",
-                "Cayucay"
+                "Cayucay",
             ],
             "City of Dagupan": [
                 "Salapingao",
@@ -11664,7 +11626,7 @@ BARANGAY = {
                 "Barangay IV",
                 "Calmay",
                 "Bolosan",
-                "Tambac"
+                "Tambac",
             ],
             "City of San Carlos": [
                 "Supo",
@@ -11752,7 +11714,7 @@ BARANGAY = {
                 "Palaming",
                 "Bega",
                 "Longos",
-                "Paitan-Panoypoy"
+                "Paitan-Panoypoy",
             ],
             "City of Urdaneta": [
                 "Camanang",
@@ -11788,7 +11750,7 @@ BARANGAY = {
                 "Palina East",
                 "Nancayasan",
                 "Bactad East",
-                "Palina West"
+                "Palina West",
             ],
             "Dasol": [
                 "Macalang",
@@ -11808,7 +11770,7 @@ BARANGAY = {
                 "Tambobong",
                 "Viga",
                 "Alilao",
-                "Hermosa"
+                "Hermosa",
             ],
             "Infanta": [
                 "Doliman",
@@ -11823,7 +11785,7 @@ BARANGAY = {
                 "Nangalisan",
                 "Babuyan",
                 "Bayambang",
-                "Cato"
+                "Cato",
             ],
             "Labrador": [
                 "Bolo",
@@ -11835,7 +11797,7 @@ BARANGAY = {
                 "Tobuan",
                 "Poblacion",
                 "San Jose",
-                "Dulig"
+                "Dulig",
             ],
             "Laoac": [
                 "Lebueg",
@@ -11859,7 +11821,7 @@ BARANGAY = {
                 "Banuar",
                 "Domingo Alarcio",
                 "Nanbagatan",
-                "Inmanduyan"
+                "Inmanduyan",
             ],
             "Lingayen ": [
                 "Lasip",
@@ -11893,7 +11855,7 @@ BARANGAY = {
                 "Dulag",
                 "Sabangan",
                 "Matalava",
-                "Pangapisan North"
+                "Pangapisan North",
             ],
             "Mabini": [
                 "San Pedro",
@@ -11911,7 +11873,7 @@ BARANGAY = {
                 "Patar",
                 "Cabanaetan",
                 "Nibaliw",
-                "Calzada"
+                "Calzada",
             ],
             "Malasiqui": [
                 "Abonagan",
@@ -11986,7 +11948,7 @@ BARANGAY = {
                 "Asin Weste",
                 "Bolaoit",
                 "Waig",
-                "Barang"
+                "Barang",
             ],
             "Manaoag": [
                 "Mermer",
@@ -12014,7 +11976,7 @@ BARANGAY = {
                 "Pugaro",
                 "San Ramon",
                 "Nalsian",
-                "Parian"
+                "Parian",
             ],
             "Mangaldan": [
                 "Palua",
@@ -12046,7 +12008,7 @@ BARANGAY = {
                 "Landas",
                 "Malabago",
                 "Pogo",
-                "Maasin"
+                "Maasin",
             ],
             "Mangatarem": [
                 "Bogtong Niog",
@@ -12130,7 +12092,7 @@ BARANGAY = {
                 "Maravilla ",
                 "Malunec",
                 "Bogtong Centro",
-                "Pogon-Lomboy "
+                "Pogon-Lomboy ",
             ],
             "Mapandan": [
                 "Golden",
@@ -12147,7 +12109,7 @@ BARANGAY = {
                 "Coral",
                 "Nilombot",
                 "Primicias",
-                "Apaya"
+                "Apaya",
             ],
             "Natividad": [
                 "Batchelor East",
@@ -12167,7 +12129,7 @@ BARANGAY = {
                 "Burgos",
                 "Canarem",
                 "Poblacion West",
-                "Luna"
+                "Luna",
             ],
             "Pozorrubio": [
                 "Batakil",
@@ -12203,7 +12165,7 @@ BARANGAY = {
                 "Maambal",
                 "Malokiat",
                 "Amagbagan",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Rosales": [
                 "Tomana East",
@@ -12242,7 +12204,7 @@ BARANGAY = {
                 "San Antonio",
                 "San Pedro East",
                 "Calanutan",
-                "Tomana West"
+                "Tomana West",
             ],
             "San Fabian": [
                 "Bolasi",
@@ -12278,7 +12240,7 @@ BARANGAY = {
                 "Longos",
                 "Longos-Amangonan-Parac-Parac Fabrica",
                 "Ambalangan-Dalin",
-                "Nibaliw East"
+                "Nibaliw East",
             ],
             "San Jacinto": [
                 "Bolo",
@@ -12299,7 +12261,7 @@ BARANGAY = {
                 "San Vicente",
                 "Macayug",
                 "Imelda",
-                "Capaoay "
+                "Capaoay ",
             ],
             "San Manuel": [
                 "San Juan",
@@ -12315,7 +12277,7 @@ BARANGAY = {
                 "Guiset Norte ",
                 "Sto. Domingo",
                 "San Bonifacio",
-                "Guiset Sur "
+                "Guiset Sur ",
             ],
             "San Nicolas": [
                 "Calanutian",
@@ -12350,7 +12312,7 @@ BARANGAY = {
                 "Poblacion East",
                 "Calaocan",
                 "Nagkaysa",
-                "Cabitnongan"
+                "Cabitnongan",
             ],
             "San Quintin": [
                 "Cabalaoangan",
@@ -12373,7 +12335,7 @@ BARANGAY = {
                 "Mabini",
                 "Cabangaran",
                 "Ungib",
-                "Gonzalo"
+                "Gonzalo",
             ],
             "Santa Barbara": [
                 "Dalongue",
@@ -12404,7 +12366,7 @@ BARANGAY = {
                 "Patayac",
                 "Minien East",
                 "Nilombot",
-                "Carusocan"
+                "Carusocan",
             ],
             "Santa Maria": [
                 "San Patricio",
@@ -12429,7 +12391,7 @@ BARANGAY = {
                 "Dalayap",
                 "San Mariano",
                 "Bal-loy",
-                "San Pablo"
+                "San Pablo",
             ],
             "Santo Tomas": [
                 "San Marcos",
@@ -12441,7 +12403,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "San Jose",
                 "La Luna",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "Sison": [
                 "Calunetan",
@@ -12471,7 +12433,7 @@ BARANGAY = {
                 "Bulaoen West",
                 "Agat",
                 "Dungon",
-                "Amagbagan"
+                "Amagbagan",
             ],
             "Sual": [
                 "Capantolan",
@@ -12492,7 +12454,7 @@ BARANGAY = {
                 "Sioasio West",
                 "Macaycayawan",
                 "Cabalitian",
-                "Camagsingalan"
+                "Camagsingalan",
             ],
             "Tayug": [
                 "Legaspi",
@@ -12515,7 +12477,7 @@ BARANGAY = {
                 "Trenchera",
                 "Barangay C ",
                 "Lawak",
-                "Toketec"
+                "Toketec",
             ],
             "Umingan": [
                 "Concepcion",
@@ -12575,7 +12537,7 @@ BARANGAY = {
                 "Bantug",
                 "Cabangaran",
                 "Prado",
-                "San Pablo"
+                "San Pablo",
             ],
             "Urbiztondo": [
                 "Bituag",
@@ -12598,7 +12560,7 @@ BARANGAY = {
                 "Sawat",
                 "Salavante",
                 "Pisuac",
-                "Dalanguiring"
+                "Dalanguiring",
             ],
             "Villasis": [
                 "Labit",
@@ -12621,9 +12583,9 @@ BARANGAY = {
                 "Caramutan",
                 "Bacag",
                 "Capulaan",
-                "Amamperez"
-            ]
-        }
+                "Amamperez",
+            ],
+        },
     },
     "Region II (Cagayan Valley)": {
         "Batanes": {
@@ -12633,41 +12595,26 @@ BARANGAY = {
                 "Ihubok I",
                 "San Antonio",
                 "Kayhuvokan",
-                "San Joaquin"
+                "San Joaquin",
             ],
             "Itbayat": [
                 "Santa Maria",
                 "San Rafael",
                 "Santa Rosa",
                 "Raele",
-                "Santa Lucia"
+                "Santa Lucia",
             ],
-            "Ivana": [
-                "San Vicente",
-                "Tuhel ",
-                "Salagao",
-                "Radiwan"
-            ],
-            "Mahatao": [
-                "Panatayan",
-                "Uvoy ",
-                "Kaumbakan",
-                "Ha\u00f1ib"
-            ],
+            "Ivana": ["San Vicente", "Tuhel ", "Salagao", "Radiwan"],
+            "Mahatao": ["Panatayan", "Uvoy ", "Kaumbakan", "Ha\u00f1ib"],
             "Sabtang": [
                 "Sinakan ",
                 "Sumnanga",
                 "Chavayan",
                 "Malakdang ",
                 "Nakanmuan",
-                "Savidug"
+                "Savidug",
             ],
-            "Uyugan": [
-                "Imnajbu",
-                "Kayuganan ",
-                "Itbud",
-                "Kayvaluganan "
-            ]
+            "Uyugan": ["Imnajbu", "Kayuganan ", "Itbud", "Kayvaluganan "],
         },
         "Cagayan": {
             "Abulug": [
@@ -12690,7 +12637,7 @@ BARANGAY = {
                 "Libertad",
                 "Alinunu",
                 "Pinili",
-                "Calog Sur"
+                "Calog Sur",
             ],
             "Alcala": [
                 "Centro Sur ",
@@ -12717,7 +12664,7 @@ BARANGAY = {
                 "Pinopoc",
                 "Baculod",
                 "Agani",
-                "Dalaoig"
+                "Dalaoig",
             ],
             "Allacapan": [
                 "Daan-Ili",
@@ -12746,7 +12693,7 @@ BARANGAY = {
                 "Capalutan",
                 "Dagupan",
                 "Dalayap",
-                "Pacac"
+                "Pacac",
             ],
             "Amulung": [
                 "Alituntung",
@@ -12795,7 +12742,7 @@ BARANGAY = {
                 "Calintaan",
                 "Nangalasauan",
                 "Anquiray",
-                "Gangauan"
+                "Gangauan",
             ],
             "Aparri": [
                 "Bulala Sur",
@@ -12839,7 +12786,7 @@ BARANGAY = {
                 "Toran",
                 "Punta",
                 "Tallungan",
-                "Paruddun Norte"
+                "Paruddun Norte",
             ],
             "Baggao": [
                 "Taguing",
@@ -12889,7 +12836,7 @@ BARANGAY = {
                 "Asinga-Via",
                 "Asassi",
                 "Mabini",
-                "Bunugan"
+                "Bunugan",
             ],
             "Ballesteros": [
                 "Cabaritan East",
@@ -12910,7 +12857,7 @@ BARANGAY = {
                 "Zitanga",
                 "Cabaritan West",
                 "Mabuttal East",
-                "Payagan East"
+                "Payagan East",
             ],
             "Buguey": [
                 "Santa Maria",
@@ -12942,7 +12889,7 @@ BARANGAY = {
                 "Villa Gracia",
                 "Mala Weste",
                 "M. Antiporda",
-                "Villa Cielo"
+                "Villa Cielo",
             ],
             "Calayan": [
                 "Balatubat",
@@ -12956,7 +12903,7 @@ BARANGAY = {
                 "Babuyan Claro",
                 "Dilam",
                 "Naguilian",
-                "Dadao"
+                "Dadao",
             ],
             "Camalaniugan": [
                 "Baggao",
@@ -12986,7 +12933,7 @@ BARANGAY = {
                 "Casili Norte",
                 "Abagao",
                 "Dammang Norte",
-                "Catotoran Norte"
+                "Catotoran Norte",
             ],
             "Claveria": [
                 "Tabbugan",
@@ -13029,7 +12976,7 @@ BARANGAY = {
                 "Capannikian",
                 "San Antonio",
                 "Sto. Tomas",
-                "Santiago"
+                "Santiago",
             ],
             "Enrile": [
                 "Alibago",
@@ -13053,7 +13000,7 @@ BARANGAY = {
                 "Divisoria",
                 "San Antonio",
                 "Barangay I ",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Gattaran": [
                 "Bangatan Ngagan",
@@ -13105,7 +13052,7 @@ BARANGAY = {
                 "Baraoidan",
                 "Dummun",
                 "Tanglagan",
-                "Cumao"
+                "Cumao",
             ],
             "Gonzaga": [
                 "Santa Maria",
@@ -13132,7 +13079,7 @@ BARANGAY = {
                 "Casitan",
                 "Progressive ",
                 "Ipil",
-                "Batangan"
+                "Batangan",
             ],
             "Iguig": [
                 "Ajat ",
@@ -13157,7 +13104,7 @@ BARANGAY = {
                 "Garab",
                 "Atulu",
                 "Campo",
-                "Salamague"
+                "Salamague",
             ],
             "Lal-Lo": [
                 "Tucalana",
@@ -13194,7 +13141,7 @@ BARANGAY = {
                 "San Antonio",
                 "San Mariano",
                 "Maxingal",
-                "Abagao"
+                "Abagao",
             ],
             "Lasam": [
                 "New Orlins",
@@ -13226,7 +13173,7 @@ BARANGAY = {
                 "Nicolas Agatep",
                 "Peru",
                 "Tagao",
-                "Centro III "
+                "Centro III ",
             ],
             "Pamplona": [
                 "San Juan",
@@ -13246,7 +13193,7 @@ BARANGAY = {
                 "Masi",
                 "Abanqueruan",
                 "Curva",
-                "Centro "
+                "Centro ",
             ],
             "Pe\u00f1ablanca": [
                 "Bical",
@@ -13272,7 +13219,7 @@ BARANGAY = {
                 "Alimannao",
                 "Buyun",
                 "Aggugaddan",
-                "Baliuag"
+                "Baliuag",
             ],
             "Piat": [
                 "Villa Rey",
@@ -13292,7 +13239,7 @@ BARANGAY = {
                 "Calaoagan",
                 "Dugayung",
                 "Sicatna",
-                "Baung"
+                "Baung",
             ],
             "Rizal": [
                 "Nanungaran",
@@ -13323,7 +13270,7 @@ BARANGAY = {
                 "Gaggabutan East",
                 "Battut",
                 "Illuru Norte",
-                "Bural"
+                "Bural",
             ],
             "Sanchez-Mira": [
                 "Masisit",
@@ -13343,7 +13290,7 @@ BARANGAY = {
                 "Santor",
                 "Centro II ",
                 "Nagrangtayan",
-                "San Andres"
+                "San Andres",
             ],
             "Santa Ana": [
                 "Palawig",
@@ -13361,7 +13308,7 @@ BARANGAY = {
                 "Batu-Parada",
                 "Tangatan",
                 "Centro ",
-                "Diora-Zinungan"
+                "Diora-Zinungan",
             ],
             "Santa Praxedes": [
                 "San Juan",
@@ -13373,7 +13320,7 @@ BARANGAY = {
                 "Centro II ",
                 "Salungsong",
                 "Macatel",
-                "Capacuan"
+                "Capacuan",
             ],
             "Santa Teresita": [
                 "Caniugan",
@@ -13388,7 +13335,7 @@ BARANGAY = {
                 "Masi",
                 "Aridowen",
                 "Alucao",
-                "Mission"
+                "Mission",
             ],
             "Santo Ni\u00f1o": [
                 "Centro Sur ",
@@ -13421,7 +13368,7 @@ BARANGAY = {
                 "Campo",
                 "Sidiran",
                 "Niug Sur",
-                "Calassitan"
+                "Calassitan",
             ],
             "Solana": [
                 "Cadaanan",
@@ -13461,7 +13408,7 @@ BARANGAY = {
                 "Gen. Eulogio Balao",
                 "Ubong",
                 "Bauan West",
-                "Calillauan"
+                "Calillauan",
             ],
             "Tuao": [
                 "Barancuag",
@@ -13495,7 +13442,7 @@ BARANGAY = {
                 "Sto. Tomas",
                 "Lakambini",
                 "Bugnay",
-                "Bulagao"
+                "Bulagao",
             ],
             "Tuguegarao City ": [
                 "Cataggaman Viejo",
@@ -13546,8 +13493,8 @@ BARANGAY = {
                 "Centro 8 ",
                 "Carig",
                 "Pallua Norte",
-                "Centro 1 "
-            ]
+                "Centro 1 ",
+            ],
         },
         "Isabela": {
             "Alicia": [
@@ -13584,7 +13531,7 @@ BARANGAY = {
                 "Bagong Sikat",
                 "Burgos",
                 "Mabini",
-                "San Pablo"
+                "San Pablo",
             ],
             "Angadanan": [
                 "Barangcuag",
@@ -13645,7 +13592,7 @@ BARANGAY = {
                 "Sinabbaran",
                 "Bantug",
                 "Dalakip",
-                "Centro III "
+                "Centro III ",
             ],
             "Aurora": [
                 "Diamantina",
@@ -13680,7 +13627,7 @@ BARANGAY = {
                 "Divisoria",
                 "Villa Nuesa",
                 "San Ramon",
-                "Sili"
+                "Sili",
             ],
             "Benito Soliven": [
                 "Santa Cruz",
@@ -13711,7 +13658,7 @@ BARANGAY = {
                 "Placer",
                 "La Salette",
                 "Santiago",
-                "District I "
+                "District I ",
             ],
             "Burgos": [
                 "San Roque",
@@ -13727,7 +13674,7 @@ BARANGAY = {
                 "Cullalabo Del Sur",
                 "Catabban",
                 "Malasin",
-                "San Bonifacio"
+                "San Bonifacio",
             ],
             "Cabagan": [
                 "Casibarag Sur",
@@ -13755,7 +13702,7 @@ BARANGAY = {
                 "Casibarag Norte",
                 "San Antonio",
                 "Anao",
-                "Masipi East"
+                "Masipi East",
             ],
             "Cabatuan": [
                 "Diamantina",
@@ -13779,7 +13726,7 @@ BARANGAY = {
                 "Del Corpuz",
                 "Culing West",
                 "Culing East",
-                "Calaocan"
+                "Calaocan",
             ],
             "City of Cauayan": [
                 "Sinippil",
@@ -13846,7 +13793,7 @@ BARANGAY = {
                 "District I ",
                 "San Pablo",
                 "De Vera",
-                "Disimuray"
+                "Disimuray",
             ],
             "City of Ilagan ": [
                 "Villa Imelda",
@@ -13939,7 +13886,7 @@ BARANGAY = {
                 "Cabeseria 4",
                 "Santa Isabel Norte",
                 "Calamagui 2nd",
-                "Malalam"
+                "Malalam",
             ],
             "City of Santiago": [
                 "Naggasican",
@@ -13978,7 +13925,7 @@ BARANGAY = {
                 "Divisoria",
                 "Plaridel",
                 "Mabini",
-                "Bannawag Norte"
+                "Bannawag Norte",
             ],
             "Cordon": [
                 "Capirpiriwan",
@@ -14006,7 +13953,7 @@ BARANGAY = {
                 "Aguinaldo",
                 "Calimaturod",
                 "Roxas Pob.",
-                "Tanggal"
+                "Tanggal",
             ],
             "Delfin Albano": [
                 "Concepcion",
@@ -14037,7 +13984,7 @@ BARANGAY = {
                 "Calaocan",
                 "Ragan Sur ",
                 "San Antonio",
-                "Carmencita"
+                "Carmencita",
             ],
             "Dinapigue": [
                 "Dibulo",
@@ -14045,7 +13992,7 @@ BARANGAY = {
                 "Digumased ",
                 "Ayod",
                 "Dimaluade",
-                "Bucal Norte"
+                "Bucal Norte",
             ],
             "Divilacan": [
                 "Sapinit",
@@ -14059,7 +14006,7 @@ BARANGAY = {
                 "Dicaroyan",
                 "Bicobian",
                 "Dilakit",
-                "Dicatian"
+                "Dicatian",
             ],
             "Echague": [
                 "Gumbauan",
@@ -14125,7 +14072,7 @@ BARANGAY = {
                 "Diasan",
                 "Ipil",
                 "Buneg",
-                "Dammang West"
+                "Dammang West",
             ],
             "Gamu": [
                 "District I ",
@@ -14143,7 +14090,7 @@ BARANGAY = {
                 "Dammao",
                 "Buenavista",
                 "District II ",
-                "Mabini"
+                "Mabini",
             ],
             "Jones": [
                 "Linomot",
@@ -14187,7 +14134,7 @@ BARANGAY = {
                 "Disimpit",
                 "Lacab",
                 "Dipangit",
-                "Daligan"
+                "Daligan",
             ],
             "Luna": [
                 "Concepcion",
@@ -14208,7 +14155,7 @@ BARANGAY = {
                 "Harana",
                 "Maca\u00f1ao",
                 "Pulay",
-                "Centro 1 "
+                "Centro 1 ",
             ],
             "Maconacon": [
                 "Lita ",
@@ -14220,7 +14167,7 @@ BARANGAY = {
                 "Minanga",
                 "Reina Mercedes",
                 "Malasin",
-                "Fely "
+                "Fely ",
             ],
             "Mallig": [
                 "San Pedro",
@@ -14240,7 +14187,7 @@ BARANGAY = {
                 "Centro II ",
                 "Olango",
                 "Manano",
-                "Holy Friday"
+                "Holy Friday",
             ],
             "Naguilian": [
                 "Manaring",
@@ -14267,7 +14214,7 @@ BARANGAY = {
                 "Bagong Sikat",
                 "Aguinaldo",
                 "Burgos",
-                "Quinalabasa"
+                "Quinalabasa",
             ],
             "Palanan": [
                 "Maligaya",
@@ -14286,7 +14233,7 @@ BARANGAY = {
                 "Dicabisagan West ",
                 "Dimasari",
                 "Dimalicu-licu",
-                "Didaddungan"
+                "Didaddungan",
             ],
             "Quezon": [
                 "San Juan",
@@ -14303,7 +14250,7 @@ BARANGAY = {
                 "Mangga",
                 "Calangigan",
                 "Alunan ",
-                "Estrada"
+                "Estrada",
             ],
             "Quirino": [
                 "Binarzang",
@@ -14326,7 +14273,7 @@ BARANGAY = {
                 "Dolores",
                 "Vintar",
                 "Santa Lucia ",
-                "Santiago"
+                "Santiago",
             ],
             "Ramon": [
                 "Villa Marcos",
@@ -14347,7 +14294,7 @@ BARANGAY = {
                 "San Miguel",
                 "San Antonio",
                 "Burgos",
-                "Villa Carmen"
+                "Villa Carmen",
             ],
             "Reina Mercedes": [
                 "Banquero",
@@ -14369,7 +14316,7 @@ BARANGAY = {
                 "Sallucong",
                 "Santiago",
                 "District I ",
-                "Villador"
+                "Villador",
             ],
             "Roxas": [
                 "Vira ",
@@ -14397,7 +14344,7 @@ BARANGAY = {
                 "Bantug ",
                 "Anao",
                 "Sinamar",
-                "Masigun"
+                "Masigun",
             ],
             "San Agustin": [
                 "Dabubu Grande",
@@ -14422,7 +14369,7 @@ BARANGAY = {
                 "San Antonio",
                 "Palacian",
                 "Dabubu Peque\u00f1o",
-                "Nemmatan"
+                "Nemmatan",
             ],
             "San Guillermo": [
                 "Palawan",
@@ -14450,7 +14397,7 @@ BARANGAY = {
                 "Burgos",
                 "San Mariano Sur",
                 "Progreso",
-                "San Francisco Sur"
+                "San Francisco Sur",
             ],
             "San Isidro": [
                 "Quezon",
@@ -14465,7 +14412,7 @@ BARANGAY = {
                 "Rizal West ",
                 "Cebu",
                 "Villaflor",
-                "Ramos East"
+                "Ramos East",
             ],
             "San Manuel": [
                 "Agliam",
@@ -14486,7 +14433,7 @@ BARANGAY = {
                 "Nueva Era",
                 "Sandiat East",
                 "District 4 ",
-                "Babanuang"
+                "Babanuang",
             ],
             "San Mariano": [
                 "Old San Mariano",
@@ -14524,7 +14471,7 @@ BARANGAY = {
                 "Libertad",
                 "Casala",
                 "Palutan",
-                "San Pablo"
+                "San Pablo",
             ],
             "San Mateo": [
                 "Gaddanan",
@@ -14559,7 +14506,7 @@ BARANGAY = {
                 "Dagupan",
                 "San Antonio",
                 "Barangay I ",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "San Pablo": [
                 "Caralucud",
@@ -14578,7 +14525,7 @@ BARANGAY = {
                 "Minanga Sur",
                 "Tupa",
                 "Simanu Sur",
-                "Simanu Norte"
+                "Simanu Norte",
             ],
             "Santa Maria": [
                 "Calamagui West",
@@ -14600,7 +14547,7 @@ BARANGAY = {
                 "Mozzozzin Sur",
                 "Divisoria",
                 "Villabuena",
-                "San Antonio"
+                "San Antonio",
             ],
             "Santo Tomas": [
                 "Calanigan Norte",
@@ -14629,7 +14576,7 @@ BARANGAY = {
                 "Colunguan",
                 "Biga Occidental",
                 "Barumbong",
-                "San Rafael Alto"
+                "San Rafael Alto",
             ],
             "Tumauini": [
                 "Sinippil",
@@ -14677,8 +14624,8 @@ BARANGAY = {
                 "Antagan II",
                 "Sisim Abajo",
                 "Fermeldy",
-                "Bantug"
-            ]
+                "Bantug",
+            ],
         },
         "Nueva Vizcaya": {
             "Alfonso Castaneda": [
@@ -14687,7 +14634,7 @@ BARANGAY = {
                 "Galintuja",
                 "Cawayan",
                 "Lublub ",
-                "Abuyo"
+                "Abuyo",
             ],
             "Ambaguio": [
                 "Ammoweg",
@@ -14697,7 +14644,7 @@ BARANGAY = {
                 "Napo",
                 "Salingsingan",
                 "Tiblac",
-                "Dulli"
+                "Dulli",
             ],
             "Aritao": [
                 "Yaway",
@@ -14721,7 +14668,7 @@ BARANGAY = {
                 "Kirang",
                 "Baan",
                 "Ocao-Capiniaan",
-                "Cutar"
+                "Cutar",
             ],
             "Bagabag": [
                 "Tuao North",
@@ -14740,7 +14687,7 @@ BARANGAY = {
                 "Murong",
                 "Bakir",
                 "Sta. Lucia",
-                "Tuao South"
+                "Tuao South",
             ],
             "Bambang": [
                 "Banggot ",
@@ -14767,7 +14714,7 @@ BARANGAY = {
                 "Pallas",
                 "Barat",
                 "Buag ",
-                "Manamtam"
+                "Manamtam",
             ],
             "Bayombong ": [
                 "Magsaysay",
@@ -14794,7 +14741,7 @@ BARANGAY = {
                 "Magapuy",
                 "Salvacion",
                 "Bonfal West",
-                "Masoc"
+                "Masoc",
             ],
             "Diadi": [
                 "Duruarog",
@@ -14815,7 +14762,7 @@ BARANGAY = {
                 "Rosario",
                 "Pinya",
                 "Lurad",
-                "San Pablo"
+                "San Pablo",
             ],
             "Dupax del Norte": [
                 "Bulala",
@@ -14832,7 +14779,7 @@ BARANGAY = {
                 "Bitnong",
                 "Mabasa",
                 "Yabbi",
-                "Ineangan"
+                "Ineangan",
             ],
             "Dupax del Sur": [
                 "Kinabuan",
@@ -14853,7 +14800,7 @@ BARANGAY = {
                 "Talbek",
                 "Kimbutan",
                 "Dopaj",
-                "Canabay"
+                "Canabay",
             ],
             "Kasibu": [
                 "Capisaan",
@@ -14885,7 +14832,7 @@ BARANGAY = {
                 "Biyoy",
                 "Kakiduguen",
                 "Siguem",
-                "Camamasi"
+                "Camamasi",
             ],
             "Kayapa": [
                 "Nansiakan",
@@ -14917,7 +14864,7 @@ BARANGAY = {
                 "Pangawan",
                 "Pinayag",
                 "Talicabcab",
-                "Baan"
+                "Baan",
             ],
             "Quezon": [
                 "Bonifacio",
@@ -14931,7 +14878,7 @@ BARANGAY = {
                 "Aurora",
                 "Caliat ",
                 "Runruno",
-                "Baresbes"
+                "Baresbes",
             ],
             "Santa Fe": [
                 "Baliling",
@@ -14949,7 +14896,7 @@ BARANGAY = {
                 "Atbu",
                 "Unib",
                 "Buyasyas",
-                "Balete"
+                "Balete",
             ],
             "Solano": [
                 "Concepcion",
@@ -14973,7 +14920,7 @@ BARANGAY = {
                 "Bangar",
                 "Bascaran",
                 "Curifang",
-                "Communal"
+                "Communal",
             ],
             "Villaverde": [
                 "Nagbitin",
@@ -14984,8 +14931,8 @@ BARANGAY = {
                 "Ocapon",
                 "Pieza",
                 "Cabuluan",
-                "Sawmill"
-            ]
+                "Sawmill",
+            ],
         },
         "Quirino": {
             "Aglipay": [
@@ -15013,7 +14960,7 @@ BARANGAY = {
                 "San Antonio",
                 "Palacian",
                 "Dungo",
-                "Pinaripad Sur"
+                "Pinaripad Sur",
             ],
             "Cabarroguis ": [
                 "Banuar",
@@ -15032,7 +14979,7 @@ BARANGAY = {
                 "Gomez",
                 "Dibibi",
                 "Zamora",
-                "Gundaway "
+                "Gundaway ",
             ],
             "Diffun": [
                 "Magsaysay",
@@ -15067,7 +15014,7 @@ BARANGAY = {
                 "San Antonio",
                 "Ricarte Norte",
                 "Rizal ",
-                "Andres Bonifacio "
+                "Andres Bonifacio ",
             ],
             "Maddela": [
                 "Santa Maria",
@@ -15101,7 +15048,7 @@ BARANGAY = {
                 "Dumabato Norte",
                 "Abbag",
                 "Lusod",
-                "San Bernabe"
+                "San Bernabe",
             ],
             "Nagtipunan": [
                 "Guino",
@@ -15119,7 +15066,7 @@ BARANGAY = {
                 "Asaklat",
                 "La Conwap",
                 "Anak",
-                "Landingan"
+                "Landingan",
             ],
             "Saguday": [
                 "Magsaysay ",
@@ -15130,9 +15077,9 @@ BARANGAY = {
                 "Salvacion",
                 "Gamis",
                 "Rizal ",
-                "Dibul"
-            ]
-        }
+                "Dibul",
+            ],
+        },
     },
     "Region III (Central Luzon)": {
         "Aurora": {
@@ -15149,7 +15096,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Barangay V ",
                 "Barangay III ",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Casiguran": [
                 "Tabas",
@@ -15175,7 +15122,7 @@ BARANGAY = {
                 "Esteves",
                 "Dibet",
                 "Barangay 6 ",
-                "Tinib"
+                "Tinib",
             ],
             "Dilasag": [
                 "Diagyan",
@@ -15188,7 +15135,7 @@ BARANGAY = {
                 "Esperanza",
                 "Manggitahan",
                 "Dicabasan",
-                "Maligaya "
+                "Maligaya ",
             ],
             "Dinalungan": [
                 "Mapalad",
@@ -15199,7 +15146,7 @@ BARANGAY = {
                 "Simbahan",
                 "Paleg",
                 "Zone II ",
-                "Nipoo"
+                "Nipoo",
             ],
             "Dingalan": [
                 "Dikapanikian",
@@ -15212,7 +15159,7 @@ BARANGAY = {
                 "Butas Na Bato",
                 "Ibona",
                 "Umiray",
-                "Caragsacan"
+                "Caragsacan",
             ],
             "Dipaculao": [
                 "Mucdol",
@@ -15239,7 +15186,7 @@ BARANGAY = {
                 "Calaocan",
                 "Dinadiawan",
                 "Diarabasin",
-                "Ipil"
+                "Ipil",
             ],
             "Maria Aurora": [
                 "Alcala",
@@ -15281,7 +15228,7 @@ BARANGAY = {
                 "Cabituculan West",
                 "Wenceslao",
                 "Diaman",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "San Luis": [
                 "San Jose",
@@ -15301,8 +15248,8 @@ BARANGAY = {
                 "Ditumabo",
                 "Barangay III ",
                 "Diteki",
-                "Barangay IV "
-            ]
+                "Barangay IV ",
+            ],
         },
         "Bataan": {
             "Abucay": [
@@ -15314,7 +15261,7 @@ BARANGAY = {
                 "Laon ",
                 "Capitangan",
                 "Salian",
-                "Calaylayan "
+                "Calaylayan ",
             ],
             "Bagac": [
                 "Paysawan",
@@ -15330,7 +15277,7 @@ BARANGAY = {
                 "Atilano L. Ricardo",
                 "Saysain",
                 "Ibaba",
-                "Quinawan"
+                "Quinawan",
             ],
             "City of Balanga ": [
                 "Tuyo",
@@ -15357,7 +15304,7 @@ BARANGAY = {
                 "Tenejero",
                 "Cabog-Cabog",
                 "Cupang Proper",
-                "Dangcol"
+                "Dangcol",
             ],
             "Dinalupihan": [
                 "Colo",
@@ -15405,7 +15352,7 @@ BARANGAY = {
                 "Rizal ",
                 "Layac",
                 "Pinulot",
-                "San Pablo"
+                "San Pablo",
             ],
             "Hermosa": [
                 "Almacen",
@@ -15430,7 +15377,7 @@ BARANGAY = {
                 "Pulo",
                 "Balsic",
                 "Judge Roman Cruz Sr.",
-                "Mabiga"
+                "Mabiga",
             ],
             "Limay": [
                 "Wawa",
@@ -15444,7 +15391,7 @@ BARANGAY = {
                 "San Francisco de Asis",
                 "Alangan",
                 "Kitang I",
-                "Townsite"
+                "Townsite",
             ],
             "Mariveles": [
                 "Baseco Country",
@@ -15464,15 +15411,9 @@ BARANGAY = {
                 "Balon-Anito",
                 "Cabcaben",
                 "San Carlos",
-                "Townsite"
+                "Townsite",
             ],
-            "Morong": [
-                "Nagbalayong",
-                "Poblacion",
-                "Sabang",
-                "Mabayo",
-                "Binaritan"
-            ],
+            "Morong": ["Nagbalayong", "Poblacion", "Sabang", "Mabayo", "Binaritan"],
             "Orani": [
                 "Silahis",
                 "Tapulao",
@@ -15502,7 +15443,7 @@ BARANGAY = {
                 "Centro I ",
                 "Tagumpay",
                 "Apollo",
-                "Masantol"
+                "Masantol",
             ],
             "Orion": [
                 "San Vicente ",
@@ -15527,7 +15468,7 @@ BARANGAY = {
                 "Lati ",
                 "Villa Angeles ",
                 "Bagumbayan ",
-                "Kapunitan"
+                "Kapunitan",
             ],
             "Pilar": [
                 "Landing",
@@ -15548,7 +15489,7 @@ BARANGAY = {
                 "Nagwaling",
                 "Del Rosario ",
                 "Rizal ",
-                "Panilao"
+                "Panilao",
             ],
             "Samal": [
                 "Tabing Ilog",
@@ -15564,8 +15505,8 @@ BARANGAY = {
                 "West Calaguiman ",
                 "East Calaguiman ",
                 "Gugo",
-                "San Roque "
-            ]
+                "San Roque ",
+            ],
         },
         "Bulacan": {
             "Angat": [
@@ -15584,7 +15525,7 @@ BARANGAY = {
                 "Marungko",
                 "Donacion",
                 "Taboc",
-                "Niugan"
+                "Niugan",
             ],
             "Balagtas": [
                 "Borol 2nd",
@@ -15595,7 +15536,7 @@ BARANGAY = {
                 "Dalig",
                 "Longos",
                 "Borol 1st",
-                "Wawa "
+                "Wawa ",
             ],
             "Bocaue": [
                 "Lolomboy",
@@ -15616,7 +15557,7 @@ BARANGAY = {
                 "Tambobong",
                 "Bi\u00f1ang 2nd",
                 "Turo",
-                "Taal"
+                "Taal",
             ],
             "Bulacan": [
                 "Taliptip",
@@ -15632,7 +15573,7 @@ BARANGAY = {
                 "Santa Ana",
                 "San Nicolas",
                 "Bagumbayan",
-                "Tibig"
+                "Tibig",
             ],
             "Bustos": [
                 "Cambaog",
@@ -15648,7 +15589,7 @@ BARANGAY = {
                 "Malawak",
                 "Camachilihan",
                 "Catacte",
-                "Buisan"
+                "Buisan",
             ],
             "Calumpit": [
                 "Calizon",
@@ -15679,7 +15620,7 @@ BARANGAY = {
                 "Frances",
                 "Balungao",
                 "Longos",
-                "Caniogan"
+                "Caniogan",
             ],
             "City of Baliwag": [
                 "Concepcion",
@@ -15708,7 +15649,7 @@ BARANGAY = {
                 "Tibag",
                 "Virgen delas Flores",
                 "Barangca",
-                "Tarcan"
+                "Tarcan",
             ],
             "City of Malolos ": [
                 "Santisima Trinidad",
@@ -15761,7 +15702,7 @@ BARANGAY = {
                 "Santiago",
                 "Caniogan",
                 "Bulihan",
-                "San Pablo"
+                "San Pablo",
             ],
             "City of Meycauayan": [
                 "Lawa",
@@ -15789,7 +15730,7 @@ BARANGAY = {
                 "Saluysoy",
                 "Zamora",
                 "Calvario",
-                "Longos"
+                "Longos",
             ],
             "City of San Jose Del Monte": [
                 "Muzon South",
@@ -15853,7 +15794,7 @@ BARANGAY = {
                 "Muzon East",
                 "Kaybanban",
                 "Kaypian",
-                "Francisco Homes-Yakal"
+                "Francisco Homes-Yakal",
             ],
             "Do\u00f1a Remedios Trinidad": [
                 "Pulong Sampalok",
@@ -15863,7 +15804,7 @@ BARANGAY = {
                 "Sapang Bulak",
                 "Kabayunan",
                 "Camachile",
-                "Bayabas"
+                "Bayabas",
             ],
             "Guiguinto": [
                 "Pulong Gubat",
@@ -15879,7 +15820,7 @@ BARANGAY = {
                 "Tabe",
                 "Pritil",
                 "Cutcut",
-                "Tuktukan"
+                "Tuktukan",
             ],
             "Hagonoy": [
                 "Santa Cruz",
@@ -15907,7 +15848,7 @@ BARANGAY = {
                 "San Sebastian",
                 "Iba-Ibayo",
                 "San Miguel",
-                "San Pablo"
+                "San Pablo",
             ],
             "Marilao": [
                 "Patubig",
@@ -15925,7 +15866,7 @@ BARANGAY = {
                 "Santa Rosa II",
                 "Ibayo",
                 "Abangan Norte",
-                "Prenza II"
+                "Prenza II",
             ],
             "Norzagaray": [
                 "Bitungol",
@@ -15940,7 +15881,7 @@ BARANGAY = {
                 "Friendship Village Resources",
                 "Matictic",
                 "Pinagtulayan",
-                "Minuyan"
+                "Minuyan",
             ],
             "Obando": [
                 "Lawa",
@@ -15953,7 +15894,7 @@ BARANGAY = {
                 "Pag-asa ",
                 "Paco",
                 "Paliwas",
-                "Tawiran"
+                "Tawiran",
             ],
             "Pandi": [
                 "Bunsuran III",
@@ -15977,7 +15918,7 @@ BARANGAY = {
                 "Masuso",
                 "Masagana",
                 "Cacarong Matanda",
-                "Cupang"
+                "Cupang",
             ],
             "Paombong": [
                 "San Roque",
@@ -15993,7 +15934,7 @@ BARANGAY = {
                 "Santo Rosario",
                 "San Isidro II",
                 "Pinalagdan",
-                "San Jose"
+                "San Jose",
             ],
             "Plaridel": [
                 "Santa Ines",
@@ -16014,7 +15955,7 @@ BARANGAY = {
                 "Lagundi",
                 "Lalangan",
                 "Bulihan",
-                "Banga I"
+                "Banga I",
             ],
             "Pulilan": [
                 "Balatong A",
@@ -16035,7 +15976,7 @@ BARANGAY = {
                 "Cutcot",
                 "Tibag",
                 "Longos",
-                "Taal"
+                "Taal",
             ],
             "San Ildefonso": [
                 "Alagao",
@@ -16073,7 +16014,7 @@ BARANGAY = {
                 "Basuit",
                 "Garlang",
                 "Pinaod",
-                "Matimbubong"
+                "Matimbubong",
             ],
             "San Miguel": [
                 "Maligaya",
@@ -16124,7 +16065,7 @@ BARANGAY = {
                 "Ilog-Bulo",
                 "Salangan",
                 "Mandile",
-                "Tartaro"
+                "Tartaro",
             ],
             "San Rafael": [
                 "Maguinao",
@@ -16160,7 +16101,7 @@ BARANGAY = {
                 "Dagat-dagatan",
                 "Maasim",
                 "Pulo",
-                "Sapang Pahalang"
+                "Sapang Pahalang",
             ],
             "Santa Maria": [
                 "Sta. Cruz",
@@ -16186,8 +16127,8 @@ BARANGAY = {
                 "Sta. Clara",
                 "Balasing",
                 "Camangyanan",
-                "Tabing Bakod"
-            ]
+                "Tabing Bakod",
+            ],
         },
         "Nueva Ecija": {
             "Aliaga": [
@@ -16216,7 +16157,7 @@ BARANGAY = {
                 "La Purisima",
                 "San Pablo Matanda",
                 "Poblacion East I",
-                "Santiago"
+                "Santiago",
             ],
             "Bongabon": [
                 "Tulay na Bato ",
@@ -16246,7 +16187,7 @@ BARANGAY = {
                 "Kaingin ",
                 "Vega",
                 "Lusok",
-                "Rizal "
+                "Rizal ",
             ],
             "Cabiao": [
                 "Concepcion",
@@ -16271,7 +16212,7 @@ BARANGAY = {
                 "San Juan North ",
                 "San Antonio",
                 "Entablado",
-                "Polilio"
+                "Polilio",
             ],
             "Carranglan": [
                 "Joson",
@@ -16290,7 +16231,7 @@ BARANGAY = {
                 "Puncan",
                 "G. S. Rosario Pob.",
                 "Bantug",
-                "D. L. Maglanoc Pob."
+                "D. L. Maglanoc Pob.",
             ],
             "City of Cabanatuan": [
                 "Bagong Buhay",
@@ -16381,7 +16322,7 @@ BARANGAY = {
                 "Bagong Sikat",
                 "San Roque Sur",
                 "Sanbermicristi ",
-                "Bernardo District "
+                "Bernardo District ",
             ],
             "City of Gapan": [
                 "Santa Cruz",
@@ -16406,7 +16347,7 @@ BARANGAY = {
                 "Santo Cristo Norte",
                 "Bungo",
                 "Mahipon",
-                "Marelo"
+                "Marelo",
             ],
             "City of Palayan ": [
                 "Maligaya",
@@ -16427,7 +16368,7 @@ BARANGAY = {
                 "Singalat",
                 "Marcos Village",
                 "Imelda Valley",
-                "Aulo"
+                "Aulo",
             ],
             "Cuyapo": [
                 "Bambanaba",
@@ -16480,7 +16421,7 @@ BARANGAY = {
                 "San Antonio",
                 "Baloy",
                 "Columbitin",
-                "Burgos"
+                "Burgos",
             ],
             "Gabaldon": [
                 "Bugnan",
@@ -16498,7 +16439,7 @@ BARANGAY = {
                 "Bantug",
                 "Camachile",
                 "Malinao",
-                "Bitulok"
+                "Bitulok",
             ],
             "General Mamerto Natividad": [
                 "Sapang Bato",
@@ -16520,7 +16461,7 @@ BARANGAY = {
                 "Balangkare Sur",
                 "Picaleon",
                 "Pinahan",
-                "Belen"
+                "Belen",
             ],
             "General Tinio": [
                 "Concepcion",
@@ -16535,7 +16476,7 @@ BARANGAY = {
                 "Pulong Matong",
                 "Bago",
                 "Palale",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "Guimba": [
                 "Santa Cruz",
@@ -16601,7 +16542,7 @@ BARANGAY = {
                 "Tampac II & III",
                 "Bantug",
                 "Lamorito",
-                "Escano"
+                "Escano",
             ],
             "Jaen": [
                 "Dampulan ",
@@ -16630,7 +16571,7 @@ BARANGAY = {
                 "Ulanin-Pitak",
                 "Imbunia",
                 "Malabon-Kaingin",
-                "Magsalisi"
+                "Magsalisi",
             ],
             "Laur": [
                 "San Juan",
@@ -16649,7 +16590,7 @@ BARANGAY = {
                 "Betania",
                 "Siclong",
                 "Barangay IV ",
-                "Pangarulong"
+                "Pangarulong",
             ],
             "Licab": [
                 "San Cristobal",
@@ -16662,7 +16603,7 @@ BARANGAY = {
                 "Linao",
                 "Aquino",
                 "San Jose",
-                "San Casimiro"
+                "San Casimiro",
             ],
             "Llanera": [
                 "Inanama",
@@ -16686,7 +16627,7 @@ BARANGAY = {
                 "Bagumbayan ",
                 "Plaridel",
                 "Mabini",
-                "Murcon"
+                "Murcon",
             ],
             "Lupao": [
                 "Salvacion II",
@@ -16712,7 +16653,7 @@ BARANGAY = {
                 "Poblacion East",
                 "Agupalo Este",
                 "Namulandayan",
-                "Burgos"
+                "Burgos",
             ],
             "Nampicuan": [
                 "West Poblacion",
@@ -16735,7 +16676,7 @@ BARANGAY = {
                 "Estacion ",
                 "Monic",
                 "Cabaducan West ",
-                "Mayantoc"
+                "Mayantoc",
             ],
             "Pantabangan": [
                 "San Juan",
@@ -16751,7 +16692,7 @@ BARANGAY = {
                 "Conversion",
                 "Napon-Napon",
                 "Fatima",
-                "Poblacion West"
+                "Poblacion West",
             ],
             "Pe\u00f1aranda": [
                 "Las Pi\u00f1as",
@@ -16763,7 +16704,7 @@ BARANGAY = {
                 "Poblacion II",
                 "San Mariano",
                 "Poblacion III",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Quezon": [
                 "Bertese",
@@ -16781,7 +16722,7 @@ BARANGAY = {
                 "Dulong Bayan",
                 "San Andres I",
                 "Santa Clara",
-                "Do\u00f1a Lucia"
+                "Do\u00f1a Lucia",
             ],
             "Rizal": [
                 "Maligaya",
@@ -16809,7 +16750,7 @@ BARANGAY = {
                 "Aglipay",
                 "Poblacion Central",
                 "Bicos",
-                "Canaan East"
+                "Canaan East",
             ],
             "San Antonio": [
                 "Julo",
@@ -16827,7 +16768,7 @@ BARANGAY = {
                 "Santa Barbara",
                 "San Jose",
                 "Santo Cristo",
-                "Luyos"
+                "Luyos",
             ],
             "San Isidro": [
                 "San Roque",
@@ -16838,7 +16779,7 @@ BARANGAY = {
                 "Calaba",
                 "Mangga",
                 "Malapit",
-                "Alua"
+                "Alua",
             ],
             "San Jose City": [
                 "Caanawan",
@@ -16878,7 +16819,7 @@ BARANGAY = {
                 "Kita-Kita",
                 "Bagong Sikat",
                 "Tayabo",
-                "Tondod"
+                "Tondod",
             ],
             "San Leonardo": [
                 "Magpapalayoc",
@@ -16895,7 +16836,7 @@ BARANGAY = {
                 "San Anton",
                 "Nieves",
                 "Burgos District ",
-                "Mallorca"
+                "Mallorca",
             ],
             "Santa Rosa": [
                 "Rajal Centro",
@@ -16930,7 +16871,7 @@ BARANGAY = {
                 "Aguinaldo",
                 "Rizal ",
                 "Mabini",
-                "La Fuente"
+                "La Fuente",
             ],
             "Santo Domingo": [
                 "Concepcion",
@@ -16956,7 +16897,7 @@ BARANGAY = {
                 "Dolores",
                 "Burgos",
                 "Mabini",
-                "Pulong Buli"
+                "Pulong Buli",
             ],
             "Science City of Mu\u00f1oz": [
                 "Maligaya",
@@ -16995,7 +16936,7 @@ BARANGAY = {
                 "Cabisuculan",
                 "San Antonio",
                 "Bantug",
-                "Franza"
+                "Franza",
             ],
             "Talavera": [
                 "Andal Alino ",
@@ -17050,7 +16991,7 @@ BARANGAY = {
                 "Pinagpanaan",
                 "Bantug",
                 "Sicsican Matanda",
-                "Valle"
+                "Valle",
             ],
             "Talugtug": [
                 "Baybayabas",
@@ -17080,7 +17021,7 @@ BARANGAY = {
                 "Mayamot I",
                 "Saguing",
                 "Saringaya",
-                "Maasin"
+                "Maasin",
             ],
             "Zaragoza": [
                 "Concepcion",
@@ -17101,8 +17042,8 @@ BARANGAY = {
                 "General Luna",
                 "San Rafael",
                 "Macarse",
-                "H. Romero"
-            ]
+                "H. Romero",
+            ],
         },
         "Pampanga": {
             "Apalit": [
@@ -17117,7 +17058,7 @@ BARANGAY = {
                 "San Vicente",
                 "Sucad",
                 "Cansinala",
-                "Tabuyuc"
+                "Tabuyuc",
             ],
             "Arayat": [
                 "Guemasan",
@@ -17149,7 +17090,7 @@ BARANGAY = {
                 "San Jose Mesulo",
                 "San Antonio",
                 "Mangga-Cacutud",
-                "Panlinlang"
+                "Panlinlang",
             ],
             "Bacolor": [
                 "Cabalantian",
@@ -17172,7 +17113,7 @@ BARANGAY = {
                 "Dolores",
                 "San Antonio",
                 "Talba",
-                "Macabacle"
+                "Macabacle",
             ],
             "Candaba": [
                 "Talang",
@@ -17207,7 +17148,7 @@ BARANGAY = {
                 "Tenejero",
                 "Vizal San Pablo",
                 "San Agustin ",
-                "Barangca"
+                "Barangca",
             ],
             "City of San Fernando ": [
                 "Telabastagan",
@@ -17244,7 +17185,7 @@ BARANGAY = {
                 "Del Carmen",
                 "Saguin",
                 "Juliana",
-                "Calulut"
+                "Calulut",
             ],
             "Floridablanca": [
                 "Basa Air Base",
@@ -17279,7 +17220,7 @@ BARANGAY = {
                 "San Antonio",
                 "Gutad",
                 "Palmayo",
-                "Carmencita"
+                "Carmencita",
             ],
             "Guagua": [
                 "Magsaysay",
@@ -17312,7 +17253,7 @@ BARANGAY = {
                 "Plaza Burgos ",
                 "San Antonio",
                 "Santa Filomena ",
-                "San Pablo"
+                "San Pablo",
             ],
             "Lubao": [
                 "Concepcion",
@@ -17358,7 +17299,7 @@ BARANGAY = {
                 "Remedios",
                 "Santa Teresa 2nd",
                 "San Roque Dau",
-                "Bancal Pugad"
+                "Bancal Pugad",
             ],
             "Mabalacat City": [
                 "Bical",
@@ -17387,7 +17328,7 @@ BARANGAY = {
                 "Sapang Biabas",
                 "Duquit",
                 "Mabiga",
-                "Macapagal Village"
+                "Macapagal Village",
             ],
             "Macabebe": [
                 "Sta. Maria",
@@ -17414,7 +17355,7 @@ BARANGAY = {
                 "Sto. Ni\u00f1o",
                 "San Esteban",
                 "San Rafael",
-                "Dalayap"
+                "Dalayap",
             ],
             "Magalang": [
                 "Santa Maria",
@@ -17443,7 +17384,7 @@ BARANGAY = {
                 "San Ildefonso",
                 "San Miguel",
                 "Santa Cruz ",
-                "San Antonio"
+                "San Antonio",
             ],
             "Masantol": [
                 "San Isidro Matua ",
@@ -17471,7 +17412,7 @@ BARANGAY = {
                 "Sta. Lucia Wakas",
                 "Puti",
                 "Bagang",
-                "Nigui"
+                "Nigui",
             ],
             "Mexico": [
                 "Concepcion",
@@ -17516,7 +17457,7 @@ BARANGAY = {
                 "Sabanilla",
                 "San Antonio",
                 "Anao",
-                "San Pablo"
+                "San Pablo",
             ],
             "Minalin": [
                 "Dawe",
@@ -17533,7 +17474,7 @@ BARANGAY = {
                 "Saplad",
                 "Sta. Maria",
                 "Sto. Domingo",
-                "Maniango"
+                "Maniango",
             ],
             "Porac": [
                 "Pias",
@@ -17564,7 +17505,7 @@ BARANGAY = {
                 "Palat",
                 "Salu",
                 "Inararo",
-                "Babo Pangulo"
+                "Babo Pangulo",
             ],
             "San Luis": [
                 "San Juan",
@@ -17583,7 +17524,7 @@ BARANGAY = {
                 "San Jose",
                 "San Nicolas",
                 "Santo Rosario",
-                "San Sebastian"
+                "San Sebastian",
             ],
             "San Simon": [
                 "Concepcion",
@@ -17599,7 +17540,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "San Pablo Libutad",
                 "San Jose",
-                "San Nicolas"
+                "San Nicolas",
             ],
             "Santa Ana": [
                 "San Juan",
@@ -17615,7 +17556,7 @@ BARANGAY = {
                 "Santiago",
                 "San Jose",
                 "San Nicolas",
-                "San Pablo"
+                "San Pablo",
             ],
             "Santa Rita": [
                 "San Juan",
@@ -17627,7 +17568,7 @@ BARANGAY = {
                 "San Agustin",
                 "Becuran",
                 "Dila-dila",
-                "San Vicente"
+                "San Vicente",
             ],
             "Sasmuan": [
                 "Sta. Lucia ",
@@ -17641,7 +17582,7 @@ BARANGAY = {
                 "San Antonio",
                 "Batang 2nd",
                 "Batang 1st",
-                "San Nicolas 1st"
+                "San Nicolas 1st",
             ],
             "Sto. Tomas": [
                 "Moras De La Paz",
@@ -17650,8 +17591,8 @@ BARANGAY = {
                 "Sapa",
                 "San Vicente",
                 "San Bartolome",
-                "Santo Rosario"
-            ]
+                "Santo Rosario",
+            ],
         },
         "Tarlac": {
             "Anao": [
@@ -17672,7 +17613,7 @@ BARANGAY = {
                 "Campos",
                 "Sinense",
                 "San Francisco East",
-                "Don Ramon"
+                "Don Ramon",
             ],
             "Bamban": [
                 "Malonzo",
@@ -17689,7 +17630,7 @@ BARANGAY = {
                 "Dela Cruz",
                 "Culubasa",
                 "Bangcu",
-                "San Nicolas "
+                "San Nicolas ",
             ],
             "Camiling": [
                 "Marawi",
@@ -17752,7 +17693,7 @@ BARANGAY = {
                 "Surgui 3rd",
                 "Sawat",
                 "Cacamilingan Norte",
-                "Malacampa"
+                "Malacampa",
             ],
             "Capas": [
                 "Lawy",
@@ -17774,7 +17715,7 @@ BARANGAY = {
                 "O'Donnell",
                 "Manlapig",
                 "Cubcub ",
-                "Estrada"
+                "Estrada",
             ],
             "City of Tarlac ": [
                 "Santo Cristo",
@@ -17852,7 +17793,7 @@ BARANGAY = {
                 "Binauganan",
                 "Tibag",
                 "Mabini",
-                "San Pablo"
+                "San Pablo",
             ],
             "Concepcion": [
                 "Santa Maria",
@@ -17899,7 +17840,7 @@ BARANGAY = {
                 "Santiago",
                 "Pitabunan",
                 "Alfonso",
-                "Dutung-A-Matas"
+                "Dutung-A-Matas",
             ],
             "Gerona": [
                 "Matapitap",
@@ -17945,7 +17886,7 @@ BARANGAY = {
                 "Don Basilio",
                 "Santiago",
                 "Mabini",
-                "Tangcaran"
+                "Tangcaran",
             ],
             "La Paz": [
                 "Kapanikian",
@@ -17968,7 +17909,7 @@ BARANGAY = {
                 "Laungcupang",
                 "Caut",
                 "Motrico",
-                "Dumarais"
+                "Dumarais",
             ],
             "Mayantoc": [
                 "Nambalan",
@@ -17994,7 +17935,7 @@ BARANGAY = {
                 "Mapandan",
                 "Carabaoan",
                 "Taldiapan",
-                "Rotrottooc"
+                "Rotrottooc",
             ],
             "Moncada": [
                 "Tubectubang",
@@ -18033,7 +17974,7 @@ BARANGAY = {
                 "Burgos",
                 "Mabini",
                 "Calamay",
-                "Villa"
+                "Villa",
             ],
             "Paniqui": [
                 "Tablang",
@@ -18070,7 +18011,7 @@ BARANGAY = {
                 "Burgos",
                 "Dapdap",
                 "Barang",
-                "Manaois"
+                "Manaois",
             ],
             "Pura": [
                 "Matindeg",
@@ -18088,7 +18029,7 @@ BARANGAY = {
                 "Poroc",
                 "Nilasin 2nd",
                 "Buenavista",
-                "Maasin"
+                "Maasin",
             ],
             "Ramos": [
                 "San Juan",
@@ -18099,7 +18040,7 @@ BARANGAY = {
                 "Poblacion Center",
                 "Poblacion South",
                 "Guiteb",
-                "Poblacion North"
+                "Poblacion North",
             ],
             "San Clemente": [
                 "Daldalayap",
@@ -18113,7 +18054,7 @@ BARANGAY = {
                 "Doclong 1",
                 "Pit-ao",
                 "Balloc",
-                "Maasin"
+                "Maasin",
             ],
             "San Jose": [
                 "David",
@@ -18128,7 +18069,7 @@ BARANGAY = {
                 "Sula",
                 "Burgos",
                 "Labney",
-                "San Juan de Valdez"
+                "San Juan de Valdez",
             ],
             "San Manuel": [
                 "Lanat",
@@ -18145,7 +18086,7 @@ BARANGAY = {
                 "Mangandingay",
                 "San Jacinto",
                 "San Narciso",
-                "Matarannoc"
+                "Matarannoc",
             ],
             "Santa Ignacia": [
                 "Cabugbugan",
@@ -18171,7 +18112,7 @@ BARANGAY = {
                 "Poblacion West",
                 "Caduldulaoan",
                 "Poblacion East",
-                "Pinpinas"
+                "Pinpinas",
             ],
             "Victoria": [
                 "San Agustin",
@@ -18199,8 +18140,8 @@ BARANGAY = {
                 "Bulo",
                 "Lalapac",
                 "Santa Lucia ",
-                "San Jacinto"
-            ]
+                "San Jacinto",
+            ],
         },
         "Zambales": {
             "Botolan": [
@@ -18234,7 +18175,7 @@ BARANGAY = {
                 "Bangan",
                 "Panan",
                 "Santiago",
-                "Capayawan"
+                "Capayawan",
             ],
             "Cabangan": [
                 "Casabaan",
@@ -18258,7 +18199,7 @@ BARANGAY = {
                 "Mabanglit",
                 "San Antonio",
                 "Longos",
-                "Felmida-Diaz"
+                "Felmida-Diaz",
             ],
             "Candelaria": [
                 "Lauis",
@@ -18276,7 +18217,7 @@ BARANGAY = {
                 "Catol",
                 "Babancal",
                 "Binabalian",
-                "Panayonan"
+                "Panayonan",
             ],
             "Castillejos": [
                 "San Roque",
@@ -18292,7 +18233,7 @@ BARANGAY = {
                 "Del Pilar",
                 "Nagbunga",
                 "Nagbayan",
-                "Buenavista"
+                "Buenavista",
             ],
             "Iba ": [
                 "Palanginan",
@@ -18308,7 +18249,7 @@ BARANGAY = {
                 "Zone 1 Pob.",
                 "Zone 5 Pob.",
                 "Amungan",
-                "Zone 3 Pob."
+                "Zone 3 Pob.",
             ],
             "Masinloc": [
                 "Inhobol",
@@ -18323,7 +18264,7 @@ BARANGAY = {
                 "Santa Rita",
                 "Santo Rosario",
                 "Taltal",
-                "Collat"
+                "Collat",
             ],
             "Palauig": [
                 "West Poblacion",
@@ -18344,7 +18285,7 @@ BARANGAY = {
                 "Cauyan",
                 "Locloc",
                 "Sto. Tomas",
-                "Alwa"
+                "Alwa",
             ],
             "San Antonio": [
                 "East Dirita",
@@ -18360,7 +18301,7 @@ BARANGAY = {
                 "Pundaquit",
                 "Angeles",
                 "Santiago",
-                "San Nicolas "
+                "San Nicolas ",
             ],
             "San Felipe": [
                 "Sto. Ni\u00f1o",
@@ -18373,7 +18314,7 @@ BARANGAY = {
                 "Balincaguing",
                 "Sindol",
                 "Feria ",
-                "Apostol "
+                "Apostol ",
             ],
             "San Marcelino": [
                 "Buhawen",
@@ -18393,7 +18334,7 @@ BARANGAY = {
                 "Lucero ",
                 "San Isidro ",
                 "San Guillermo ",
-                "Aglao"
+                "Aglao",
             ],
             "San Narciso": [
                 "Simminublan",
@@ -18412,7 +18353,7 @@ BARANGAY = {
                 "San Rafael ",
                 "Libertad ",
                 "Candelaria ",
-                "Patrocinio "
+                "Patrocinio ",
             ],
             "Santa Cruz": [
                 "Guinabon",
@@ -18439,7 +18380,7 @@ BARANGAY = {
                 "Tubotubo South",
                 "Malabago",
                 "Sabang",
-                "Tabalong"
+                "Tabalong",
             ],
             "Subic": [
                 "Baraca-Camachile ",
@@ -18457,8 +18398,8 @@ BARANGAY = {
                 "Ilwas ",
                 "Asinan Proper",
                 "Naugsol",
-                "Matain"
-            ]
+                "Matain",
+            ],
         },
         "City of Angeles": [
             "Pampang",
@@ -18493,7 +18434,7 @@ BARANGAY = {
             "Claro M. Recto",
             "Ninoy Aquino",
             "Lourdes North West",
-            "Sta. Trinidad"
+            "Sta. Trinidad",
         ],
         "City of Olongapo": [
             "Banicain",
@@ -18512,8 +18453,8 @@ BARANGAY = {
             "New Kalalake",
             "West Tapinac",
             "West Bajac-bajac",
-            "East Bajac-bajac"
-        ]
+            "East Bajac-bajac",
+        ],
     },
     "Region IV-A (CALABARZON)": {
         "Batangas": {
@@ -18538,7 +18479,7 @@ BARANGAY = {
                 "Coral Na Munti",
                 "Barigon",
                 "San Jacinto",
-                "Mabini"
+                "Mabini",
             ],
             "Alitagtag": [
                 "Concepcion",
@@ -18559,7 +18500,7 @@ BARANGAY = {
                 "Tadlac",
                 "Poblacion East",
                 "Dalipit East",
-                "Dalipit West"
+                "Dalipit West",
             ],
             "Balayan": [
                 "Tanggoy",
@@ -18609,7 +18550,7 @@ BARANGAY = {
                 "Durungao",
                 "Navotas",
                 "Calan",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Balete": [
                 "Looc",
@@ -18624,7 +18565,7 @@ BARANGAY = {
                 "Paligawan",
                 "San Sebastian",
                 "Solis",
-                "Makina"
+                "Makina",
             ],
             "Batangas City ": [
                 "Balagtas",
@@ -18731,7 +18672,7 @@ BARANGAY = {
                 "Bilogo",
                 "Gulod Itaas",
                 "Tinga Labak",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Bauan": [
                 "Alagao",
@@ -18773,7 +18714,7 @@ BARANGAY = {
                 "San Andres Proper",
                 "San Pablo",
                 "Barangay IV ",
-                "Cupang"
+                "Cupang",
             ],
             "Calatagan": [
                 "Talibayog",
@@ -18800,7 +18741,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Luya",
                 "Baha",
-                "Carlosa"
+                "Carlosa",
             ],
             "City of Calaca": [
                 "Calantas",
@@ -18842,7 +18783,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Tamayo",
                 "Balimbing",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "City of Lipa": [
                 "Latag",
@@ -18916,7 +18857,7 @@ BARANGAY = {
                 "Sabang",
                 "Poblacion Barangay 3",
                 "Mabini",
-                "Antipolo Del Norte"
+                "Antipolo Del Norte",
             ],
             "City of Sto. Tomas": [
                 "Santa Maria",
@@ -18948,7 +18889,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Santiago",
                 "San Pablo",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "City of Tanauan": [
                 "Bilog-bilog",
@@ -18998,7 +18939,7 @@ BARANGAY = {
                 "Poblacion Barangay 1",
                 "Poblacion Barangay 3",
                 "Mabini",
-                "Pagaspas"
+                "Pagaspas",
             ],
             "Cuenca": [
                 "Ibabao",
@@ -19021,7 +18962,7 @@ BARANGAY = {
                 "Labac",
                 "Barangay 2 ",
                 "Dalipit East",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Ibaan": [
                 "Coliat",
@@ -19049,7 +18990,7 @@ BARANGAY = {
                 "Mabalor",
                 "Sabang",
                 "Sandalan",
-                "Salaban II"
+                "Salaban II",
             ],
             "Laurel": [
                 "Santa Maria",
@@ -19072,7 +19013,7 @@ BARANGAY = {
                 "Barangay 4 ",
                 "San Gregorio",
                 "Dayap Itaas",
-                "Barangay 2 "
+                "Barangay 2 ",
             ],
             "Lemery": [
                 "Maligaya",
@@ -19120,7 +19061,7 @@ BARANGAY = {
                 "District I ",
                 "Matingain I",
                 "Maguihan",
-                "Tubigan"
+                "Tubigan",
             ],
             "Lian": [
                 "Matabungkay",
@@ -19141,7 +19082,7 @@ BARANGAY = {
                 "Luyahan",
                 "Barangay 2 ",
                 "Binubusan",
-                "Lumaniag"
+                "Lumaniag",
             ],
             "Lobo": [
                 "Malapad Na Parang",
@@ -19169,7 +19110,7 @@ BARANGAY = {
                 "San Miguel",
                 "Masaguitsit",
                 "Sawang",
-                "Lagadlarin"
+                "Lagadlarin",
             ],
             "Mabini": [
                 "Malimatoc II",
@@ -19205,7 +19146,7 @@ BARANGAY = {
                 "Santa Mesa",
                 "Bagalangit",
                 "Saguing",
-                "Pulang Lupa"
+                "Pulang Lupa",
             ],
             "Malvar": [
                 "San Juan",
@@ -19222,7 +19163,7 @@ BARANGAY = {
                 "Luta Del Norte",
                 "Bilucao",
                 "Bulihan",
-                "San Andres"
+                "San Andres",
             ],
             "Mataasnakahoy": [
                 "Upa",
@@ -19240,7 +19181,7 @@ BARANGAY = {
                 "District II ",
                 "District IV ",
                 "San Sebastian",
-                "Bayorbor"
+                "Bayorbor",
             ],
             "Nasugbu": [
                 "Bucana",
@@ -19284,7 +19225,7 @@ BARANGAY = {
                 "Barangay 10 ",
                 "Barangay 2 ",
                 "Bulihan",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Padre Garcia": [
                 "Manggas",
@@ -19304,7 +19245,7 @@ BARANGAY = {
                 "Bukal",
                 "Quilo-quilo South",
                 "Cawongan",
-                "Tangob"
+                "Tangob",
             ],
             "Rosario": [
                 "Maligaya",
@@ -19354,7 +19295,7 @@ BARANGAY = {
                 "Tulos",
                 "Mabato",
                 "Cahigam",
-                "Bulihan"
+                "Bulihan",
             ],
             "San Jose": [
                 "Anus",
@@ -19389,7 +19330,7 @@ BARANGAY = {
                 "Sabang",
                 "Mojon-Tampoy",
                 "Poblacion Barangay II",
-                "Pinagtung-Ulan"
+                "Pinagtung-Ulan",
             ],
             "San Juan": [
                 "Calicanto",
@@ -19433,7 +19374,7 @@ BARANGAY = {
                 "Mabalanoy",
                 "Libato",
                 "Palahanan I",
-                "Bataan"
+                "Bataan",
             ],
             "San Luis": [
                 "Dulangan",
@@ -19461,7 +19402,7 @@ BARANGAY = {
                 "Durungao",
                 "San Antonio",
                 "Luya",
-                "Locloc"
+                "Locloc",
             ],
             "San Nicolas": [
                 "Hipit",
@@ -19481,7 +19422,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Alas-as",
                 "Balete",
-                "Sinturisan"
+                "Sinturisan",
             ],
             "San Pascual": [
                 "Natunuan North",
@@ -19512,7 +19453,7 @@ BARANGAY = {
                 "Pila",
                 "San Antonio",
                 "San Mariano",
-                "Balimbing"
+                "Balimbing",
             ],
             "Santa Teresita": [
                 "Calumala",
@@ -19531,7 +19472,7 @@ BARANGAY = {
                 "Calayaan",
                 "Tambo Ibaba",
                 "Antipolo",
-                "Pacifico"
+                "Pacifico",
             ],
             "Taal": [
                 "Poblacion 14",
@@ -19575,7 +19516,7 @@ BARANGAY = {
                 "Poblacion 4",
                 "Poblacion 6",
                 "Tulo",
-                "Ipil"
+                "Ipil",
             ],
             "Talisay": [
                 "Caloocan",
@@ -19598,7 +19539,7 @@ BARANGAY = {
                 "Poblacion Barangay 2",
                 "Poblacion Barangay 5",
                 "Poblacion Barangay 1",
-                "Poblacion Barangay 3"
+                "Poblacion Barangay 3",
             ],
             "Taysan": [
                 "Tilambo",
@@ -19620,7 +19561,7 @@ BARANGAY = {
                 "Bilogo",
                 "Mahanadiong",
                 "Poblacion East",
-                "Mapulo"
+                "Mapulo",
             ],
             "Tingloy": [
                 "San Juan",
@@ -19637,7 +19578,7 @@ BARANGAY = {
                 "San Jose",
                 "Pisa",
                 "Barangay 15",
-                "Corona"
+                "Corona",
             ],
             "Tuy": [
                 "Luntal",
@@ -19661,8 +19602,8 @@ BARANGAY = {
                 "Sabang",
                 "Rizal ",
                 "Mataywanac",
-                "Malibu"
-            ]
+                "Malibu",
+            ],
         },
         "Cavite": {
             "Alfonso": [
@@ -19697,7 +19638,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Kaytitinga I",
                 "Kaytitinga II",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Amadeo": [
                 "Pangil",
@@ -19725,7 +19666,7 @@ BARANGAY = {
                 "Barangay VII ",
                 "Minantok Silangan",
                 "Barangay IX ",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "City of Bacoor": [
                 "P.F. Espiritu 2",
@@ -19774,7 +19715,7 @@ BARANGAY = {
                 "Maliksi 1",
                 "Habay II",
                 "Molino VII",
-                "Molino IV"
+                "Molino IV",
             ],
             "City of Carmona": [
                 "Maduya",
@@ -19790,7 +19731,7 @@ BARANGAY = {
                 "Barangay 1 ",
                 "Barangay 5 ",
                 "Barangay 6 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "City of Cavite": [
                 "Barangay 62",
@@ -19876,7 +19817,7 @@ BARANGAY = {
                 "Barangay 28",
                 "Barangay 51",
                 "Barangay 13",
-                "Barangay 21"
+                "Barangay 21",
             ],
             "City of Dasmari\u00f1as": [
                 "Salitran III",
@@ -19953,7 +19894,7 @@ BARANGAY = {
                 "Fatima II",
                 "Emmanuel Bergado II",
                 "San Miguel II",
-                "Burol I"
+                "Burol I",
             ],
             "City of General Trias": [
                 "Sampalucan Pob.",
@@ -19988,7 +19929,7 @@ BARANGAY = {
                 "Prinza Pob.",
                 "Buenavista II",
                 "Santiago",
-                "Arnaldo Pob."
+                "Arnaldo Pob.",
             ],
             "City of Imus": [
                 "Malagasang II-A",
@@ -20087,7 +20028,7 @@ BARANGAY = {
                 "Malagasang I-D",
                 "Malagasang II-E",
                 "Tanzang Luma III",
-                "Maharlika"
+                "Maharlika",
             ],
             "City of Tagaytay": [
                 "Silang Junction North",
@@ -20123,7 +20064,7 @@ BARANGAY = {
                 "Sungay South",
                 "Tolentino East",
                 "Maharlika West",
-                "Maitim 2nd West"
+                "Maitim 2nd West",
             ],
             "City of Trece Martires ": [
                 "Lallana",
@@ -20138,7 +20079,7 @@ BARANGAY = {
                 "San Agustin ",
                 "Conchu",
                 "Cabezas",
-                "Cabuco"
+                "Cabuco",
             ],
             "Gen. Mariano Alvarez": [
                 "Francisco Reyes",
@@ -20167,7 +20108,7 @@ BARANGAY = {
                 "Kapitan Kua",
                 "Koronel Jose P. Elises",
                 "Bernardo Pulido",
-                "Aldiano Olaes"
+                "Aldiano Olaes",
             ],
             "General Emilio Aguinaldo": [
                 "Casta\u00f1os Cerca",
@@ -20183,7 +20124,7 @@ BARANGAY = {
                 "Batas Dao",
                 "A. Dalusag",
                 "Tabora",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Indang": [
                 "Lumampong Balagbag",
@@ -20221,7 +20162,7 @@ BARANGAY = {
                 "Agus-us",
                 "Tambo Ilaya",
                 "Tambo Malaki",
-                "Kaytambog"
+                "Kaytambog",
             ],
             "Kawit": [
                 "Tabon I",
@@ -20246,7 +20187,7 @@ BARANGAY = {
                 "Marulas",
                 "Wakas I",
                 "Gahak",
-                "Samala-Marquez"
+                "Samala-Marquez",
             ],
             "Magallanes": [
                 "Ramirez",
@@ -20264,7 +20205,7 @@ BARANGAY = {
                 "Baliwag",
                 "Barangay 1 ",
                 "Barangay 5 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "Maragondon": [
                 "Talipusngo",
@@ -20293,7 +20234,7 @@ BARANGAY = {
                 "Bucal III A",
                 "Mabato",
                 "Garita I A",
-                "Tulay Silangan"
+                "Tulay Silangan",
             ],
             "Mendez": [
                 "Poblacion VI",
@@ -20319,7 +20260,7 @@ BARANGAY = {
                 "Poblacion III",
                 "Banayad",
                 "Galicia I",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Naic": [
                 "Munting Mapino",
@@ -20351,7 +20292,7 @@ BARANGAY = {
                 "Sabang",
                 "Bancaan",
                 "Calubcob",
-                "Palangue 1"
+                "Palangue 1",
             ],
             "Noveleta": [
                 "San Antonio I",
@@ -20369,7 +20310,7 @@ BARANGAY = {
                 "San Rafael IV",
                 "Santa Rosa I",
                 "Magdiwang",
-                "San Antonio II"
+                "San Antonio II",
             ],
             "Rosario": [
                 "Ligtong IV",
@@ -20391,7 +20332,7 @@ BARANGAY = {
                 "Ligtong II",
                 "Silangan I",
                 "Sapa IV",
-                "Sapa III"
+                "Sapa III",
             ],
             "Silang": [
                 "Carmen",
@@ -20457,7 +20398,7 @@ BARANGAY = {
                 "San Miguel II",
                 "Bulihan",
                 "Barangay IV ",
-                "Sabutan"
+                "Sabutan",
             ],
             "Tanza": [
                 "Paradahan II",
@@ -20500,7 +20441,7 @@ BARANGAY = {
                 "Bagtas",
                 "Barangay I ",
                 "Punta I",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Ternate": [
                 "San Juan II",
@@ -20512,8 +20453,8 @@ BARANGAY = {
                 "Poblacion I",
                 "Poblacion II",
                 "Poblacion III",
-                "San Jose"
-            ]
+                "San Jose",
+            ],
         },
         "Laguna": {
             "Alaminos": [
@@ -20531,7 +20472,7 @@ BARANGAY = {
                 "Barangay III ",
                 "Barangay IV ",
                 "San Andres",
-                "San Benito"
+                "San Benito",
             ],
             "Bay": [
                 "San Nicolas ",
@@ -20548,7 +20489,7 @@ BARANGAY = {
                 "Dila",
                 "Maitim",
                 "Tranca",
-                "Bitin"
+                "Bitin",
             ],
             "Calauan": [
                 "Prinza",
@@ -20567,7 +20508,7 @@ BARANGAY = {
                 "Bangyas",
                 "Dayap",
                 "Limao",
-                "Balayhangin"
+                "Balayhangin",
             ],
             "Cavinti": [
                 "Inao-Awan",
@@ -20588,7 +20529,7 @@ BARANGAY = {
                 "Bangco",
                 "Anglas",
                 "Sumucab",
-                "Mahipon"
+                "Mahipon",
             ],
             "City of Bi\u00f1an": [
                 "Malamig",
@@ -20614,7 +20555,7 @@ BARANGAY = {
                 "Soro-soro",
                 "San Antonio",
                 "Langkiwa",
-                "Tubigan"
+                "Tubigan",
             ],
             "City of Cabuyao": [
                 "San Isidro",
@@ -20634,7 +20575,7 @@ BARANGAY = {
                 "Pittland",
                 "Butong",
                 "Niugan",
-                "Marinig"
+                "Marinig",
             ],
             "City of Calamba": [
                 "Lawa",
@@ -20690,7 +20631,7 @@ BARANGAY = {
                 "Mabato",
                 "Punta",
                 "La Mesa",
-                "Palo-Alto"
+                "Palo-Alto",
             ],
             "City of San Pablo": [
                 "Santa Maria",
@@ -20772,7 +20713,7 @@ BARANGAY = {
                 "Barangay III-C ",
                 "Barangay IV-A ",
                 "Barangay V-A ",
-                "Barangay IV-B "
+                "Barangay IV-B ",
             ],
             "City of San Pedro": [
                 "Magsaysay",
@@ -20801,7 +20742,7 @@ BARANGAY = {
                 "Maharlika",
                 "Narra",
                 "Pacita 2",
-                "Calendola"
+                "Calendola",
             ],
             "City of Santa Rosa": [
                 "Don Jose",
@@ -20821,7 +20762,7 @@ BARANGAY = {
                 "Dita",
                 "Dila",
                 "Ibaba",
-                "Tagapo"
+                "Tagapo",
             ],
             "Famy": [
                 "Bagong Pag-Asa ",
@@ -20843,13 +20784,9 @@ BARANGAY = {
                 "Liyang",
                 "Salangbato",
                 "Asana ",
-                "Mayatba"
+                "Mayatba",
             ],
-            "Kalayaan": [
-                "San Juan ",
-                "San Antonio",
-                "Longos"
-            ],
+            "Kalayaan": ["San Juan ", "San Antonio", "Longos"],
             "Liliw": [
                 "Dagatan",
                 "Ilayang Palina",
@@ -20883,7 +20820,7 @@ BARANGAY = {
                 "Cabuyew",
                 "Ilayang Taykin",
                 "Rizal ",
-                "Tuy-Baanan"
+                "Tuy-Baanan",
             ],
             "Los Ba\u00f1os": [
                 "Tadlak",
@@ -20899,7 +20836,7 @@ BARANGAY = {
                 "Putho Tuntungin",
                 "Anos",
                 "Batong Malake",
-                "Baybayin "
+                "Baybayin ",
             ],
             "Luisiana": [
                 "Barangay Zone VII ",
@@ -20924,7 +20861,7 @@ BARANGAY = {
                 "Barangay Zone III ",
                 "Barangay Zone I ",
                 "San Antonio",
-                "San Pablo"
+                "San Pablo",
             ],
             "Lumban": [
                 "Balimbingan ",
@@ -20942,7 +20879,7 @@ BARANGAY = {
                 "Bagong Silang",
                 "Segunda Parang ",
                 "Lewin",
-                "Primera Pulo "
+                "Primera Pulo ",
             ],
             "Mabitac": [
                 "Matalatala",
@@ -20959,7 +20896,7 @@ BARANGAY = {
                 "Masikap ",
                 "Amuyong",
                 "Maligaya ",
-                "Paagahan"
+                "Paagahan",
             ],
             "Magdalena": [
                 "Ibabang Atingay",
@@ -20985,7 +20922,7 @@ BARANGAY = {
                 "Maravilla",
                 "Sabang",
                 "Malinao",
-                "Buo"
+                "Buo",
             ],
             "Majayjay": [
                 "Talortor",
@@ -21027,7 +20964,7 @@ BARANGAY = {
                 "Ilayang Banga",
                 "Burgos",
                 "Ibabang Bayucain",
-                "Malinao"
+                "Malinao",
             ],
             "Nagcarlan": [
                 "Silangan Napapatid",
@@ -21081,7 +21018,7 @@ BARANGAY = {
                 "Sinipian",
                 "Balimbing",
                 "Malinao",
-                "Silangan Kabubuhayan"
+                "Silangan Kabubuhayan",
             ],
             "Paete": [
                 "Ibaba del Norte ",
@@ -21092,7 +21029,7 @@ BARANGAY = {
                 "Maytoong ",
                 "Ermita ",
                 "Ilaya del Sur ",
-                "Bangkusay "
+                "Bangkusay ",
             ],
             "Pagsanjan": [
                 "Calusiche",
@@ -21110,7 +21047,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Anibong",
                 "Cabanbanan",
-                "Buboy"
+                "Buboy",
             ],
             "Pakil": [
                 "Casinsin",
@@ -21125,7 +21062,7 @@ BARANGAY = {
                 "Tavera ",
                 "Rizal ",
                 "Banilan",
-                "Taft "
+                "Taft ",
             ],
             "Pangil": [
                 "Balian",
@@ -21135,7 +21072,7 @@ BARANGAY = {
                 "Dambo",
                 "Sulib",
                 "Mabato-Azufre",
-                "Isla "
+                "Isla ",
             ],
             "Pila": [
                 "Concepcion",
@@ -21154,7 +21091,7 @@ BARANGAY = {
                 "Santa Clara Sur ",
                 "Bukal",
                 "Tubuan",
-                "Labuin"
+                "Labuin",
             ],
             "Rizal": [
                 "West Poblacion",
@@ -21167,7 +21104,7 @@ BARANGAY = {
                 "Entablado",
                 "Tala",
                 "Antipolo",
-                "Talaga"
+                "Talaga",
             ],
             "Santa Cruz ": [
                 "Malinao",
@@ -21195,7 +21132,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Pagsawitan",
                 "Labuin",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Santa Maria": [
                 "Cabooan",
@@ -21222,7 +21159,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Santiago",
                 "Jose Laurel, Sr.",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Siniloan": [
                 "Bagong Pag-Asa ",
@@ -21244,7 +21181,7 @@ BARANGAY = {
                 "Acevida",
                 "Mendiola",
                 "Mayatba",
-                "Halayhayin"
+                "Halayhayin",
             ],
             "Victoria": [
                 "Banca-banca",
@@ -21255,8 +21192,8 @@ BARANGAY = {
                 "San Felix",
                 "Masapang",
                 "San Roque ",
-                "San Benito"
-            ]
+                "San Benito",
+            ],
         },
         "Quezon": {
             "Agdangan": [
@@ -21271,7 +21208,7 @@ BARANGAY = {
                 "Poblacion I",
                 "Poblacion II",
                 "Sildora",
-                "Dayap"
+                "Dayap",
             ],
             "Alabat": [
                 "Bacong",
@@ -21292,7 +21229,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Villa Jesus Este",
                 "Pambilan Sur",
-                "Gordon"
+                "Gordon",
             ],
             "Atimonan": [
                 "Talaba",
@@ -21336,7 +21273,7 @@ BARANGAY = {
                 "Malusak",
                 "Ponon",
                 "Manggalayan Bundok",
-                "Barangay Zone 2 "
+                "Barangay Zone 2 ",
             ],
             "Buenavista": [
                 "Villa Veronica",
@@ -21375,7 +21312,7 @@ BARANGAY = {
                 "Mabini",
                 "Del Rosario",
                 "Lilukin",
-                "San Pablo"
+                "San Pablo",
             ],
             "Burdeos": [
                 "Bonifacio",
@@ -21390,7 +21327,7 @@ BARANGAY = {
                 "Palasan",
                 "Mabini",
                 "Cabugao",
-                "Cabungalunan"
+                "Cabungalunan",
             ],
             "Calauag": [
                 "Maligaya",
@@ -21473,7 +21410,7 @@ BARANGAY = {
                 "Lungib",
                 "Mabini",
                 "Binutas",
-                "Dapdap"
+                "Dapdap",
             ],
             "Candelaria": [
                 "Kinatihan II",
@@ -21500,7 +21437,7 @@ BARANGAY = {
                 "Mayabobo",
                 "Pahinga Norte",
                 "Pahinga Sur",
-                "Masalukot I"
+                "Masalukot I",
             ],
             "Catanauan": [
                 "Bolo",
@@ -21548,7 +21485,7 @@ BARANGAY = {
                 "San Antonio Pala",
                 "San Pablo",
                 "Dahican",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "City of Tayabas": [
                 "Calantas",
@@ -21616,7 +21553,7 @@ BARANGAY = {
                 "Anos",
                 "Angustias Zone I ",
                 "Alsam Ibaba",
-                "Malaoa"
+                "Malaoa",
             ],
             "Dolores": [
                 "Bungoy",
@@ -21634,7 +21571,7 @@ BARANGAY = {
                 "Kinabuhayan",
                 "Putol",
                 "Pinagdanlayan",
-                "Maligaya "
+                "Maligaya ",
             ],
             "General Luna": [
                 "Magsaysay",
@@ -21663,7 +21600,7 @@ BARANGAY = {
                 "Nieva",
                 "San Isidro Ibaba",
                 "Barangay 2 ",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "General Nakar": [
                 "Maligaya",
@@ -21684,7 +21621,7 @@ BARANGAY = {
                 "Minahan Sur",
                 "Minahan Norte",
                 "Pamplona",
-                "Batangan"
+                "Batangan",
             ],
             "Guinayangan": [
                 "Tikay",
@@ -21740,7 +21677,7 @@ BARANGAY = {
                 "Sisi",
                 "Del Rosario",
                 "Himbubulo Weste",
-                "Himbubulo Este"
+                "Himbubulo Este",
             ],
             "Gumaca": [
                 "Villa Padua",
@@ -21801,7 +21738,7 @@ BARANGAY = {
                 "Rizal ",
                 "Hardinan",
                 "Progreso",
-                "San Isidro Kanluran"
+                "San Isidro Kanluran",
             ],
             "Infanta": [
                 "Amolongin",
@@ -21839,15 +21776,9 @@ BARANGAY = {
                 "Gumian",
                 "Boboin",
                 "Pulo",
-                "Langgas"
+                "Langgas",
             ],
-            "Jomalig": [
-                "Talisoy ",
-                "Apad",
-                "Gango",
-                "Bukal",
-                "Casuguran"
-            ],
+            "Jomalig": ["Talisoy ", "Apad", "Gango", "Bukal", "Casuguran"],
             "Lopez": [
                 "Santo Ni\u00f1o Ibaba",
                 "Santa Maria",
@@ -21943,7 +21874,7 @@ BARANGAY = {
                 "Canda Ibaba",
                 "Pe\u00f1afrancia",
                 "Mabini",
-                "Guites"
+                "Guites",
             ],
             "Lucban": [
                 "Samil",
@@ -21977,7 +21908,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Abang",
                 "Kalyaat",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Macalelon": [
                 "Calantas",
@@ -22009,7 +21940,7 @@ BARANGAY = {
                 "Rizal ",
                 "Rodriquez ",
                 "Anos",
-                "Taguin"
+                "Taguin",
             ],
             "Mauban": [
                 "Alitap",
@@ -22051,7 +21982,7 @@ BARANGAY = {
                 "San Rafael",
                 "San Miguel",
                 "Remedios II",
-                "Polo"
+                "Polo",
             ],
             "Mulanay": [
                 "Bolo",
@@ -22081,7 +22012,7 @@ BARANGAY = {
                 "Canuyep",
                 "Burgos",
                 "Amuguis",
-                "Patabog"
+                "Patabog",
             ],
             "Padre Burgos": [
                 "Cabuyao Sur",
@@ -22105,7 +22036,7 @@ BARANGAY = {
                 "Kinagunan Ilaya",
                 "Marquez",
                 "Walay",
-                "Yawe"
+                "Yawe",
             ],
             "Pagbilao": [
                 "Barangay 4 Parang ",
@@ -22134,7 +22065,7 @@ BARANGAY = {
                 "Pinagbayanan",
                 "Barangay 5 Santa Catalina ",
                 "Barangay 1 Castillo ",
-                "Binahaan"
+                "Binahaan",
             ],
             "Panukulan": [
                 "Lipata",
@@ -22149,7 +22080,7 @@ BARANGAY = {
                 "Bonbon",
                 "Balungay",
                 "Bato",
-                "Kinalagti"
+                "Kinalagti",
             ],
             "Patnanungan": [
                 "Patnanungan Sur ",
@@ -22157,7 +22088,7 @@ BARANGAY = {
                 "Kilogan",
                 "Busdak",
                 "Luod",
-                "Amaga"
+                "Amaga",
             ],
             "Perez": [
                 "Mainit Norte",
@@ -22173,7 +22104,7 @@ BARANGAY = {
                 "Villamanzano Norte",
                 "Maabot",
                 "Pinagtubigan Este",
-                "Pambuhan"
+                "Pambuhan",
             ],
             "Pitogo": [
                 "Ibabang Soliyao",
@@ -22214,7 +22145,7 @@ BARANGAY = {
                 "Sisirin",
                 "Ilayang Pacatin",
                 "Ilayang Pi\u00f1a",
-                "Ibabang Pi\u00f1a"
+                "Ibabang Pi\u00f1a",
             ],
             "Plaridel": [
                 "Concepcion",
@@ -22225,7 +22156,7 @@ BARANGAY = {
                 "Tanauan",
                 "M. L. Tumagay Pob.",
                 "Pampaaralan ",
-                "Central "
+                "Central ",
             ],
             "Polillo": [
                 "Atulayan",
@@ -22247,7 +22178,7 @@ BARANGAY = {
                 "Bislian",
                 "Ba\u00f1adero",
                 "Sabang",
-                "Balesin"
+                "Balesin",
             ],
             "Quezon": [
                 "Argosino",
@@ -22273,7 +22204,7 @@ BARANGAY = {
                 "Sabang",
                 "Barangay I ",
                 "Villa Mercedes",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Real": [
                 "Malapad",
@@ -22292,7 +22223,7 @@ BARANGAY = {
                 "Bagong Silang",
                 "Cawayan",
                 "Maragondon",
-                "Masikap"
+                "Masikap",
             ],
             "Sampaloc": [
                 "San Roque ",
@@ -22308,7 +22239,7 @@ BARANGAY = {
                 "Caldong",
                 "Apasan",
                 "San Isidro ",
-                "Bilucao"
+                "Bilucao",
             ],
             "San Andres": [
                 "Camflora",
@@ -22317,7 +22248,7 @@ BARANGAY = {
                 "Poblacion",
                 "Talisay",
                 "Tala",
-                "Alibihaban"
+                "Alibihaban",
             ],
             "San Antonio": [
                 "Magsaysay",
@@ -22339,7 +22270,7 @@ BARANGAY = {
                 "Bagong Niing",
                 "Loob",
                 "Matipunso",
-                "Bulihan"
+                "Bulihan",
             ],
             "San Francisco": [
                 "Cawayan II",
@@ -22357,7 +22288,7 @@ BARANGAY = {
                 "Mabu\u00f1ga",
                 "Silongin",
                 "Don Juan Vercelos",
-                "Huyon-Uyon"
+                "Huyon-Uyon",
             ],
             "San Narciso": [
                 "Manlampong",
@@ -22383,7 +22314,7 @@ BARANGAY = {
                 "Calwit",
                 "Andres Bonifacio",
                 "Punta",
-                "Maligaya "
+                "Maligaya ",
             ],
             "Sariaya": [
                 "Mamala II",
@@ -22428,7 +22359,7 @@ BARANGAY = {
                 "Tumbaga 1",
                 "Janagdong 1",
                 "Casta\u00f1as",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Tagkawayan": [
                 "Aliji",
@@ -22475,7 +22406,7 @@ BARANGAY = {
                 "Tabason",
                 "Manato Station",
                 "Del Rosario",
-                "Casispalan"
+                "Casispalan",
             ],
             "Tiaong": [
                 "Bulakin",
@@ -22508,7 +22439,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Palagaran",
                 "Del Rosario",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Unisan": [
                 "Almacen",
@@ -22546,8 +22477,8 @@ BARANGAY = {
                 "Burgos",
                 "Mabini",
                 "Punta",
-                "Tubigan"
-            ]
+                "Tubigan",
+            ],
         },
         "Rizal": {
             "Angono": [
@@ -22560,7 +22491,7 @@ BARANGAY = {
                 "Kalayaan",
                 "Santo Ni\u00f1o",
                 "Bagumbayan",
-                "Poblacion Ibaba"
+                "Poblacion Ibaba",
             ],
             "Baras": [
                 "Santiago",
@@ -22572,7 +22503,7 @@ BARANGAY = {
                 "Rizal ",
                 "San Jose",
                 "Evangelista",
-                "Mabini"
+                "Mabini",
             ],
             "Binangonan": [
                 "Binitagan",
@@ -22614,7 +22545,7 @@ BARANGAY = {
                 "Kinaboogan",
                 "Limbon-limbon",
                 "Mambog",
-                "Rayap"
+                "Rayap",
             ],
             "Cainta": [
                 "San Juan",
@@ -22623,7 +22554,7 @@ BARANGAY = {
                 "San Andres ",
                 "Santa Rosa",
                 "Santo Domingo",
-                "Santo Ni\u00f1o"
+                "Santo Ni\u00f1o",
             ],
             "Cardona": [
                 "Looc",
@@ -22643,7 +22574,7 @@ BARANGAY = {
                 "Calahan",
                 "Patunhay",
                 "Boor",
-                "San Roque "
+                "San Roque ",
             ],
             "City of Antipolo ": [
                 "San Juan",
@@ -22661,7 +22592,7 @@ BARANGAY = {
                 "Calawis",
                 "San Isidro ",
                 "Beverly Hills",
-                "Cupang"
+                "Cupang",
             ],
             "Jala-Jala": [
                 "Lubo",
@@ -22674,7 +22605,7 @@ BARANGAY = {
                 "Bayugo",
                 "Special District ",
                 "Second District ",
-                "Punta"
+                "Punta",
             ],
             "Morong": [
                 "Can-Cal-Lan",
@@ -22684,7 +22615,7 @@ BARANGAY = {
                 "Lagundi",
                 "San Juan ",
                 "Maybancal",
-                "Bombongan"
+                "Bombongan",
             ],
             "Pililla": [
                 "Imatong ",
@@ -22695,7 +22626,7 @@ BARANGAY = {
                 "Niogan",
                 "Quisao",
                 "Takungan ",
-                "Halayhayin"
+                "Halayhayin",
             ],
             "Rodriguez": [
                 "San Jose",
@@ -22708,7 +22639,7 @@ BARANGAY = {
                 "Burgos",
                 "Mascap",
                 "Macabud",
-                "Balite "
+                "Balite ",
             ],
             "San Mateo": [
                 "Ampid II",
@@ -22725,7 +22656,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Guitnang Bayan I ",
                 "Malanday",
-                "Guinayang"
+                "Guinayang",
             ],
             "Tanay": [
                 "Laiban",
@@ -22747,15 +22678,9 @@ BARANGAY = {
                 "Pinagkamaligan ",
                 "Daraitan",
                 "Cayabu",
-                "Santa Inez"
+                "Santa Inez",
             ],
-            "Taytay": [
-                "San Juan",
-                "San Isidro",
-                "Muzon",
-                "Santa Ana",
-                "Dolores "
-            ],
+            "Taytay": ["San Juan", "San Isidro", "Muzon", "Santa Ana", "Dolores "],
             "Teresa": [
                 "San Roque",
                 "Prinza",
@@ -22765,8 +22690,8 @@ BARANGAY = {
                 "Dalig",
                 "May-Iba",
                 "Dulumbayan",
-                "Bagumbayan"
-            ]
+                "Bagumbayan",
+            ],
         },
         "City of Lucena ": [
             "Market View",
@@ -22801,8 +22726,8 @@ BARANGAY = {
             "Bocohan",
             "Ibabang Dupay",
             "Gulang-gulang",
-            "Barangay 6 "
-        ]
+            "Barangay 6 ",
+        ],
     },
     "Region IX (Zamboanga Peninsula)": {
         "City of Isabela (Not a Province)": {
@@ -22851,7 +22776,7 @@ BARANGAY = {
                 "Riverside",
                 "Panigayan",
                 "Santa Cruz ",
-                "Diki"
+                "Diki",
             ]
         },
         "Zamboanga Sibugay": {
@@ -22882,7 +22807,7 @@ BARANGAY = {
                 "Bella",
                 "Alegria",
                 "Lutiman",
-                "Tandiong Muslim"
+                "Tandiong Muslim",
             ],
             "Buug": [
                 "Labrador",
@@ -22911,7 +22836,7 @@ BARANGAY = {
                 "Guintuloan",
                 "Pulog",
                 "Bawang",
-                "Datu Panas"
+                "Datu Panas",
             ],
             "Diplahan": [
                 "Lindang",
@@ -22935,7 +22860,7 @@ BARANGAY = {
                 "Sampoli A",
                 "Manangon",
                 "Songcuya",
-                "Gaulan"
+                "Gaulan",
             ],
             "Imelda": [
                 "Israel",
@@ -22956,7 +22881,7 @@ BARANGAY = {
                 "Santa Barbara",
                 "Baluyan",
                 "Gandiangan",
-                "Upper Baluran"
+                "Upper Baluran",
             ],
             "Ipil ": [
                 "Tenan",
@@ -22986,7 +22911,7 @@ BARANGAY = {
                 "Timalang",
                 "Lower Ipil Heights",
                 "Ipil Heights",
-                "Maasin"
+                "Maasin",
             ],
             "Kabasalan": [
                 "Concepcion",
@@ -23017,7 +22942,7 @@ BARANGAY = {
                 "Calubihan",
                 "Sayao",
                 "Tamin",
-                "Tigbangagan"
+                "Tigbangagan",
             ],
             "Mabuhay": [
                 "Taguisian",
@@ -23037,7 +22962,7 @@ BARANGAY = {
                 "Abunda",
                 "Bangkaw-bangkaw",
                 "Santo Ni\u00f1o",
-                "Malinao"
+                "Malinao",
             ],
             "Malangas": [
                 "Mulom",
@@ -23064,7 +22989,7 @@ BARANGAY = {
                 "Guilawa",
                 "Payag",
                 "Kigay",
-                "Mabini"
+                "Mabini",
             ],
             "Naga": [
                 "Mamagon",
@@ -23089,7 +23014,7 @@ BARANGAY = {
                 "Tambanan",
                 "Tilubog",
                 "Sandayong",
-                "Upper Sulitan"
+                "Upper Sulitan",
             ],
             "Olutanga": [
                 "Santa Maria",
@@ -23110,7 +23035,7 @@ BARANGAY = {
                 "Galas",
                 "Solar ",
                 "Tambanan",
-                "Calais"
+                "Calais",
             ],
             "Payao": [
                 "Mayabo",
@@ -23140,7 +23065,7 @@ BARANGAY = {
                 "Kulisap",
                 "Bulawan",
                 "Guiwan",
-                "Dalama"
+                "Dalama",
             ],
             "Roseller Lim": [
                 "Magsaysay",
@@ -23168,7 +23093,7 @@ BARANGAY = {
                 "Tupilac",
                 "San Antonio",
                 "Remedios",
-                "Mabini"
+                "Mabini",
             ],
             "Siay": [
                 "Maligaya",
@@ -23199,7 +23124,7 @@ BARANGAY = {
                 "Salinding",
                 "Labasan",
                 "Paruk",
-                "Lagting"
+                "Lagting",
             ],
             "Talusan": [
                 "Florida",
@@ -23215,7 +23140,7 @@ BARANGAY = {
                 "Laparay",
                 "Bolingan",
                 "Baganipay",
-                "Samonte"
+                "Samonte",
             ],
             "Titay": [
                 "Kipit",
@@ -23247,7 +23172,7 @@ BARANGAY = {
                 "Imelda",
                 "Kitabog",
                 "San Antonio",
-                "Mabini"
+                "Mabini",
             ],
             "Tungawan": [
                 "Tigbanuang",
@@ -23274,8 +23199,8 @@ BARANGAY = {
                 "Langon",
                 "Datu Tumanggong",
                 "Libertad ",
-                "Malungon"
-            ]
+                "Malungon",
+            ],
         },
         "Zamboanga del Norte": {
             "Baliguian": [
@@ -23295,7 +23220,7 @@ BARANGAY = {
                 "Tan-awan",
                 "Diculom",
                 "San Jose",
-                "Guimotan"
+                "Guimotan",
             ],
             "City of Dapitan": [
                 "Banonong ",
@@ -23347,7 +23272,7 @@ BARANGAY = {
                 "Dampalan",
                 "Carang",
                 "Burgos",
-                "Larayan"
+                "Larayan",
             ],
             "City of Dipolog ": [
                 "Dicayas",
@@ -23370,7 +23295,7 @@ BARANGAY = {
                 "Estaca ",
                 "Miputak ",
                 "Cogon",
-                "Punta"
+                "Punta",
             ],
             "Godod": [
                 "Sarawagan",
@@ -23389,7 +23314,7 @@ BARANGAY = {
                 "Baluno",
                 "Limbonga",
                 "Sianan",
-                "Rambon"
+                "Rambon",
             ],
             "Gutalac": [
                 "Bacong",
@@ -23424,7 +23349,7 @@ BARANGAY = {
                 "Lux",
                 "Canupong",
                 "Matunoy",
-                "Imelda"
+                "Imelda",
             ],
             "Jose Dalman": [
                 "Sigamok",
@@ -23444,7 +23369,7 @@ BARANGAY = {
                 "Lumanping",
                 "Litalip",
                 "Balatakan",
-                "Dinasan"
+                "Dinasan",
             ],
             "Kalawit": [
                 "Batayan",
@@ -23460,7 +23385,7 @@ BARANGAY = {
                 "San Jose",
                 "Palalian",
                 "New Calamba",
-                "Paraiso"
+                "Paraiso",
             ],
             "Katipunan": [
                 "Carupay",
@@ -23492,7 +23417,7 @@ BARANGAY = {
                 "Malasay",
                 "Malugas",
                 "San Antonio",
-                "Bulawan"
+                "Bulawan",
             ],
             "La Libertad": [
                 "New Bataan",
@@ -23507,7 +23432,7 @@ BARANGAY = {
                 "La Victoria",
                 "San Jose",
                 "New Argao",
-                "Singaran"
+                "Singaran",
             ],
             "Labason": [
                 "Malintuboan",
@@ -23529,7 +23454,7 @@ BARANGAY = {
                 "Balas",
                 "Antonino ",
                 "Imelda",
-                "Gil Sanchez"
+                "Gil Sanchez",
             ],
             "Leon T. Postigo": [
                 "Sipacong",
@@ -23549,7 +23474,7 @@ BARANGAY = {
                 "Bacungan ",
                 "Delusom",
                 "Tiniguiban",
-                "Mangop"
+                "Mangop",
             ],
             "Liloy": [
                 "Santa Cruz",
@@ -23588,7 +23513,7 @@ BARANGAY = {
                 "San Miguel",
                 "Causwagan",
                 "Punta",
-                "Communal"
+                "Communal",
             ],
             "Manukan": [
                 "Don Jose Aguirre",
@@ -23612,7 +23537,7 @@ BARANGAY = {
                 "Meses",
                 "Dipane",
                 "Upper Disakan",
-                "San Antonio"
+                "San Antonio",
             ],
             "Mutia": [
                 "New Siquijor",
@@ -23630,7 +23555,7 @@ BARANGAY = {
                 "Paso Rio",
                 "Buenasuerte",
                 "Diolen",
-                "Tubac"
+                "Tubac",
             ],
             "Pi\u00f1an": [
                 "Luzvilla",
@@ -23654,7 +23579,7 @@ BARANGAY = {
                 "Segabe",
                 "Desin",
                 "Silano",
-                "Adante"
+                "Adante",
             ],
             "Polanco": [
                 "Labrador",
@@ -23686,7 +23611,7 @@ BARANGAY = {
                 "San Antonio",
                 "Dangi",
                 "Obay",
-                "New Sicayab"
+                "New Sicayab",
             ],
             "Pres. Manuel A. Roxas": [
                 "Pi\u00f1amar",
@@ -23719,7 +23644,7 @@ BARANGAY = {
                 "Dohinob",
                 "Piao",
                 "Lipakan",
-                "Cape"
+                "Cape",
             ],
             "Rizal": [
                 "Sipaon",
@@ -23743,7 +23668,7 @@ BARANGAY = {
                 "Mabuhay",
                 "Damasing",
                 "South Mapang",
-                "Tolon"
+                "Tolon",
             ],
             "Salug": [
                 "Bacong",
@@ -23768,7 +23693,7 @@ BARANGAY = {
                 "Poblacion East",
                 "Mucas",
                 "Lipakan",
-                "Calucap"
+                "Calucap",
             ],
             "Sergio Osme\u00f1a Sr.": [
                 "Nuevavista",
@@ -23809,7 +23734,7 @@ BARANGAY = {
                 "Don Eleno",
                 "Dampalan",
                 "Antonino",
-                "Tinindugan"
+                "Tinindugan",
             ],
             "Siayan": [
                 "Polayo",
@@ -23833,7 +23758,7 @@ BARANGAY = {
                 "Gunyan",
                 "Dumpilas",
                 "Guibo",
-                "Suguilon"
+                "Suguilon",
             ],
             "Sibuco": [
                 "Nala ",
@@ -23863,7 +23788,7 @@ BARANGAY = {
                 "Paniran",
                 "Limpapa",
                 "Pangian",
-                "Lintangan"
+                "Lintangan",
             ],
             "Sibutad": [
                 "Delapa",
@@ -23881,7 +23806,7 @@ BARANGAY = {
                 "Minlasag",
                 "Calilic",
                 "Kanim",
-                "Sinipay"
+                "Sinipay",
             ],
             "Sindangan": [
                 "Magsaysay",
@@ -23935,7 +23860,7 @@ BARANGAY = {
                 "Tinaplan",
                 "Pangalalan",
                 "Calatunan",
-                "Siare"
+                "Siare",
             ],
             "Siocon": [
                 "Candiz",
@@ -23963,7 +23888,7 @@ BARANGAY = {
                 "Balagunan",
                 "Malambuhangin",
                 "New Lituban",
-                "Pangian"
+                "Pangian",
             ],
             "Sirawai": [
                 "Pugos",
@@ -23999,7 +23924,7 @@ BARANGAY = {
                 "Catuyan",
                 "Bitugan",
                 "Pulang Lupa",
-                "Balubuan"
+                "Balubuan",
             ],
             "Tampilisan": [
                 "Molos",
@@ -24021,8 +23946,8 @@ BARANGAY = {
                 "Tininggaan",
                 "Cabong",
                 "Sandayong",
-                "Tilubog"
-            ]
+                "Tilubog",
+            ],
         },
         "Zamboanga del Sur": {
             "Aurora": [
@@ -24069,7 +23994,7 @@ BARANGAY = {
                 "Alegria",
                 "Tagulalo",
                 "Waterfall",
-                "Commonwealth"
+                "Commonwealth",
             ],
             "Bayog": [
                 "Kahayagan",
@@ -24099,7 +24024,7 @@ BARANGAY = {
                 "Camp Blessing",
                 "Baking",
                 "Dimalinao",
-                "Balumbunan"
+                "Balumbunan",
             ],
             "City of Pagadian ": [
                 "Ditoray",
@@ -24155,7 +24080,7 @@ BARANGAY = {
                 "Pedulonan",
                 "Dampalan",
                 "Bulawan",
-                "Lenienza"
+                "Lenienza",
             ],
             "Dimataling": [
                 "Sugbay Uno",
@@ -24181,7 +24106,7 @@ BARANGAY = {
                 "Tinggabulong",
                 "Tiniguangan",
                 "Mercedes",
-                "Baha"
+                "Baha",
             ],
             "Dinas": [
                 "Don Jose",
@@ -24213,7 +24138,7 @@ BARANGAY = {
                 "Bacawan",
                 "Songayan",
                 "Nian",
-                "Legarda 2"
+                "Legarda 2",
             ],
             "Dumalinao": [
                 "Sumadat",
@@ -24245,7 +24170,7 @@ BARANGAY = {
                 "Pag-asa ",
                 "Tikwas",
                 "Banta-ao",
-                "Rebokon"
+                "Rebokon",
             ],
             "Dumingag": [
                 "Caridad",
@@ -24291,7 +24216,7 @@ BARANGAY = {
                 "Upper Landing",
                 "Danlugan",
                 "Manlabay",
-                "Tamurayan"
+                "Tamurayan",
             ],
             "Guipos": [
                 "Baguitan",
@@ -24310,7 +24235,7 @@ BARANGAY = {
                 "Dalapang",
                 "Dacsol",
                 "Lintum",
-                "Sikatuna"
+                "Sikatuna",
             ],
             "Josefina": [
                 "Gumahan ",
@@ -24326,7 +24251,7 @@ BARANGAY = {
                 "Ebarle",
                 "Dawa",
                 "Tagaytay Hill",
-                "Bogo Calabat"
+                "Bogo Calabat",
             ],
             "Kumalarang": [
                 "Limamawan",
@@ -24346,7 +24271,7 @@ BARANGAY = {
                 "Boyugan East",
                 "Pangi",
                 "Gawil",
-                "Bogayo"
+                "Bogayo",
             ],
             "Labangan": [
                 "Santa Cruz",
@@ -24373,7 +24298,7 @@ BARANGAY = {
                 "Tawagan Norte",
                 "Upper Campo Islam ",
                 "Langapod",
-                "Dipaya"
+                "Dipaya",
             ],
             "Lakewood": [
                 "Sebuguey",
@@ -24389,7 +24314,7 @@ BARANGAY = {
                 "Sapang Pinoles",
                 "Matalang",
                 "Gatub",
-                "Bululawan"
+                "Bululawan",
             ],
             "Lapuyan": [
                 "Pampang",
@@ -24417,7 +24342,7 @@ BARANGAY = {
                 "Molum",
                 "Tipasan",
                 "Sayog",
-                "Bulawan"
+                "Bulawan",
             ],
             "Mahayag": [
                 "Manguiles",
@@ -24448,7 +24373,7 @@ BARANGAY = {
                 "Tulan",
                 "Bag-ong Balamban",
                 "Lower Salug Daku",
-                "Malubo"
+                "Malubo",
             ],
             "Margosatubig": [
                 "Limamawan",
@@ -24467,7 +24392,7 @@ BARANGAY = {
                 "Kalian",
                 "Magahis",
                 "Kolot",
-                "Guinimanan"
+                "Guinimanan",
             ],
             "Midsalip": [
                 "Cabaloran",
@@ -24502,7 +24427,7 @@ BARANGAY = {
                 "Timbaboy",
                 "Matalang",
                 "Pisompongan",
-                "Buloron"
+                "Buloron",
             ],
             "Molave": [
                 "Parasan",
@@ -24529,7 +24454,7 @@ BARANGAY = {
                 "Ariosa",
                 "Alicia",
                 "Upper Dimorok",
-                "Silangit"
+                "Silangit",
             ],
             "Pitogo": [
                 "Matin-ao",
@@ -24546,7 +24471,7 @@ BARANGAY = {
                 "Liasan",
                 "Tongao",
                 "Liguac",
-                "Colojo"
+                "Colojo",
             ],
             "Ramon Magsaysay": [
                 "Magsaysay",
@@ -24575,7 +24500,7 @@ BARANGAY = {
                 "Upper Laperian",
                 "Dipalusan",
                 "Mabini",
-                "Bambong Daku"
+                "Bambong Daku",
             ],
             "San Miguel": [
                 "Concepcion",
@@ -24595,7 +24520,7 @@ BARANGAY = {
                 "Sayog",
                 "Fatima",
                 "Bulawan",
-                "Betinan"
+                "Betinan",
             ],
             "San Pablo": [
                 "Buton",
@@ -24625,7 +24550,7 @@ BARANGAY = {
                 "Ticala Island",
                 "Kondum",
                 "Daplayan",
-                "Tandubuay"
+                "Tandubuay",
             ],
             "Sominot": [
                 "Bulanay",
@@ -24645,7 +24570,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Tungawan",
                 "Upper Sicpao",
-                "Barubuhan"
+                "Barubuhan",
             ],
             "Tabina": [
                 "Concepcion",
@@ -24662,7 +24587,7 @@ BARANGAY = {
                 "Lumbia",
                 "Abong-abong",
                 "Do\u00f1a Josefina",
-                "Capisan"
+                "Capisan",
             ],
             "Tambulig": [
                 "Lower Tiparak",
@@ -24695,7 +24620,7 @@ BARANGAY = {
                 "Dimalinao",
                 "Libato",
                 "Maya-maya",
-                "Kapalaran"
+                "Kapalaran",
             ],
             "Tigbao": [
                 "Nilo",
@@ -24715,7 +24640,7 @@ BARANGAY = {
                 "Upper Nilo",
                 "Guinlin",
                 "Libayoy",
-                "Busol"
+                "Busol",
             ],
             "Tukuran": [
                 "Panduma Senior",
@@ -24742,7 +24667,7 @@ BARANGAY = {
                 "Laperian",
                 "San Antonio",
                 "Tinotungan",
-                "San Carlos "
+                "San Carlos ",
             ],
             "Vincenzo A. Sagun": [
                 "Linoguayan",
@@ -24758,8 +24683,8 @@ BARANGAY = {
                 "Kapatagan",
                 "Danan",
                 "Kabatan",
-                "Lumbal"
-            ]
+                "Lumbal",
+            ],
         },
         "City of Zamboanga": [
             "Santa Maria",
@@ -24859,8 +24784,8 @@ BARANGAY = {
             "Latuan",
             "Quiniput",
             "Boalan",
-            "Dulian (Upper Bunguiao)"
-        ]
+            "Dulian (Upper Bunguiao)",
+        ],
     },
     "Region V (Bicol Region)": {
         "Albay": {
@@ -24920,7 +24845,7 @@ BARANGAY = {
                 "Namantao",
                 "Baclayon",
                 "Barangay 6 ",
-                "Pili Iraya"
+                "Pili Iraya",
             ],
             "Camalig": [
                 "Miti",
@@ -24972,7 +24897,7 @@ BARANGAY = {
                 "Del Rosario",
                 "Cabag\u00f1an",
                 "Palanog",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "City of Legazpi ": [
                 "Bgy. 21 - Binanuahan West ",
@@ -25044,7 +24969,7 @@ BARANGAY = {
                 "Bgy. 66 - Banquerohan",
                 "Bgy. 2 - Em's Barrio South ",
                 "Bgy. 24 - Rizal Street",
-                "Bgy. 28 - Victory Village North "
+                "Bgy. 28 - Victory Village North ",
             ],
             "City of Ligao": [
                 "Bacong",
@@ -25101,7 +25026,7 @@ BARANGAY = {
                 "Oma-oma",
                 "Santa Cruz ",
                 "Tiongson",
-                "Paulba"
+                "Paulba",
             ],
             "City of Tabaco": [
                 "Basud ",
@@ -25150,7 +25075,7 @@ BARANGAY = {
                 "San Antonio",
                 "Hacienda",
                 "Panal",
-                "Cabag\u00f1an"
+                "Cabag\u00f1an",
             ],
             "Daraga": [
                 "Alcala",
@@ -25206,7 +25131,7 @@ BARANGAY = {
                 "Burgos",
                 "Mabini",
                 "Balinad",
-                "San Vicente Grande"
+                "San Vicente Grande",
             ],
             "Guinobatan": [
                 "Catomag",
@@ -25252,7 +25177,7 @@ BARANGAY = {
                 "Iraya",
                 "Agpay",
                 "Tandarora",
-                "Bololo"
+                "Bololo",
             ],
             "Jovellar": [
                 "Bagacay",
@@ -25277,7 +25202,7 @@ BARANGAY = {
                 "Villa Paz",
                 "Salvacion",
                 "Florista",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Libon": [
                 "Zone I ",
@@ -25326,7 +25251,7 @@ BARANGAY = {
                 "West Carisac",
                 "Molosbolos",
                 "Nogpo",
-                "Zone VII "
+                "Zone VII ",
             ],
             "Malilipot": [
                 "San Roque",
@@ -25346,7 +25271,7 @@ BARANGAY = {
                 "San Jose",
                 "Barangay III ",
                 "Barangay IV ",
-                "San Isidro Ilawod"
+                "San Isidro Ilawod",
             ],
             "Malinao": [
                 "Baybay",
@@ -25377,7 +25302,7 @@ BARANGAY = {
                 "Awang",
                 "Estancia",
                 "Libod",
-                "Sugcad"
+                "Sugcad",
             ],
             "Manito": [
                 "Pawa",
@@ -25394,7 +25319,7 @@ BARANGAY = {
                 "Cawayan",
                 "It-Ba ",
                 "Malobago",
-                "Manumbalay"
+                "Manumbalay",
             ],
             "Oas": [
                 "Coliat",
@@ -25449,7 +25374,7 @@ BARANGAY = {
                 "Tobgon",
                 "Ilaor Sur",
                 "Del Rosario",
-                "Calpi"
+                "Calpi",
             ],
             "Pio Duran": [
                 "Buyo",
@@ -25484,7 +25409,7 @@ BARANGAY = {
                 "Alabangpuro",
                 "Barangay I ",
                 "Lawinon",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Polangui": [
                 "Lanigay",
@@ -25530,7 +25455,7 @@ BARANGAY = {
                 "Ubaliw",
                 "Sugcad",
                 "Balinad",
-                "Gamot"
+                "Gamot",
             ],
             "Rapu-Rapu": [
                 "Buhatan",
@@ -25566,7 +25491,7 @@ BARANGAY = {
                 "Calanaga",
                 "Bilbao",
                 "Mananao",
-                "Hamorawon"
+                "Hamorawon",
             ],
             "Santo Domingo": [
                 "Buhatan",
@@ -25591,7 +25516,7 @@ BARANGAY = {
                 "Calayucay",
                 "Santo Domingo Pob.",
                 "San Vicente Pob.",
-                "Salvacion"
+                "Salvacion",
             ],
             "Tiwi": [
                 "Baybay",
@@ -25618,8 +25543,8 @@ BARANGAY = {
                 "Tigbi ",
                 "Misibis",
                 "Biyong",
-                "Belen"
-            ]
+                "Belen",
+            ],
         },
         "Camarines Norte": {
             "Basud": [
@@ -25651,7 +25576,7 @@ BARANGAY = {
                 "Tacad",
                 "Tuaca",
                 "Angas",
-                "Binatagan"
+                "Binatagan",
             ],
             "Capalonga": [
                 "Magsaysay",
@@ -25675,7 +25600,7 @@ BARANGAY = {
                 "Binawangan",
                 "San Antonio",
                 "Mabini",
-                "Calabaca"
+                "Calabaca",
             ],
             "Daet ": [
                 "Cobangbang",
@@ -25702,7 +25627,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Barangay VII ",
                 "Borabod",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Jose Panganiban": [
                 "Larap",
@@ -25731,7 +25656,7 @@ BARANGAY = {
                 "Dayhagan",
                 "Salvacion",
                 "Plaridel",
-                "Dahican"
+                "Dahican",
             ],
             "Labo": [
                 "Kalamunding ",
@@ -25785,7 +25710,7 @@ BARANGAY = {
                 "Malasugui",
                 "Matanlang",
                 "San Antonio",
-                "Malibago"
+                "Malibago",
             ],
             "Mercedes": [
                 "Catandunganon",
@@ -25813,7 +25738,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Barangay VII ",
                 "Del Rosario",
-                "Colasi"
+                "Colasi",
             ],
             "Paracale": [
                 "Tabas",
@@ -25842,7 +25767,7 @@ BARANGAY = {
                 "Gumaus",
                 "Talusan",
                 "Tugos",
-                "Pinagbirayan Malaki"
+                "Pinagbirayan Malaki",
             ],
             "San Lorenzo Ruiz": [
                 "Langga",
@@ -25856,7 +25781,7 @@ BARANGAY = {
                 "San Ramon",
                 "Maisog",
                 "San Antonio",
-                "Laniton"
+                "Laniton",
             ],
             "San Vicente": [
                 "Calabagas",
@@ -25867,7 +25792,7 @@ BARANGAY = {
                 "Poblacion District II",
                 "Cabanbanan",
                 "San Jose",
-                "Iraya Sur"
+                "Iraya Sur",
             ],
             "Santa Elena": [
                 "San Lorenzo",
@@ -25888,7 +25813,7 @@ BARANGAY = {
                 "Salvacion",
                 "Basiad",
                 "Polungguitguit",
-                "Plaridel"
+                "Plaridel",
             ],
             "Talisay": [
                 "Santa Elena",
@@ -25905,7 +25830,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "San Jose",
                 "San Nicolas",
-                "Caawigan"
+                "Caawigan",
             ],
             "Vinzons": [
                 "Pinagtigasan",
@@ -25926,8 +25851,8 @@ BARANGAY = {
                 "Cagbalogo",
                 "Sabang",
                 "Barangay I ",
-                "Aguit-It"
-            ]
+                "Aguit-It",
+            ],
         },
         "Camarines Sur": {
             "Baao": [
@@ -25960,7 +25885,7 @@ BARANGAY = {
                 "Del Rosario ",
                 "Buluang",
                 "Iyagan",
-                "La Medalla"
+                "La Medalla",
             ],
             "Balatan": [
                 "Montenegro",
@@ -25979,7 +25904,7 @@ BARANGAY = {
                 "Cabanbanan",
                 "Tomatarayo",
                 "Santiago Nacacale",
-                "Pararao"
+                "Pararao",
             ],
             "Bato": [
                 "Bacolod",
@@ -26014,7 +25939,7 @@ BARANGAY = {
                 "Caricot",
                 "Buluang",
                 "Del Rosario",
-                "Payak"
+                "Payak",
             ],
             "Bombon": [
                 "Pagao",
@@ -26024,7 +25949,7 @@ BARANGAY = {
                 "Santo Domingo",
                 "Siembre",
                 "San Isidro ",
-                "San Roque "
+                "San Roque ",
             ],
             "Buhi": [
                 "Amlongan",
@@ -26064,7 +25989,7 @@ BARANGAY = {
                 "Ipil",
                 "Monte Calvario",
                 "Macaangay",
-                "San Buenaventura "
+                "San Buenaventura ",
             ],
             "Bula": [
                 "Panoypoyan",
@@ -26099,7 +26024,7 @@ BARANGAY = {
                 "San Roque Heights",
                 "San Miguel",
                 "San Ramon",
-                "Lanipga"
+                "Lanipga",
             ],
             "Cabusao": [
                 "San Pedro",
@@ -26110,7 +26035,7 @@ BARANGAY = {
                 "Pandan",
                 "Santa Lutgarda ",
                 "New Poblacion",
-                "Biong"
+                "Biong",
             ],
             "Calabanga": [
                 "San Miguel ",
@@ -26160,7 +26085,7 @@ BARANGAY = {
                 "San Antonio",
                 "Belen",
                 "Balongay",
-                "Quinale"
+                "Quinale",
             ],
             "Camaligan": [
                 "San Roque",
@@ -26175,7 +26100,7 @@ BARANGAY = {
                 "San Francisco",
                 "Marupit",
                 "San Marcos ",
-                "San Lucas "
+                "San Lucas ",
             ],
             "Canaman": [
                 "San Agustin",
@@ -26201,7 +26126,7 @@ BARANGAY = {
                 "Baras ",
                 "Santa Cruz ",
                 "Tibgao ",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Caramoan": [
                 "Agaas",
@@ -26252,7 +26177,7 @@ BARANGAY = {
                 "Salvacion",
                 "Minalaba",
                 "Gibgos",
-                "Tawog "
+                "Tawog ",
             ],
             "City of Iriga": [
                 "Santa Maria",
@@ -26290,7 +26215,7 @@ BARANGAY = {
                 "San Antonio",
                 "Santiago",
                 "Del Rosario",
-                "La Medalla"
+                "La Medalla",
             ],
             "City of Naga": [
                 "Cararayan",
@@ -26319,7 +26244,7 @@ BARANGAY = {
                 "Balatas",
                 "Liboton",
                 "Concepcion Grande",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Del Gallego": [
                 "Pinagdapian",
@@ -26353,7 +26278,7 @@ BARANGAY = {
                 "Sugsugin",
                 "Mabini",
                 "San Pablo",
-                "Magais I"
+                "Magais I",
             ],
             "Gainza": [
                 "Namuat",
@@ -26363,7 +26288,7 @@ BARANGAY = {
                 "Malbong",
                 "Dahilig",
                 "District I ",
-                "District II "
+                "District II ",
             ],
             "Garchitorena": [
                 "Burabod",
@@ -26388,7 +26313,7 @@ BARANGAY = {
                 "Salvacion",
                 "Barangay I ",
                 "Sumaoy",
-                "Barangay IV "
+                "Barangay IV ",
             ],
             "Goa": [
                 "Bagumbayan Grande ",
@@ -26424,7 +26349,7 @@ BARANGAY = {
                 "Digdigon",
                 "Payatan",
                 "Hiwacloy",
-                "Matacla"
+                "Matacla",
             ],
             "Lagonoy": [
                 "Himanag",
@@ -26464,7 +26389,7 @@ BARANGAY = {
                 "Mangogon",
                 "Santa Cruz ",
                 "Agpo-Camagong-Tabog",
-                "Loho"
+                "Loho",
             ],
             "Libmanan": [
                 "Concepcion",
@@ -26541,7 +26466,7 @@ BARANGAY = {
                 "Awayan",
                 "Candami",
                 "Malinao",
-                "Pag-Oring Viejo"
+                "Pag-Oring Viejo",
             ],
             "Lupi": [
                 "Tible",
@@ -26581,7 +26506,7 @@ BARANGAY = {
                 "Bagong Sikat",
                 "Polantuna",
                 "Salvacion",
-                "San Ramon"
+                "San Ramon",
             ],
             "Magarao": [
                 "San Pantaleon ",
@@ -26598,7 +26523,7 @@ BARANGAY = {
                 "San Isidro ",
                 "Carangcang",
                 "Bell ",
-                "Casuray"
+                "Casuray",
             ],
             "Milaor": [
                 "San Miguel ",
@@ -26620,7 +26545,7 @@ BARANGAY = {
                 "Del Rosario ",
                 "San Antonio",
                 "Tarusanan",
-                "Mayaopayawan"
+                "Mayaopayawan",
             ],
             "Minalabac": [
                 "Hobo",
@@ -26647,7 +26572,7 @@ BARANGAY = {
                 "San Antonio",
                 "Timbang",
                 "Malitbog",
-                "Del Socorro"
+                "Del Socorro",
             ],
             "Nabua": [
                 "San Roque Sagumay",
@@ -26691,7 +26616,7 @@ BARANGAY = {
                 "Duran",
                 "Tandaay",
                 "Bustrac",
-                "Paloyon Proper"
+                "Paloyon Proper",
             ],
             "Ocampo": [
                 "Santa Cruz",
@@ -26718,7 +26643,7 @@ BARANGAY = {
                 "Salvacion",
                 "Poblacion Central",
                 "San Antonio",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Pamplona": [
                 "San Isidro",
@@ -26737,7 +26662,7 @@ BARANGAY = {
                 "Patong",
                 "Tambo",
                 "Del Rosario",
-                "Veneracion"
+                "Veneracion",
             ],
             "Pasacao": [
                 "Santa Rosa Del Norte ",
@@ -26758,7 +26683,7 @@ BARANGAY = {
                 "Salvacion",
                 "San Antonio",
                 "San Cirilo ",
-                "Itulan"
+                "Itulan",
             ],
             "Pili ": [
                 "San Vicente ",
@@ -26786,7 +26711,7 @@ BARANGAY = {
                 "Binanwaanan",
                 "Del Rosario",
                 "Tinangis",
-                "Himaao"
+                "Himaao",
             ],
             "Presentacion": [
                 "Maangas",
@@ -26806,7 +26731,7 @@ BARANGAY = {
                 "Liwacsa",
                 "Buenavista",
                 "Ayugao",
-                "Baliguian"
+                "Baliguian",
             ],
             "Ragay": [
                 "Inandawa",
@@ -26846,7 +26771,7 @@ BARANGAY = {
                 "Salvacion",
                 "Laguio",
                 "Lohong",
-                "Baya"
+                "Baya",
             ],
             "Sag\u00f1ay": [
                 "Bongalon",
@@ -26867,7 +26792,7 @@ BARANGAY = {
                 "San Roque ",
                 "Minadongjol",
                 "Mabca",
-                "Tinorongan"
+                "Tinorongan",
             ],
             "San Fernando": [
                 "Bical",
@@ -26891,7 +26816,7 @@ BARANGAY = {
                 "Buenavista ",
                 "Pinamasagan",
                 "Tagpocol",
-                "Rizal "
+                "Rizal ",
             ],
             "San Jose": [
                 "Danlog",
@@ -26922,7 +26847,7 @@ BARANGAY = {
                 "Santa Cruz ",
                 "Sabang",
                 "Minoro",
-                "Palale"
+                "Palale",
             ],
             "Sipocot": [
                 "Carayrayan",
@@ -26970,7 +26895,7 @@ BARANGAY = {
                 "Yabo",
                 "Bulawan",
                 "Awayan",
-                "Bulan"
+                "Bulan",
             ],
             "Siruma": [
                 "Boboan",
@@ -26994,7 +26919,7 @@ BARANGAY = {
                 "Salvacion",
                 "San Ramon",
                 "Matandang Siruma",
-                "Tandoc"
+                "Tandoc",
             ],
             "Tigaon": [
                 "Mabalodbalod",
@@ -27019,7 +26944,7 @@ BARANGAY = {
                 "San Antonio",
                 "Tinawagan",
                 "Libod",
-                "Huyonhuyon"
+                "Huyonhuyon",
             ],
             "Tinambac": [
                 "Magsaysay",
@@ -27065,8 +26990,8 @@ BARANGAY = {
                 "Bani",
                 "Bataan",
                 "Mananao",
-                "Daligan"
-            ]
+                "Daligan",
+            ],
         },
         "Catanduanes": {
             "Bagamanoc": [
@@ -27087,7 +27012,7 @@ BARANGAY = {
                 "Cahan",
                 "Suchan",
                 "Sagrada",
-                "Antipolo"
+                "Antipolo",
             ],
             "Baras": [
                 "J. M. Alberto",
@@ -27118,7 +27043,7 @@ BARANGAY = {
                 "Guinsaanan",
                 "Abihao",
                 "Paniquihan",
-                "Moning"
+                "Moning",
             ],
             "Bato": [
                 "Marinawa",
@@ -27147,7 +27072,7 @@ BARANGAY = {
                 "Bote",
                 "Oguis",
                 "Libod Poblacion",
-                "Guinobatan"
+                "Guinobatan",
             ],
             "Caramoran": [
                 "Maysuran",
@@ -27176,7 +27101,7 @@ BARANGAY = {
                 "Bulalacao",
                 "Salvacion",
                 "Mabini",
-                "Milaviga"
+                "Milaviga",
             ],
             "Gigmoto": [
                 "San Pedro",
@@ -27187,7 +27112,7 @@ BARANGAY = {
                 "Poblacion District II",
                 "Poblacion District III",
                 "Sioron",
-                "Biong"
+                "Biong",
             ],
             "Pandan": [
                 "Tabugoc",
@@ -27215,7 +27140,7 @@ BARANGAY = {
                 "Salvacion",
                 "Wagdas",
                 "Bagawang",
-                "Balag\u00f1onan"
+                "Balag\u00f1onan",
             ],
             "Panganiban": [
                 "San Vicente ",
@@ -27240,7 +27165,7 @@ BARANGAY = {
                 "Santa Maria ",
                 "San Antonio",
                 "Santa Ana ",
-                "Mabini"
+                "Mabini",
             ],
             "San Andres": [
                 "Datag",
@@ -27280,7 +27205,7 @@ BARANGAY = {
                 "Santa Cruz ",
                 "Bon-ot",
                 "Belmonte ",
-                "Comagaycay"
+                "Comagaycay",
             ],
             "San Miguel": [
                 "J. M. Alberto",
@@ -27306,7 +27231,7 @@ BARANGAY = {
                 "Kilikilihan",
                 "Mabato",
                 "Obo",
-                "Progreso"
+                "Progreso",
             ],
             "Viga": [
                 "Magsaysay",
@@ -27339,7 +27264,7 @@ BARANGAY = {
                 "Asuncion ",
                 "San Jose Oco",
                 "Burgos",
-                "Mabini"
+                "Mabini",
             ],
             "Virac ": [
                 "Gogon Centro",
@@ -27404,8 +27329,8 @@ BARANGAY = {
                 "Sogod-Tibgao",
                 "Antipolo Del Norte",
                 "Bigaa",
-                "Hawan Ilaya"
-            ]
+                "Hawan Ilaya",
+            ],
         },
         "Masbate": {
             "Aroroy": [
@@ -27449,7 +27374,7 @@ BARANGAY = {
                 "Amoroy",
                 "Don Pablo Dela Rosa",
                 "Balawing",
-                "Bagauma"
+                "Bagauma",
             ],
             "Baleno": [
                 "Gabi",
@@ -27475,7 +27400,7 @@ BARANGAY = {
                 "Potoson",
                 "Lahong Interior",
                 "Lahong Proper",
-                "Sog-Ong"
+                "Sog-Ong",
             ],
             "Balud": [
                 "Baybay",
@@ -27509,7 +27434,7 @@ BARANGAY = {
                 "Villa Alvarez",
                 "Ubo",
                 "Pulanduta",
-                "Victory"
+                "Victory",
             ],
             "Batuan": [
                 "Mabuhay",
@@ -27525,7 +27450,7 @@ BARANGAY = {
                 "Sawang",
                 "Burgos",
                 "Royroy",
-                "Matabao"
+                "Matabao",
             ],
             "Cataingan": [
                 "Concepcion",
@@ -27563,7 +27488,7 @@ BARANGAY = {
                 "Matubinao",
                 "Maanahao",
                 "Madamba",
-                "Mintac"
+                "Mintac",
             ],
             "Cawayan": [
                 "Taberna",
@@ -27602,7 +27527,7 @@ BARANGAY = {
                 "Itombato",
                 "Divisoria",
                 "Iraya",
-                "Dalipe"
+                "Dalipe",
             ],
             "City of Masbate ": [
                 "Bolo",
@@ -27634,7 +27559,7 @@ BARANGAY = {
                 "B. Titong",
                 "Asid",
                 "Biyong",
-                "Kinamaligan"
+                "Kinamaligan",
             ],
             "Claveria": [
                 "Buyo",
@@ -27658,7 +27583,7 @@ BARANGAY = {
                 "Pe\u00f1afrancia",
                 "San Ramon",
                 "Poblacion District II",
-                "Calpi"
+                "Calpi",
             ],
             "Dimasalang": [
                 "Gaid",
@@ -27680,7 +27605,7 @@ BARANGAY = {
                 "Divisoria",
                 "Cabrera",
                 "Gregorio Alino",
-                "Cabanoyoan"
+                "Cabanoyoan",
             ],
             "Esperanza": [
                 "Labrador",
@@ -27702,7 +27627,7 @@ BARANGAY = {
                 "Potingbato",
                 "Tawad",
                 "Santiago",
-                "Villa"
+                "Villa",
             ],
             "Mandaon": [
                 "Mabatobato",
@@ -27730,7 +27655,7 @@ BARANGAY = {
                 "Dayao",
                 "Cagmasoso",
                 "Laguinbanwa",
-                "San Pablo"
+                "San Pablo",
             ],
             "Milagros": [
                 "Cayabon",
@@ -27759,7 +27684,7 @@ BARANGAY = {
                 "Moises R. Espinosa",
                 "Magsalangi",
                 "Tawad",
-                "Calasuche"
+                "Calasuche",
             ],
             "Mobo": [
                 "Santa Maria",
@@ -27790,7 +27715,7 @@ BARANGAY = {
                 "Lomocloc",
                 "Mabuhay",
                 "Poblacion Dist. I",
-                "Nasunduan"
+                "Nasunduan",
             ],
             "Monreal": [
                 "Morocborocan",
@@ -27803,7 +27728,7 @@ BARANGAY = {
                 "Cantorna",
                 "Santo Ni\u00f1o",
                 "Maglambong",
-                "Togoron"
+                "Togoron",
             ],
             "Palanas": [
                 "Santa Cruz",
@@ -27829,7 +27754,7 @@ BARANGAY = {
                 "San Antonio",
                 "Banco",
                 "Maanahao",
-                "Mabini"
+                "Mabini",
             ],
             "Pio V. Corpus": [
                 "Guindawahan",
@@ -27849,7 +27774,7 @@ BARANGAY = {
                 "Tanque",
                 "Buenasuerte",
                 "Bunducan",
-                "Tubigan"
+                "Tubigan",
             ],
             "Placer": [
                 "Santa Cruz",
@@ -27886,7 +27811,7 @@ BARANGAY = {
                 "Villa Inocencio",
                 "Libas",
                 "Puro",
-                "Guin-Awayan"
+                "Guin-Awayan",
             ],
             "San Fernando": [
                 "Minio",
@@ -27914,7 +27839,7 @@ BARANGAY = {
                 "Daplian",
                 "Ipil",
                 "Del Rosario",
-                "Progreso"
+                "Progreso",
             ],
             "San Jacinto": [
                 "District III ",
@@ -27937,7 +27862,7 @@ BARANGAY = {
                 "Bagahanglad",
                 "Roosevelt",
                 "Burgos",
-                "District I "
+                "District I ",
             ],
             "San Pascual": [
                 "Boca Chica",
@@ -27961,7 +27886,7 @@ BARANGAY = {
                 "Mapanique",
                 "Busing",
                 "Mabini",
-                "Terraplin "
+                "Terraplin ",
             ],
             "Uson": [
                 "Magsaysay",
@@ -27998,8 +27923,8 @@ BARANGAY = {
                 "Marcella",
                 "Mabini",
                 "Del Rosario",
-                "Dapdap"
-            ]
+                "Dapdap",
+            ],
         },
         "Sorsogon": {
             "Barcelona": [
@@ -28027,7 +27952,7 @@ BARANGAY = {
                 "Poblacion Central",
                 "San Antonio",
                 "Layog",
-                "San Ramon"
+                "San Ramon",
             ],
             "Bulan": [
                 "Bical",
@@ -28092,7 +28017,7 @@ BARANGAY = {
                 "Padre Diaz",
                 "Somagongsong",
                 "Palale",
-                "Calpi"
+                "Calpi",
             ],
             "Bulusan": [
                 "Lalud",
@@ -28118,7 +28043,7 @@ BARANGAY = {
                 "Salvacion",
                 "San Antonio",
                 "Cogon",
-                "Mabuhay "
+                "Mabuhay ",
             ],
             "Casiguran": [
                 "Adovis ",
@@ -28145,7 +28070,7 @@ BARANGAY = {
                 "Cogon",
                 "Lungib",
                 "Burgos",
-                "Mabini"
+                "Mabini",
             ],
             "Castilla": [
                 "Cumadcad",
@@ -28181,7 +28106,7 @@ BARANGAY = {
                 "Amomonting",
                 "Cogon",
                 "Quirapi",
-                "Canjela"
+                "Canjela",
             ],
             "City of Sorsogon ": [
                 "Buhatan",
@@ -28247,7 +28172,7 @@ BARANGAY = {
                 "Tugos",
                 "Buenavista (Bacon District)",
                 "Del Rosario",
-                "Salog "
+                "Salog ",
             ],
             "Donsol": [
                 "Bayawas",
@@ -28300,7 +28225,7 @@ BARANGAY = {
                 "Cristo",
                 "Poso Pob.",
                 "Pawala",
-                "De Vera"
+                "De Vera",
             ],
             "Gubat": [
                 "Tabi",
@@ -28344,7 +28269,7 @@ BARANGAY = {
                 "Lapinig",
                 "Cogon",
                 "Naagtan",
-                "Bulacao"
+                "Bulacao",
             ],
             "Irosin": [
                 "Gumapia",
@@ -28374,7 +28299,7 @@ BARANGAY = {
                 "Gulang-Gulang",
                 "San Agustin ",
                 "Cogon",
-                "Bulawan"
+                "Bulawan",
             ],
             "Juban": [
                 "Bacolod",
@@ -28401,7 +28326,7 @@ BARANGAY = {
                 "Carohayon",
                 "Catanusan",
                 "North Poblacion",
-                "Cogon"
+                "Cogon",
             ],
             "Magallanes": [
                 "Bacalon",
@@ -28437,7 +28362,7 @@ BARANGAY = {
                 "Banacud",
                 "Lapinig",
                 "Salvacion",
-                "Binisitahan del Sur"
+                "Binisitahan del Sur",
             ],
             "Matnog": [
                 "Bolo",
@@ -28479,7 +28404,7 @@ BARANGAY = {
                 "Sinang-Atan",
                 "Calintaan",
                 "Tugas",
-                "Calpi"
+                "Calpi",
             ],
             "Pilar": [
                 "Bayawas",
@@ -28530,7 +28455,7 @@ BARANGAY = {
                 "Pineda",
                 "Del Rosario",
                 "Dapdap",
-                "Calpi"
+                "Calpi",
             ],
             "Prieto Diaz": [
                 "Manlabong",
@@ -28555,7 +28480,7 @@ BARANGAY = {
                 "Quidolog",
                 "San Ramon",
                 "San Antonio",
-                "Bulawan"
+                "Bulawan",
             ],
             "Santa Magdalena": [
                 "San Roque",
@@ -28571,9 +28496,9 @@ BARANGAY = {
                 "San Antonio",
                 "Barangay Poblacion II",
                 "San Bartolome",
-                "San Sebastian"
-            ]
-        }
+                "San Sebastian",
+            ],
+        },
     },
     "Region VI (Western Visayas)": {
         "Aklan": {
@@ -28591,7 +28516,7 @@ BARANGAY = {
                 "Quinasay-an",
                 "Cabangila",
                 "Cabugao",
-                "Lupo"
+                "Lupo",
             ],
             "Balete": [
                 "Morales",
@@ -28603,7 +28528,7 @@ BARANGAY = {
                 "Feliciano",
                 "Calizo",
                 "Guanko",
-                "Cortes"
+                "Cortes",
             ],
             "Banga": [
                 "Daja Norte",
@@ -28635,7 +28560,7 @@ BARANGAY = {
                 "Polocate",
                 "Daguitan",
                 "Palale",
-                "Cupang"
+                "Cupang",
             ],
             "Batan": [
                 "Man-up",
@@ -28657,7 +28582,7 @@ BARANGAY = {
                 "Ambolong",
                 "Mandong",
                 "Ipil",
-                "Angas"
+                "Angas",
             ],
             "Buruanga": [
                 "Balusbos",
@@ -28674,7 +28599,7 @@ BARANGAY = {
                 "El Progreso",
                 "Bel-is",
                 "Mayapay",
-                "Habana"
+                "Habana",
             ],
             "Ibajay": [
                 "Rivera",
@@ -28711,7 +28636,7 @@ BARANGAY = {
                 "Laguinbanwa",
                 "Naisud",
                 "Malindog",
-                "Polo"
+                "Polo",
             ],
             "Kalibo ": [
                 "Tigayon",
@@ -28729,7 +28654,7 @@ BARANGAY = {
                 "Mobo",
                 "Briones",
                 "Buswang Old",
-                "Estancia"
+                "Estancia",
             ],
             "Lezo": [
                 "Sta. Cruz",
@@ -28743,7 +28668,7 @@ BARANGAY = {
                 "Bugasongan",
                 "Carugdog",
                 "Sta. Cruz Biga-a",
-                "Bagto"
+                "Bagto",
             ],
             "Libacao": [
                 "Rivera",
@@ -28769,7 +28694,7 @@ BARANGAY = {
                 "Pinonoy",
                 "Guadalupe",
                 "Alfonso XII",
-                "Calamcan"
+                "Calamcan",
             ],
             "Madalag": [
                 "Galicia",
@@ -28796,7 +28721,7 @@ BARANGAY = {
                 "Mercedes",
                 "Balactasan",
                 "Napnot",
-                "Dit-Ana"
+                "Dit-Ana",
             ],
             "Makato": [
                 "Alibagon",
@@ -28816,7 +28741,7 @@ BARANGAY = {
                 "Tina",
                 "Calangcang",
                 "Calimbajan",
-                "Tugas"
+                "Tugas",
             ],
             "Malay": [
                 "Manoc-Manoc",
@@ -28835,7 +28760,7 @@ BARANGAY = {
                 "Dumlog",
                 "San Viray",
                 "Motag",
-                "Naasug"
+                "Naasug",
             ],
             "Malinao": [
                 "Sugnod",
@@ -28860,7 +28785,7 @@ BARANGAY = {
                 "Kinalangay Nuevo",
                 "San Ramon",
                 "Cogon",
-                "Sipac"
+                "Sipac",
             ],
             "Nabas": [
                 "Magallanes",
@@ -28882,7 +28807,7 @@ BARANGAY = {
                 "Toledo",
                 "Libertad",
                 "Pinatuad",
-                "Matabana"
+                "Matabana",
             ],
             "New Washington": [
                 "Lawa-an",
@@ -28900,7 +28825,7 @@ BARANGAY = {
                 "Jugas",
                 "Tambak",
                 "Pinamuk-an",
-                "Puis"
+                "Puis",
             ],
             "Numancia": [
                 "Bulwang",
@@ -28919,7 +28844,7 @@ BARANGAY = {
                 "Laguinbanua West",
                 "Pusiw",
                 "Camanci Sur",
-                "Dongon East"
+                "Dongon East",
             ],
             "Tangalan": [
                 "Baybay",
@@ -28936,8 +28861,8 @@ BARANGAY = {
                 "Dapdap",
                 "Tondog",
                 "Tamokoe",
-                "Lanipga"
-            ]
+                "Lanipga",
+            ],
         },
         "Antique": {
             "Anini-Y": [
@@ -28963,7 +28888,7 @@ BARANGAY = {
                 "Talisayan",
                 "Lisub A",
                 "Salvacion",
-                "San Ramon"
+                "San Ramon",
             ],
             "Barbaza": [
                 "Baghari",
@@ -29004,7 +28929,7 @@ BARANGAY = {
                 "Beri",
                 "Integasan",
                 "Esparar",
-                "Ipil"
+                "Ipil",
             ],
             "Belison": [
                 "Concepcion",
@@ -29017,7 +28942,7 @@ BARANGAY = {
                 "Salvacion",
                 "Mojon",
                 "Rombang",
-                "Buenavista"
+                "Buenavista",
             ],
             "Bugasong": [
                 "Tica",
@@ -29046,7 +28971,7 @@ BARANGAY = {
                 "Ilaures",
                 "Anilawan",
                 "Igsoro",
-                "Guija"
+                "Guija",
             ],
             "Caluya": [
                 "Bacong",
@@ -29066,7 +28991,7 @@ BARANGAY = {
                 "Hininga-an",
                 "Imba",
                 "Sibato",
-                "Dionela"
+                "Dionela",
             ],
             "Culasi": [
                 "Janlagasi",
@@ -29112,7 +29037,7 @@ BARANGAY = {
                 "Tigbobolo",
                 "Batonan Sur",
                 "Tomao",
-                "Carit-an"
+                "Carit-an",
             ],
             "Hamtic": [
                 "Pasu-Jungao",
@@ -29161,7 +29086,7 @@ BARANGAY = {
                 "Poblacion 4",
                 "Bongbongan III",
                 "Asluman",
-                "Bongbongan I-II"
+                "Bongbongan I-II",
             ],
             "Laua-An": [
                 "Pandanan",
@@ -29203,7 +29128,7 @@ BARANGAY = {
                 "San Ramon",
                 "Guisijan",
                 "Lindero",
-                "Omlot"
+                "Omlot",
             ],
             "Libertad": [
                 "Pajo",
@@ -29224,7 +29149,7 @@ BARANGAY = {
                 "Panangkilon",
                 "Lindero",
                 "Tinindugan",
-                "Inyawan"
+                "Inyawan",
             ],
             "Pandan": [
                 "Baybay",
@@ -29260,7 +29185,7 @@ BARANGAY = {
                 "Napuid",
                 "Perfecta",
                 "Zaldivar",
-                "Dionela"
+                "Dionela",
             ],
             "Patnongon": [
                 "Amparo",
@@ -29298,7 +29223,7 @@ BARANGAY = {
                 "Macarina",
                 "Gella",
                 "Carit-an",
-                "Magarang"
+                "Magarang",
             ],
             "San Jose ": [
                 "Magcalon",
@@ -29328,7 +29253,7 @@ BARANGAY = {
                 "Bariri",
                 "Barangay 2 ",
                 "Funda-Dalipe",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "San Remigio": [
                 "Ramon Magsaysay",
@@ -29375,7 +29300,7 @@ BARANGAY = {
                 "Insubuan",
                 "Carawisan II",
                 "Orquia",
-                "Sinundolan"
+                "Sinundolan",
             ],
             "Sebaste": [
                 "Callan",
@@ -29387,7 +29312,7 @@ BARANGAY = {
                 "Abiera",
                 "Idio",
                 "Nauhon",
-                "P. Javier"
+                "P. Javier",
             ],
             "Sibalom": [
                 "Lagdo",
@@ -29465,7 +29390,7 @@ BARANGAY = {
                 "Bugnay",
                 "Indag-an",
                 "Calo-oy",
-                "Maasin"
+                "Maasin",
             ],
             "Tibiao": [
                 "Bandoja",
@@ -29488,7 +29413,7 @@ BARANGAY = {
                 "Sta. Ana",
                 "Martinez",
                 "Sta. Justa",
-                "San Francisco Sur"
+                "San Francisco Sur",
             ],
             "Tobias Fornier": [
                 "Camandagan",
@@ -29540,7 +29465,7 @@ BARANGAY = {
                 "Sto. Tomas",
                 "Lindero",
                 "Manaling",
-                "Igcadac"
+                "Igcadac",
             ],
             "Valderrama": [
                 "Cananghan",
@@ -29564,8 +29489,8 @@ BARANGAY = {
                 "Buluangan II",
                 "Borocboroc",
                 "Bugnay",
-                "Buluangan I"
-            ]
+                "Buluangan I",
+            ],
         },
         "Capiz": {
             "City of Roxas ": [
@@ -29615,7 +29540,7 @@ BARANGAY = {
                 "Poblacion III",
                 "Cogon",
                 "Poblacion VII",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Cuartero": [
                 "Angub",
@@ -29639,7 +29564,7 @@ BARANGAY = {
                 "Mahunodhunod",
                 "Carataya",
                 "Mainit",
-                "San Antonio"
+                "San Antonio",
             ],
             "Dao": [
                 "Matagnop",
@@ -29661,7 +29586,7 @@ BARANGAY = {
                 "Manhoy",
                 "Nasunogan",
                 "Quinabcaban",
-                "Duyoc"
+                "Duyoc",
             ],
             "Dumalag": [
                 "Concepcion",
@@ -29682,7 +29607,7 @@ BARANGAY = {
                 "Dolores",
                 "San Rafael",
                 "Duran",
-                "San Miguel"
+                "San Miguel",
             ],
             "Dumarao": [
                 "Sibariwan",
@@ -29717,7 +29642,7 @@ BARANGAY = {
                 "Jambad",
                 "Janguslob",
                 "Aglanot",
-                "Aglalana"
+                "Aglalana",
             ],
             "Ivisan": [
                 "Mianay",
@@ -29734,7 +29659,7 @@ BARANGAY = {
                 "Agmalobo",
                 "Matnog",
                 "Cabugao",
-                "Malocloc Sur"
+                "Malocloc Sur",
             ],
             "Jamindan": [
                 "Caridad",
@@ -29766,7 +29691,7 @@ BARANGAY = {
                 "Aglibacao",
                 "Jaena Norte",
                 "Masgrau",
-                "Lapaz"
+                "Lapaz",
             ],
             "Ma-Ayon": [
                 "Palaguian",
@@ -29800,7 +29725,7 @@ BARANGAY = {
                 "Aglimocon",
                 "Quinabonglan",
                 "Tapulang",
-                "Parallan"
+                "Parallan",
             ],
             "Mambusao": [
                 "Bunga",
@@ -29828,7 +29753,7 @@ BARANGAY = {
                 "Cala-agus",
                 "Najus-an",
                 "Tugas",
-                "Libo-o"
+                "Libo-o",
             ],
             "Panay": [
                 "Lus-Onan",
@@ -29872,7 +29797,7 @@ BARANGAY = {
                 "Cabugao Este",
                 "Cogon",
                 "Butacal",
-                "Lanipga"
+                "Lanipga",
             ],
             "Panitan": [
                 "Timpas",
@@ -29900,7 +29825,7 @@ BARANGAY = {
                 "Capagao",
                 "Tabuc Norte",
                 "Cogon",
-                "Agbabadiang"
+                "Agbabadiang",
             ],
             "Pilar": [
                 "Dulangan",
@@ -29926,7 +29851,7 @@ BARANGAY = {
                 "Dayhagan",
                 "San Ramon",
                 "San Antonio",
-                "Olalo"
+                "Olalo",
             ],
             "Pontevedra": [
                 "Bantigue",
@@ -29954,7 +29879,7 @@ BARANGAY = {
                 "Agbanog",
                 "Guba",
                 "Bailan",
-                "Binuntucan"
+                "Binuntucan",
             ],
             "President Roxas": [
                 "Manoling",
@@ -29978,7 +29903,7 @@ BARANGAY = {
                 "Hanglid",
                 "Aranguel",
                 "Carmencita",
-                "Goce"
+                "Goce",
             ],
             "Sapi-An": [
                 "Damayan",
@@ -29990,7 +29915,7 @@ BARANGAY = {
                 "Agsilab",
                 "Poblacion",
                 "Majanlud",
-                "Agtatacay Sur"
+                "Agtatacay Sur",
             ],
             "Sigma": [
                 "Matinabus",
@@ -30013,7 +29938,7 @@ BARANGAY = {
                 "Cogon",
                 "Malapad Cogon",
                 "Dayhagon",
-                "Parian"
+                "Parian",
             ],
             "Tapaz": [
                 "Da-an Sur",
@@ -30073,8 +29998,8 @@ BARANGAY = {
                 "Agpalali",
                 "Mabini",
                 "Malitbog",
-                "Gebio-an"
-            ]
+                "Gebio-an",
+            ],
         },
         "Guimaras": {
             "Buenavista": [
@@ -30113,7 +30038,7 @@ BARANGAY = {
                 "Dagsa-an",
                 "Taminla",
                 "Mabini",
-                "East Valencia"
+                "East Valencia",
             ],
             "Jordan ": [
                 "Santa Teresa",
@@ -30129,7 +30054,7 @@ BARANGAY = {
                 "Alaguisoc",
                 "Buluangan",
                 "Bugnay",
-                "Morobuan"
+                "Morobuan",
             ],
             "Nueva Valencia": [
                 "Magamay",
@@ -30153,7 +30078,7 @@ BARANGAY = {
                 "Salvacion",
                 "Cabalagnan",
                 "San Antonio",
-                "Panobolon"
+                "Panobolon",
             ],
             "San Lorenzo": [
                 "Tamborong",
@@ -30167,7 +30092,7 @@ BARANGAY = {
                 "Aguilar",
                 "Cabano",
                 "M. Chavez",
-                "Gaban"
+                "Gaban",
             ],
             "Sibunag": [
                 "Ayangan",
@@ -30183,8 +30108,8 @@ BARANGAY = {
                 "Sabang",
                 "Ravina",
                 "Sebaste",
-                "Oracon Norte"
-            ]
+                "Oracon Norte",
+            ],
         },
         "Iloilo": {
             "Ajuy": [
@@ -30221,7 +30146,7 @@ BARANGAY = {
                 "San Antonio",
                 "Pinay Espinosa",
                 "Progreso",
-                "Rojas"
+                "Rojas",
             ],
             "Alimodian": [
                 "Pajo",
@@ -30274,7 +30199,7 @@ BARANGAY = {
                 "Ban-ag",
                 "Dao",
                 "Ulay-Bugang",
-                "Bulod"
+                "Bulod",
             ],
             "Anilao": [
                 "San Juan Crisostomo",
@@ -30297,7 +30222,7 @@ BARANGAY = {
                 "Manganese",
                 "Mostro",
                 "Balabag",
-                "Cag-an"
+                "Cag-an",
             ],
             "Badiangan": [
                 "Talaba",
@@ -30330,7 +30255,7 @@ BARANGAY = {
                 "Mainguit",
                 "Linayuan",
                 "Catubig",
-                "Iniligan"
+                "Iniligan",
             ],
             "Balasan": [
                 "Bacolod",
@@ -30355,7 +30280,7 @@ BARANGAY = {
                 "Batuan",
                 "Lawis",
                 "Salvacion",
-                "Ipil"
+                "Ipil",
             ],
             "Banate": [
                 "Juanico",
@@ -30375,7 +30300,7 @@ BARANGAY = {
                 "Dugwakan",
                 "Zona Sur",
                 "Belen",
-                "Fuentes*"
+                "Fuentes*",
             ],
             "Barotac Nuevo": [
                 "Cabilauan",
@@ -30406,7 +30331,7 @@ BARANGAY = {
                 "Sohoton",
                 "Patag",
                 "Monpon",
-                "Bagongbong"
+                "Bagongbong",
             ],
             "Barotac Viejo": [
                 "Santo Tomas",
@@ -30434,7 +30359,7 @@ BARANGAY = {
                 "San Miguel",
                 "San Antonio",
                 "Santiago",
-                "Bugnay"
+                "Bugnay",
             ],
             "Batad": [
                 "Caw-i",
@@ -30460,7 +30385,7 @@ BARANGAY = {
                 "Tapi-an",
                 "Alapasco",
                 "Bolhog",
-                "Cabagohan"
+                "Cabagohan",
             ],
             "Bingawan": [
                 "Ngingi-an",
@@ -30476,7 +30401,7 @@ BARANGAY = {
                 "Inamyungan",
                 "Quinar-Upan",
                 "Guinhulacan",
-                "Malitbog Ilawod"
+                "Malitbog Ilawod",
             ],
             "Cabatuan": [
                 "Inaca",
@@ -30546,7 +30471,7 @@ BARANGAY = {
                 "Ito Norte",
                 "Jelicuon Montinola",
                 "Janipaan Olo",
-                "Anuang"
+                "Anuang",
             ],
             "Calinog": [
                 "Poblacion Centro",
@@ -30607,7 +30532,7 @@ BARANGAY = {
                 "Ipil",
                 "Camalongo",
                 "Canabajan",
-                "Badlan Peque\u00f1o"
+                "Badlan Peque\u00f1o",
             ],
             "Carles": [
                 "Bolo",
@@ -30642,7 +30567,7 @@ BARANGAY = {
                 "Punta Batuanan",
                 "Abong",
                 "Asluman",
-                "Punta"
+                "Punta",
             ],
             "City of Passi": [
                 "Agdayao",
@@ -30695,7 +30620,7 @@ BARANGAY = {
                 "Libo-o",
                 "Aglalana",
                 "Agtambo",
-                "Maasin"
+                "Maasin",
             ],
             "Concepcion": [
                 "Malangabang",
@@ -30722,7 +30647,7 @@ BARANGAY = {
                 "Jamul-Awon",
                 "Calamigan",
                 "Salvacion",
-                "Dungon"
+                "Dungon",
             ],
             "Dingle": [
                 "Caguyuman",
@@ -30757,7 +30682,7 @@ BARANGAY = {
                 "Agtatacay",
                 "Alegria",
                 "Licu-an",
-                "Libo-o"
+                "Libo-o",
             ],
             "Due\u00f1as": [
                 "Tipolo",
@@ -30806,7 +30731,7 @@ BARANGAY = {
                 "Dila-an",
                 "Maribuyong",
                 "Monpon",
-                "Bagongbong"
+                "Bagongbong",
             ],
             "Dumangas": [
                 "Bacong",
@@ -30853,7 +30778,7 @@ BARANGAY = {
                 "Basa-Mabini Bonifacio ",
                 "Bantud Fabrica",
                 "Cali",
-                "Nanding Lopez"
+                "Nanding Lopez",
             ],
             "Estancia": [
                 "Tabu-an",
@@ -30880,7 +30805,7 @@ BARANGAY = {
                 "Pa-on",
                 "Poblacion Zone II",
                 "Tanza",
-                "Poblacion Zone 1"
+                "Poblacion Zone 1",
             ],
             "Guimbal": [
                 "Bacong",
@@ -30915,7 +30840,7 @@ BARANGAY = {
                 "Calampitao",
                 "Sipitan-Badiang",
                 "Burgos-Gengos ",
-                "Nahapay"
+                "Nahapay",
             ],
             "Igbaras": [
                 "Kinagdan",
@@ -30963,7 +30888,7 @@ BARANGAY = {
                 "Calampitao",
                 "Bugnay",
                 "Corucuan",
-                "Bagacayan"
+                "Bagacayan",
             ],
             "Janiuay": [
                 "Don T. Lutero Center ",
@@ -31025,7 +30950,7 @@ BARANGAY = {
                 "Aguingay",
                 "Guadalupe",
                 "Ubian",
-                "Carigangan"
+                "Carigangan",
             ],
             "Lambunao": [
                 "Pajo",
@@ -31100,7 +31025,7 @@ BARANGAY = {
                 "Bontoc",
                 "Sagcup",
                 "Bagongbong",
-                "Cayan Este"
+                "Cayan Este",
             ],
             "Leganes": [
                 "Cagamutan Norte",
@@ -31120,7 +31045,7 @@ BARANGAY = {
                 "San Vicente",
                 "Cari Minor",
                 "Guinobatan",
-                "Cari Mayor"
+                "Cari Mayor",
             ],
             "Lemery": [
                 "Dapdapan",
@@ -31153,7 +31078,7 @@ BARANGAY = {
                 "San Antonio",
                 "Dalipe",
                 "Tugas",
-                "Poblacion SE Zone"
+                "Poblacion SE Zone",
             ],
             "Leon": [
                 "Bacolod",
@@ -31240,7 +31165,7 @@ BARANGAY = {
                 "Magcapay",
                 "Cawilihan",
                 "Tacuyong Sur",
-                "Agboy Sur"
+                "Agboy Sur",
             ],
             "Maasin": [
                 "Bolo",
@@ -31292,7 +31217,7 @@ BARANGAY = {
                 "Layog",
                 "Tigbauan",
                 "Ubian",
-                "Bug-ot"
+                "Bug-ot",
             ],
             "Miagao": [
                 "Oyungan",
@@ -31413,7 +31338,7 @@ BARANGAY = {
                 "Fundacion",
                 "Naclub",
                 "Pungtod Naulid",
-                "Indag-an"
+                "Indag-an",
             ],
             "Mina": [
                 "Tipolo",
@@ -31437,7 +31362,7 @@ BARANGAY = {
                 "Mina West ",
                 "Abat",
                 "Talibong Peque\u00f1o",
-                "Capul-an"
+                "Capul-an",
             ],
             "New Lucena": [
                 "Cagban",
@@ -31460,7 +31385,7 @@ BARANGAY = {
                 "Balabag",
                 "Bita-og Gaja",
                 "General Delgado",
-                "Guinobatan"
+                "Guinobatan",
             ],
             "Oton": [
                 "Abilay Norte",
@@ -31499,7 +31424,7 @@ BARANGAY = {
                 "Batuan Ilaud",
                 "Abilay Sur",
                 "San Antonio",
-                "Tagbac Sur"
+                "Tagbac Sur",
             ],
             "Pavia": [
                 "Amparo",
@@ -31519,7 +31444,7 @@ BARANGAY = {
                 "Anilao",
                 "Pandac",
                 "Mali-ao",
-                "Purok III "
+                "Purok III ",
             ],
             "Pototan": [
                 "Pajo",
@@ -31571,7 +31496,7 @@ BARANGAY = {
                 "Casalsagan",
                 "Polot-an",
                 "Naslo",
-                "Guinacas"
+                "Guinacas",
             ],
             "San Dionisio": [
                 "Siempreviva",
@@ -31602,7 +31527,7 @@ BARANGAY = {
                 "Canas",
                 "Moto",
                 "Amayong",
-                "Odiongan"
+                "Odiongan",
             ],
             "San Enrique": [
                 "Paga",
@@ -31632,7 +31557,7 @@ BARANGAY = {
                 "Imbang Peque\u00f1o",
                 "San Antonio",
                 "Braulan",
-                "Madarag"
+                "Madarag",
             ],
             "San Joaquin": [
                 "Dongoc",
@@ -31719,7 +31644,7 @@ BARANGAY = {
                 "Mabini Norte",
                 "Camia",
                 "Bucaya",
-                "Nadsadan"
+                "Nadsadan",
             ],
             "San Miguel": [
                 "Bgy. 3 Pob.",
@@ -31745,7 +31670,7 @@ BARANGAY = {
                 "Bgy. 4 Pob.",
                 "Bgy. 16 Pob.",
                 "Bgy. 5 Pob.",
-                "San Antonio"
+                "San Antonio",
             ],
             "San Rafael": [
                 "Ilongbukid",
@@ -31756,7 +31681,7 @@ BARANGAY = {
                 "Poscolon",
                 "Calaigang",
                 "San Dionisio",
-                "San Andres"
+                "San Andres",
             ],
             "Santa Barbara": [
                 "Bitaog-Taytay",
@@ -31818,7 +31743,7 @@ BARANGAY = {
                 "Tugas",
                 "Bolong Este",
                 "Agusipan",
-                "Nasugban"
+                "Nasugban",
             ],
             "Sara": [
                 "Ferraris",
@@ -31862,7 +31787,7 @@ BARANGAY = {
                 "Padios",
                 "Aspera",
                 "Preciosa",
-                "Alibayog"
+                "Alibayog",
             ],
             "Tigbauan": [
                 "Bangkal",
@@ -31916,7 +31841,7 @@ BARANGAY = {
                 "Bugasongan",
                 "Taro",
                 "Dapdap",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Tubungan": [
                 "Igpaho",
@@ -31966,7 +31891,7 @@ BARANGAY = {
                 "Daga-ay",
                 "Ayubo",
                 "Cadabdab",
-                "Pinamacalan"
+                "Pinamacalan",
             ],
             "Zarraga": [
                 "Pajo",
@@ -31992,8 +31917,8 @@ BARANGAY = {
                 "Jalaud Sur",
                 "Sigangao",
                 "Dawis Norte",
-                "Tubigan"
-            ]
+                "Tubigan",
+            ],
         },
         "City of Iloilo ": [
             "San Isidro (Jaro)",
@@ -32175,8 +32100,8 @@ BARANGAY = {
             "West Habog-habog",
             "Guzman-Jesena",
             "Tanza-Esperanza",
-            "Lapuz Norte"
-        ]
+            "Lapuz Norte",
+        ],
     },
     "Region VII (Central Visayas)": {
         "Bohol": {
@@ -32191,7 +32116,7 @@ BARANGAY = {
                 "Ponong",
                 "East Poblacion",
                 "Bahi",
-                "Cantiguib"
+                "Cantiguib",
             ],
             "Alicia": [
                 "Del Monte",
@@ -32208,7 +32133,7 @@ BARANGAY = {
                 "Cayacay",
                 "Cagongcagong",
                 "La Hacienda",
-                "Cambaol"
+                "Cambaol",
             ],
             "Anda": [
                 "Casica",
@@ -32226,7 +32151,7 @@ BARANGAY = {
                 "Lundag",
                 "Badiang",
                 "Buenasuerte",
-                "Almaria"
+                "Almaria",
             ],
             "Antequera": [
                 "Mag-aso",
@@ -32249,7 +32174,7 @@ BARANGAY = {
                 "Viga",
                 "Quinapon-an",
                 "Bicahan",
-                "Bantolinao"
+                "Bantolinao",
             ],
             "Baclayon": [
                 "San Roque",
@@ -32268,7 +32193,7 @@ BARANGAY = {
                 "San Vicente",
                 "Tanday",
                 "Laya",
-                "Pamilacan"
+                "Pamilacan",
             ],
             "Balilihan": [
                 "Baucan Sur",
@@ -32301,7 +32226,7 @@ BARANGAY = {
                 "Cogon",
                 "Sal-ing",
                 "Datag Sur",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Batuan": [
                 "Quezon",
@@ -32318,7 +32243,7 @@ BARANGAY = {
                 "Behind The Clouds",
                 "Aloja",
                 "Rosariohan",
-                "Poblacion Vieja"
+                "Poblacion Vieja",
             ],
             "Bien Unido": [
                 "Hingotanan West",
@@ -32335,7 +32260,7 @@ BARANGAY = {
                 "Pinamgo",
                 "Nueva Esperanza",
                 "Bilangbilangan Dako",
-                "Hingotanan East"
+                "Hingotanan East",
             ],
             "Bilar": [
                 "Owac",
@@ -32356,7 +32281,7 @@ BARANGAY = {
                 "Zamora",
                 "Cansumbol",
                 "Bugang Sur",
-                "Riverside"
+                "Riverside",
             ],
             "Buenavista": [
                 "Lapacan Norte",
@@ -32393,7 +32318,7 @@ BARANGAY = {
                 "Lubang",
                 "Cambuhat",
                 "Cantuba",
-                "Nueva Montana"
+                "Nueva Montana",
             ],
             "Calape": [
                 "Tultugan",
@@ -32428,7 +32353,7 @@ BARANGAY = {
                 "Lucob",
                 "Santa Cruz ",
                 "Magtongtong",
-                "Cabudburan"
+                "Cabudburan",
             ],
             "Candijay": [
                 "Abihilan",
@@ -32451,7 +32376,7 @@ BARANGAY = {
                 "Can-olin",
                 "Lungsoda-an",
                 "Luan",
-                "Tugas"
+                "Tugas",
             ],
             "Carmen": [
                 "Montevideo",
@@ -32482,7 +32407,7 @@ BARANGAY = {
                 "Calatrava",
                 "Guadalupe",
                 "Bicao",
-                "Montesunting"
+                "Montesunting",
             ],
             "Catigbian": [
                 "Sinakayanan",
@@ -32506,7 +32431,7 @@ BARANGAY = {
                 "Mahayag Norte",
                 "Maitum",
                 "Alegria",
-                "Mahayag Sur"
+                "Mahayag Sur",
             ],
             "City of Tagbilaran ": [
                 "San Isidro",
@@ -32523,7 +32448,7 @@ BARANGAY = {
                 "Mansasa",
                 "Booy",
                 "Taloto",
-                "Manga"
+                "Manga",
             ],
             "Clarin": [
                 "Poblacion Centro",
@@ -32549,7 +32474,7 @@ BARANGAY = {
                 "Cabog",
                 "Caboy",
                 "Bogtongbod",
-                "Comaang"
+                "Comaang",
             ],
             "Corella": [
                 "Pandol",
@@ -32559,7 +32484,7 @@ BARANGAY = {
                 "Anislag",
                 "Canapnapan",
                 "Sambog",
-                "Cancatac"
+                "Cancatac",
             ],
             "Cortes": [
                 "Salvador",
@@ -32575,7 +32500,7 @@ BARANGAY = {
                 "Poblacion",
                 "Malayo Norte",
                 "Upper de la Paz",
-                "Fatima"
+                "Fatima",
             ],
             "Dagohoy": [
                 "Cagawasan",
@@ -32592,7 +32517,7 @@ BARANGAY = {
                 "Mahayag",
                 "Estaca",
                 "Malitbog",
-                "Can-oling"
+                "Can-oling",
             ],
             "Danao": [
                 "Concepcion",
@@ -32611,7 +32536,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Tabok",
                 "San Carlos",
-                "Taming"
+                "Taming",
             ],
             "Dauis": [
                 "Catarman",
@@ -32625,7 +32550,7 @@ BARANGAY = {
                 "Biking",
                 "Mariveles",
                 "Tabalong",
-                "Bingag"
+                "Bingag",
             ],
             "Dimiao": [
                 "Datag",
@@ -32662,7 +32587,7 @@ BARANGAY = {
                 "Sawang",
                 "Taongon Cabatuan",
                 "Canhayupon",
-                "Canlambong"
+                "Canlambong",
             ],
             "Duero": [
                 "Madua Norte",
@@ -32685,7 +32610,7 @@ BARANGAY = {
                 "Alejawan",
                 "Lobogon",
                 "Guinsularan",
-                "Payao"
+                "Payao",
             ],
             "Garcia Hernandez": [
                 "Datag",
@@ -32717,7 +32642,7 @@ BARANGAY = {
                 "Sampong",
                 "Candulao",
                 "Malinao",
-                "Abijilan"
+                "Abijilan",
             ],
             "Getafe": [
                 "Campao Occidental",
@@ -32743,7 +32668,7 @@ BARANGAY = {
                 "Pandanon",
                 "Jandayan Sur",
                 "Taytay",
-                "Tugas"
+                "Tugas",
             ],
             "Guindulman": [
                 "Biabas",
@@ -32764,7 +32689,7 @@ BARANGAY = {
                 "Tabunok",
                 "Lombog",
                 "Mayuga",
-                "Bulawan"
+                "Bulawan",
             ],
             "Inabanga": [
                 "Datag",
@@ -32816,7 +32741,7 @@ BARANGAY = {
                 "Cogon",
                 "Baogo",
                 "Lonoy Roma",
-                "Tungod"
+                "Tungod",
             ],
             "Jagna": [
                 "Bunga Mar",
@@ -32851,7 +32776,7 @@ BARANGAY = {
                 "Can-upao",
                 "Alejawan",
                 "Bunga Ilaya",
-                "Ipil"
+                "Ipil",
             ],
             "Lila": [
                 "Calvario",
@@ -32871,7 +32796,7 @@ BARANGAY = {
                 "Macalingan",
                 "Bonkokan Ilaya",
                 "Candulang",
-                "Jambawan"
+                "Jambawan",
             ],
             "Loay": [
                 "Concepcion",
@@ -32897,7 +32822,7 @@ BARANGAY = {
                 "Agape",
                 "Yanangan",
                 "Botoc Oriental",
-                "Las Salinas Norte"
+                "Las Salinas Norte",
             ],
             "Loboc": [
                 "Camayaan",
@@ -32927,7 +32852,7 @@ BARANGAY = {
                 "Candabong",
                 "Alegria",
                 "Oy",
-                "Bonbon Upper"
+                "Bonbon Upper",
             ],
             "Loon": [
                 "Pantudlan",
@@ -32996,7 +32921,7 @@ BARANGAY = {
                 "Moto Sur ",
                 "Ticugan",
                 "Badbad Occidental",
-                "Tontonan"
+                "Tontonan",
             ],
             "Mabini": [
                 "Concepcion",
@@ -33020,7 +32945,7 @@ BARANGAY = {
                 "Lungsoda-an",
                 "Poblacion II",
                 "Bulawan",
-                "Valaga"
+                "Valaga",
             ],
             "Maribojoc": [
                 "Dipatlong",
@@ -33044,7 +32969,7 @@ BARANGAY = {
                 "Tinibgan",
                 "Lincod",
                 "Agahay",
-                "Punsod"
+                "Punsod",
             ],
             "Panglao": [
                 "Looc",
@@ -33056,7 +32981,7 @@ BARANGAY = {
                 "Bolod",
                 "Lourdes",
                 "Poblacion",
-                "Doljo"
+                "Doljo",
             ],
             "Pilar": [
                 "Catagda-an",
@@ -33079,7 +33004,7 @@ BARANGAY = {
                 "Cagawasan",
                 "Cansungay",
                 "La Suerte",
-                "Pamacsalan"
+                "Pamacsalan",
             ],
             "President Carlos P. Garcia": [
                 "Tilmobo",
@@ -33104,7 +33029,7 @@ BARANGAY = {
                 "Bogo",
                 "Bonbonon",
                 "Gaus",
-                "Tugas"
+                "Tugas",
             ],
             "Sagbayan": [
                 "Santa Cruz",
@@ -33130,7 +33055,7 @@ BARANGAY = {
                 "Langtad",
                 "Libertad Sur",
                 "San Ramon",
-                "San Antonio"
+                "San Antonio",
             ],
             "San Isidro": [
                 "Baunos",
@@ -33144,7 +33069,7 @@ BARANGAY = {
                 "Causwagan Sur",
                 "Caimbang",
                 "Candungao",
-                "Masonoy"
+                "Masonoy",
             ],
             "San Miguel": [
                 "Hagbuyo",
@@ -33164,7 +33089,7 @@ BARANGAY = {
                 "Cambangay Norte",
                 "Santo Ni\u00f1o",
                 "San Jose",
-                "Bayongan"
+                "Bayongan",
             ],
             "Sevilla": [
                 "Magsaysay",
@@ -33179,7 +33104,7 @@ BARANGAY = {
                 "Bayawahan",
                 "Cabancalan",
                 "Licolico",
-                "Ewon"
+                "Ewon",
             ],
             "Sierra Bullones": [
                 "Dusita",
@@ -33203,7 +33128,7 @@ BARANGAY = {
                 "Man-od",
                 "Casilay",
                 "Bugsoc",
-                "Villa Garcia"
+                "Villa Garcia",
             ],
             "Sikatuna": [
                 "Libjo",
@@ -33215,7 +33140,7 @@ BARANGAY = {
                 "Canagong",
                 "Badiang",
                 "Bahaybahay",
-                "Abucay Norte"
+                "Abucay Norte",
             ],
             "Talibon": [
                 "Calituban",
@@ -33242,7 +33167,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Balintawak",
                 "Zamora",
-                "Burgos"
+                "Burgos",
             ],
             "Trinidad": [
                 "Soom",
@@ -33264,7 +33189,7 @@ BARANGAY = {
                 "Bongbong",
                 "Hinlayagan Ilaud",
                 "Tagum Sur",
-                "Guinobatan"
+                "Guinobatan",
             ],
             "Tubigon": [
                 "Pooc Occidental ",
@@ -33300,7 +33225,7 @@ BARANGAY = {
                 "Genonocan",
                 "Tan-awan",
                 "Bosongon",
-                "Mocaboc Island"
+                "Mocaboc Island",
             ],
             "Ubay": [
                 "Tipolo",
@@ -33346,7 +33271,7 @@ BARANGAY = {
                 "Guintabo-an",
                 "Imelda",
                 "Pag-asa",
-                "Pangpang"
+                "Pangpang",
             ],
             "Valencia": [
                 "Magsaysay",
@@ -33383,8 +33308,8 @@ BARANGAY = {
                 "Adlawan",
                 "Taytay",
                 "Pangi-an",
-                "Lantang"
-            ]
+                "Lantang",
+            ],
         },
         "Cebu": {
             "Alcantara": [
@@ -33396,7 +33321,7 @@ BARANGAY = {
                 "Polo",
                 "Lawaan",
                 "Salagmaya",
-                "Manga"
+                "Manga",
             ],
             "Alcoy": [
                 "Atabay",
@@ -33406,7 +33331,7 @@ BARANGAY = {
                 "San Agustin",
                 "Pugalo",
                 "Daan-Lungsod",
-                "Nug-as"
+                "Nug-as",
             ],
             "Alegria": [
                 "Valencia",
@@ -33417,7 +33342,7 @@ BARANGAY = {
                 "Lepanto",
                 "Santa Filomena",
                 "Guadalupe",
-                "Madridejos"
+                "Madridejos",
             ],
             "Aloguinsan": [
                 "Punay",
@@ -33434,7 +33359,7 @@ BARANGAY = {
                 "Saksak",
                 "Olango",
                 "Kandingan",
-                "Kantabogon"
+                "Kantabogon",
             ],
             "Argao": [
                 "Catang",
@@ -33481,7 +33406,7 @@ BARANGAY = {
                 "Jampang",
                 "Lamacan",
                 "Bug-ot",
-                "Lengigon"
+                "Lengigon",
             ],
             "Asturias": [
                 "Agbanga",
@@ -33510,7 +33435,7 @@ BARANGAY = {
                 "Lanao",
                 "Saksak",
                 "Ubogon",
-                "Lunas"
+                "Lunas",
             ],
             "Badian": [
                 "Ginablan",
@@ -33541,7 +33466,7 @@ BARANGAY = {
                 "Candiis",
                 "Talayong",
                 "Malabago",
-                "Calangcang"
+                "Calangcang",
             ],
             "Balamban": [
                 "Gaas",
@@ -33571,7 +33496,7 @@ BARANGAY = {
                 "Prenza",
                 "Ginatilan",
                 "Duangan",
-                "Aliwanay"
+                "Aliwanay",
             ],
             "Bantayan": [
                 "Kangkaibe",
@@ -33598,7 +33523,7 @@ BARANGAY = {
                 "Kampingganon",
                 "Binaobao ",
                 "Suba ",
-                "Sillon"
+                "Sillon",
             ],
             "Barili": [
                 "Balao",
@@ -33642,7 +33567,7 @@ BARANGAY = {
                 "Pancil",
                 "Tal-ot",
                 "Bagakay",
-                "Candugay"
+                "Candugay",
             ],
             "Boljoon": [
                 "Arbor",
@@ -33655,7 +33580,7 @@ BARANGAY = {
                 "Upper Becerril",
                 "San Antonio",
                 "Nangka",
-                "Granada"
+                "Granada",
             ],
             "Borbon": [
                 "Bagacay",
@@ -33676,7 +33601,7 @@ BARANGAY = {
                 "Campusong",
                 "Cadaruhan",
                 "Lugo",
-                "Tabunan"
+                "Tabunan",
             ],
             "Carmen": [
                 "Ipil",
@@ -33699,7 +33624,7 @@ BARANGAY = {
                 "Lower Natimao-an",
                 "Cogon East",
                 "Dawis Norte",
-                "Lanipga"
+                "Lanipga",
             ],
             "Catmon": [
                 "Cabungaan",
@@ -33721,7 +33646,7 @@ BARANGAY = {
                 "Catmondaan",
                 "Anapog",
                 "Corazon ",
-                "Cambangkaya"
+                "Cambangkaya",
             ],
             "City of Bogo": [
                 "Lourdes ",
@@ -33752,7 +33677,7 @@ BARANGAY = {
                 "Libertad",
                 "Siocon",
                 "Guadalupe",
-                "Sambag "
+                "Sambag ",
             ],
             "City of Carcar": [
                 "Can-asujan",
@@ -33769,7 +33694,7 @@ BARANGAY = {
                 "Tuyom",
                 "Poblacion III",
                 "Perrelos",
-                "Buenavista"
+                "Buenavista",
             ],
             "City of Naga": [
                 "Alfaco",
@@ -33799,7 +33724,7 @@ BARANGAY = {
                 "North Poblacion",
                 "Mainit",
                 "Patag",
-                "Cogon"
+                "Cogon",
             ],
             "City of Talisay": [
                 "Camp IV",
@@ -33823,7 +33748,7 @@ BARANGAY = {
                 "Mohon",
                 "Lawaan I",
                 "Bulacao",
-                "Manipis"
+                "Manipis",
             ],
             "City of Toledo": [
                 "Carmen",
@@ -33863,7 +33788,7 @@ BARANGAY = {
                 "Pangamihan",
                 "Sam-ang",
                 "Luray II",
-                "Bagakay"
+                "Bagakay",
             ],
             "Compostela": [
                 "Cabadiangan",
@@ -33882,7 +33807,7 @@ BARANGAY = {
                 "Dapdap",
                 "Tag-ube",
                 "Tamiao",
-                "Tubigan"
+                "Tubigan",
             ],
             "Consolacion": [
                 "Poblacion Occidental",
@@ -33905,7 +33830,7 @@ BARANGAY = {
                 "Tolotolo",
                 "Jugan",
                 "Garing",
-                "Lanipga"
+                "Lanipga",
             ],
             "Cordova": [
                 "Pilipog",
@@ -33920,7 +33845,7 @@ BARANGAY = {
                 "San Miguel",
                 "Alegria",
                 "Cogon",
-                "Bangbang"
+                "Bangbang",
             ],
             "Daanbantayan": [
                 "Pajo",
@@ -33942,7 +33867,7 @@ BARANGAY = {
                 "Bagay",
                 "Malbago",
                 "Lanao",
-                "Logon"
+                "Logon",
             ],
             "Dalaguete": [
                 "Malones",
@@ -33977,7 +33902,7 @@ BARANGAY = {
                 "Lanao",
                 "Obo",
                 "Obong",
-                "Catolohan"
+                "Catolohan",
             ],
             "Danao City": [
                 "Cogon-Cruz",
@@ -34021,7 +33946,7 @@ BARANGAY = {
                 "Sabang",
                 "Dungga",
                 "Cambanay",
-                "Danasan"
+                "Danasan",
             ],
             "Dumanjug": [
                 "Camboang",
@@ -34060,7 +33985,7 @@ BARANGAY = {
                 "Kabalaasnan",
                 "Kabatbatan",
                 "Poblacion Central",
-                "Cogon"
+                "Cogon",
             ],
             "Ginatilan": [
                 "San Roque",
@@ -34076,7 +34001,7 @@ BARANGAY = {
                 "Mangaco",
                 "Anao",
                 "Cagsing",
-                "Malatbo"
+                "Malatbo",
             ],
             "Liloan": [
                 "San Roque",
@@ -34092,7 +34017,7 @@ BARANGAY = {
                 "Jubay",
                 "San Vicente",
                 "Lataban",
-                "Tabla"
+                "Tabla",
             ],
             "Madridejos": [
                 "Talangnan",
@@ -34108,7 +34033,7 @@ BARANGAY = {
                 "Mancilang",
                 "Tarong",
                 "Tugas",
-                "Kodia"
+                "Kodia",
             ],
             "Malabuyoc": [
                 "Looc",
@@ -34124,7 +34049,7 @@ BARANGAY = {
                 "Barangay I ",
                 "Mindanao",
                 "Tolosa",
-                "Mahanlud"
+                "Mahanlud",
             ],
             "Medellin": [
                 "Canhabagat",
@@ -34145,7 +34070,7 @@ BARANGAY = {
                 "Don Virgilio Gonzales",
                 "Kawit",
                 "Dayhagon",
-                "Lamintak Norte"
+                "Lamintak Norte",
             ],
             "Minglanilla": [
                 "Tulay",
@@ -34166,7 +34091,7 @@ BARANGAY = {
                 "Calajo-an",
                 "Poblacion Ward I",
                 "Poblacion Ward IV",
-                "Cuanos"
+                "Cuanos",
             ],
             "Moalboal": [
                 "Basdiot",
@@ -34183,7 +34108,7 @@ BARANGAY = {
                 "Bugho",
                 "Agbalanga",
                 "Poblacion West",
-                "Tuble"
+                "Tuble",
             ],
             "Oslob": [
                 "Lagunde",
@@ -34206,7 +34131,7 @@ BARANGAY = {
                 "Manlum",
                 "Tan-awan",
                 "Gawi",
-                "Hagdan"
+                "Hagdan",
             ],
             "Pilar": [
                 "San Juan",
@@ -34221,7 +34146,7 @@ BARANGAY = {
                 "Imelda",
                 "Lanao",
                 "Esperanza",
-                "Dapdap"
+                "Dapdap",
             ],
             "Pinamungajan": [
                 "Mangoto",
@@ -34249,7 +34174,7 @@ BARANGAY = {
                 "Opao",
                 "Duangan",
                 "Tutay",
-                "Anopog"
+                "Anopog",
             ],
             "Poro": [
                 "Altavista",
@@ -34268,7 +34193,7 @@ BARANGAY = {
                 "San Jose",
                 "Mabini",
                 "Adela",
-                "Teguis"
+                "Teguis",
             ],
             "Ronda": [
                 "Cansayahon",
@@ -34284,7 +34209,7 @@ BARANGAY = {
                 "Langin",
                 "Cansalonoy",
                 "Can-abuhon",
-                "Butong"
+                "Butong",
             ],
             "Samboan": [
                 "Canorong",
@@ -34301,7 +34226,7 @@ BARANGAY = {
                 "Tangbo",
                 "Cambigong",
                 "San Sebastian",
-                "Calatagan"
+                "Calatagan",
             ],
             "San Fernando": [
                 "Tinubdan",
@@ -34324,7 +34249,7 @@ BARANGAY = {
                 "Balungag",
                 "Liburon",
                 "Balud",
-                "Tananas"
+                "Tananas",
             ],
             "San Francisco": [
                 "Santiago",
@@ -34341,7 +34266,7 @@ BARANGAY = {
                 "Esperanza",
                 "Southern Poblacion",
                 "Campo",
-                "Unidos"
+                "Unidos",
             ],
             "San Remigio": [
                 "Argawanon",
@@ -34370,7 +34295,7 @@ BARANGAY = {
                 "Lambusan",
                 "Punta",
                 "Gawaygaway",
-                "Dapdap"
+                "Dapdap",
             ],
             "Santa Fe": [
                 "Maricaban",
@@ -34382,7 +34307,7 @@ BARANGAY = {
                 "Langub",
                 "Hagdan",
                 "Hilantagaan",
-                "Talisay"
+                "Talisay",
             ],
             "Santander": [
                 "Liloan",
@@ -34394,7 +34319,7 @@ BARANGAY = {
                 "Poblacion",
                 "Cabutongan",
                 "Candamiang",
-                "Talisay"
+                "Talisay",
             ],
             "Sibonga": [
                 "Bae",
@@ -34421,7 +34346,7 @@ BARANGAY = {
                 "Bahay",
                 "Sabang",
                 "Sayao",
-                "Lamacan"
+                "Lamacan",
             ],
             "Sogod": [
                 "Lubo",
@@ -34441,7 +34366,7 @@ BARANGAY = {
                 "Liki",
                 "Tabunok",
                 "Bagakay",
-                "Takay"
+                "Takay",
             ],
             "Tabogon": [
                 "Camoboan",
@@ -34468,7 +34393,7 @@ BARANGAY = {
                 "Kal-anan",
                 "Ilihan",
                 "Manlagtang",
-                "Caduawan"
+                "Caduawan",
             ],
             "Tabuelan": [
                 "Villahermosa",
@@ -34482,7 +34407,7 @@ BARANGAY = {
                 "Maravilla",
                 "Bongon",
                 "Dalid",
-                "Kantubaon"
+                "Kantubaon",
             ],
             "Tuburan": [
                 "Mag-alwa",
@@ -34538,7 +34463,7 @@ BARANGAY = {
                 "Barangay VII ",
                 "Sandayong",
                 "Barangay IV ",
-                "Bakyawan"
+                "Bakyawan",
             ],
             "Tudela": [
                 "Villahermosa",
@@ -34551,8 +34476,8 @@ BARANGAY = {
                 "Southern Poblacion",
                 "General",
                 "Calmante",
-                "Buenavista"
-            ]
+                "Buenavista",
+            ],
         },
         "City of Cebu ": [
             "Basak San Nicolas",
@@ -34634,7 +34559,7 @@ BARANGAY = {
             "Sudlon II",
             "San Nicolas Central",
             "Kalunasan",
-            "Mabini"
+            "Mabini",
         ],
         "City of Lapu-Lapu": [
             "Pajo",
@@ -34666,7 +34591,7 @@ BARANGAY = {
             "Sabang",
             "Talima",
             "Cawhagan",
-            "Tungasan"
+            "Tungasan",
         ],
         "City of Mandaue": [
             "Tipolo",
@@ -34695,8 +34620,8 @@ BARANGAY = {
             "Tingub",
             "Tawason",
             "Opao",
-            "Tabok"
-        ]
+            "Tabok",
+        ],
     },
     "Region VIII (Eastern Visayas)": {
         "Biliran": {
@@ -34713,7 +34638,7 @@ BARANGAY = {
                 "Tabunan",
                 "Iyosan",
                 "Pulang Bato",
-                "Salangi"
+                "Salangi",
             ],
             "Biliran": [
                 "Sanggalang",
@@ -34726,7 +34651,7 @@ BARANGAY = {
                 "Hugpa",
                 "Bato",
                 "San Isidro ",
-                "San Roque "
+                "San Roque ",
             ],
             "Cabucgayan": [
                 "Looc",
@@ -34741,7 +34666,7 @@ BARANGAY = {
                 "Pawikan",
                 "Magbangon ",
                 "Esperanza ",
-                "Caanibongan"
+                "Caanibongan",
             ],
             "Caibiran": [
                 "Cabibihan",
@@ -34760,7 +34685,7 @@ BARANGAY = {
                 "Manlabang",
                 "Binohangan",
                 "Asug",
-                "Palanay "
+                "Palanay ",
             ],
             "Culaba": [
                 "San Roque",
@@ -34779,7 +34704,7 @@ BARANGAY = {
                 "Patag",
                 "Salvacion",
                 "Virginia ",
-                "Guindapunan"
+                "Guindapunan",
             ],
             "Kawayan": [
                 "Kansanok",
@@ -34801,7 +34726,7 @@ BARANGAY = {
                 "Tucdao",
                 "Tabunan North",
                 "Masagongsong",
-                "Baganito"
+                "Baganito",
             ],
             "Maripipi": [
                 "Casibang",
@@ -34818,7 +34743,7 @@ BARANGAY = {
                 "Binalayan West",
                 "Viga",
                 "Bato",
-                "Trabugan"
+                "Trabugan",
             ],
             "Naval ": [
                 "Villa Consuelo",
@@ -34846,8 +34771,8 @@ BARANGAY = {
                 "Santissimo Rosario Pob.",
                 "Mabini",
                 "San Pablo",
-                "Larrazabal"
-            ]
+                "Larrazabal",
+            ],
         },
         "Eastern Samar": {
             "Arteche": [
@@ -34870,7 +34795,7 @@ BARANGAY = {
                 "Rawis ",
                 "Cagsalay",
                 "Aguinaldo",
-                "Beri"
+                "Beri",
             ],
             "Balangiga": [
                 "Barangay Poblacion IV",
@@ -34885,7 +34810,7 @@ BARANGAY = {
                 "Cansumangcay",
                 "Barangay Poblacion VI",
                 "Bacjao",
-                "Guinmaayohan"
+                "Guinmaayohan",
             ],
             "Balangkayan": [
                 "Magsaysay",
@@ -34902,7 +34827,7 @@ BARANGAY = {
                 "Caisawan",
                 "Bangon",
                 "Cabay",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Can-Avid": [
                 "Guibuangan",
@@ -34932,7 +34857,7 @@ BARANGAY = {
                 "Boco",
                 "Salvacion",
                 "Solong",
-                "Obong"
+                "Obong",
             ],
             "City of Borongan ": [
                 "Purok H ",
@@ -34995,7 +34920,7 @@ BARANGAY = {
                 "Sabang South",
                 "Purok D1 ",
                 "Hindang",
-                "San Pablo"
+                "San Pablo",
             ],
             "Dolores": [
                 "Jicontol",
@@ -35043,7 +34968,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Barangay 13 ",
                 "Dapdap",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "General Macarthur": [
                 "Magsaysay",
@@ -35075,7 +35000,7 @@ BARANGAY = {
                 "Pingan",
                 "Aguinaldo",
                 "Poblacion Barangay 3",
-                "Tandang Sora"
+                "Tandang Sora",
             ],
             "Giporlos": [
                 "Barangay 7 ",
@@ -35095,7 +35020,7 @@ BARANGAY = {
                 "Barangay 1 ",
                 "Barangay 5 ",
                 "Barangay 6 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "Guiuan": [
                 "Poblacion Ward 9",
@@ -35157,7 +35082,7 @@ BARANGAY = {
                 "Cogon",
                 "Poblacion Ward 4",
                 "Ngolos",
-                "Hamorawon"
+                "Hamorawon",
             ],
             "Hernani": [
                 "San Isidro",
@@ -35172,7 +35097,7 @@ BARANGAY = {
                 "Garawon",
                 "Padang",
                 "Barangay 1 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "Jipapad": [
                 "San Roque",
@@ -35187,7 +35112,7 @@ BARANGAY = {
                 "Dorillo",
                 "Agsaman",
                 "Barangay 1 ",
-                "Barangay 3 "
+                "Barangay 3 ",
             ],
             "Lawaan": [
                 "Maslog",
@@ -35205,7 +35130,7 @@ BARANGAY = {
                 "Betaog",
                 "Bolusao",
                 "Barangay Poblacion 3",
-                "Barangay Poblacion 5"
+                "Barangay Poblacion 5",
             ],
             "Llorente": [
                 "Babanikhon",
@@ -35240,7 +35165,7 @@ BARANGAY = {
                 "Barangay 10 ",
                 "Barangay 2 ",
                 "Tabok",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Maslog": [
                 "San Roque",
@@ -35254,7 +35179,7 @@ BARANGAY = {
                 "Bulawan",
                 "Carayacay",
                 "Tugas",
-                "Malobago"
+                "Malobago",
             ],
             "Maydolong": [
                 "Guindalitan",
@@ -35276,7 +35201,7 @@ BARANGAY = {
                 "Maybocog",
                 "Barangay Poblacion 4",
                 "Lapgap",
-                "Patag"
+                "Patag",
             ],
             "Mercedes": [
                 "San Roque",
@@ -35294,7 +35219,7 @@ BARANGAY = {
                 "Banuyo",
                 "Buyayawon",
                 "San Jose",
-                "Cambante"
+                "Cambante",
             ],
             "Oras": [
                 "San Eduardo",
@@ -35338,7 +35263,7 @@ BARANGAY = {
                 "Cadian",
                 "Camanga ",
                 "Agsam",
-                "Gamot"
+                "Gamot",
             ],
             "Quinapondan": [
                 "Barangay No. 3 ",
@@ -35365,7 +35290,7 @@ BARANGAY = {
                 "Caculangan",
                 "Barangay No. 5 ",
                 "Palactad",
-                "Cantenio"
+                "Cantenio",
             ],
             "Salcedo": [
                 "Asgad",
@@ -35408,7 +35333,7 @@ BARANGAY = {
                 "Lusod",
                 "Talangdawan",
                 "Barangay 13 ",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "San Julian": [
                 "San Isidro",
@@ -35426,7 +35351,7 @@ BARANGAY = {
                 "Barangay No. 4 Poblacion",
                 "Putong",
                 "Lunang",
-                "Pagbabangnan"
+                "Pagbabangnan",
             ],
             "San Policarpo": [
                 "Alugan",
@@ -35445,7 +35370,7 @@ BARANGAY = {
                 "Barangay No. 2 ",
                 "Bangon",
                 "Barangay No. 4 ",
-                "Natividad"
+                "Natividad",
             ],
             "Sulat": [
                 "San Juan",
@@ -35465,7 +35390,7 @@ BARANGAY = {
                 "Abucay ",
                 "Mabini",
                 "Loyola Heights ",
-                "Kandalakit"
+                "Kandalakit",
             ],
             "Taft": [
                 "Dacul",
@@ -35491,8 +35416,8 @@ BARANGAY = {
                 "Poblacion Barangay 1",
                 "Poblacion Barangay 3",
                 "San Pablo",
-                "Malinao"
-            ]
+                "Malinao",
+            ],
         },
         "Leyte": {
             "Abuyog": [
@@ -35558,7 +35483,7 @@ BARANGAY = {
                 "Tinocolan",
                 "Balocawehay",
                 "Odiongan",
-                "Anibongon"
+                "Anibongon",
             ],
             "Alangalang": [
                 "Calaasan",
@@ -35614,7 +35539,7 @@ BARANGAY = {
                 "Cogon",
                 "Santiago",
                 "Dapdap",
-                "Blumentritt "
+                "Blumentritt ",
             ],
             "Albuera": [
                 "San Pedro",
@@ -35632,7 +35557,7 @@ BARANGAY = {
                 "Sherwood",
                 "Talisayan",
                 "Tinag-an",
-                "Antipolo"
+                "Antipolo",
             ],
             "Babatngon": [
                 "Bacong",
@@ -35659,7 +35584,7 @@ BARANGAY = {
                 "Poblacion District II",
                 "Malibago",
                 "Naga-asan",
-                "Victory"
+                "Victory",
             ],
             "Barugo": [
                 "Hiagsam",
@@ -35698,7 +35623,7 @@ BARANGAY = {
                 "Bulod",
                 "Domogdog",
                 "Abango",
-                "Balire"
+                "Balire",
             ],
             "Bato": [
                 "Anahawan",
@@ -35732,7 +35657,7 @@ BARANGAY = {
                 "Plaridel",
                 "Kalanggaman District ",
                 "Mabini",
-                "Guerrero District "
+                "Guerrero District ",
             ],
             "Burauen": [
                 "Mahagnao",
@@ -35811,7 +35736,7 @@ BARANGAY = {
                 "Villa Rosas",
                 "Tambuko",
                 "Abuyogon",
-                "Cali"
+                "Cali",
             ],
             "Calubian": [
                 "Kawayan Bogtong",
@@ -35866,7 +35791,7 @@ BARANGAY = {
                 "Pangpang",
                 "Efe",
                 "Guadalupe",
-                "Obispo"
+                "Obispo",
             ],
             "Capoocan": [
                 "Balucanad",
@@ -35889,7 +35814,7 @@ BARANGAY = {
                 "Cabul-an",
                 "Balud",
                 "Poblacion Zone II",
-                "Lemon"
+                "Lemon",
             ],
             "Carigara": [
                 "Binibihan",
@@ -35940,7 +35865,7 @@ BARANGAY = {
                 "Cogon",
                 "Sagkahan",
                 "Upper Sogod",
-                "Canal"
+                "Canal",
             ],
             "City of Baybay": [
                 "Butigan",
@@ -36034,7 +35959,7 @@ BARANGAY = {
                 "Imelda",
                 "Poblacion Zone 6",
                 "Poblacion Zone 1",
-                "Poblacion Zone 17"
+                "Poblacion Zone 17",
             ],
             "Dagami": [
                 "Abre",
@@ -36101,7 +36026,7 @@ BARANGAY = {
                 "Plaridel",
                 "Hiabangan",
                 "Palacio",
-                "Sirab"
+                "Sirab",
             ],
             "Dulag": [
                 "Magsaysay",
@@ -36148,7 +36073,7 @@ BARANGAY = {
                 "Bulod",
                 "Highway ",
                 "Victory",
-                "Serrano "
+                "Serrano ",
             ],
             "Hilongos": [
                 "Concepcion",
@@ -36201,7 +36126,7 @@ BARANGAY = {
                 "Bon-ot",
                 "San Antonio",
                 "Tagnate",
-                "Bung-aw"
+                "Bung-aw",
             ],
             "Hindang": [
                 "Capudlosan",
@@ -36223,7 +36148,7 @@ BARANGAY = {
                 "Bulacan",
                 "Bontoc",
                 "Tabok",
-                "Maasin"
+                "Maasin",
             ],
             "Inopacan": [
                 "Guinsanga-an",
@@ -36245,7 +36170,7 @@ BARANGAY = {
                 "Guadalupe",
                 "Caminto",
                 "Caulisihan",
-                "De los Santos"
+                "De los Santos",
             ],
             "Isabel": [
                 "Cangag",
@@ -36271,7 +36196,7 @@ BARANGAY = {
                 "Monte Alegre",
                 "Santo Rosario",
                 "Libertad",
-                "Tabunok"
+                "Tabunok",
             ],
             "Jaro": [
                 "Parasan",
@@ -36319,7 +36244,7 @@ BARANGAY = {
                 "Villagonzoilo",
                 "Sagkahan",
                 "District I ",
-                "Palanog"
+                "Palanog",
             ],
             "Javier": [
                 "Magsaysay",
@@ -36349,7 +36274,7 @@ BARANGAY = {
                 "Picas Norte",
                 "Malitbogay",
                 "Binulho",
-                "Poblacion Zone 1"
+                "Poblacion Zone 1",
             ],
             "Julita": [
                 "Sta. Cruz",
@@ -36377,7 +36302,7 @@ BARANGAY = {
                 "Alegria",
                 "Poblacion District II",
                 "San Pablo",
-                "Hindang"
+                "Hindang",
             ],
             "Kananga": [
                 "Lim-ao",
@@ -36402,7 +36327,7 @@ BARANGAY = {
                 "Tongonan",
                 "Hiluctogan",
                 "Libongao",
-                "Masarayao"
+                "Masarayao",
             ],
             "La Paz": [
                 "Mag-aso",
@@ -36439,7 +36364,7 @@ BARANGAY = {
                 "San Victoray",
                 "Lubi-lubi",
                 "Cogon",
-                "Duyog"
+                "Duyog",
             ],
             "Leyte": [
                 "Parasan",
@@ -36471,7 +36396,7 @@ BARANGAY = {
                 "Libas",
                 "Macupa",
                 "Elizabeth",
-                "Belen"
+                "Belen",
             ],
             "Macarthur": [
                 "Villa Imelda",
@@ -36504,7 +36429,7 @@ BARANGAY = {
                 "Romualdez",
                 "Tinawan",
                 "San Antonio",
-                "Causwagan"
+                "Causwagan",
             ],
             "Mahaplag": [
                 "Maligaya",
@@ -36534,7 +36459,7 @@ BARANGAY = {
                 "Hiluctogan",
                 "Campin",
                 "Liberacion",
-                "Malinao"
+                "Malinao",
             ],
             "Matag-Ob": [
                 "Bonoy ",
@@ -36557,7 +36482,7 @@ BARANGAY = {
                 "Cansoso",
                 "Imelda",
                 "Cambadbad",
-                "Masaba"
+                "Masaba",
             ],
             "Matalom": [
                 "Agbanga",
@@ -36589,7 +36514,7 @@ BARANGAY = {
                 "San Isidro ",
                 "Bagong Lipunan",
                 "Santa Paz",
-                "Tag-os"
+                "Tag-os",
             ],
             "Mayorga": [
                 "San Roque",
@@ -36607,7 +36532,7 @@ BARANGAY = {
                 "Burgos",
                 "Mabini",
                 "Poblacion Zone 1",
-                "Poblacion Zone 3"
+                "Poblacion Zone 3",
             ],
             "Merida": [
                 "Cambalong",
@@ -36631,7 +36556,7 @@ BARANGAY = {
                 "Mat-e",
                 "Libas",
                 "Lamanoc",
-                "Calunangan"
+                "Calunangan",
             ],
             "Ormoc City": [
                 "Labrador",
@@ -36718,7 +36643,7 @@ BARANGAY = {
                 "Nueva Vista",
                 "Juaton",
                 "Mabini",
-                "Cabintan"
+                "Cabintan",
             ],
             "Palo": [
                 "Anahaway",
@@ -36753,7 +36678,7 @@ BARANGAY = {
                 "San Antonio",
                 "Cogon",
                 "Cavite East ",
-                "Cabarasan Guti"
+                "Cabarasan Guti",
             ],
             "Palompon": [
                 "Taberna",
@@ -36805,7 +36730,7 @@ BARANGAY = {
                 "Mabini",
                 "San Pablo",
                 "Belen",
-                "Guiwan 1 "
+                "Guiwan 1 ",
             ],
             "Pastrana": [
                 "Manaybanay",
@@ -36836,7 +36761,7 @@ BARANGAY = {
                 "Cabaohan",
                 "Colawen",
                 "Capilla",
-                "Malitbogay"
+                "Malitbogay",
             ],
             "San Isidro": [
                 "Crossing ",
@@ -36857,7 +36782,7 @@ BARANGAY = {
                 "Matungao",
                 "Taglawigan",
                 "Bawod ",
-                "San Miguel"
+                "San Miguel",
             ],
             "San Miguel": [
                 "Santa Cruz",
@@ -36880,7 +36805,7 @@ BARANGAY = {
                 "Bahay",
                 "Cabatianuhan",
                 "Canap",
-                "Mawodpawod"
+                "Mawodpawod",
             ],
             "Santa Fe": [
                 "San Isidro",
@@ -36902,7 +36827,7 @@ BARANGAY = {
                 "Tibak",
                 "San Miguelay",
                 "Bulod",
-                "Zone 3 "
+                "Zone 3 ",
             ],
             "Tabango": [
                 "Butason II",
@@ -36917,7 +36842,7 @@ BARANGAY = {
                 "Inangatan",
                 "Tugas",
                 "Campokpok",
-                "Gimarco"
+                "Gimarco",
             ],
             "Tabontabon": [
                 "District II Pob.",
@@ -36935,7 +36860,7 @@ BARANGAY = {
                 "Amandangay",
                 "San Pablo",
                 "Mercaduhay",
-                "Mering"
+                "Mering",
             ],
             "Tanauan": [
                 "San Victor",
@@ -36991,7 +36916,7 @@ BARANGAY = {
                 "Guingawan",
                 "Limbuhan Daku",
                 "Pago",
-                "Cabarasan Guti"
+                "Cabarasan Guti",
             ],
             "Tolosa": [
                 "San Roque",
@@ -37008,7 +36933,7 @@ BARANGAY = {
                 "Capangihan",
                 "Malbog",
                 "Opong",
-                "Tanghas"
+                "Tanghas",
             ],
             "Tunga": [
                 "San Roque",
@@ -37018,7 +36943,7 @@ BARANGAY = {
                 "Banawang",
                 "Astorga",
                 "San Antonio ",
-                "Balire"
+                "Balire",
             ],
             "Villaba": [
                 "Cagnocot",
@@ -37055,8 +36980,8 @@ BARANGAY = {
                 "Tabunok",
                 "Tagbubunga",
                 "Payao",
-                "Libagong"
-            ]
+                "Libagong",
+            ],
         },
         "Northern Samar": {
             "Allen": [
@@ -37079,7 +37004,7 @@ BARANGAY = {
                 "Imelda",
                 "Kinabranan Zone II ",
                 "Sabang Zone II ",
-                "Sabang Zone I "
+                "Sabang Zone I ",
             ],
             "Biri": [
                 "San Pedro",
@@ -37089,7 +37014,7 @@ BARANGAY = {
                 "Kauswagan",
                 "MacArthur",
                 "San Antonio",
-                "Santo Ni\u00f1o"
+                "Santo Ni\u00f1o",
             ],
             "Bobon": [
                 "Jose Abad Santos",
@@ -37109,7 +37034,7 @@ BARANGAY = {
                 "Trojello",
                 "Somoroy",
                 "Balat-balud",
-                "Gen. Lucban "
+                "Gen. Lucban ",
             ],
             "Capul": [
                 "Oson",
@@ -37123,7 +37048,7 @@ BARANGAY = {
                 "Poblacion Barangay 1",
                 "Landusan",
                 "Poblacion Barangay 3",
-                "Sagaosawan"
+                "Sagaosawan",
             ],
             "Catarman ": [
                 "Baybay",
@@ -37180,7 +37105,7 @@ BARANGAY = {
                 "Aguinaldo",
                 "Jose P. Rizal ",
                 "Guba",
-                "Mabini"
+                "Mabini",
             ],
             "Catubig": [
                 "Calingnan",
@@ -37229,7 +37154,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Manering",
                 "San Antonio",
-                "Libon"
+                "Libon",
             ],
             "Gamay": [
                 "Baybay District ",
@@ -37257,7 +37182,7 @@ BARANGAY = {
                 "San Antonio",
                 "Libertad ",
                 "Anito",
-                "G. M. Osias"
+                "G. M. Osias",
             ],
             "Laoang": [
                 "Gibatangan",
@@ -37315,7 +37240,7 @@ BARANGAY = {
                 "Tan-awan",
                 "Inamlan",
                 "Onay",
-                "Yabyaban"
+                "Yabyaban",
             ],
             "Lapinig": [
                 "Pio Del Pilar",
@@ -37332,7 +37257,7 @@ BARANGAY = {
                 "Palanas",
                 "Potong Del Sur",
                 "Mabini",
-                "Cahagwayan"
+                "Cahagwayan",
             ],
             "Las Navas": [
                 "Hangi",
@@ -37387,7 +37312,7 @@ BARANGAY = {
                 "San Antonio",
                 "Mabini",
                 "Dapdap",
-                "Victory"
+                "Victory",
             ],
             "Lavezares": [
                 "Datag",
@@ -37415,7 +37340,7 @@ BARANGAY = {
                 "Maravilla",
                 "Bani",
                 "Sabong-Tabok",
-                "Villa"
+                "Villa",
             ],
             "Lope De Vega": [
                 "Cagamesarag",
@@ -37439,7 +37364,7 @@ BARANGAY = {
                 "Bayho",
                 "San Miguel",
                 "Maghipid",
-                "Paguite"
+                "Paguite",
             ],
             "Mapanas": [
                 "Quezon",
@@ -37454,7 +37379,7 @@ BARANGAY = {
                 "Burgos",
                 "San Jose",
                 "Jubasan",
-                "Siljagon"
+                "Siljagon",
             ],
             "Mondragon": [
                 "Cablangan",
@@ -37480,7 +37405,7 @@ BARANGAY = {
                 "De Maria",
                 "Mirador",
                 "Imelda",
-                "San Antonio"
+                "San Antonio",
             ],
             "Palapag": [
                 "Magsaysay",
@@ -37514,7 +37439,7 @@ BARANGAY = {
                 "Laniwan ",
                 "Cabatuan",
                 "Sinalaran",
-                "Pangpang"
+                "Pangpang",
             ],
             "Pambujan": [
                 "Cagbigajo",
@@ -37542,7 +37467,7 @@ BARANGAY = {
                 "Camparanga",
                 "Do\u00f1a Anecita",
                 "Ge-adgawan",
-                "Senonogan"
+                "Senonogan",
             ],
             "Rosario": [
                 "Ligaya",
@@ -37555,7 +37480,7 @@ BARANGAY = {
                 "Commonwealth",
                 "Bantolinao",
                 "Buenavista",
-                "Aguada"
+                "Aguada",
             ],
             "San Antonio": [
                 "Dalupirit",
@@ -37567,7 +37492,7 @@ BARANGAY = {
                 "Ward I ",
                 "Ward II ",
                 "Pilar",
-                "San Nicolas"
+                "San Nicolas",
             ],
             "San Isidro": [
                 "San Juan",
@@ -37583,7 +37508,7 @@ BARANGAY = {
                 "Palanit",
                 "Happy Valley",
                 "Buenavista",
-                "Seven Hills"
+                "Seven Hills",
             ],
             "San Jose": [
                 "Bonglas",
@@ -37601,7 +37526,7 @@ BARANGAY = {
                 "Bagong Sabang",
                 "Aguadahan",
                 "P. Tingzon",
-                "Barangay South "
+                "Barangay South ",
             ],
             "San Roque": [
                 "Ginagdanan",
@@ -37619,7 +37544,7 @@ BARANGAY = {
                 "Dale",
                 "Lawaan",
                 "Zone 1 ",
-                "Zone 3 "
+                "Zone 3 ",
             ],
             "San Vicente": [
                 "Sangputan",
@@ -37628,7 +37553,7 @@ BARANGAY = {
                 "Tarnate",
                 "Destacado Pob.",
                 "Maragat",
-                "Mongol Bongol Pob."
+                "Mongol Bongol Pob.",
             ],
             "Silvino Lobos": [
                 "Camaya-an",
@@ -37656,7 +37581,7 @@ BARANGAY = {
                 "Tobgon",
                 "Genagasan",
                 "Gecbo-an",
-                "Victory"
+                "Victory",
             ],
             "Victoria": [
                 "Buenos Aires",
@@ -37674,8 +37599,8 @@ BARANGAY = {
                 "Buenasuerte",
                 "San Lazaro",
                 "San Roman",
-                "Pasabuena"
-            ]
+                "Pasabuena",
+            ],
         },
         "Samar": {
             "Almagro": [
@@ -37701,7 +37626,7 @@ BARANGAY = {
                 "Guin-ansan",
                 "Mabuhay",
                 "Imelda",
-                "Costa Rica"
+                "Costa Rica",
             ],
             "Basey": [
                 "Cancaiyas",
@@ -37754,7 +37679,7 @@ BARANGAY = {
                 "Burgos",
                 "Inuntan",
                 "Palaypay ",
-                "Guirang"
+                "Guirang",
             ],
             "Calbiga": [
                 "Malabal",
@@ -37797,7 +37722,7 @@ BARANGAY = {
                 "Beri",
                 "Guinbanga",
                 "Daligan",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "City of Calbayog": [
                 "Cangomaod",
@@ -37956,7 +37881,7 @@ BARANGAY = {
                 "Caybago",
                 "Palanogan",
                 "Bantian",
-                "Begaho"
+                "Begaho",
             ],
             "City of Catbalogan ": [
                 "Socorro",
@@ -38015,7 +37940,7 @@ BARANGAY = {
                 "Cabugawan",
                 "Maulong",
                 "Cagudalo",
-                "Cagusipan"
+                "Cagusipan",
             ],
             "Daram": [
                 "Parasan",
@@ -38075,7 +38000,7 @@ BARANGAY = {
                 "Burgos",
                 "Mabini",
                 "Lucob-lucob",
-                "Guintampilan"
+                "Guintampilan",
             ],
             "Gandara": [
                 "Calirocan",
@@ -38146,7 +38071,7 @@ BARANGAY = {
                 "San Antonio",
                 "Bangahon",
                 "Lungib",
-                "Gereganan"
+                "Gereganan",
             ],
             "Hinabangan": [
                 "Dalosdoson",
@@ -38169,7 +38094,7 @@ BARANGAY = {
                 "Poblacion 1",
                 "San Rafael",
                 "Consolabao",
-                "Cabalagnan"
+                "Cabalagnan",
             ],
             "Jiabong": [
                 "Barangay No. 3 ",
@@ -38205,7 +38130,7 @@ BARANGAY = {
                 "Camarobo-an",
                 "Mercedes",
                 "Victory",
-                "Lulugayan"
+                "Lulugayan",
             ],
             "Marabut": [
                 "Ferreras",
@@ -38231,7 +38156,7 @@ BARANGAY = {
                 "Binukyahan",
                 "Catato Pob.",
                 "Logero",
-                "Canyoyo"
+                "Canyoyo",
             ],
             "Matuguinao": [
                 "Santa Cruz",
@@ -38253,7 +38178,7 @@ BARANGAY = {
                 "Barruz",
                 "Salvacion",
                 "Angyap",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Motiong": [
                 "Mararangsi",
@@ -38285,7 +38210,7 @@ BARANGAY = {
                 "Bonga",
                 "Pamamasan",
                 "Beri",
-                "Angyap"
+                "Angyap",
             ],
             "Pagsanghan": [
                 "Buenos Aires",
@@ -38300,7 +38225,7 @@ BARANGAY = {
                 "Villahermosa Oriental",
                 "Santo Ni\u00f1o",
                 "Bangon",
-                "Pa\u00f1ge"
+                "Pa\u00f1ge",
             ],
             "Paranas": [
                 "Concepcion",
@@ -38346,7 +38271,7 @@ BARANGAY = {
                 "Pequit",
                 "Poblacion 4",
                 "Poblacion 6",
-                "Lawaan I"
+                "Lawaan I",
             ],
             "Pinabacdao": [
                 "Manaing",
@@ -38372,7 +38297,7 @@ BARANGAY = {
                 "Mambog",
                 "Obayan",
                 "Barangay I ",
-                "Lale"
+                "Lale",
             ],
             "San Jorge": [
                 "Sapinit",
@@ -38415,7 +38340,7 @@ BARANGAY = {
                 "Mancol ",
                 "Erenas",
                 "Guadalupe",
-                "Canyaki"
+                "Canyaki",
             ],
             "San Jose De Buan": [
                 "Aguingayan",
@@ -38431,7 +38356,7 @@ BARANGAY = {
                 "Can-aponte",
                 "Hiduroma",
                 "Barangay 1 ",
-                "Babaclayon"
+                "Babaclayon",
             ],
             "San Sebastian": [
                 "Camanhagay",
@@ -38447,7 +38372,7 @@ BARANGAY = {
                 "Poblacion Barangay 3",
                 "Balogo",
                 "Canduyucan",
-                "Bontod"
+                "Bontod",
             ],
             "Santa Margarita": [
                 "Can-ipulan",
@@ -38485,7 +38410,7 @@ BARANGAY = {
                 "Sundara",
                 "Camperito",
                 "Palale",
-                "Hindang"
+                "Hindang",
             ],
             "Santa Rita": [
                 "Gumamela Pob.",
@@ -38525,7 +38450,7 @@ BARANGAY = {
                 "Alegria",
                 "Tominamos",
                 "Cansadong",
-                "Hinangudtan"
+                "Hinangudtan",
             ],
             "Santo Ni\u00f1o": [
                 "Basud ",
@@ -38540,7 +38465,7 @@ BARANGAY = {
                 "Pinanangnan",
                 "Ilijan",
                 "Buenavista",
-                "Ilo "
+                "Ilo ",
             ],
             "Tagapul-An": [
                 "San Jose ",
@@ -38556,7 +38481,7 @@ BARANGAY = {
                 "Baguiw",
                 "Guinbarucan",
                 "Trinidad",
-                "Luna"
+                "Luna",
             ],
             "Talalora": [
                 "San Juan",
@@ -38569,7 +38494,7 @@ BARANGAY = {
                 "Navatas Daku",
                 "Poblacion Barangay 1",
                 "Bo. Independencia",
-                "Victory"
+                "Victory",
             ],
             "Tarangnan": [
                 "Bisitahan",
@@ -38612,7 +38537,7 @@ BARANGAY = {
                 "Majacob",
                 "Mancares",
                 "Cambatutay Viejo",
-                "Dapdap"
+                "Dapdap",
             ],
             "Villareal": [
                 "Himyangan",
@@ -38652,7 +38577,7 @@ BARANGAY = {
                 "Nagcaduha",
                 "Plaridel",
                 "Mercado ",
-                "Cambaguio"
+                "Cambaguio",
             ],
             "Zumarraga": [
                 "Ibarra",
@@ -38679,8 +38604,8 @@ BARANGAY = {
                 "Alegria",
                 "Buntay",
                 "Macalunod",
-                "Tubigan"
-            ]
+                "Tubigan",
+            ],
         },
         "Southern Leyte": {
             "Anahawan": [
@@ -38697,7 +38622,7 @@ BARANGAY = {
                 "Amagusan",
                 "Calintaan",
                 "Cogon",
-                "Mahalo"
+                "Mahalo",
             ],
             "Bontoc": [
                 "Santa Cruz",
@@ -38739,7 +38664,7 @@ BARANGAY = {
                 "San Ramon",
                 "Lawgawan",
                 "Lanao",
-                "Casao"
+                "Casao",
             ],
             "City of Maasin ": [
                 "Bactul I",
@@ -38811,7 +38736,7 @@ BARANGAY = {
                 "Guadalupe",
                 "Lanao",
                 "Laboon",
-                "Lunas"
+                "Lunas",
             ],
             "Hinunangan": [
                 "Labrador",
@@ -38853,7 +38778,7 @@ BARANGAY = {
                 "Libas",
                 "Calayugan",
                 "Calag-itan",
-                "Nueva Esperanza"
+                "Nueva Esperanza",
             ],
             "Hinundayan": [
                 "Hubasan",
@@ -38872,7 +38797,7 @@ BARANGAY = {
                 "Bugho",
                 "District II ",
                 "Ambao",
-                "Amaga"
+                "Amaga",
             ],
             "Libagon": [
                 "Nahulid",
@@ -38888,7 +38813,7 @@ BARANGAY = {
                 "Cawayan",
                 "Punta",
                 "Jubas ",
-                "Gakat"
+                "Gakat",
             ],
             "Liloan": [
                 "Molopolo",
@@ -38914,7 +38839,7 @@ BARANGAY = {
                 "Pres. Quezon",
                 "Calian",
                 "Himayangan",
-                "Guintoylan"
+                "Guintoylan",
             ],
             "Limasawa": [
                 "Triana",
@@ -38922,7 +38847,7 @@ BARANGAY = {
                 "San Agustin",
                 "Cabulihan",
                 "Magallanes",
-                "Lugsongan"
+                "Lugsongan",
             ],
             "Macrohon": [
                 "Amparo",
@@ -38954,7 +38879,7 @@ BARANGAY = {
                 "San Vicente Poblacion",
                 "Aguinaldo",
                 "Guadalupe",
-                "Mabini"
+                "Mabini",
             ],
             "Malitbog": [
                 "Concepcion",
@@ -38993,7 +38918,7 @@ BARANGAY = {
                 "Sabang",
                 "Pancil",
                 "Cadaruhan Sur",
-                "Cabul-anonan "
+                "Cabul-anonan ",
             ],
             "Padre Burgos": [
                 "San Juan",
@@ -39006,7 +38931,7 @@ BARANGAY = {
                 "Tangkaan",
                 "Santo Rosario",
                 "Buenavista",
-                "Laca"
+                "Laca",
             ],
             "Pintuyan": [
                 "Dan-an",
@@ -39031,7 +38956,7 @@ BARANGAY = {
                 "Mainit",
                 "Cogon",
                 "Bulawan",
-                "Canlawis"
+                "Canlawis",
             ],
             "Saint Bernard": [
                 "Carnaga",
@@ -39063,7 +38988,7 @@ BARANGAY = {
                 "Malibago",
                 "Cabagawan",
                 "Malinao",
-                "Himbangan"
+                "Himbangan",
             ],
             "San Francisco": [
                 "Dakit ",
@@ -39087,7 +39012,7 @@ BARANGAY = {
                 "Central ",
                 "Santa Paz Sur",
                 "Bongbong",
-                "Punta"
+                "Punta",
             ],
             "San Juan": [
                 "Minoyho",
@@ -39107,7 +39032,7 @@ BARANGAY = {
                 "Timba",
                 "Bobon B",
                 "Garrido",
-                "Agay-ay"
+                "Agay-ay",
             ],
             "San Ricardo": [
                 "Inolinan",
@@ -39124,7 +39049,7 @@ BARANGAY = {
                 "Benit",
                 "Esperanza Dos",
                 "Kinachawa",
-                "Pinut-an"
+                "Pinut-an",
             ],
             "Silago": [
                 "Sap-ang",
@@ -39141,7 +39066,7 @@ BARANGAY = {
                 "Pob. District II",
                 "Sudmon",
                 "Laguma",
-                "Hingatungan"
+                "Hingatungan",
             ],
             "Sogod": [
                 "Concepcion",
@@ -39188,7 +39113,7 @@ BARANGAY = {
                 "San Miguel",
                 "Salvacion",
                 "Libas",
-                "Malinao"
+                "Malinao",
             ],
             "Tomas Oppus": [
                 "Carnaga",
@@ -39219,8 +39144,8 @@ BARANGAY = {
                 "Maanyag",
                 "San Miguel",
                 "San Antonio",
-                "Luan"
-            ]
+                "Luan",
+            ],
         },
         "City of Tacloban ": [
             "Barangay 68",
@@ -39360,8 +39285,8 @@ BARANGAY = {
             "Barangay 83-B",
             "Barangay 81",
             "Barangay 106",
-            "Barangay 89"
-        ]
+            "Barangay 89",
+        ],
     },
     "Region X (Northern Mindanao)": {
         "Bukidnon": {
@@ -39381,7 +39306,7 @@ BARANGAY = {
                 "Salimbalan",
                 "Buenavista",
                 "Lacolac",
-                "Balintad"
+                "Balintad",
             ],
             "Cabanglasan": [
                 "Mauswagon",
@@ -39398,7 +39323,7 @@ BARANGAY = {
                 "Imbatug",
                 "Mandaing",
                 "Dalacutan",
-                "Mandahikan"
+                "Mandahikan",
             ],
             "City of Malaybalay ": [
                 "Maligaya",
@@ -39446,7 +39371,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Zamboanguita",
                 "Mapulo",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "City of Valencia": [
                 "Concepcion",
@@ -39479,7 +39404,7 @@ BARANGAY = {
                 "Vintar",
                 "Tongantongan",
                 "Batangan",
-                "Dagat-Kidavao"
+                "Dagat-Kidavao",
             ],
             "Damulog": [
                 "Kinapat",
@@ -39498,7 +39423,7 @@ BARANGAY = {
                 "Kitingting",
                 "Tangkulan",
                 "Omonay",
-                "Macapari"
+                "Macapari",
             ],
             "Dangcagan": [
                 "Miaray",
@@ -39514,7 +39439,7 @@ BARANGAY = {
                 "San Vicente",
                 "New Visayas",
                 "Kapalaran",
-                "Dolorosa"
+                "Dolorosa",
             ],
             "Don Carlos": [
                 "New Nongnongan",
@@ -39545,7 +39470,7 @@ BARANGAY = {
                 "Embayao",
                 "Minsalagan",
                 "San Antonio West",
-                "Kibatang"
+                "Kibatang",
             ],
             "Impasug-ong": [
                 "Guihean",
@@ -39560,7 +39485,7 @@ BARANGAY = {
                 "Dumalaguing",
                 "Impalutao",
                 "Bontongon",
-                "Bulonay"
+                "Bulonay",
             ],
             "Kadingilan": [
                 "Sibonga",
@@ -39579,7 +39504,7 @@ BARANGAY = {
                 "Pinamanguhan",
                 "Bagor",
                 "San Andres",
-                "Husayan"
+                "Husayan",
             ],
             "Kalilangan": [
                 "West Poblacion",
@@ -39595,7 +39520,7 @@ BARANGAY = {
                 "Canituan",
                 "Bangbang",
                 "Lampanusan",
-                "Malinao"
+                "Malinao",
             ],
             "Kibawe": [
                 "Magsaysay",
@@ -39620,7 +39545,7 @@ BARANGAY = {
                 "Cagawasan",
                 "Natulongan",
                 "Kisawa",
-                "Talahiron"
+                "Talahiron",
             ],
             "Kitaotao": [
                 "Cabalantian",
@@ -39657,7 +39582,7 @@ BARANGAY = {
                 "Tawas",
                 "Kitaihon",
                 "Kalumihan",
-                "Calapaton"
+                "Calapaton",
             ],
             "Lantapan": [
                 "Kulasihan",
@@ -39673,7 +39598,7 @@ BARANGAY = {
                 "Cawayan",
                 "Alanib",
                 "Baclayon",
-                "Victory"
+                "Victory",
             ],
             "Libona": [
                 "Maambong",
@@ -39689,7 +39614,7 @@ BARANGAY = {
                 "Santa Fe",
                 "Sil-ipon",
                 "Nangka",
-                "San Jose"
+                "San Jose",
             ],
             "Malitbog": [
                 "Omagling",
@@ -39702,7 +39627,7 @@ BARANGAY = {
                 "Sumalsag",
                 "Silo-o",
                 "Mindagat",
-                "Kalingking"
+                "Kalingking",
             ],
             "Manolo Fortich": [
                 "Lunocan",
@@ -39726,7 +39651,7 @@ BARANGAY = {
                 "Diclum",
                 "Dahilayan",
                 "Santiago",
-                "Dalirig"
+                "Dalirig",
             ],
             "Maramag": [
                 "Panalsalan",
@@ -39748,7 +39673,7 @@ BARANGAY = {
                 "North Poblacion",
                 "San Miguel",
                 "Tubigon",
-                "Danggawan"
+                "Danggawan",
             ],
             "Pangantucan": [
                 "Concepcion",
@@ -39769,7 +39694,7 @@ BARANGAY = {
                 "Payad",
                 "Langcataon",
                 "Kimanait",
-                "Portulin"
+                "Portulin",
             ],
             "Quezon": [
                 "Palacapao",
@@ -39802,7 +39727,7 @@ BARANGAY = {
                 "Libertad",
                 "Minongan",
                 "Minsalirak",
-                "Mibantang"
+                "Mibantang",
             ],
             "San Fernando": [
                 "Nacabuklad",
@@ -39828,7 +39753,7 @@ BARANGAY = {
                 "Cayaga",
                 "Dao",
                 "Namnam",
-                "Bulalang"
+                "Bulalang",
             ],
             "Sumilao": [
                 "San Roque",
@@ -39840,7 +39765,7 @@ BARANGAY = {
                 "San Vicente",
                 "Licoan",
                 "Kisolon",
-                "Ocasion"
+                "Ocasion",
             ],
             "Talakag": [
                 "Salucot",
@@ -39871,8 +39796,8 @@ BARANGAY = {
                 "Miarayon",
                 "Barangay 2 ",
                 "San Antonio",
-                "Lantud"
-            ]
+                "Lantud",
+            ],
         },
         "Camiguin": {
             "Catarman": [
@@ -39889,7 +39814,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Bura",
                 "Compol",
-                "Alga"
+                "Alga",
             ],
             "Guinsiliban": [
                 "Maac",
@@ -39898,7 +39823,7 @@ BARANGAY = {
                 "North Poblacion",
                 "South Poblacion",
                 "Butay",
-                "Liong"
+                "Liong",
             ],
             "Mahinog": [
                 "San Roque",
@@ -39913,7 +39838,7 @@ BARANGAY = {
                 "Tupsan Peque\u00f1o",
                 "Benoni",
                 "San Jose",
-                "Owakan"
+                "Owakan",
             ],
             "Mambajao ": [
                 "Balbagon",
@@ -39930,7 +39855,7 @@ BARANGAY = {
                 "Tupsan",
                 "Anito",
                 "Tagdo",
-                "Yumbing"
+                "Yumbing",
             ],
             "Sagay": [
                 "Manuyog",
@@ -39941,8 +39866,8 @@ BARANGAY = {
                 "Cuna",
                 "Poblacion",
                 "Bonbon",
-                "Mayana"
-            ]
+                "Mayana",
+            ],
         },
         "Lanao del Norte": {
             "Bacolod": [
@@ -39961,7 +39886,7 @@ BARANGAY = {
                 "Demologan",
                 "Liangan East",
                 "Pagayawan",
-                "Minaulon"
+                "Minaulon",
             ],
             "Baloi": [
                 "Mamaanun",
@@ -39984,7 +39909,7 @@ BARANGAY = {
                 "Poblacion West",
                 "Sangcad",
                 "Poblacion East",
-                "Sandor"
+                "Sandor",
             ],
             "Baroy": [
                 "Tinubdan",
@@ -40009,7 +39934,7 @@ BARANGAY = {
                 "Riverside",
                 "Village",
                 "Dalama",
-                "Cabasagan"
+                "Cabasagan",
             ],
             "Kapatagan": [
                 "De Asis",
@@ -40044,7 +39969,7 @@ BARANGAY = {
                 "Belis",
                 "Curvada",
                 "Lapinig",
-                "Pulang Yuta"
+                "Pulang Yuta",
             ],
             "Kauswagan": [
                 "Bara-ason",
@@ -40059,7 +39984,7 @@ BARANGAY = {
                 "Kawit Occidental",
                 "Tugar",
                 "Inudaran",
-                "Delabayan"
+                "Delabayan",
             ],
             "Kolambugan": [
                 "Baybay",
@@ -40087,7 +40012,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Inudaran",
                 "Libertad",
-                "Riverside"
+                "Riverside",
             ],
             "Lala": [
                 "San Manuel",
@@ -40116,7 +40041,7 @@ BARANGAY = {
                 "Pinoyak",
                 "Lanipao",
                 "Tenazas",
-                "Cabasagan"
+                "Cabasagan",
             ],
             "Linamon": [
                 "Magoong",
@@ -40126,7 +40051,7 @@ BARANGAY = {
                 "Larapan",
                 "Poblacion",
                 "Napo",
-                "Samburon"
+                "Samburon",
             ],
             "Magsaysay": [
                 "Lamigadato",
@@ -40152,7 +40077,7 @@ BARANGAY = {
                 "Upper Caningag",
                 "Mapantao",
                 "Talambo",
-                "Lower Caningag"
+                "Lower Caningag",
             ],
             "Maigo": [
                 "Kulasihan",
@@ -40167,7 +40092,7 @@ BARANGAY = {
                 "Liangan West",
                 "Poblacion",
                 "Maliwanag",
-                "Inoma"
+                "Inoma",
             ],
             "Matungao": [
                 "Batal",
@@ -40181,7 +40106,7 @@ BARANGAY = {
                 "Somiorang",
                 "Bangco",
                 "Batangan",
-                "Pasayanon"
+                "Pasayanon",
             ],
             "Munai": [
                 "Lingco-an",
@@ -40209,7 +40134,7 @@ BARANGAY = {
                 "Sandigamunai",
                 "Ramain",
                 "Bacayawan",
-                "Dalama"
+                "Dalama",
             ],
             "Nunungan": [
                 "Dimayon",
@@ -40236,7 +40161,7 @@ BARANGAY = {
                 "Taraka",
                 "Canibongan",
                 "Raraban",
-                "Mangan"
+                "Mangan",
             ],
             "Pantao Ragat": [
                 "Dimayon",
@@ -40258,7 +40183,7 @@ BARANGAY = {
                 "Poblacion East",
                 "Bobonga Pantao Ragat",
                 "Calawe",
-                "Cabasagan"
+                "Cabasagan",
             ],
             "Pantar": [
                 "Dibarosan",
@@ -40281,7 +40206,7 @@ BARANGAY = {
                 "Punod",
                 "Pantao-Ranao",
                 "Sundiga-Punod",
-                "Pantar East"
+                "Pantar East",
             ],
             "Poona Piagapo": [
                 "Caromatan",
@@ -40309,7 +40234,7 @@ BARANGAY = {
                 "Pened",
                 "Nunang",
                 "Linindingan",
-                "Madamba"
+                "Madamba",
             ],
             "Salvador": [
                 "Pangantapan",
@@ -40336,7 +40261,7 @@ BARANGAY = {
                 "Mapantao",
                 "Bulacon",
                 "Pagayawan",
-                "Pagalongan"
+                "Pagalongan",
             ],
             "Sapad": [
                 "Buriasan ",
@@ -40355,7 +40280,7 @@ BARANGAY = {
                 "Karkum",
                 "Dansalan",
                 "Inudaran I",
-                "Baning"
+                "Baning",
             ],
             "Sultan Naga Dimaporo": [
                 "Pikalawag",
@@ -40394,7 +40319,7 @@ BARANGAY = {
                 "Topocon",
                 "Calibao",
                 "Payong",
-                "Dalama"
+                "Dalama",
             ],
             "Tagoloan": [
                 "Darimbang",
@@ -40403,7 +40328,7 @@ BARANGAY = {
                 "Malimbato",
                 "Kiazar ",
                 "Panalawan",
-                "Dalamas"
+                "Dalamas",
             ],
             "Tangcal": [
                 "Punod",
@@ -40423,7 +40348,7 @@ BARANGAY = {
                 "Lindongan",
                 "Papan",
                 "Poona Kapatagan",
-                "Bubong"
+                "Bubong",
             ],
             "Tubod ": [
                 "Caniogan",
@@ -40449,8 +40374,8 @@ BARANGAY = {
                 "San Antonio",
                 "Candis",
                 "Dalama",
-                "Malingao"
-            ]
+                "Malingao",
+            ],
         },
         "Misamis Occidental": {
             "Aloran": [
@@ -40491,7 +40416,7 @@ BARANGAY = {
                 "Mohon",
                 "Lobogon",
                 "Burgos",
-                "Caputol"
+                "Caputol",
             ],
             "Baliangao": [
                 "Magsaysay",
@@ -40508,7 +40433,7 @@ BARANGAY = {
                 "Southern Poblacion",
                 "Mabini",
                 "Sinian",
-                "Lusot"
+                "Lusot",
             ],
             "Bonifacio": [
                 "Baybay",
@@ -40538,7 +40463,7 @@ BARANGAY = {
                 "Bagumbang",
                 "Remedios",
                 "Dimalco",
-                "Bag-ong Anonang"
+                "Bag-ong Anonang",
             ],
             "Calamba": [
                 "Northern Poblacion",
@@ -40559,7 +40484,7 @@ BARANGAY = {
                 "Don Bernardo Nery Pob.",
                 "Langub",
                 "Magcamiguing",
-                "Sulipat"
+                "Sulipat",
             ],
             "City of Oroquieta ": [
                 "Toliyok",
@@ -40608,7 +40533,7 @@ BARANGAY = {
                 "Burgos",
                 "Layawan",
                 "Clarin Settlement",
-                "Tuyabang Alto"
+                "Tuyabang Alto",
             ],
             "City of Ozamiz": [
                 "Carmen",
@@ -40661,7 +40586,7 @@ BARANGAY = {
                 "Trigos",
                 "Bagakay",
                 "Catadman-Manabay",
-                "Calabayan"
+                "Calabayan",
             ],
             "City of Tangub": [
                 "Matugnaw",
@@ -40718,7 +40643,7 @@ BARANGAY = {
                 "Silangit",
                 "Tugas",
                 "Villaba",
-                "Barangay IV - St. Michael "
+                "Barangay IV - St. Michael ",
             ],
             "Clarin": [
                 "Canipacan",
@@ -40749,7 +40674,7 @@ BARANGAY = {
                 "Poblacion III",
                 "Kinangay Norte",
                 "Canibungan Daku",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Concepcion": [
                 "Laya-an",
@@ -40769,7 +40694,7 @@ BARANGAY = {
                 "Pogan",
                 "Lingatongan",
                 "Upper Salimpono",
-                "Soso-on"
+                "Soso-on",
             ],
             "Don Victoriano Chiongbian": [
                 "Lampasan",
@@ -40782,7 +40707,7 @@ BARANGAY = {
                 "Nueva Vista",
                 "Bagong Clarin",
                 "Liboron",
-                "Lake Duminagat"
+                "Lake Duminagat",
             ],
             "Jimenez": [
                 "Corrales",
@@ -40808,7 +40733,7 @@ BARANGAY = {
                 "Adorable",
                 "Santa Cruz ",
                 "Dicoloc",
-                "Rizal "
+                "Rizal ",
             ],
             "Lopez Jaena": [
                 "Luzaran",
@@ -40838,7 +40763,7 @@ BARANGAY = {
                 "Dalacon",
                 "Dampalan",
                 "Burgos",
-                "Mabas"
+                "Mabas",
             ],
             "Panaon": [
                 "San Juan",
@@ -40856,7 +40781,7 @@ BARANGAY = {
                 "Salimpuno",
                 "Lutao",
                 "Camanucan",
-                "San Andres"
+                "San Andres",
             ],
             "Plaridel": [
                 "Tipolo",
@@ -40891,7 +40816,7 @@ BARANGAY = {
                 "Calaca-an",
                 "Divisoria",
                 "New Look",
-                "Puntod"
+                "Puntod",
             ],
             "Sapang Dalaga": [
                 "Sapang Ama",
@@ -40921,7 +40846,7 @@ BARANGAY = {
                 "Agapito Yap, Sr.",
                 "Dasa",
                 "Dioyo",
-                "Sipac"
+                "Sipac",
             ],
             "Sinacaban": [
                 "Libertad Alto",
@@ -40940,7 +40865,7 @@ BARANGAY = {
                 "Cagay-anon",
                 "Colupan Alto",
                 "San Isidro Bajo",
-                "Camanse"
+                "Camanse",
             ],
             "Tudela": [
                 "Camating",
@@ -40975,8 +40900,8 @@ BARANGAY = {
                 "Barra",
                 "Tigdok",
                 "Yahong",
-                "Calambutan Settlement"
-            ]
+                "Calambutan Settlement",
+            ],
         },
         "Misamis Oriental": {
             "Alubijid": [
@@ -40995,7 +40920,7 @@ BARANGAY = {
                 "Tula",
                 "Molocboloc",
                 "Loguilo",
-                "Tugasnon"
+                "Tugasnon",
             ],
             "Balingasag": [
                 "Linabu",
@@ -41027,7 +40952,7 @@ BARANGAY = {
                 "Waterfall",
                 "Cogon",
                 "Barangay 6 ",
-                "Linggangao"
+                "Linggangao",
             ],
             "Balingoan": [
                 "Lapinig ",
@@ -41038,7 +40963,7 @@ BARANGAY = {
                 "Mapua",
                 "San Alonzo",
                 "Kabangasan",
-                "Kabulakan"
+                "Kabulakan",
             ],
             "Binuangan": [
                 "Kitambis",
@@ -41048,7 +40973,7 @@ BARANGAY = {
                 "Nabataan",
                 "Dampias",
                 "Mabini",
-                "Kitamban"
+                "Kitamban",
             ],
             "City of El Salvador": [
                 "Molugan",
@@ -41065,7 +40990,7 @@ BARANGAY = {
                 "Amoros",
                 "Hinigdaan",
                 "Kibonbon",
-                "Ulaliman"
+                "Ulaliman",
             ],
             "City of Gingoog": [
                 "Lunao",
@@ -41146,7 +41071,7 @@ BARANGAY = {
                 "Barangay 7 ",
                 "Libertad",
                 "Malinao",
-                "Barangay 6 "
+                "Barangay 6 ",
             ],
             "Claveria": [
                 "Pelaez",
@@ -41172,7 +41097,7 @@ BARANGAY = {
                 "Plaridel",
                 "Aposkahoy",
                 "Tamboboan",
-                "Gumaod"
+                "Gumaod",
             ],
             "Gitagum": [
                 "Quezon",
@@ -41185,7 +41110,7 @@ BARANGAY = {
                 "Tala-o",
                 "Pangayawan",
                 "Burnay",
-                "Cogon"
+                "Cogon",
             ],
             "Initao": [
                 "San Pedro",
@@ -41203,7 +41128,7 @@ BARANGAY = {
                 "Tawantawan",
                 "Kanitoan",
                 "Kamelon",
-                "Tubigan"
+                "Tubigan",
             ],
             "Jasaan": [
                 "Corrales",
@@ -41220,7 +41145,7 @@ BARANGAY = {
                 "San Antonio",
                 "Solana",
                 "San Nicolas",
-                "Bobontugan"
+                "Bobontugan",
             ],
             "Kinoguitan": [
                 "Sumalag",
@@ -41237,7 +41162,7 @@ BARANGAY = {
                 "Esperanza",
                 "Kagumahan",
                 "Campo",
-                "Salubsob"
+                "Salubsob",
             ],
             "Lagonglong": [
                 "Lumbo",
@@ -41249,7 +41174,7 @@ BARANGAY = {
                 "Umagos",
                 "Kabulawan",
                 "Tabok",
-                "Dampil"
+                "Dampil",
             ],
             "Laguindingan": [
                 "Moog",
@@ -41262,7 +41187,7 @@ BARANGAY = {
                 "Sinai",
                 "Liberty",
                 "Kibaghot",
-                "Gasi"
+                "Gasi",
             ],
             "Libertad": [
                 "Lubluban",
@@ -41273,7 +41198,7 @@ BARANGAY = {
                 "Retablo",
                 "Gimaylan",
                 "Santo Ni\u00f1o",
-                "Kimalok"
+                "Kimalok",
             ],
             "Lugait": [
                 "Biga",
@@ -41283,7 +41208,7 @@ BARANGAY = {
                 "Upper Talacogon",
                 "Aya-aya",
                 "Lower Talacogon",
-                "Betahon"
+                "Betahon",
             ],
             "Magsaysay": [
                 "Santa Cruz",
@@ -41310,7 +41235,7 @@ BARANGAY = {
                 "Mindulao",
                 "Candiis",
                 "Pag-asa",
-                "Kibungsod"
+                "Kibungsod",
             ],
             "Manticao": [
                 "Cabalantian",
@@ -41325,7 +41250,7 @@ BARANGAY = {
                 "Digkilaan",
                 "Camanga",
                 "Paniangan",
-                "Balintad"
+                "Balintad",
             ],
             "Medina": [
                 "Gasa",
@@ -41346,7 +41271,7 @@ BARANGAY = {
                 "North Poblacion",
                 "Bulwa",
                 "Bangbang",
-                "Portulin"
+                "Portulin",
             ],
             "Naawan": [
                 "Linangkayan",
@@ -41358,7 +41283,7 @@ BARANGAY = {
                 "Maputi",
                 "Poblacion",
                 "Tagbalogo",
-                "Don Pedro"
+                "Don Pedro",
             ],
             "Opol": [
                 "Tingalan",
@@ -41374,7 +41299,7 @@ BARANGAY = {
                 "Malanang",
                 "Bagocboc",
                 "Taboc",
-                "Awang"
+                "Awang",
             ],
             "Salay": [
                 "Bunal",
@@ -41394,7 +41319,7 @@ BARANGAY = {
                 "Membuli",
                 "Yungod",
                 "Alipuaton",
-                "Matampa"
+                "Matampa",
             ],
             "Sugbongcogon": [
                 "Santa Cruz",
@@ -41406,7 +41331,7 @@ BARANGAY = {
                 "Silad",
                 "Kaulayanan",
                 "Mimbuahan",
-                "Mangga"
+                "Mangga",
             ],
             "Tagoloan": [
                 "Casinglot",
@@ -41418,7 +41343,7 @@ BARANGAY = {
                 "Mohon",
                 "Baluarte",
                 "Santa Ana",
-                "Natumolan"
+                "Natumolan",
             ],
             "Talisayan": [
                 "Casibole",
@@ -41438,7 +41363,7 @@ BARANGAY = {
                 "Tagbocboc",
                 "Mintabon",
                 "San Jose",
-                "Mandahilag"
+                "Mandahilag",
             ],
             "Villanueva": [
                 "Poblacion 1",
@@ -41451,8 +41376,8 @@ BARANGAY = {
                 "San Martin",
                 "Poblacion 2",
                 "Tambobong",
-                "Katipunan"
-            ]
+                "Katipunan",
+            ],
         },
         "City of Cagayan De Oro ": [
             "Barangay 32 ",
@@ -41534,7 +41459,7 @@ BARANGAY = {
             "Pagatpat",
             "Barangay 34 ",
             "Puntod",
-            "Barangay 6 "
+            "Barangay 6 ",
         ],
         "City of Iligan": [
             "Upper Hinaplanon",
@@ -41580,8 +41505,8 @@ BARANGAY = {
             "Dulag",
             "Santiago",
             "Lanipao",
-            "Hindang"
-        ]
+            "Hindang",
+        ],
     },
     "Region XI (Davao Region)": {
         "Davao Occidental": {
@@ -41600,7 +41525,7 @@ BARANGAY = {
                 "Lanao",
                 "West Lamidan",
                 "Lapuan",
-                "North Lamidan"
+                "North Lamidan",
             ],
             "Jose Abad Santos": [
                 "Caburan Big",
@@ -41628,7 +41553,7 @@ BARANGAY = {
                 "Bukid",
                 "Caburan Small ",
                 "Quiapo",
-                "Carahayan"
+                "Carahayan",
             ],
             "Malita ": [
                 "Little Baguio",
@@ -41660,7 +41585,7 @@ BARANGAY = {
                 "Fishing Village",
                 "Kilalag",
                 "Pangian",
-                "Ticulon"
+                "Ticulon",
             ],
             "Santa Maria": [
                 "Basiawan",
@@ -41684,7 +41609,7 @@ BARANGAY = {
                 "Buca",
                 "Kidadan",
                 "Tanglad",
-                "San Antonio"
+                "San Antonio",
             ],
             "Sarangani": [
                 "Batuganding",
@@ -41698,8 +41623,8 @@ BARANGAY = {
                 "Tinina",
                 "Konel",
                 "Lipol",
-                "Tagen"
-            ]
+                "Tagen",
+            ],
         },
         "Davao Oriental": {
             "Baganga": [
@@ -41720,7 +41645,7 @@ BARANGAY = {
                 "Mahanub",
                 "Central ",
                 "Campawan",
-                "Baculin"
+                "Baculin",
             ],
             "Banaybanay": [
                 "Piso Proper",
@@ -41736,7 +41661,7 @@ BARANGAY = {
                 "Calubihan",
                 "Mogbongcogon",
                 "Panikian",
-                "Rang-ay"
+                "Rang-ay",
             ],
             "Boston": [
                 "Carmen",
@@ -41746,7 +41671,7 @@ BARANGAY = {
                 "Cawayanan",
                 "San Jose",
                 "Sibajay",
-                "Cabasagan"
+                "Cabasagan",
             ],
             "Caraga": [
                 "Alvar",
@@ -41765,7 +41690,7 @@ BARANGAY = {
                 "Sobrecarey",
                 "Santiago",
                 "San Jose",
-                "Palma Gil"
+                "Palma Gil",
             ],
             "Cateel": [
                 "Baybay",
@@ -41783,7 +41708,7 @@ BARANGAY = {
                 "San Antonio",
                 "Santa Filomena",
                 "Maglahus",
-                "Malibago"
+                "Malibago",
             ],
             "City of Mati ": [
                 "Luban",
@@ -41811,7 +41736,7 @@ BARANGAY = {
                 "Buso",
                 "Mamali",
                 "Dahican",
-                "Tagbinonga"
+                "Tagbinonga",
             ],
             "Governor Generoso": [
                 "Surop",
@@ -41833,7 +41758,7 @@ BARANGAY = {
                 "Don Aurelio Chicote",
                 "Manuel Roxas",
                 "Tandang Sora",
-                "Nangan"
+                "Nangan",
             ],
             "Lupon": [
                 "Magsaysay",
@@ -41856,7 +41781,7 @@ BARANGAY = {
                 "Tagugpo",
                 "Macangao",
                 "Limbahan",
-                "Ilangay"
+                "Ilangay",
             ],
             "Manay": [
                 "Concepcion",
@@ -41875,7 +41800,7 @@ BARANGAY = {
                 "Mabini",
                 "Cayawan",
                 "New Taokanga",
-                "Capasnan"
+                "Capasnan",
             ],
             "San Isidro": [
                 "San Roque",
@@ -41893,7 +41818,7 @@ BARANGAY = {
                 "Batobato ",
                 "Santo Rosario",
                 "Talisay",
-                "Cambaleon"
+                "Cambaleon",
             ],
             "Tarragona": [
                 "Tomoaong",
@@ -41905,8 +41830,8 @@ BARANGAY = {
                 "Jovellar",
                 "Limot",
                 "Cabagayan",
-                "Tubaon"
-            ]
+                "Tubaon",
+            ],
         },
         "Davao de Oro": {
             "Compostela": [
@@ -41925,7 +41850,7 @@ BARANGAY = {
                 "Mangayon",
                 "Mapaca",
                 "Panansalan",
-                "New Alegria"
+                "New Alegria",
             ],
             "Laak": [
                 "Concepcion",
@@ -41967,7 +41892,7 @@ BARANGAY = {
                 "El Katipunan",
                 "Kaligutan",
                 "Malinao",
-                "Longanapan"
+                "Longanapan",
             ],
             "Mabini": [
                 "Anitapan",
@@ -41980,7 +41905,7 @@ BARANGAY = {
                 "Pangibiran",
                 "Cuambog ",
                 "Cadunan",
-                "Golden Valley"
+                "Golden Valley",
             ],
             "Maco": [
                 "Concepcion",
@@ -42019,7 +41944,7 @@ BARANGAY = {
                 "Taglawig",
                 "Sangab",
                 "Elizalde",
-                "Hijo"
+                "Hijo",
             ],
             "Maragusan": [
                 "Coronobe",
@@ -42045,7 +41970,7 @@ BARANGAY = {
                 "Bagong Silang",
                 "Tigbao",
                 "Pamintaran",
-                "Mapawa"
+                "Mapawa",
             ],
             "Mawab": [
                 "Concepcion",
@@ -42058,7 +41983,7 @@ BARANGAY = {
                 "Bawani",
                 "Sawangan",
                 "Saosao",
-                "Nueva Visayas"
+                "Nueva Visayas",
             ],
             "Monkayo": [
                 "Mamunga",
@@ -42081,7 +42006,7 @@ BARANGAY = {
                 "Salvacion",
                 "Casoon",
                 "Upper Ulip",
-                "Baylo"
+                "Baylo",
             ],
             "Montevista": [
                 "Concepcion",
@@ -42103,7 +42028,7 @@ BARANGAY = {
                 "Canidkid",
                 "Banglasan",
                 "Prosperidad",
-                "Bankerohan Norte"
+                "Bankerohan Norte",
             ],
             "Nabunturan ": [
                 "Magsaysay",
@@ -42133,7 +42058,7 @@ BARANGAY = {
                 "Sasa",
                 "Mipangi",
                 "Manat",
-                "Linda"
+                "Linda",
             ],
             "New Bataan": [
                 "Cogonon",
@@ -42151,7 +42076,7 @@ BARANGAY = {
                 "Tandawan",
                 "Manurigao",
                 "Pagsabangan",
-                "Batinao"
+                "Batinao",
             ],
             "Pantukan": [
                 "Araibo",
@@ -42166,8 +42091,8 @@ BARANGAY = {
                 "Kingking ",
                 "Napnapan",
                 "Bongbong",
-                "Tambongon"
-            ]
+                "Tambongon",
+            ],
         },
         "Davao del Norte": {
             "Asuncion": [
@@ -42190,14 +42115,14 @@ BARANGAY = {
                 "Camoning",
                 "Pamacaun",
                 "Magatos",
-                "Camansa"
+                "Camansa",
             ],
             "Braulio E. Dujali": [
                 "New Casay",
                 "Magupising",
                 "Dujali",
                 "Cabayangan",
-                "Tanglaw"
+                "Tanglaw",
             ],
             "Carmen": [
                 "Magsaysay",
@@ -42219,7 +42144,7 @@ BARANGAY = {
                 "Salvacion",
                 "Guadalupe",
                 "Taba",
-                "Tuganay"
+                "Tuganay",
             ],
             "City of Panabo": [
                 "Santa Cruz",
@@ -42261,7 +42186,7 @@ BARANGAY = {
                 "Waterfall",
                 "Kiotoy",
                 "Tagpore",
-                "Tibungol"
+                "Tibungol",
             ],
             "City of Tagum ": [
                 "San Agustin",
@@ -42286,7 +42211,7 @@ BARANGAY = {
                 "Visayan Village",
                 "Madaum",
                 "San Miguel",
-                "Canocotan"
+                "Canocotan",
             ],
             "Island Garden City of Samal": [
                 "Santa Cruz",
@@ -42334,7 +42259,7 @@ BARANGAY = {
                 "Cogon",
                 "Pe\u00f1aplata ",
                 "San Isidro (Babak)",
-                "Aundanao"
+                "Aundanao",
             ],
             "Kapalong": [
                 "Florida",
@@ -42350,7 +42275,7 @@ BARANGAY = {
                 "Mamacao",
                 "Sua-on",
                 "Capungagan",
-                "Luna"
+                "Luna",
             ],
             "New Corella": [
                 "Sta. Cruz",
@@ -42372,7 +42297,7 @@ BARANGAY = {
                 "Del Monte",
                 "Carcor",
                 "Sta. Fe",
-                "New Cortez"
+                "New Cortez",
             ],
             "San Isidro": [
                 "Igangon",
@@ -42387,7 +42312,7 @@ BARANGAY = {
                 "Santo Ni\u00f1o",
                 "Sabangan",
                 "Datu Balong",
-                "Mamangan"
+                "Mamangan",
             ],
             "Santo Tomas": [
                 "Pantaron",
@@ -42408,13 +42333,9 @@ BARANGAY = {
                 "Balagunan",
                 "Kinamayan",
                 "Bobongon",
-                "Lungaog"
+                "Lungaog",
             ],
-            "Talaingod": [
-                "Palma Gil",
-                "Santo Ni\u00f1o",
-                "Dagohoy"
-            ]
+            "Talaingod": ["Palma Gil", "Santo Ni\u00f1o", "Dagohoy"],
         },
         "Davao del Sur": {
             "Bansalan": [
@@ -42442,7 +42363,7 @@ BARANGAY = {
                 "Managa",
                 "Libertad",
                 "Mabuhay",
-                "New Clarin"
+                "New Clarin",
             ],
             "City of Digos ": [
                 "Dulangan",
@@ -42470,7 +42391,7 @@ BARANGAY = {
                 "San Miguel",
                 "Balabag",
                 "Cogon",
-                "Zone 3 "
+                "Zone 3 ",
             ],
             "Hagonoy": [
                 "Guihing Aplaya",
@@ -42493,7 +42414,7 @@ BARANGAY = {
                 "Clib",
                 "Hagonoy Crossing",
                 "Sinayawan",
-                "Kibuaya"
+                "Kibuaya",
             ],
             "Kiblawan": [
                 "Panaglib",
@@ -42525,7 +42446,7 @@ BARANGAY = {
                 "New Sibonga",
                 "Waterfall",
                 "Balasiao",
-                "Lati-an"
+                "Lati-an",
             ],
             "Magsaysay": [
                 "Kasuga",
@@ -42549,7 +42470,7 @@ BARANGAY = {
                 "Malongon",
                 "Tacul",
                 "San Miguel",
-                "Mabini"
+                "Mabini",
             ],
             "Malalag": [
                 "Baybay",
@@ -42566,7 +42487,7 @@ BARANGAY = {
                 "New Baclayon",
                 "Mabini",
                 "Bagumbayan",
-                "Kiblagon"
+                "Kiblagon",
             ],
             "Matanao": [
                 "Kabasagan",
@@ -42601,7 +42522,7 @@ BARANGAY = {
                 "Kibao",
                 "Camanchiles",
                 "Kapok",
-                "Saboy"
+                "Saboy",
             ],
             "Padada": [
                 "Tulogan",
@@ -42620,7 +42541,7 @@ BARANGAY = {
                 "Piape",
                 "N C Ordaneza District ",
                 "Northern Paligue",
-                "Southern Paligue"
+                "Southern Paligue",
             ],
             "Santa Cruz": [
                 "Coronon",
@@ -42640,7 +42561,7 @@ BARANGAY = {
                 "Jose Rizal",
                 "Darong",
                 "Matutungan",
-                "Saliducon"
+                "Saliducon",
             ],
             "Sulop": [
                 "Litos",
@@ -42667,8 +42588,8 @@ BARANGAY = {
                 "Laperas",
                 "Waterfall",
                 "Buguis",
-                "Kiblagon"
-            ]
+                "Kiblagon",
+            ],
         },
         "City of Davao": [
             "Kap. Tomas Monteverde, Sr.",
@@ -42852,8 +42773,8 @@ BARANGAY = {
             "Langub",
             "Tungakalan",
             "Baliok",
-            "Baracatan"
-        ]
+            "Baracatan",
+        ],
     },
     "Region XII (SOCCSKSARGEN)": {
         "Cotabato": {
@@ -42874,7 +42795,7 @@ BARANGAY = {
                 "Malitubog",
                 "Rangayen",
                 "Kitacubong ",
-                "Macabasa"
+                "Macabasa",
             ],
             "Aleosan": [
                 "Bagolibas",
@@ -42893,7 +42814,7 @@ BARANGAY = {
                 "Cawilihan",
                 "Upper Mingading",
                 "Katalicanan",
-                "Luanan"
+                "Luanan",
             ],
             "Antipas": [
                 "Magsaysay",
@@ -42908,7 +42829,7 @@ BARANGAY = {
                 "Malire",
                 "Luhong",
                 "B. Cadungon",
-                "Canaan"
+                "Canaan",
             ],
             "Arakan": [
                 "Binoongan",
@@ -42938,7 +42859,7 @@ BARANGAY = {
                 "Naje",
                 "Salasang",
                 "Tumanding",
-                "Ganatan"
+                "Ganatan",
             ],
             "Banisilan": [
                 "Banisilan Poblacion",
@@ -42960,7 +42881,7 @@ BARANGAY = {
                 "Malagap",
                 "Poblacion II",
                 "Capayangan",
-                "Malinao"
+                "Malinao",
             ],
             "Carmen": [
                 "Macabenban",
@@ -42983,7 +42904,7 @@ BARANGAY = {
                 "Ranzo",
                 "Kimadzil",
                 "Aroman",
-                "Palanggalan"
+                "Palanggalan",
             ],
             "City of Kidapawan ": [
                 "Macabolig",
@@ -43025,7 +42946,7 @@ BARANGAY = {
                 "Benoligan",
                 "Ginatilan",
                 "Lanao",
-                "Meochao"
+                "Meochao",
             ],
             "Kabacan": [
                 "Malamote",
@@ -43044,7 +42965,7 @@ BARANGAY = {
                 "Kilagasan",
                 "Paatan Upper",
                 "Cuyapon",
-                "Kayaga"
+                "Kayaga",
             ],
             "Libungan": [
                 "Ulamian",
@@ -43066,7 +42987,7 @@ BARANGAY = {
                 "Cabaruyan",
                 "Demapaco",
                 "Baguer",
-                "Montay"
+                "Montay",
             ],
             "M'Lang": [
                 "Tibao",
@@ -43105,7 +43026,7 @@ BARANGAY = {
                 "Lika",
                 "Dalipe",
                 "Palma-Perez",
-                "Malayan"
+                "Malayan",
             ],
             "Magpet": [
                 "Noa",
@@ -43139,7 +43060,7 @@ BARANGAY = {
                 "Magcaalam",
                 "Mahongcog",
                 "Bantac",
-                "Don Panaca"
+                "Don Panaca",
             ],
             "Makilala": [
                 "Concepcion",
@@ -43179,7 +43100,7 @@ BARANGAY = {
                 "Biangan",
                 "Cabilao",
                 "Saguing",
-                "Malungon"
+                "Malungon",
             ],
             "Matalam": [
                 "Santa Maria",
@@ -43215,7 +43136,7 @@ BARANGAY = {
                 "Salvacion",
                 "New Alimodian",
                 "Bangbang",
-                "Kilada"
+                "Kilada",
             ],
             "Midsayap": [
                 "Malamote",
@@ -43261,7 +43182,7 @@ BARANGAY = {
                 "Lower Katingawan",
                 "Upper Glad II",
                 "Macasendeg",
-                "Sadaan"
+                "Sadaan",
             ],
             "Pigkawayan": [
                 "New Culasi",
@@ -43291,7 +43212,7 @@ BARANGAY = {
                 "Mulok",
                 "Banucagon",
                 "Poblacion II",
-                "Poblacion III"
+                "Poblacion III",
             ],
             "Pikit": [
                 "Langayen",
@@ -43313,7 +43234,7 @@ BARANGAY = {
                 "Ginatilan",
                 "Kalacacan",
                 "Kolambog",
-                "Bulod"
+                "Bulod",
             ],
             "President Roxas": [
                 "Kimaruhing",
@@ -43340,7 +43261,7 @@ BARANGAY = {
                 "Del Carmen",
                 "Alegria",
                 "Salat",
-                "Ilustre"
+                "Ilustre",
             ],
             "Tulunan": [
                 "Bacong",
@@ -43371,8 +43292,8 @@ BARANGAY = {
                 "Banayal",
                 "Tambac",
                 "Sibsib",
-                "Kanibong"
-            ]
+                "Kanibong",
+            ],
         },
         "Sarangani": {
             "Alabel ": [
@@ -43389,7 +43310,7 @@ BARANGAY = {
                 "Pag-asa",
                 "Spring",
                 "Datal Anggas",
-                "Paraiso"
+                "Paraiso",
             ],
             "Glan": [
                 "Glan Padidu",
@@ -43422,7 +43343,7 @@ BARANGAY = {
                 "E. Alegado",
                 "Calpidong",
                 "Datalbukay",
-                "Calabanit"
+                "Calabanit",
             ],
             "Kiamba": [
                 "Kayupo",
@@ -43443,7 +43364,7 @@ BARANGAY = {
                 "Salakit",
                 "Lagundi",
                 "Nalus",
-                "Lebe"
+                "Lebe",
             ],
             "Maasim": [
                 "Kanalo",
@@ -43461,7 +43382,7 @@ BARANGAY = {
                 "Bales",
                 "Lumatil",
                 "Daliao",
-                "Seven Hills"
+                "Seven Hills",
             ],
             "Maitum": [
                 "Bati-an",
@@ -43482,7 +43403,7 @@ BARANGAY = {
                 "Zion",
                 "Kiayap",
                 "Kiambing",
-                "Tuanadatu"
+                "Tuanadatu",
             ],
             "Malapatan": [
                 "Sapu Padidu",
@@ -43496,7 +43417,7 @@ BARANGAY = {
                 "Upper Suyan",
                 "Sapu Masla",
                 "Kinam",
-                "Kihan"
+                "Kihan",
             ],
             "Malungon": [
                 "Lutay",
@@ -43529,8 +43450,8 @@ BARANGAY = {
                 "San Miguel",
                 "Malungon Gamay",
                 "Ampon",
-                "Upper Mainit"
-            ]
+                "Upper Mainit",
+            ],
         },
         "South Cotabato": {
             "Banga": [
@@ -43555,7 +43476,7 @@ BARANGAY = {
                 "Reyes ",
                 "El Nonok",
                 "Benitez ",
-                "Kusan"
+                "Kusan",
             ],
             "City of Koronadal ": [
                 "Concepcion",
@@ -43584,7 +43505,7 @@ BARANGAY = {
                 "Avance\u00f1a",
                 "Mambucal",
                 "New Pangasinan",
-                "Mabini"
+                "Mabini",
             ],
             "Lake Sebu": [
                 "Denlag",
@@ -43605,7 +43526,7 @@ BARANGAY = {
                 "Halilan",
                 "Lamdalag",
                 "Lamfugon",
-                "Lamcade"
+                "Lamcade",
             ],
             "Norala": [
                 "Dumaguil",
@@ -43621,7 +43542,7 @@ BARANGAY = {
                 "Tinago",
                 "San Jose",
                 "Benigno Aquino, Jr.",
-                "Simsiman"
+                "Simsiman",
             ],
             "Polomolok": [
                 "Cannery Site",
@@ -43646,7 +43567,7 @@ BARANGAY = {
                 "Koronadal Proper",
                 "Maligo",
                 "Polo",
-                "Palkan"
+                "Palkan",
             ],
             "Santo Ni\u00f1o": [
                 "San Isidro",
@@ -43658,7 +43579,7 @@ BARANGAY = {
                 "Teresita",
                 "Katipunan",
                 "Ambalgan",
-                "Sajaneba"
+                "Sajaneba",
             ],
             "Surallah": [
                 "Naci",
@@ -43677,7 +43598,7 @@ BARANGAY = {
                 "Buenavista",
                 "Veterans",
                 "Tubiala",
-                "Libertad "
+                "Libertad ",
             ],
             "T'Boli": [
                 "Maan",
@@ -43704,7 +43625,7 @@ BARANGAY = {
                 "Lambuling",
                 "Talcon",
                 "T'bolok",
-                "Tudok"
+                "Tudok",
             ],
             "Tampakan": [
                 "San Isidro",
@@ -43720,7 +43641,7 @@ BARANGAY = {
                 "Maltana",
                 "Lampitak",
                 "Tablu",
-                "Lambayong"
+                "Lambayong",
             ],
             "Tantangan": [
                 "New Cuyapo",
@@ -43735,7 +43656,7 @@ BARANGAY = {
                 "New Iloilo",
                 "Cabuling",
                 "Magon",
-                "Dumadalig"
+                "Dumadalig",
             ],
             "Tupi": [
                 "Crossing Rubber",
@@ -43753,8 +43674,8 @@ BARANGAY = {
                 "Miasong",
                 "Bunao",
                 "Kablon",
-                "Lunen"
-            ]
+                "Lunen",
+            ],
         },
         "Sultan Kudarat": {
             "Bagumbayan": [
@@ -43776,7 +43697,7 @@ BARANGAY = {
                 "Titulok",
                 "Sison",
                 "Monteverde",
-                "Sumilil"
+                "Sumilil",
             ],
             "City of Tacurong": [
                 "Carmen",
@@ -43798,7 +43719,7 @@ BARANGAY = {
                 "Upper Katungal",
                 "New Passi",
                 "San Antonio",
-                "San Pablo"
+                "San Pablo",
             ],
             "Columbio": [
                 "Maligaya",
@@ -43816,7 +43737,7 @@ BARANGAY = {
                 "Polomolok",
                 "Lasak",
                 "Eday",
-                "Elbebe"
+                "Elbebe",
             ],
             "Esperanza": [
                 "Magsaysay",
@@ -43837,7 +43758,7 @@ BARANGAY = {
                 "Salabaca",
                 "Salumping",
                 "Dukay",
-                "Numo"
+                "Numo",
             ],
             "Isulan ": [
                 "Kalawag II ",
@@ -43856,7 +43777,7 @@ BARANGAY = {
                 "Bambad",
                 "Dansuli",
                 "Kenram",
-                "D'Lotilla"
+                "D'Lotilla",
             ],
             "Kalamansig": [
                 "Santa Maria",
@@ -43873,7 +43794,7 @@ BARANGAY = {
                 "Pag-asa",
                 "Dumangas Nuevo",
                 "Cadiz",
-                "Datu Wasay"
+                "Datu Wasay",
             ],
             "Lambayong": [
                 "Madanding",
@@ -43901,7 +43822,7 @@ BARANGAY = {
                 "Pidtiguian",
                 "Mamali",
                 "Tinumigues",
-                "Kabulakan"
+                "Kabulakan",
             ],
             "Lebak": [
                 "Kinodalan",
@@ -43930,7 +43851,7 @@ BARANGAY = {
                 "Purikay",
                 "Poblacion III",
                 "Poloy-poloy",
-                "Keytodac"
+                "Keytodac",
             ],
             "Lutayan": [
                 "Tamnag ",
@@ -43943,7 +43864,7 @@ BARANGAY = {
                 "Blingkong",
                 "Antong",
                 "Maindang",
-                "Mamali"
+                "Mamali",
             ],
             "Palimbang": [
                 "Molon",
@@ -43985,7 +43906,7 @@ BARANGAY = {
                 "Lumitan",
                 "Baranayan",
                 "Balwan",
-                "Domolol"
+                "Domolol",
             ],
             "President Quirino": [
                 "C. Mangilala",
@@ -44006,7 +43927,7 @@ BARANGAY = {
                 "Romualdez",
                 "Kalanawe II",
                 "Kalanawe I",
-                "Mangalen"
+                "Mangalen",
             ],
             "Sen. Ninoy Aquino": [
                 "Tinalon",
@@ -44028,8 +43949,8 @@ BARANGAY = {
                 "Malegdeg",
                 "Langgal",
                 "Kadi",
-                "Buenaflores"
-            ]
+                "Buenaflores",
+            ],
         },
         "City of General Santos": [
             "Sinawal",
@@ -44057,8 +43978,8 @@ BARANGAY = {
             "Upper Labay",
             "Tinagacan",
             "Batomelong",
-            "Dadiangas East "
-        ]
+            "Dadiangas East ",
+        ],
     },
     "Region XIII (Caraga)": {
         "Agusan del Norte": {
@@ -44087,7 +44008,7 @@ BARANGAY = {
                 "Abilan",
                 "Poblacion 4",
                 "Poblacion 6",
-                "Talo-ao"
+                "Talo-ao",
             ],
             "Carmen": [
                 "Vinapor",
@@ -44097,7 +44018,7 @@ BARANGAY = {
                 "Tagcatong",
                 "Cahayagan",
                 "Manoligao",
-                "Rojales"
+                "Rojales",
             ],
             "City of Cabadbaran": [
                 "Concepcion",
@@ -44130,7 +44051,7 @@ BARANGAY = {
                 "Poblacion 4",
                 "Poblacion 6",
                 "Mabini",
-                "Antonio Luna"
+                "Antonio Luna",
             ],
             "Jabonga": [
                 "Cuyago",
@@ -44147,7 +44068,7 @@ BARANGAY = {
                 "San Pablo",
                 "Magdagooc",
                 "Baleguian",
-                "Colorado"
+                "Colorado",
             ],
             "Kitcharao": [
                 "San Roque",
@@ -44160,7 +44081,7 @@ BARANGAY = {
                 "Crossing",
                 "Hinimbangan",
                 "Jaliobong",
-                "Canaway"
+                "Canaway",
             ],
             "Las Nieves": [
                 "Ambacon",
@@ -44182,7 +44103,7 @@ BARANGAY = {
                 "Lingayao",
                 "Consorcia",
                 "Ibuan",
-                "Casiklan"
+                "Casiklan",
             ],
             "Magallanes": [
                 "Caloc-an",
@@ -44192,7 +44113,7 @@ BARANGAY = {
                 "Marcos",
                 "Santo Ni\u00f1o",
                 "Santo Rosario",
-                "Buhang"
+                "Buhang",
             ],
             "Nasipit": [
                 "Camagong",
@@ -44213,7 +44134,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Punta",
                 "Barangay 6 ",
-                "Kinabjangan"
+                "Kinabjangan",
             ],
             "Remedios T. Romualdez": [
                 "Panaytayon",
@@ -44223,7 +44144,7 @@ BARANGAY = {
                 "Basilisa",
                 "Poblacion II",
                 "San Antonio",
-                "Tagbongabong"
+                "Tagbongabong",
             ],
             "Santiago": [
                 "Jagupit",
@@ -44234,7 +44155,7 @@ BARANGAY = {
                 "Tagbuyacan",
                 "Poblacion II",
                 "Pangaylan-IP",
-                "Curva"
+                "Curva",
             ],
             "Tubay": [
                 "Poblacion 1",
@@ -44249,8 +44170,8 @@ BARANGAY = {
                 "Poblacion 2",
                 "Santa Ana",
                 "Tagmamarkay",
-                "Victory"
-            ]
+                "Victory",
+            ],
         },
         "Agusan del Sur": {
             "Bunawan": [
@@ -44263,7 +44184,7 @@ BARANGAY = {
                 "Nueva Era",
                 "Bunawan Brook",
                 "Mambalili",
-                "San Andres"
+                "San Andres",
             ],
             "City of Bayugan": [
                 "Getsemane",
@@ -44308,7 +44229,7 @@ BARANGAY = {
                 "Maygatasan",
                 "Taglatawan",
                 "Grace Estate",
-                "Villa Undayon"
+                "Villa Undayon",
             ],
             "Esperanza": [
                 "San Toribio",
@@ -44357,7 +44278,7 @@ BARANGAY = {
                 "Duangan",
                 "Tandang Sora",
                 "Cubo",
-                "Maasin"
+                "Maasin",
             ],
             "La Paz": [
                 "Comota",
@@ -44374,7 +44295,7 @@ BARANGAY = {
                 "Bataan",
                 "Osme\u00f1a, Sr.",
                 "Panagangan",
-                "Kasapa II"
+                "Kasapa II",
             ],
             "Loreto": [
                 "Santa Teresa",
@@ -44393,7 +44314,7 @@ BARANGAY = {
                 "Violanta",
                 "Johnson",
                 "Waloe",
-                "Sabud"
+                "Sabud",
             ],
             "Prosperidad ": [
                 "Magsaysay",
@@ -44427,7 +44348,7 @@ BARANGAY = {
                 "Salvacion",
                 "Lucena",
                 "Mapaga",
-                "Los Arcos"
+                "Los Arcos",
             ],
             "Rosario": [
                 "Tagbayagan",
@@ -44440,7 +44361,7 @@ BARANGAY = {
                 "Poblacion",
                 "Wasi-an",
                 "Novele",
-                "Bayugan 3"
+                "Bayugan 3",
             ],
             "San Francisco": [
                 "Pasta",
@@ -44469,7 +44390,7 @@ BARANGAY = {
                 "Lucac",
                 "Alegria",
                 "Barangay 2 ",
-                "Ladgadan"
+                "Ladgadan",
             ],
             "San Luis": [
                 "Policarpo",
@@ -44496,7 +44417,7 @@ BARANGAY = {
                 "Cecilia",
                 "Dimasalang",
                 "Baylo",
-                "Do\u00f1a Maxima"
+                "Do\u00f1a Maxima",
             ],
             "Santa Josefa": [
                 "Concepcion",
@@ -44509,7 +44430,7 @@ BARANGAY = {
                 "Aurora",
                 "San Jose",
                 "Angas",
-                "Santa Isabel"
+                "Santa Isabel",
             ],
             "Sibagat": [
                 "New Tubigon",
@@ -44535,7 +44456,7 @@ BARANGAY = {
                 "Ilihan",
                 "Kolambugan",
                 "Sinai",
-                "Del Rosario"
+                "Del Rosario",
             ],
             "Talacogon": [
                 "San Nicolas ",
@@ -44553,7 +44474,7 @@ BARANGAY = {
                 "San Isidro ",
                 "Labnig",
                 "Sabang Gibung",
-                "Zamora"
+                "Zamora",
             ],
             "Trento": [
                 "San Roque",
@@ -44571,7 +44492,7 @@ BARANGAY = {
                 "New Visayas",
                 "Langkila-an",
                 "Manat",
-                "Kapatungan"
+                "Kapatungan",
             ],
             "Veruela": [
                 "Magsaysay",
@@ -44593,8 +44514,8 @@ BARANGAY = {
                 "Bacay II",
                 "Candiis",
                 "Don Mateo",
-                "Sisimon"
-            ]
+                "Sisimon",
+            ],
         },
         "Dinagat Islands": {
             "Basilisa": [
@@ -44624,7 +44545,7 @@ BARANGAY = {
                 "Columbus",
                 "Villa Ecleo",
                 "Geotina",
-                "Sering"
+                "Sering",
             ],
             "Cagdianao": [
                 "Valencia",
@@ -44640,7 +44561,7 @@ BARANGAY = {
                 "R. Ecleo, Sr.",
                 "San Jose",
                 "Mabini",
-                "Boa"
+                "Boa",
             ],
             "Dinagat": [
                 "Magsaysay",
@@ -44654,7 +44575,7 @@ BARANGAY = {
                 "Gomez",
                 "Justiniana Edera",
                 "Mauswagon ",
-                "Bagumbayan"
+                "Bagumbayan",
             ],
             "Libjo": [
                 "Quezon",
@@ -44672,7 +44593,7 @@ BARANGAY = {
                 "San Antonio ",
                 "Santo Ni\u00f1o",
                 "San Jose",
-                "Do\u00f1a Helen"
+                "Do\u00f1a Helen",
             ],
             "Loreto": [
                 "Carmen ",
@@ -44684,7 +44605,7 @@ BARANGAY = {
                 "Santa Cruz ",
                 "Liberty",
                 "Esperanza",
-                "Ferdinand"
+                "Ferdinand",
             ],
             "San Jose ": [
                 "San Juan",
@@ -44698,7 +44619,7 @@ BARANGAY = {
                 "Aurelio",
                 "Justiniana Edera",
                 "Don Ruben Ecleo",
-                "Luna"
+                "Luna",
             ],
             "Tubajon": [
                 "Navarro",
@@ -44709,8 +44630,8 @@ BARANGAY = {
                 "Mabini",
                 "Malinao",
                 "San Roque ",
-                "Diaz"
-            ]
+                "Diaz",
+            ],
         },
         "Surigao del Norte": {
             "Alegria": [
@@ -44725,7 +44646,7 @@ BARANGAY = {
                 "Pongtud",
                 "Julio Ouano ",
                 "Budlingin",
-                "Camp Eduard"
+                "Camp Eduard",
             ],
             "Bacuag": [
                 "Pungtod",
@@ -44736,7 +44657,7 @@ BARANGAY = {
                 "Campo",
                 "Pautao",
                 "Cabugao",
-                "Dugsangon"
+                "Dugsangon",
             ],
             "Burgos": [
                 "Baybay",
@@ -44744,7 +44665,7 @@ BARANGAY = {
                 "Bitaug",
                 "Matin-ao",
                 "San Mateo",
-                "Poblacion 2"
+                "Poblacion 2",
             ],
             "City of Surigao ": [
                 "Baybay",
@@ -44800,7 +44721,7 @@ BARANGAY = {
                 "Mapawa",
                 "Mabini",
                 "Ipil",
-                "Poctoy"
+                "Poctoy",
             ],
             "Claver": [
                 "Tayaga",
@@ -44816,7 +44737,7 @@ BARANGAY = {
                 "Magallanes",
                 "Bagakay",
                 "Lapinigan",
-                "Hayanggabon"
+                "Hayanggabon",
             ],
             "Dapa": [
                 "Jubang",
@@ -44847,7 +44768,7 @@ BARANGAY = {
                 "Barangay 2 ",
                 "Barangay 13 ",
                 "Bagakay",
-                "Don Paulino"
+                "Don Paulino",
             ],
             "Del Carmen": [
                 "Tuboran",
@@ -44869,7 +44790,7 @@ BARANGAY = {
                 "Mabuhay",
                 "Lobogon",
                 "Jamoyaon",
-                "Bagakay"
+                "Bagakay",
             ],
             "General Luna": [
                 "Magsaysay",
@@ -44890,7 +44811,7 @@ BARANGAY = {
                 "Poblacion III",
                 "Tawin-tawin",
                 "Malinao",
-                "Poblacion IV"
+                "Poblacion IV",
             ],
             "Gigaquit": [
                 "Ipil ",
@@ -44905,7 +44826,7 @@ BARANGAY = {
                 "Cam-boayon",
                 "Lahi",
                 "Poniente",
-                "Villaflor"
+                "Villaflor",
             ],
             "Mainit": [
                 "Mansayao",
@@ -44928,7 +44849,7 @@ BARANGAY = {
                 "Tapi-an",
                 "Binga",
                 "Cantugas",
-                "Mabini"
+                "Mabini",
             ],
             "Malimono": [
                 "Cantapoy",
@@ -44944,7 +44865,7 @@ BARANGAY = {
                 "Bunyasan",
                 "San Isidro ",
                 "Cayawan",
-                "Cansayong"
+                "Cansayong",
             ],
             "Pilar": [
                 "San Roque",
@@ -44961,7 +44882,7 @@ BARANGAY = {
                 "Consolacion",
                 "Mabini",
                 "Centro ",
-                "Maasin"
+                "Maasin",
             ],
             "Placer": [
                 "Panhutongan",
@@ -44983,7 +44904,7 @@ BARANGAY = {
                 "Boyongan",
                 "Mabini",
                 "Pananay-an",
-                "Suyoc"
+                "Suyoc",
             ],
             "San Benito": [
                 "San Juan",
@@ -44991,7 +44912,7 @@ BARANGAY = {
                 "Nuevo Campo",
                 "Maribojoc",
                 "Santa Cruz ",
-                "Bongdo"
+                "Bongdo",
             ],
             "San Francisco": [
                 "Linongganan",
@@ -45004,7 +44925,7 @@ BARANGAY = {
                 "Honrado",
                 "Banbanon",
                 "Magtangale",
-                "Diaz"
+                "Diaz",
             ],
             "San Isidro": [
                 "Del Carmen ",
@@ -45018,7 +44939,7 @@ BARANGAY = {
                 "Tambacan",
                 "Santo Ni\u00f1o",
                 "Macapagal",
-                "Pacifico"
+                "Pacifico",
             ],
             "Santa Monica": [
                 "Magsaysay",
@@ -45031,7 +44952,7 @@ BARANGAY = {
                 "Bailan",
                 "Tangbo",
                 "Mabini",
-                "Mabuhay "
+                "Mabuhay ",
             ],
             "Sison": [
                 "San Isidro",
@@ -45045,7 +44966,7 @@ BARANGAY = {
                 "Upper Patag",
                 "Tagbayani",
                 "San Pablo",
-                "Lower Patag"
+                "Lower Patag",
             ],
             "Socorro": [
                 "San Roque",
@@ -45061,7 +44982,7 @@ BARANGAY = {
                 "Salog",
                 "Navarro ",
                 "Rizal ",
-                "Sering"
+                "Sering",
             ],
             "Tagana-An": [
                 "Aurora ",
@@ -45077,7 +44998,7 @@ BARANGAY = {
                 "Union",
                 "Cawilan",
                 "Opong",
-                "Talavera"
+                "Talavera",
             ],
             "Tubod": [
                 "Timamana",
@@ -45088,8 +45009,8 @@ BARANGAY = {
                 "Cawilan",
                 "Motorpool",
                 "Del Rosario",
-                "San Pablo"
-            ]
+                "San Pablo",
+            ],
         },
         "Surigao del Sur": {
             "Barobo": [
@@ -45114,7 +45035,7 @@ BARANGAY = {
                 "Javier",
                 "Sua",
                 "Causwagan",
-                "Dapdap"
+                "Dapdap",
             ],
             "Bayabas": [
                 "Cagbaoto",
@@ -45123,7 +45044,7 @@ BARANGAY = {
                 "La Paz",
                 "Magobawok",
                 "Panaosawon",
-                "Cabugo"
+                "Cabugo",
             ],
             "Cagwait": [
                 "La Purisima",
@@ -45136,7 +45057,7 @@ BARANGAY = {
                 "Mat-e",
                 "Aras-Asan",
                 "Tubo-tubo",
-                "Bitaugan East"
+                "Bitaugan East",
             ],
             "Cantilan": [
                 "General Island",
@@ -45155,7 +45076,7 @@ BARANGAY = {
                 "Lininti-an ",
                 "Calagdaan",
                 "Palasao",
-                "Bugsukan"
+                "Bugsukan",
             ],
             "Carmen": [
                 "Carmen ",
@@ -45165,7 +45086,7 @@ BARANGAY = {
                 "San Vicente",
                 "Cancavan",
                 "Esperanza",
-                "Hinapoyan"
+                "Hinapoyan",
             ],
             "Carrascal": [
                 "Bacolod",
@@ -45181,7 +45102,7 @@ BARANGAY = {
                 "Panikian",
                 "Babuyan",
                 "Dahican",
-                "Doyos "
+                "Doyos ",
             ],
             "City of Bislig": [
                 "Santa Cruz",
@@ -45207,7 +45128,7 @@ BARANGAY = {
                 "Mangagoy",
                 "San Antonio",
                 "Maharlika",
-                "Sibaroy"
+                "Sibaroy",
             ],
             "City of Tandag ": [
                 "Dagocdoc ",
@@ -45230,7 +45151,7 @@ BARANGAY = {
                 "Maitum",
                 "San Antonio",
                 "Bagong Lungsod ",
-                "Bioto"
+                "Bioto",
             ],
             "Cortes": [
                 "Capandan",
@@ -45244,7 +45165,7 @@ BARANGAY = {
                 "Matho",
                 "Burgos",
                 "Tag-Anongan",
-                "Madrelino"
+                "Madrelino",
             ],
             "Hinatuan": [
                 "Harip",
@@ -45270,7 +45191,7 @@ BARANGAY = {
                 "Port Lamon",
                 "Tagasaka",
                 "Sasa",
-                "Tidman"
+                "Tidman",
             ],
             "Lanuza": [
                 "Zone I ",
@@ -45285,7 +45206,7 @@ BARANGAY = {
                 "Zone II ",
                 "Agsam",
                 "Pakwan",
-                "Nurcia"
+                "Nurcia",
             ],
             "Lianga": [
                 "Ban-as",
@@ -45300,7 +45221,7 @@ BARANGAY = {
                 "Saint Christine",
                 "Diatagon",
                 "Ganayon",
-                "Manyayay"
+                "Manyayay",
             ],
             "Lingig": [
                 "Handamayan",
@@ -45320,7 +45241,7 @@ BARANGAY = {
                 "Tagpoporan",
                 "Union",
                 "Pagtila-an",
-                "Rajah Cabungso-an"
+                "Rajah Cabungso-an",
             ],
             "Madrid": [
                 "San Juan",
@@ -45336,7 +45257,7 @@ BARANGAY = {
                 "Union",
                 "Songkit",
                 "Bagsac",
-                "Manga"
+                "Manga",
             ],
             "Marihatag": [
                 "San Pedro",
@@ -45350,7 +45271,7 @@ BARANGAY = {
                 "Mararag",
                 "Arorogan",
                 "Antipolo",
-                "Mahaba"
+                "Mahaba",
             ],
             "San Agustin": [
                 "Pongtod",
@@ -45365,7 +45286,7 @@ BARANGAY = {
                 "Salvacion",
                 "Buatong",
                 "Santo Ni\u00f1o",
-                "Buhisan"
+                "Buhisan",
             ],
             "San Miguel": [
                 "San Roque",
@@ -45385,7 +45306,7 @@ BARANGAY = {
                 "Patong",
                 "Carromata",
                 "Sagbayan",
-                "Siagao"
+                "Siagao",
             ],
             "Tagbina": [
                 "Magsaysay",
@@ -45412,7 +45333,7 @@ BARANGAY = {
                 "Batunan",
                 "Carpenito",
                 "Do\u00f1a Carmen",
-                "Tagongon"
+                "Tagongon",
             ],
             "Tago": [
                 "Unaban",
@@ -45438,8 +45359,8 @@ BARANGAY = {
                 "Caras-an",
                 "Layog",
                 "Mercedes",
-                "Dayo-an"
-            ]
+                "Dayo-an",
+            ],
         },
         "City of Butuan ": [
             "Aupagan",
@@ -45527,7 +45448,7 @@ BARANGAY = {
             "Doongan",
             "Libertad",
             "Florida",
-            "Dumalagan"
-        ]
-    }
+            "Dumalagan",
+        ],
+    },
 }
