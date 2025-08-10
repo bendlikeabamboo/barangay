@@ -1,6 +1,6 @@
 [project]
 name = "barangay"
-version = "0.1.1"
+version = "0.2.1"
 description = "Nested dictionary of Philippine barangay. Updated as of 2025."
 authors = [
     {name = "bendlikeabamboo",email = "manuelb@hawitsu.xyz"}
@@ -20,4 +20,6 @@ build-backend = "poetry.core.masonry.api"
 pandas = "^2.3.1"
 jupyterlab = "^4.4.5"
 pyyaml = "^6.0.2"
-
+pydantic = "^2.11.7"
+tqdm = "^4.67.1"
+ipywidgets = "^8.1.7"
