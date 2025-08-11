@@ -6,7 +6,7 @@ Philippines Standard Geographic Code (PSGC) 2025 Python package for Philippine r
 provinces, cities, municipalities, and barangay. Available in JSON, YAML, and Python
 dictionary formats. Latest and updated as of July 2025.
 
-__SOURCE FILE__: [205-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+__SOURCE FILE__: [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
 __PyPI__: https://pypi.org/project/barangay/ <br>
 __Installation__: `pip install barangay`
 
