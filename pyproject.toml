@@ -1,6 +1,6 @@
 [project]
 name = "barangay"
-version = "0.2.0"
+version = "0.2.1"
 description = """
 Philippines Standard Geographic Code (PSGC) 2025 Python package for Philippine regions, 
 provinces, cities, municipalities, and barangay. Available in JSON, YAML, and Python
