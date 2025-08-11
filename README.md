@@ -24,6 +24,8 @@ pip install barangay
 ```
 
 ## Usage
+Sample usage in `notebooks/sample_usage.ipynb`
+
 ### barangay.BARANGAY: Direct key-value heirarchical model
 Traversing `barangay.BARANGAY` is straightforward since it’s a purely nested dictionary
 composed of names, with no additional metadata.
