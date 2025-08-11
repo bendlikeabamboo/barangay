@@ -2,11 +2,13 @@
 [<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<p>
 <p>
 
-A Python package providing a nested dictionary of all Philippine barangays,
-cities, municipalities, provinces, and regions. This project is
-intended for geographic data analysis, lookup, and mapping applications.
+Philippines Standard Geographic Code (PSGC) 2025 Python package for Philippine regions, 
+provinces, cities, municipalities, and barangay. Available in JSON, YAML, and Python
+dictionary formats. Latest and updated as of July 2025.
 
-__SOURCE FILE__: [205-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694)
+__SOURCE FILE__: [205-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+__PyPI__: https://pypi.org/project/barangay/ <br>
+__Installation__: `pip install barangay`
 
 ## Features
 
@@ -22,7 +24,7 @@ pip install barangay
 ```
 
 ## Usage
-### `barangay.BARANGAY`
+### barangay.BARANGAY: Direct key-value heirarchical model
 Traversing `barangay.BARANGAY` is straightforward since it’s a purely nested dictionary
 composed of names, with no additional metadata.
 
@@ -62,7 +64,7 @@ provinces are important. To address this, I developed `barangay.BARANGAY_EXTENDE
 more complex fractal dictionary that accurately mirrors the intricate geographical
 divisions of the Philippines.
 
-### barangay.BARANGAY_EXTENDED
+### barangay.BARANGAY_EXTENDED: Metadata-rich hierarchical location model
 Traversing `barangay.BARANGAY_EXTENDED` is slightly more involved, as each location
 includes rich metadata stored in dictionary fields. Instead of simple key-value pairs,
 traversal involves navigating lists of dictionaries—adding a bit of complexity, but also

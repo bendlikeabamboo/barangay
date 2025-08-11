@@ -1,7 +1,11 @@
 [project]
 name = "barangay"
 version = "0.2.0"
-description = "Nested dictionary of Philippine barangay. Updated as of 2025."
+description = """
+Philippines Standard Geographic Code (PSGC) 2025 Python package for Philippine regions, 
+provinces, cities, municipalities, and barangay. Available in JSON, YAML, and Python
+dictionary formats. Latest and updated as of July 2025.
+"""
 authors = [
     {name = "bendlikeabamboo",email = "manuelb@hawitsu.xyz"}
 ]
