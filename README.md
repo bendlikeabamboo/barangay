@@ -1,5 +1,5 @@
 # barangay
-[<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<p>
+[<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PyPI Downloads](https://static.pepy.tech/badge/barangay)](https://pepy.tech/projects/barangay)<p>
 <p>
 
 Philippines Standard Geographic Code (PSGC) 2025 Python package for Philippine regions, 
@@ -15,6 +15,10 @@ __Installation__: `pip install barangay`
 - Comprehensive, up-to-date list of Philippine barangays and their administrative
   hierarchy based on Philippine Standard Geographic Code ([PSGC](https://psa.gov.ph/classification/psgc))
 - Data also available in both JSON and YAML formats under `barangay/`
+- Available in different data models
+  - Direct Nested Hierarchical Model
+  - Metadata-rich Recursive Hierarchical Model
+  - Metadata-rich Flat Model
 - Easy integration with Python projects.
 
 ## Installation
@@ -26,7 +30,7 @@ pip install barangay
 ## Usage
 Sample usage in `notebooks/sample_usage.ipynb`
 
-### barangay.BARANGAY: Direct key-value heirarchical model
+### barangay.BARANGAY: Direct Nested Hierarchical Model
 Traversing `barangay.BARANGAY` is straightforward since it’s a purely nested dictionary
 composed of names, with no additional metadata.
 
@@ -66,7 +70,7 @@ provinces are important. To address this, I developed `barangay.BARANGAY_EXTENDE
 more complex fractal dictionary that accurately mirrors the intricate geographical
 divisions of the Philippines.
 
-### barangay.BARANGAY_EXTENDED: Metadata-rich hierarchical location model
+### barangay.BARANGAY_EXTENDED: Metadata-rich Recursive Hierarchical Model
 Traversing `barangay.BARANGAY_EXTENDED` is slightly more involved, as each location
 includes rich metadata stored in dictionary fields. Instead of simple key-value pairs,
 traversal involves navigating lists of dictionaries—adding a bit of complexity, but also
@@ -123,4 +127,30 @@ santa_ana_components = [
 print("santa_ana_components")
 pprint(santa_ana_components)
 print("\n\n")
+```
+
+### barangay.BARANGAY_FLAT: Metadata-rich Flat Model
+
+The barangay.BARANGAY_FLAT structure offers a fully flattened list of all Philippine
+administrative units—regions, provinces, cities, municipalities, and barangays—with rich
+metadata for each entry. This format is ideal for search, filtering, and integration
+with tabular data workflows such as pandas DataFrames or database imports.
+
+```python
+from barangay import BARANGAY_FLAT
+
+
+# Looking for Brgy. Marayos in Mindoro
+brgy_marayos = [loc for loc in BARANGAY_FLAT if loc["name"]=="Marayos"]
+print(brgy_marayos)
+
+# From here we can now trace its hierarchy by following parent_psgc_id
+brgy_marayos_parent = [loc for loc in BARANGAY_FLAT if loc["psgc_id"]=="1705209000"]
+print(brgy_marayos_parent)
+
+pinamalayan_parent = [loc for loc in BARANGAY_FLAT if loc["psgc_id"]=="1705200000"]
+print(pinamalayan_parent)
+
+oriental_mindoro_parent = [loc for loc in BARANGAY_FLAT if loc["psgc_id"]=="1700000000"]
+print(oriental_mindoro_parent)
 ```
