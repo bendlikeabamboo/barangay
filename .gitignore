@@ -90,3 +90,5 @@ pip-log.txt
 *.tmp
 *.bak
 *.swp
+
+**/hidden/*
