@@ -32,3 +32,6 @@ pydantic = "^2.11.7"
 tqdm = "^4.67.1"
 ipywidgets = "^8.1.7"
 tabula-py = {extras = ["jpype"], version = "^2.10.0"}
+python-dotenv = "^1.1.1"
+pyspark = "^4.0.0"
+delta-spark = "^4.0.0"
