@@ -1,6 +1,6 @@
 [project]
 name = "barangay"
-version = "0.3.1"
+version = "0.3.2"
 description = "Philippines Standard Geographic Code (PSGC) 2025 Python package, JSON, and YAML."
 authors = [{ name = "bendlikeabamboo", email = "manuelb@hawitsu.xyz" }]
 license = { text = "MIT" }
@@ -15,7 +15,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-homepage = "https://hawitu.xyz"
+homepage = "https://hawitsu.xyz"
 repository = "https://github.com/bendlikeabamboo/barangay"
 documentation = "https://github.com/bendlikeabamboo/barangay/blob/main/README.md"
 "Bug Tracker" = "https://github.com/bendlikeabamboo/barangay/issues"
@@ -23,6 +23,9 @@ documentation = "https://github.com/bendlikeabamboo/barangay/blob/main/README.md
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev]
+optional = true
 
 [tool.poetry.group.dev.dependencies]
 pandas = "^2.3.1"
