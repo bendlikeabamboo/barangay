@@ -2,24 +2,31 @@
 [<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PyPI Downloads](https://static.pepy.tech/badge/barangay)](https://pepy.tech/projects/barangay) [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)<p>
 <p>
 
-Philippines Standard Geographic Code (PSGC) 2025 Python package for Philippine regions, 
-provinces, cities, municipalities, and barangay. Available in JSON, YAML, and Python
-dictionary formats. Latest and updated as of July 2025.
+Philippines Standard Geographic Code (PSGC) 2025 Python masterlist data package for
+Philippine regions, provinces, cities, municipalities, and barangay. Available in JSON,
+YAML, and Python dictionary formats and with fuzzy search. Latest and updated as of July
+2025.
 
 __SOURCE FILE__: [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
 __PyPI__: https://pypi.org/project/barangay/ <br>
+__GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay) <br>
 __Installation__: `pip install barangay`
 
 ## Features
 
+### Fuzzy Search
+- Performant, customizable, and easy to use fuzzy search function
+- Works for unstandardized strings like addresses and text entries
+
+### Data dictionaries
 - Comprehensive, up-to-date list of Philippine barangays and their administrative
   hierarchy based on Philippine Standard Geographic Code ([PSGC](https://psa.gov.ph/classification/psgc))
-- Data also available in both JSON and YAML formats under `barangay/`
-- Available in different data models
+- Data also available in both JSON and YAML formats under [`data/`](https://github.com/bendlikeabamboo/barangay/tree/main/data/)
+- Available in different dictionary data models
   - Direct Nested Hierarchical Model
   - Metadata-rich Recursive Hierarchical Model
   - Metadata-rich Flat Model
-- Easy integration with Python projects.
+- Easy integration with Python projects
 
 ## Installation
 
@@ -28,15 +35,52 @@ pip install barangay
 ```
 
 ## Usage
-Sample usage in `notebooks/sample_usage.ipynb`
+Sample usage in [`notebooks/sample_usage.ipynb`](https://github.com/bendlikeabamboo/barangay/blob/main/notebooks/sample_usage.ipynb)
 
-### barangay.BARANGAY: Direct Nested Hierarchical Model
+### Fuzzy Search
+
+Simple string search
+
+#### Example
+
+```python
+from barangay import search
+
+search("Tongmageng, Tawi-Tawi")
+```
+
+Custom search also possible using the following configuration: 
+- match_hooks (argument: `match_hooks`, default: all matchers)
+  - allowed matchers:
+    - barangay (required)
+    - municipality
+    - province
+  - any combination of allowed matchers
+- threshold (argument: `threshold`, default: 60.0)
+  - 0.00 to 100.00
+  - 100.00 means strict match
+- number of matches returned (argument: `n`)
+  
+#### Example
+```python
+from barangay import search
+
+search(
+  "Tongmagen, Tawi-Tawi",
+  n = 4,
+  match_hooks=["municipality","barangay"],
+  threshold=70.0,
+)
+```
+
+### Data Dictionaries
+#### barangay.BARANGAY: Direct Nested Hierarchical Model
 Traversing `barangay.BARANGAY` is straightforward since it’s a purely nested dictionary
 composed of names, with no additional metadata.
 
 ```python
 from barangay import BARANGAY
-
+  
 # Example lookup process and dictionary traversal
 all_regions = BARANGAY.keys()
 
@@ -70,7 +114,7 @@ provinces are important. To address this, I developed `barangay.BARANGAY_EXTENDE
 more complex fractal dictionary that accurately mirrors the intricate geographical
 divisions of the Philippines.
 
-### barangay.BARANGAY_EXTENDED: Metadata-rich Recursive Hierarchical Model
+#### barangay.BARANGAY_EXTENDED: Metadata-rich Recursive Hierarchical Model
 Traversing `barangay.BARANGAY_EXTENDED` is slightly more involved, as each location
 includes rich metadata stored in dictionary fields. Instead of simple key-value pairs,
 traversal involves navigating lists of dictionaries—adding a bit of complexity, but also
@@ -129,7 +173,7 @@ pprint(santa_ana_components)
 print("\n\n")
 ```
 
-### barangay.BARANGAY_FLAT: Metadata-rich Flat Model
+#### barangay.BARANGAY_FLAT: Metadata-rich Flat Model
 
 The barangay.BARANGAY_FLAT structure offers a fully flattened list of all Philippine
 administrative units—regions, provinces, cities, municipalities, and barangays—with rich
