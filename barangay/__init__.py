@@ -13,7 +13,7 @@ import pandas as pd
 from pydantic import BaseModel
 
 root_path = Path(os.path.abspath(__file__))
-data_dir = root_path.parent.parent / "data"
+data_dir = root_path.parent / "data"
 
 _BARANGAY_FILENAME = data_dir / "barangay.json"
 _BARANGAY_EXTENDED_FILENAME = data_dir / "barangay_extended.json"
