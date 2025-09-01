@@ -1,8 +1,7 @@
 [project]
 name = "barangay"
 version = "2025.7.8.4"
-description = """Philippines Standard Geographic Code (PSGC) 2025 Python package, JSON, 
-and YAML."""
+description = """Philippines Standard Geographic Code (PSGC) 2025 Python package, Fuzzy Search, JSON, and YAML."""
 authors = [{ name = "bendlikeabamboo", email = "manuelb@hawitsu.xyz" }]
 license = { text = "MIT" }
 readme = "README.md"
