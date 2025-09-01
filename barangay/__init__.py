@@ -106,7 +106,7 @@ def search(
     threshold: float = 60.0,
     n: int = 1,
     sanitizer: Callable[..., str] = _basic_sanitizer,
-) -> List[BarangayModel]:
+) -> List[dict]:
     """
     With a string search
     """
@@ -152,4 +152,4 @@ def search(
     truncated_results = pd.DataFrame(_fuzzer_base.loc[results])[
         ["barangay", "province_or_huc", "municipality_or_city", "psgc_id"]
     ]
-    return [BarangayModel(**row) for row in truncated_results.to_dict(orient="records")]
+    return truncated_results.to_dict(orient="records")

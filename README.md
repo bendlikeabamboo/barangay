@@ -9,7 +9,7 @@ YAML, and Python dictionary formats and with fuzzy search. Latest and updated as
 
 __SOURCE FILE__: [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
 __PyPI__: https://pypi.org/project/barangay/ <br>
-__GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay)
+__GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay) <br>
 __Installation__: `pip install barangay`
 
 ## Features
@@ -35,7 +35,7 @@ pip install barangay
 ```
 
 ## Usage
-Sample usage in `notebooks/sample_usage.ipynb`
+Sample usage in [`notebooks/sample_usage.ipynb`](https://github.com/bendlikeabamboo/barangay/blob/main/notebooks/sample_usage.ipynb)
 
 ### Fuzzy Search
 
@@ -49,7 +49,7 @@ from barangay import search
 search("Tongmageng, Tawi-Tawi")
 ```
 
-Custom search using the following configuration: 
+Custom search also possible using the following configuration: 
 - match_hooks (argument: `match_hooks`, default: all matchers)
   - allowed matchers:
     - barangay (required)
