@@ -10,6 +10,15 @@ from typing import Callable, List, Literal
 from rapidfuzz import fuzz
 
 import pandas as pd
+from pydantic import BaseModel
+
+root_path = Path(os.path.abspath(__file__))
+data_dir = root_path.parent.parent / "data"
+
+_BARANGAY_FILENAME = data_dir / "barangay.json"
+_BARANGAY_EXTENDED_FILENAME = data_dir / "barangay_extended.json"
+_BARANGAY_FLAT_FILENAME = data_dir / "barangay_flat.json"
+_FUZZER_BASE_FILENAME = data_dir / "fuzzer_base.parquet"
 
 
 def sanitize_input(
@@ -41,14 +50,6 @@ _basic_sanitizer = partial(
     exclude=["(pob.)", "(pob)", ".", "-", "(", ")", "&", "pob.", ","],
 )
 
-
-root_path = Path(os.path.abspath(__file__))
-data_dir = root_path.parent.parent / "data"
-
-_BARANGAY_FILENAME = data_dir / "barangay.json"
-_BARANGAY_EXTENDED_FILENAME = data_dir / "barangay_extended.json"
-_BARANGAY_FLAT_FILENAME = data_dir / "barangay_flat.json"
-_FUZZER_BASE_FILENAME = data_dir / "fuzzer_base.parquet"
 _fuzzer_base = pd.read_parquet(_FUZZER_BASE_FILENAME)
 _fuzzer_base["0p0b"] = (
     _fuzzer_base["province_or_huc"] + " " + _fuzzer_base["barangay"]
@@ -78,9 +79,6 @@ _fuzzer_base["f_0pmb_ratio"] = _fuzzer_base["0pmb"].apply(
     lambda ref: partial(fuzz.token_sort_ratio, s1=ref)
 )
 
-_current_file_path = Path(__file__).resolve()
-_current_dir = _current_file_path.parent
-
 with open(_BARANGAY_FILENAME, encoding="utf8", mode="r") as file:
     BARANGAY = json.load(file)
 
@@ -89,6 +87,13 @@ with open(_BARANGAY_EXTENDED_FILENAME, encoding="utf8", mode="r") as file:
 
 with open(_BARANGAY_FLAT_FILENAME, encoding="utf8", mode="r") as file:
     BARANGAY_FLAT = json.load(file)
+
+
+class BarangayModel(BaseModel):
+    barangay: str
+    province_or_huc: str
+    municipality_or_city: str
+    psgc_id: str
 
 
 def search(
@@ -101,7 +106,10 @@ def search(
     threshold: float = 60.0,
     n: int = 1,
     sanitizer: Callable[..., str] = _basic_sanitizer,
-) -> List[dict]:
+) -> List[BarangayModel]:
+    """
+    With a string search
+    """
     cleaned_sample: str = sanitizer(search_string)
 
     active_ratios: List[str] = []
@@ -144,8 +152,4 @@ def search(
     truncated_results = pd.DataFrame(_fuzzer_base.loc[results])[
         ["barangay", "province_or_huc", "municipality_or_city", "psgc_id"]
     ]
-    return truncated_results.to_dict(orient="records")
-
-
-if __name__ == "__main__":
-    print(search("Carsadang Bago II, City of Imus", n=10, match_hooks=["municipality", "barangay"]))
+    return [BarangayModel(**row) for row in truncated_results.to_dict(orient="records")]
