@@ -200,4 +200,5 @@ print(oriental_mindoro_parent)
 ```
 
 ## PSGC Previous Releases
-[2025-06-30 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+Previous PSGC releases are in [/data](https://github.com/bendlikeabamboo/barangay/tree/main/barangay/data)
+- [2025-06-30 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
