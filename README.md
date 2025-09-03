@@ -7,7 +7,7 @@ Philippine regions, provinces, cities, municipalities, and barangay. Available i
 YAML, and Python dictionary formats and with fuzzy search. Latest and updated as of July
 2025.
 
-__SOURCE FILE__: [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+__SOURCE FILE__: [2025-07-31 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
 __PyPI__: https://pypi.org/project/barangay/ <br>
 __GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay) <br>
 __Installation__: `pip install barangay`
@@ -198,3 +198,7 @@ print(pinamalayan_parent)
 oriental_mindoro_parent = [loc for loc in BARANGAY_FLAT if loc["psgc_id"]=="1700000000"]
 print(oriental_mindoro_parent)
 ```
+
+## PSGC Previous Releases
+Previous PSGC releases are in [/data](https://github.com/bendlikeabamboo/barangay/tree/main/barangay/data)
+- [2025-06-30 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>

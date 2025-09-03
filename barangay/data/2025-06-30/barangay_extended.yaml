@@ -8578,6 +8578,2586 @@ components:
         parent_psgc_id: '1903641000'
         nicknames: null
         components: []
+  - name: Sulu
+    type: province
+    psgc_id: '1906600000'
+    parent_psgc_id: '1900000000'
+    nicknames: null
+    components:
+    - name: Indanan
+      type: municipality
+      psgc_id: '1906601000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Adjid
+        type: barangay
+        psgc_id: '1906601001'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Bangalan
+        type: barangay
+        psgc_id: '1906601002'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Bato-bato
+        type: barangay
+        psgc_id: '1906601003'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Buanza
+        type: barangay
+        psgc_id: '1906601004'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Bud-Taran
+        type: barangay
+        psgc_id: '1906601005'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Bunut
+        type: barangay
+        psgc_id: '1906601006'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Jati-Tunggal
+        type: barangay
+        psgc_id: '1906601007'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Kabbon Maas
+        type: barangay
+        psgc_id: '1906601008'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Kagay
+        type: barangay
+        psgc_id: '1906601010'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Kajatian
+        type: barangay
+        psgc_id: '1906601011'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Kan Islam
+        type: barangay
+        psgc_id: '1906601012'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Kandang Tukay
+        type: barangay
+        psgc_id: '1906601013'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Karawan
+        type: barangay
+        psgc_id: '1906601014'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Katian
+        type: barangay
+        psgc_id: '1906601015'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Kuppong
+        type: barangay
+        psgc_id: '1906601016'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Lambayong
+        type: barangay
+        psgc_id: '1906601017'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Langpas
+        type: barangay
+        psgc_id: '1906601018'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Licup
+        type: barangay
+        psgc_id: '1906601019'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Malimbaya
+        type: barangay
+        psgc_id: '1906601020'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Manggis
+        type: barangay
+        psgc_id: '1906601021'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Manilop
+        type: barangay
+        psgc_id: '1906601022'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Paligue
+        type: barangay
+        psgc_id: '1906601023'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Panabuan
+        type: barangay
+        psgc_id: '1906601024'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Pasil
+        type: barangay
+        psgc_id: '1906601025'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Poblacion
+        type: barangay
+        psgc_id: '1906601026'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Sapah Malaum
+        type: barangay
+        psgc_id: '1906601027'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Panglima Misuari
+        type: barangay
+        psgc_id: '1906601028'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Sionogan
+        type: barangay
+        psgc_id: '1906601029'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Tagbak
+        type: barangay
+        psgc_id: '1906601030'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Timbangan
+        type: barangay
+        psgc_id: '1906601031'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Tubig Dakulah
+        type: barangay
+        psgc_id: '1906601032'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Tubig Parang
+        type: barangay
+        psgc_id: '1906601033'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Tumantangis
+        type: barangay
+        psgc_id: '1906601035'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+      - name: Sawaki
+        type: barangay
+        psgc_id: '1906601036'
+        parent_psgc_id: '1906601000'
+        nicknames: null
+        components: []
+    - name: Jolo
+      type: municipality
+      psgc_id: '1906602000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Alat
+        type: barangay
+        psgc_id: '1906602001'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: Asturias
+        type: barangay
+        psgc_id: '1906602002'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: Bus-bus
+        type: barangay
+        psgc_id: '1906602003'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: Chinese Pier
+        type: barangay
+        psgc_id: '1906602004'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: San Raymundo
+        type: barangay
+        psgc_id: '1906602007'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: Takut-takut
+        type: barangay
+        psgc_id: '1906602008'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: Tulay
+        type: barangay
+        psgc_id: '1906602009'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+      - name: Walled City
+        type: barangay
+        psgc_id: '1906602010'
+        parent_psgc_id: '1906602000'
+        nicknames: null
+        components: []
+    - name: Kalingalan Caluang
+      type: municipality
+      psgc_id: '1906603000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Kambing
+        type: barangay
+        psgc_id: '1906603002'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Kanlagay
+        type: barangay
+        psgc_id: '1906603004'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Pang
+        type: barangay
+        psgc_id: '1906603010'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Pangdan Pangdan
+        type: barangay
+        psgc_id: '1906603011'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Pitogo
+        type: barangay
+        psgc_id: '1906603012'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Karungdong
+        type: barangay
+        psgc_id: '1906603013'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Tunggol
+        type: barangay
+        psgc_id: '1906603016'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Masjid Bayle
+        type: barangay
+        psgc_id: '1906603017'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+      - name: Masjid Punjungan
+        type: barangay
+        psgc_id: '1906603018'
+        parent_psgc_id: '1906603000'
+        nicknames: null
+        components: []
+    - name: Luuk
+      type: municipality
+      psgc_id: '1906604000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Bual
+        type: barangay
+        psgc_id: '1906604004'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Kan-Bulak
+        type: barangay
+        psgc_id: '1906604007'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Kan-Mindus
+        type: barangay
+        psgc_id: '1906604008'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Lambago
+        type: barangay
+        psgc_id: '1906604012'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Lianutan
+        type: barangay
+        psgc_id: '1906604013'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Lingah
+        type: barangay
+        psgc_id: '1906604014'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Mananti
+        type: barangay
+        psgc_id: '1906604015'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Tubig-Puti
+        type: barangay
+        psgc_id: '1906604021'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Tandu-Bato
+        type: barangay
+        psgc_id: '1906604024'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Tulayan Island
+        type: barangay
+        psgc_id: '1906604028'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Guimbaun
+        type: barangay
+        psgc_id: '1906604029'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+      - name: Niog-niog
+        type: barangay
+        psgc_id: '1906604030'
+        parent_psgc_id: '1906604000'
+        nicknames: null
+        components: []
+    - name: Maimbung
+      type: municipality
+      psgc_id: '1906605000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Anak Jati
+        type: barangay
+        psgc_id: '1906605001'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Bato Ugis
+        type: barangay
+        psgc_id: '1906605002'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Bualo Lahi
+        type: barangay
+        psgc_id: '1906605003'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Bualo Lipid
+        type: barangay
+        psgc_id: '1906605004'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Bulabog
+        type: barangay
+        psgc_id: '1906605005'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Ratag Limbon
+        type: barangay
+        psgc_id: '1906605006'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Duhol Kabbon
+        type: barangay
+        psgc_id: '1906605007'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Gulangan
+        type: barangay
+        psgc_id: '1906605008'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Ipil
+        type: barangay
+        psgc_id: '1906605009'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Kandang
+        type: barangay
+        psgc_id: '1906605010'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Kapok-Punggol
+        type: barangay
+        psgc_id: '1906605011'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Kulasi
+        type: barangay
+        psgc_id: '1906605012'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Labah
+        type: barangay
+        psgc_id: '1906605013'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Lagasan Asibih
+        type: barangay
+        psgc_id: '1906605014'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Lantong
+        type: barangay
+        psgc_id: '1906605015'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Laud Kulasi
+        type: barangay
+        psgc_id: '1906605016'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Laum Maimbung
+        type: barangay
+        psgc_id: '1906605017'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Lunggang
+        type: barangay
+        psgc_id: '1906605018'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Lower Tambaking
+        type: barangay
+        psgc_id: '1906605019'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Lapa
+        type: barangay
+        psgc_id: '1906605020'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Matatal
+        type: barangay
+        psgc_id: '1906605021'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Patao
+        type: barangay
+        psgc_id: '1906605022'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Poblacion
+        type: barangay
+        psgc_id: '1906605023'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Tabu-Bato
+        type: barangay
+        psgc_id: '1906605024'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Tandu Patong
+        type: barangay
+        psgc_id: '1906605025'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Tubig-Samin
+        type: barangay
+        psgc_id: '1906605026'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+      - name: Upper Tambaking
+        type: barangay
+        psgc_id: '1906605027'
+        parent_psgc_id: '1906605000'
+        nicknames: null
+        components: []
+    - name: Hadji Panglima Tahil
+      type: municipality
+      psgc_id: '1906606000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Bubuan
+        type: barangay
+        psgc_id: '1906606002'
+        parent_psgc_id: '1906606000'
+        nicknames: null
+        components: []
+      - name: Kabuukan
+        type: barangay
+        psgc_id: '1906606003'
+        parent_psgc_id: '1906606000'
+        nicknames: null
+        components: []
+      - name: Pag-asinan
+        type: barangay
+        psgc_id: '1906606008'
+        parent_psgc_id: '1906606000'
+        nicknames: null
+        components: []
+      - name: Bangas
+        type: barangay
+        psgc_id: '1906606012'
+        parent_psgc_id: '1906606000'
+        nicknames: null
+        components: []
+      - name: Teomabal
+        type: barangay
+        psgc_id: '1906606015'
+        parent_psgc_id: '1906606000'
+        nicknames: null
+        components: []
+    - name: Old Panamao
+      type: municipality
+      psgc_id: '1906607000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Asin
+        type: barangay
+        psgc_id: '1906607001'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Bakud
+        type: barangay
+        psgc_id: '1906607002'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Bangday
+        type: barangay
+        psgc_id: '1906607003'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Baunoh
+        type: barangay
+        psgc_id: '1906607004'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Bitanag
+        type: barangay
+        psgc_id: '1906607005'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Bud Seit
+        type: barangay
+        psgc_id: '1906607006'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Bulangsi
+        type: barangay
+        psgc_id: '1906607007'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Datag
+        type: barangay
+        psgc_id: '1906607008'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kamalig
+        type: barangay
+        psgc_id: '1906607011'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kan Ukol
+        type: barangay
+        psgc_id: '1906607013'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kan Asaali
+        type: barangay
+        psgc_id: '1906607014'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kan-Dayok
+        type: barangay
+        psgc_id: '1906607015'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kan-Sipat
+        type: barangay
+        psgc_id: '1906607016'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kawasan
+        type: barangay
+        psgc_id: '1906607017'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Kulay-kulay
+        type: barangay
+        psgc_id: '1906607018'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Lakit
+        type: barangay
+        psgc_id: '1906607019'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Lunggang
+        type: barangay
+        psgc_id: '1906607023'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Parang
+        type: barangay
+        psgc_id: '1906607027'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Lower Patibulan
+        type: barangay
+        psgc_id: '1906607028'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Upper Patibulan
+        type: barangay
+        psgc_id: '1906607029'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Pugad Manaul
+        type: barangay
+        psgc_id: '1906607030'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Puhagan
+        type: barangay
+        psgc_id: '1906607031'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Seit Higad
+        type: barangay
+        psgc_id: '1906607033'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Seit Lake
+        type: barangay
+        psgc_id: '1906607034'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Su-uh
+        type: barangay
+        psgc_id: '1906607036'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Tabu Manuk
+        type: barangay
+        psgc_id: '1906607037'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Tandu-tandu
+        type: barangay
+        psgc_id: '1906607038'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Tayungan
+        type: barangay
+        psgc_id: '1906607039'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Tinah
+        type: barangay
+        psgc_id: '1906607040'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Tubig Gantang
+        type: barangay
+        psgc_id: '1906607042'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+      - name: Tubig Jati
+        type: barangay
+        psgc_id: '1906607043'
+        parent_psgc_id: '1906607000'
+        nicknames: null
+        components: []
+    - name: Pangutaran
+      type: municipality
+      psgc_id: '1906608000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Alu Bunah
+        type: barangay
+        psgc_id: '1906608001'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Bangkilay
+        type: barangay
+        psgc_id: '1906608003'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Kawitan
+        type: barangay
+        psgc_id: '1906608004'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Kehi Niog
+        type: barangay
+        psgc_id: '1906608005'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Lantong Babag
+        type: barangay
+        psgc_id: '1906608006'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Lumah Dapdap
+        type: barangay
+        psgc_id: '1906608007'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Pandan Niog
+        type: barangay
+        psgc_id: '1906608009'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Panducan
+        type: barangay
+        psgc_id: '1906608010'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Panitikan
+        type: barangay
+        psgc_id: '1906608011'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Patutol
+        type: barangay
+        psgc_id: '1906608012'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Simbahan
+        type: barangay
+        psgc_id: '1906608013'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Se-ipang
+        type: barangay
+        psgc_id: '1906608014'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Suang Bunah
+        type: barangay
+        psgc_id: '1906608016'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Tonggasang
+        type: barangay
+        psgc_id: '1906608017'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Tubig Nonok
+        type: barangay
+        psgc_id: '1906608018'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+      - name: Tubig Sallang
+        type: barangay
+        psgc_id: '1906608019'
+        parent_psgc_id: '1906608000'
+        nicknames: null
+        components: []
+    - name: Parang
+      type: municipality
+      psgc_id: '1906609000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Kaha
+        type: barangay
+        psgc_id: '1906609001'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Alu Pangkoh
+        type: barangay
+        psgc_id: '1906609002'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Bagsak
+        type: barangay
+        psgc_id: '1906609003'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Bawisan
+        type: barangay
+        psgc_id: '1906609004'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Biid
+        type: barangay
+        psgc_id: '1906609005'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Bukid
+        type: barangay
+        psgc_id: '1906609006'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Buli Bawang
+        type: barangay
+        psgc_id: '1906609008'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Buton
+        type: barangay
+        psgc_id: '1906609009'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Buton Mahablo
+        type: barangay
+        psgc_id: '1906609010'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Danapa
+        type: barangay
+        psgc_id: '1906609011'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Duyan Kabao
+        type: barangay
+        psgc_id: '1906609012'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Gimba Lagasan
+        type: barangay
+        psgc_id: '1906609013'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Kahoy Sinah
+        type: barangay
+        psgc_id: '1906609015'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Kanaway
+        type: barangay
+        psgc_id: '1906609016'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Kutah Sairap
+        type: barangay
+        psgc_id: '1906609017'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lagasan Higad
+        type: barangay
+        psgc_id: '1906609019'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Laum Buwahan
+        type: barangay
+        psgc_id: '1906609021'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Laum Suwah
+        type: barangay
+        psgc_id: '1906609023'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Alu Layag-Layag
+        type: barangay
+        psgc_id: '1906609024'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Liang
+        type: barangay
+        psgc_id: '1906609025'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Linuho
+        type: barangay
+        psgc_id: '1906609026'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lipunos
+        type: barangay
+        psgc_id: '1906609027'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lungan Gitong
+        type: barangay
+        psgc_id: '1906609028'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lumbaan Mahaba
+        type: barangay
+        psgc_id: '1906609029'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lupa Abu
+        type: barangay
+        psgc_id: '1906609030'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Nonokan
+        type: barangay
+        psgc_id: '1906609031'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Paugan
+        type: barangay
+        psgc_id: '1906609032'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Payuhan
+        type: barangay
+        psgc_id: '1906609033'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Piyahan
+        type: barangay
+        psgc_id: '1906609034'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Poblacion
+        type: barangay
+        psgc_id: '1906609035'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Saldang
+        type: barangay
+        psgc_id: '1906609036'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Sampunay
+        type: barangay
+        psgc_id: '1906609037'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Silangkan
+        type: barangay
+        psgc_id: '1906609038'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Taingting
+        type: barangay
+        psgc_id: '1906609039'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Tikong
+        type: barangay
+        psgc_id: '1906609040'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Tukay
+        type: barangay
+        psgc_id: '1906609041'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Tumangas
+        type: barangay
+        psgc_id: '1906609042'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Wanni Piyanjihan
+        type: barangay
+        psgc_id: '1906609043'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lanao Dakula
+        type: barangay
+        psgc_id: '1906609044'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+      - name: Lower Sampunay
+        type: barangay
+        psgc_id: '1906609045'
+        parent_psgc_id: '1906609000'
+        nicknames: null
+        components: []
+    - name: Pata
+      type: municipality
+      psgc_id: '1906610000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Andalan
+        type: barangay
+        psgc_id: '1906610001'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Daungdong
+        type: barangay
+        psgc_id: '1906610003'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Kamawi
+        type: barangay
+        psgc_id: '1906610004'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Kanjarang
+        type: barangay
+        psgc_id: '1906610005'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Kayawan
+        type: barangay
+        psgc_id: '1906610006'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Kiput
+        type: barangay
+        psgc_id: '1906610007'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Likud
+        type: barangay
+        psgc_id: '1906610008'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Luuk-tulay
+        type: barangay
+        psgc_id: '1906610009'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Niog-niog
+        type: barangay
+        psgc_id: '1906610010'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Patian
+        type: barangay
+        psgc_id: '1906610011'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Pisak-pisak
+        type: barangay
+        psgc_id: '1906610012'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Saimbangon
+        type: barangay
+        psgc_id: '1906610013'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Sangkap
+        type: barangay
+        psgc_id: '1906610014'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+      - name: Timuddas
+        type: barangay
+        psgc_id: '1906610015'
+        parent_psgc_id: '1906610000'
+        nicknames: null
+        components: []
+    - name: Patikul
+      type: municipality
+      psgc_id: '1906611000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Anuling
+        type: barangay
+        psgc_id: '1906611001'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Bakong
+        type: barangay
+        psgc_id: '1906611002'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Bangkal
+        type: barangay
+        psgc_id: '1906611003'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Bonbon
+        type: barangay
+        psgc_id: '1906611004'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Buhanginan
+        type: barangay
+        psgc_id: '1906611005'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Bungkaung
+        type: barangay
+        psgc_id: '1906611006'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Danag
+        type: barangay
+        psgc_id: '1906611007'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Igasan
+        type: barangay
+        psgc_id: '1906611008'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Kabbon Takas
+        type: barangay
+        psgc_id: '1906611009'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Kadday Mampallam
+        type: barangay
+        psgc_id: '1906611010'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Kan Ague
+        type: barangay
+        psgc_id: '1906611011'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Kaunayan
+        type: barangay
+        psgc_id: '1906611012'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Langhub
+        type: barangay
+        psgc_id: '1906611013'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Latih
+        type: barangay
+        psgc_id: '1906611014'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Liang
+        type: barangay
+        psgc_id: '1906611015'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Maligay
+        type: barangay
+        psgc_id: '1906611016'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Mauboh
+        type: barangay
+        psgc_id: '1906611017'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Pangdanon
+        type: barangay
+        psgc_id: '1906611018'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Panglayahan
+        type: barangay
+        psgc_id: '1906611019'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Pansul
+        type: barangay
+        psgc_id: '1906611020'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Patikul Higad
+        type: barangay
+        psgc_id: '1906611021'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Sandah
+        type: barangay
+        psgc_id: '1906611022'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Taglibi
+        type: barangay
+        psgc_id: '1906611023'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Tandu-Bagua
+        type: barangay
+        psgc_id: '1906611024'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Tanum
+        type: barangay
+        psgc_id: '1906611025'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Taung
+        type: barangay
+        psgc_id: '1906611026'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Timpok
+        type: barangay
+        psgc_id: '1906611027'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Tugas
+        type: barangay
+        psgc_id: '1906611028'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Umangay
+        type: barangay
+        psgc_id: '1906611029'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+      - name: Gandasuli
+        type: barangay
+        psgc_id: '1906611030'
+        parent_psgc_id: '1906611000'
+        nicknames: null
+        components: []
+    - name: Siasi
+      type: municipality
+      psgc_id: '1906612000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Bakud
+        type: barangay
+        psgc_id: '1906612001'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Buan
+        type: barangay
+        psgc_id: '1906612004'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Bulansing Tara
+        type: barangay
+        psgc_id: '1906612006'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Bulihkullul
+        type: barangay
+        psgc_id: '1906612007'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Campo Islam
+        type: barangay
+        psgc_id: '1906612008'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Poblacion
+        type: barangay
+        psgc_id: '1906612009'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Duggo
+        type: barangay
+        psgc_id: '1906612010'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Duhol Tara
+        type: barangay
+        psgc_id: '1906612011'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: East Kungtad
+        type: barangay
+        psgc_id: '1906612012'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: East Sisangat
+        type: barangay
+        psgc_id: '1906612013'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Ipil
+        type: barangay
+        psgc_id: '1906612015'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Jambangan
+        type: barangay
+        psgc_id: '1906612016'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Kabubu
+        type: barangay
+        psgc_id: '1906612018'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Kong-Kong Laminusa
+        type: barangay
+        psgc_id: '1906612019'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Kud-kud
+        type: barangay
+        psgc_id: '1906612020'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Kungtad West
+        type: barangay
+        psgc_id: '1906612021'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Luuk Laminusa
+        type: barangay
+        psgc_id: '1906612023'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Latung
+        type: barangay
+        psgc_id: '1906612025'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Luuk Tara
+        type: barangay
+        psgc_id: '1906612026'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Manta
+        type: barangay
+        psgc_id: '1906612030'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Minapan
+        type: barangay
+        psgc_id: '1906612032'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Nipa-nipa
+        type: barangay
+        psgc_id: '1906612035'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: North Laud
+        type: barangay
+        psgc_id: '1906612037'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: North Manta
+        type: barangay
+        psgc_id: '1906612038'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: North Musu Laud
+        type: barangay
+        psgc_id: '1906612040'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: North Silumpak
+        type: barangay
+        psgc_id: '1906612041'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Punungan
+        type: barangay
+        psgc_id: '1906612042'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Pislong
+        type: barangay
+        psgc_id: '1906612046'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Ratag
+        type: barangay
+        psgc_id: '1906612048'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Sablay
+        type: barangay
+        psgc_id: '1906612049'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Sarukot
+        type: barangay
+        psgc_id: '1906612050'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Siburi
+        type: barangay
+        psgc_id: '1906612053'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Singko
+        type: barangay
+        psgc_id: '1906612056'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Siolakan
+        type: barangay
+        psgc_id: '1906612057'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Siundoh
+        type: barangay
+        psgc_id: '1906612058'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Siowing
+        type: barangay
+        psgc_id: '1906612059'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Sipanding
+        type: barangay
+        psgc_id: '1906612060'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Sisangat
+        type: barangay
+        psgc_id: '1906612061'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: South Musu Laud
+        type: barangay
+        psgc_id: '1906612065'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: South Silumpak
+        type: barangay
+        psgc_id: '1906612066'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Southwestern Bulikullul
+        type: barangay
+        psgc_id: '1906612067'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Subah Buaya
+        type: barangay
+        psgc_id: '1906612069'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tampakan Laminusa
+        type: barangay
+        psgc_id: '1906612070'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tengah Laminusa
+        type: barangay
+        psgc_id: '1906612071'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tong Laminusa
+        type: barangay
+        psgc_id: '1906612072'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tong-tong
+        type: barangay
+        psgc_id: '1906612073'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tonglabah
+        type: barangay
+        psgc_id: '1906612074'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tubig Kutah
+        type: barangay
+        psgc_id: '1906612075'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Tulling
+        type: barangay
+        psgc_id: '1906612076'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+      - name: Puukan Laminusa
+        type: barangay
+        psgc_id: '1906612080'
+        parent_psgc_id: '1906612000'
+        nicknames: null
+        components: []
+    - name: Talipao
+      type: municipality
+      psgc_id: '1906613000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Andalan
+        type: barangay
+        psgc_id: '1906613001'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Bagsak
+        type: barangay
+        psgc_id: '1906613002'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Bandang
+        type: barangay
+        psgc_id: '1906613003'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Bilaan
+        type: barangay
+        psgc_id: '1906613004'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Bud Bunga
+        type: barangay
+        psgc_id: '1906613007'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Buntod
+        type: barangay
+        psgc_id: '1906613008'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Buroh
+        type: barangay
+        psgc_id: '1906613009'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Dalih
+        type: barangay
+        psgc_id: '1906613010'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Gata
+        type: barangay
+        psgc_id: '1906613011'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kabatuhan Tiis
+        type: barangay
+        psgc_id: '1906613014'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kabungkol
+        type: barangay
+        psgc_id: '1906613015'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kagay
+        type: barangay
+        psgc_id: '1906613016'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kahawa
+        type: barangay
+        psgc_id: '1906613017'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kandaga
+        type: barangay
+        psgc_id: '1906613018'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kanlibot
+        type: barangay
+        psgc_id: '1906613019'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kiutaan
+        type: barangay
+        psgc_id: '1906613020'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kuhaw
+        type: barangay
+        psgc_id: '1906613021'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kulamboh
+        type: barangay
+        psgc_id: '1906613023'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kuttong
+        type: barangay
+        psgc_id: '1906613024'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lagtoh
+        type: barangay
+        psgc_id: '1906613025'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lambanah
+        type: barangay
+        psgc_id: '1906613026'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Liban
+        type: barangay
+        psgc_id: '1906613027'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Liu-Bud Pantao
+        type: barangay
+        psgc_id: '1906613028'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lower Binuang
+        type: barangay
+        psgc_id: '1906613029'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lower Kamuntayan
+        type: barangay
+        psgc_id: '1906613030'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lower Laus
+        type: barangay
+        psgc_id: '1906613031'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lower Sinumaan
+        type: barangay
+        psgc_id: '1906613032'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lower Talipao
+        type: barangay
+        psgc_id: '1906613033'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lumbayao
+        type: barangay
+        psgc_id: '1906613035'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lumping Pigih Daho
+        type: barangay
+        psgc_id: '1906613036'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Lungkiaban
+        type: barangay
+        psgc_id: '1906613037'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Mabahay
+        type: barangay
+        psgc_id: '1906613038'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Mahala
+        type: barangay
+        psgc_id: '1906613039'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Mampallam
+        type: barangay
+        psgc_id: '1906613040'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Marsada
+        type: barangay
+        psgc_id: '1906613041'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Mauboh
+        type: barangay
+        psgc_id: '1906613042'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Mungit-mungit
+        type: barangay
+        psgc_id: '1906613043'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Niog-Sangahan
+        type: barangay
+        psgc_id: '1906613044'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Pantao
+        type: barangay
+        psgc_id: '1906613045'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Samak
+        type: barangay
+        psgc_id: '1906613047'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Talipao Proper
+        type: barangay
+        psgc_id: '1906613048'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Tampakan
+        type: barangay
+        psgc_id: '1906613049'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Tiis
+        type: barangay
+        psgc_id: '1906613051'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Tinggah
+        type: barangay
+        psgc_id: '1906613052'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Tubod
+        type: barangay
+        psgc_id: '1906613053'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Tuyang
+        type: barangay
+        psgc_id: '1906613054'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Upper Kamuntayan
+        type: barangay
+        psgc_id: '1906613055'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Upper Laus
+        type: barangay
+        psgc_id: '1906613056'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Upper Sinumaan
+        type: barangay
+        psgc_id: '1906613057'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Upper Talipao
+        type: barangay
+        psgc_id: '1906613058'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Kabatuhan Bilaan
+        type: barangay
+        psgc_id: '1906613059'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+      - name: Upper Binuang
+        type: barangay
+        psgc_id: '1906613060'
+        parent_psgc_id: '1906613000'
+        nicknames: null
+        components: []
+    - name: Tapul
+      type: municipality
+      psgc_id: '1906614000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Banting
+        type: barangay
+        psgc_id: '1906614003'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Hawan
+        type: barangay
+        psgc_id: '1906614010'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Alu-Kabingaan
+        type: barangay
+        psgc_id: '1906614013'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Kalang
+        type: barangay
+        psgc_id: '1906614014'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Kamaunggi
+        type: barangay
+        psgc_id: '1906614016'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Kanmangon
+        type: barangay
+        psgc_id: '1906614017'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Kanaway
+        type: barangay
+        psgc_id: '1906614018'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Kaumpang
+        type: barangay
+        psgc_id: '1906614019'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Pagatpat
+        type: barangay
+        psgc_id: '1906614025'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Pangdan
+        type: barangay
+        psgc_id: '1906614027'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Puok
+        type: barangay
+        psgc_id: '1906614028'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Sayli
+        type: barangay
+        psgc_id: '1906614030'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Sumambat
+        type: barangay
+        psgc_id: '1906614032'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Tangkapaan
+        type: barangay
+        psgc_id: '1906614033'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+      - name: Tulakan
+        type: barangay
+        psgc_id: '1906614035'
+        parent_psgc_id: '1906614000'
+        nicknames: null
+        components: []
+    - name: Tongkil
+      type: municipality
+      psgc_id: '1906615000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Bakkaan
+        type: barangay
+        psgc_id: '1906615001'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Bangalaw
+        type: barangay
+        psgc_id: '1906615002'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Danao
+        type: barangay
+        psgc_id: '1906615003'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Dungon
+        type: barangay
+        psgc_id: '1906615004'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Kahikukuk
+        type: barangay
+        psgc_id: '1906615005'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Luuk
+        type: barangay
+        psgc_id: '1906615006'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: North Paarol
+        type: barangay
+        psgc_id: '1906615007'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Sigumbal
+        type: barangay
+        psgc_id: '1906615009'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: South Paarol
+        type: barangay
+        psgc_id: '1906615010'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Tabialan
+        type: barangay
+        psgc_id: '1906615011'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Tainga-Bakkao
+        type: barangay
+        psgc_id: '1906615012'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Tambun-bun
+        type: barangay
+        psgc_id: '1906615013'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Tinutungan
+        type: barangay
+        psgc_id: '1906615014'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+      - name: Tattalan
+        type: barangay
+        psgc_id: '1906615015'
+        parent_psgc_id: '1906615000'
+        nicknames: null
+        components: []
+    - name: Panglima Estino
+      type: municipality
+      psgc_id: '1906616000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Gagguil
+        type: barangay
+        psgc_id: '1906616001'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Gata-gata
+        type: barangay
+        psgc_id: '1906616002'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Kamih-Pungud
+        type: barangay
+        psgc_id: '1906616003'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Lihbug Kabaw
+        type: barangay
+        psgc_id: '1906616004'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Lubuk-lubuk
+        type: barangay
+        psgc_id: '1906616005'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Pandakan
+        type: barangay
+        psgc_id: '1906616006'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Punay
+        type: barangay
+        psgc_id: '1906616007'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Tiptipon
+        type: barangay
+        psgc_id: '1906616008'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Jinggan
+        type: barangay
+        psgc_id: '1906616009'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Likbah
+        type: barangay
+        psgc_id: '1906616010'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Marsada
+        type: barangay
+        psgc_id: '1906616011'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+      - name: Paiksa
+        type: barangay
+        psgc_id: '1906616012'
+        parent_psgc_id: '1906616000'
+        nicknames: null
+        components: []
+    - name: Lugus
+      type: municipality
+      psgc_id: '1906617000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Alu Bus-Bus
+        type: barangay
+        psgc_id: '1906617001'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Alu-Duyong
+        type: barangay
+        psgc_id: '1906617002'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Bas Lugus
+        type: barangay
+        psgc_id: '1906617003'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Gapas Rugasan
+        type: barangay
+        psgc_id: '1906617004'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Gapas Tubig Tuwak
+        type: barangay
+        psgc_id: '1906617005'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Huwit-huwit Proper
+        type: barangay
+        psgc_id: '1906617006'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Huwit-huwit Bas Nonok
+        type: barangay
+        psgc_id: '1906617007'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Kutah Parang
+        type: barangay
+        psgc_id: '1906617008'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Laha
+        type: barangay
+        psgc_id: '1906617009'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Larap
+        type: barangay
+        psgc_id: '1906617010'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Lugus Proper
+        type: barangay
+        psgc_id: '1906617011'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Mangkallay
+        type: barangay
+        psgc_id: '1906617012'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Mantan
+        type: barangay
+        psgc_id: '1906617013'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Pait
+        type: barangay
+        psgc_id: '1906617014'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Parian Kayawan
+        type: barangay
+        psgc_id: '1906617015'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Sibul
+        type: barangay
+        psgc_id: '1906617016'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+      - name: Tingkangan
+        type: barangay
+        psgc_id: '1906617017'
+        parent_psgc_id: '1906617000'
+        nicknames: null
+        components: []
+    - name: Pandami
+      type: municipality
+      psgc_id: '1906618000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Baligtang
+        type: barangay
+        psgc_id: '1906618001'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Bud Sibaud
+        type: barangay
+        psgc_id: '1906618002'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Hambilan
+        type: barangay
+        psgc_id: '1906618003'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Kabbon
+        type: barangay
+        psgc_id: '1906618004'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Lahi
+        type: barangay
+        psgc_id: '1906618005'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Lapak
+        type: barangay
+        psgc_id: '1906618006'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Malanta
+        type: barangay
+        psgc_id: '1906618007'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Mamanok
+        type: barangay
+        psgc_id: '1906618008'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: North Manubul
+        type: barangay
+        psgc_id: '1906618009'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Parian Dakula
+        type: barangay
+        psgc_id: '1906618010'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Sibaud Proper
+        type: barangay
+        psgc_id: '1906618011'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Siganggang
+        type: barangay
+        psgc_id: '1906618012'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: South Manubul
+        type: barangay
+        psgc_id: '1906618013'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Suba-suba
+        type: barangay
+        psgc_id: '1906618014'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Tenga Manubul
+        type: barangay
+        psgc_id: '1906618015'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+      - name: Laud Sibaud
+        type: barangay
+        psgc_id: '1906618016'
+        parent_psgc_id: '1906618000'
+        nicknames: null
+        components: []
+    - name: Omar
+      type: municipality
+      psgc_id: '1906619000'
+      parent_psgc_id: '1906600000'
+      nicknames: null
+      components:
+      - name: Andalan
+        type: barangay
+        psgc_id: '1906619001'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Angilan
+        type: barangay
+        psgc_id: '1906619002'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Capual Island
+        type: barangay
+        psgc_id: '1906619003'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Huwit-huwit
+        type: barangay
+        psgc_id: '1906619004'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Lahing-Lahing
+        type: barangay
+        psgc_id: '1906619005'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Niangkaan
+        type: barangay
+        psgc_id: '1906619006'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Sucuban
+        type: barangay
+        psgc_id: '1906619007'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
+      - name: Tangkuan
+        type: barangay
+        psgc_id: '1906619008'
+        parent_psgc_id: '1906619000'
+        nicknames: null
+        components: []
   - name: Tawi-Tawi
     type: province
     psgc_id: '1907000000'
@@ -128764,2586 +131344,6 @@ components:
   parent_psgc_id: '0000000000'
   nicknames: null
   components:
-  - name: Sulu
-    type: province
-    psgc_id: 0906600000
-    parent_psgc_id: 0900000000
-    nicknames: null
-    components:
-    - name: Indanan
-      type: municipality
-      psgc_id: 0906601000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Adjid
-        type: barangay
-        psgc_id: 0906601001
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Bangalan
-        type: barangay
-        psgc_id: 0906601002
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Bato-bato
-        type: barangay
-        psgc_id: 0906601003
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Buanza
-        type: barangay
-        psgc_id: 0906601004
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Bud-Taran
-        type: barangay
-        psgc_id: 0906601005
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Bunut
-        type: barangay
-        psgc_id: 0906601006
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Jati-Tunggal
-        type: barangay
-        psgc_id: 0906601007
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Kabbon Maas
-        type: barangay
-        psgc_id: 0906601008
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Kagay
-        type: barangay
-        psgc_id: 0906601010
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Kajatian
-        type: barangay
-        psgc_id: 0906601011
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Kan Islam
-        type: barangay
-        psgc_id: 0906601012
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Kandang Tukay
-        type: barangay
-        psgc_id: 0906601013
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Karawan
-        type: barangay
-        psgc_id: 0906601014
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Katian
-        type: barangay
-        psgc_id: 0906601015
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Kuppong
-        type: barangay
-        psgc_id: 0906601016
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Lambayong
-        type: barangay
-        psgc_id: 0906601017
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Langpas
-        type: barangay
-        psgc_id: 0906601018
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Licup
-        type: barangay
-        psgc_id: 0906601019
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Malimbaya
-        type: barangay
-        psgc_id: 0906601020
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Manggis
-        type: barangay
-        psgc_id: 0906601021
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Manilop
-        type: barangay
-        psgc_id: 0906601022
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Paligue
-        type: barangay
-        psgc_id: 0906601023
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Panabuan
-        type: barangay
-        psgc_id: 0906601024
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Pasil
-        type: barangay
-        psgc_id: 0906601025
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Poblacion
-        type: barangay
-        psgc_id: 0906601026
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Sapah Malaum
-        type: barangay
-        psgc_id: 0906601027
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Panglima Misuari
-        type: barangay
-        psgc_id: 0906601028
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Sionogan
-        type: barangay
-        psgc_id: 0906601029
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Tagbak
-        type: barangay
-        psgc_id: 0906601030
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Timbangan
-        type: barangay
-        psgc_id: 0906601031
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Tubig Dakulah
-        type: barangay
-        psgc_id: 0906601032
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Tubig Parang
-        type: barangay
-        psgc_id: 0906601033
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Tumantangis
-        type: barangay
-        psgc_id: 0906601035
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-      - name: Sawaki
-        type: barangay
-        psgc_id: 0906601036
-        parent_psgc_id: 0906601000
-        nicknames: null
-        components: []
-    - name: Jolo
-      type: municipality
-      psgc_id: 0906602000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Alat
-        type: barangay
-        psgc_id: 0906602001
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: Asturias
-        type: barangay
-        psgc_id: 0906602002
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: Bus-bus
-        type: barangay
-        psgc_id: 0906602003
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: Chinese Pier
-        type: barangay
-        psgc_id: 0906602004
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: San Raymundo
-        type: barangay
-        psgc_id: 0906602007
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: Takut-takut
-        type: barangay
-        psgc_id: 0906602008
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: Tulay
-        type: barangay
-        psgc_id: 0906602009
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-      - name: Walled City
-        type: barangay
-        psgc_id: 0906602010
-        parent_psgc_id: 0906602000
-        nicknames: null
-        components: []
-    - name: Kalingalan Caluang
-      type: municipality
-      psgc_id: 0906603000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Kambing
-        type: barangay
-        psgc_id: 0906603002
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Kanlagay
-        type: barangay
-        psgc_id: 0906603004
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Pang
-        type: barangay
-        psgc_id: 0906603010
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Pangdan Pangdan
-        type: barangay
-        psgc_id: 0906603011
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Pitogo
-        type: barangay
-        psgc_id: 0906603012
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Karungdong
-        type: barangay
-        psgc_id: 0906603013
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Tunggol
-        type: barangay
-        psgc_id: 0906603016
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Masjid Bayle
-        type: barangay
-        psgc_id: 0906603017
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-      - name: Masjid Punjungan
-        type: barangay
-        psgc_id: 0906603018
-        parent_psgc_id: 0906603000
-        nicknames: null
-        components: []
-    - name: Luuk
-      type: municipality
-      psgc_id: 0906604000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Bual
-        type: barangay
-        psgc_id: 0906604004
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Kan-Bulak
-        type: barangay
-        psgc_id: 0906604007
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Kan-Mindus
-        type: barangay
-        psgc_id: 0906604008
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Lambago
-        type: barangay
-        psgc_id: 0906604012
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Lianutan
-        type: barangay
-        psgc_id: 0906604013
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Lingah
-        type: barangay
-        psgc_id: 0906604014
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Mananti
-        type: barangay
-        psgc_id: 0906604015
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Tubig-Puti
-        type: barangay
-        psgc_id: 0906604021
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Tandu-Bato
-        type: barangay
-        psgc_id: 0906604024
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Tulayan Island
-        type: barangay
-        psgc_id: 0906604028
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Guimbaun
-        type: barangay
-        psgc_id: 0906604029
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-      - name: Niog-niog
-        type: barangay
-        psgc_id: 0906604030
-        parent_psgc_id: 0906604000
-        nicknames: null
-        components: []
-    - name: Maimbung
-      type: municipality
-      psgc_id: 0906605000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Anak Jati
-        type: barangay
-        psgc_id: 0906605001
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Bato Ugis
-        type: barangay
-        psgc_id: 0906605002
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Bualo Lahi
-        type: barangay
-        psgc_id: 0906605003
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Bualo Lipid
-        type: barangay
-        psgc_id: 0906605004
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Bulabog
-        type: barangay
-        psgc_id: 0906605005
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Ratag Limbon
-        type: barangay
-        psgc_id: 0906605006
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Duhol Kabbon
-        type: barangay
-        psgc_id: 0906605007
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Gulangan
-        type: barangay
-        psgc_id: 0906605008
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Ipil
-        type: barangay
-        psgc_id: 0906605009
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Kandang
-        type: barangay
-        psgc_id: 0906605010
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Kapok-Punggol
-        type: barangay
-        psgc_id: 0906605011
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Kulasi
-        type: barangay
-        psgc_id: 0906605012
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Labah
-        type: barangay
-        psgc_id: 0906605013
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Lagasan Asibih
-        type: barangay
-        psgc_id: 0906605014
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Lantong
-        type: barangay
-        psgc_id: 0906605015
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Laud Kulasi
-        type: barangay
-        psgc_id: 0906605016
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Laum Maimbung
-        type: barangay
-        psgc_id: 0906605017
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Lunggang
-        type: barangay
-        psgc_id: 0906605018
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Lower Tambaking
-        type: barangay
-        psgc_id: 0906605019
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Lapa
-        type: barangay
-        psgc_id: 0906605020
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Matatal
-        type: barangay
-        psgc_id: 0906605021
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Patao
-        type: barangay
-        psgc_id: 0906605022
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Poblacion
-        type: barangay
-        psgc_id: 0906605023
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Tabu-Bato
-        type: barangay
-        psgc_id: 0906605024
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Tandu Patong
-        type: barangay
-        psgc_id: 0906605025
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Tubig-Samin
-        type: barangay
-        psgc_id: 0906605026
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-      - name: Upper Tambaking
-        type: barangay
-        psgc_id: 0906605027
-        parent_psgc_id: 0906605000
-        nicknames: null
-        components: []
-    - name: Hadji Panglima Tahil
-      type: municipality
-      psgc_id: 0906606000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Bubuan
-        type: barangay
-        psgc_id: 0906606002
-        parent_psgc_id: 0906606000
-        nicknames: null
-        components: []
-      - name: Kabuukan
-        type: barangay
-        psgc_id: 0906606003
-        parent_psgc_id: 0906606000
-        nicknames: null
-        components: []
-      - name: Pag-asinan
-        type: barangay
-        psgc_id: 0906606008
-        parent_psgc_id: 0906606000
-        nicknames: null
-        components: []
-      - name: Bangas
-        type: barangay
-        psgc_id: 0906606012
-        parent_psgc_id: 0906606000
-        nicknames: null
-        components: []
-      - name: Teomabal
-        type: barangay
-        psgc_id: 0906606015
-        parent_psgc_id: 0906606000
-        nicknames: null
-        components: []
-    - name: Old Panamao
-      type: municipality
-      psgc_id: 0906607000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Asin
-        type: barangay
-        psgc_id: 0906607001
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Bakud
-        type: barangay
-        psgc_id: 0906607002
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Bangday
-        type: barangay
-        psgc_id: 0906607003
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Baunoh
-        type: barangay
-        psgc_id: 0906607004
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Bitanag
-        type: barangay
-        psgc_id: 0906607005
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Bud Seit
-        type: barangay
-        psgc_id: 0906607006
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Bulangsi
-        type: barangay
-        psgc_id: 0906607007
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Datag
-        type: barangay
-        psgc_id: 0906607008
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kamalig
-        type: barangay
-        psgc_id: 0906607011
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kan Ukol
-        type: barangay
-        psgc_id: 0906607013
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kan Asaali
-        type: barangay
-        psgc_id: 0906607014
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kan-Dayok
-        type: barangay
-        psgc_id: 0906607015
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kan-Sipat
-        type: barangay
-        psgc_id: 0906607016
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kawasan
-        type: barangay
-        psgc_id: 0906607017
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Kulay-kulay
-        type: barangay
-        psgc_id: 0906607018
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Lakit
-        type: barangay
-        psgc_id: 0906607019
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Lunggang
-        type: barangay
-        psgc_id: 0906607023
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Parang
-        type: barangay
-        psgc_id: 0906607027
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Lower Patibulan
-        type: barangay
-        psgc_id: 0906607028
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Upper Patibulan
-        type: barangay
-        psgc_id: 0906607029
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Pugad Manaul
-        type: barangay
-        psgc_id: 0906607030
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Puhagan
-        type: barangay
-        psgc_id: 0906607031
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Seit Higad
-        type: barangay
-        psgc_id: 0906607033
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Seit Lake
-        type: barangay
-        psgc_id: 0906607034
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Su-uh
-        type: barangay
-        psgc_id: 0906607036
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Tabu Manuk
-        type: barangay
-        psgc_id: 0906607037
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Tandu-tandu
-        type: barangay
-        psgc_id: 0906607038
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Tayungan
-        type: barangay
-        psgc_id: 0906607039
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Tinah
-        type: barangay
-        psgc_id: 0906607040
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Tubig Gantang
-        type: barangay
-        psgc_id: 0906607042
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-      - name: Tubig Jati
-        type: barangay
-        psgc_id: 0906607043
-        parent_psgc_id: 0906607000
-        nicknames: null
-        components: []
-    - name: Pangutaran
-      type: municipality
-      psgc_id: 0906608000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Alu Bunah
-        type: barangay
-        psgc_id: 0906608001
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Bangkilay
-        type: barangay
-        psgc_id: 0906608003
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Kawitan
-        type: barangay
-        psgc_id: 0906608004
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Kehi Niog
-        type: barangay
-        psgc_id: 0906608005
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Lantong Babag
-        type: barangay
-        psgc_id: 0906608006
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Lumah Dapdap
-        type: barangay
-        psgc_id: 0906608007
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Pandan Niog
-        type: barangay
-        psgc_id: 0906608009
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Panducan
-        type: barangay
-        psgc_id: 0906608010
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Panitikan
-        type: barangay
-        psgc_id: 0906608011
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Patutol
-        type: barangay
-        psgc_id: 0906608012
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Simbahan
-        type: barangay
-        psgc_id: 0906608013
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Se-ipang
-        type: barangay
-        psgc_id: 0906608014
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Suang Bunah
-        type: barangay
-        psgc_id: 0906608016
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Tonggasang
-        type: barangay
-        psgc_id: 0906608017
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Tubig Nonok
-        type: barangay
-        psgc_id: 0906608018
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-      - name: Tubig Sallang
-        type: barangay
-        psgc_id: 0906608019
-        parent_psgc_id: 0906608000
-        nicknames: null
-        components: []
-    - name: Parang
-      type: municipality
-      psgc_id: 0906609000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Kaha
-        type: barangay
-        psgc_id: 0906609001
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Alu Pangkoh
-        type: barangay
-        psgc_id: 0906609002
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Bagsak
-        type: barangay
-        psgc_id: 0906609003
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Bawisan
-        type: barangay
-        psgc_id: 0906609004
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Biid
-        type: barangay
-        psgc_id: 0906609005
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Bukid
-        type: barangay
-        psgc_id: 0906609006
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Buli Bawang
-        type: barangay
-        psgc_id: 0906609008
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Buton
-        type: barangay
-        psgc_id: 0906609009
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Buton Mahablo
-        type: barangay
-        psgc_id: 0906609010
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Danapa
-        type: barangay
-        psgc_id: 0906609011
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Duyan Kabao
-        type: barangay
-        psgc_id: 0906609012
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Gimba Lagasan
-        type: barangay
-        psgc_id: 0906609013
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Kahoy Sinah
-        type: barangay
-        psgc_id: 0906609015
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Kanaway
-        type: barangay
-        psgc_id: 0906609016
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Kutah Sairap
-        type: barangay
-        psgc_id: 0906609017
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lagasan Higad
-        type: barangay
-        psgc_id: 0906609019
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Laum Buwahan
-        type: barangay
-        psgc_id: 0906609021
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Laum Suwah
-        type: barangay
-        psgc_id: 0906609023
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Alu Layag-Layag
-        type: barangay
-        psgc_id: 0906609024
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Liang
-        type: barangay
-        psgc_id: 0906609025
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Linuho
-        type: barangay
-        psgc_id: 0906609026
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lipunos
-        type: barangay
-        psgc_id: 0906609027
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lungan Gitong
-        type: barangay
-        psgc_id: 0906609028
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lumbaan Mahaba
-        type: barangay
-        psgc_id: 0906609029
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lupa Abu
-        type: barangay
-        psgc_id: 0906609030
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Nonokan
-        type: barangay
-        psgc_id: 0906609031
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Paugan
-        type: barangay
-        psgc_id: 0906609032
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Payuhan
-        type: barangay
-        psgc_id: 0906609033
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Piyahan
-        type: barangay
-        psgc_id: 0906609034
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Poblacion
-        type: barangay
-        psgc_id: 0906609035
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Saldang
-        type: barangay
-        psgc_id: 0906609036
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Sampunay
-        type: barangay
-        psgc_id: 0906609037
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Silangkan
-        type: barangay
-        psgc_id: 0906609038
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Taingting
-        type: barangay
-        psgc_id: 0906609039
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Tikong
-        type: barangay
-        psgc_id: 0906609040
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Tukay
-        type: barangay
-        psgc_id: 0906609041
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Tumangas
-        type: barangay
-        psgc_id: 0906609042
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Wanni Piyanjihan
-        type: barangay
-        psgc_id: 0906609043
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lanao Dakula
-        type: barangay
-        psgc_id: 0906609044
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-      - name: Lower Sampunay
-        type: barangay
-        psgc_id: 0906609045
-        parent_psgc_id: 0906609000
-        nicknames: null
-        components: []
-    - name: Pata
-      type: municipality
-      psgc_id: 0906610000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Andalan
-        type: barangay
-        psgc_id: 0906610001
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Daungdong
-        type: barangay
-        psgc_id: 0906610003
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Kamawi
-        type: barangay
-        psgc_id: 0906610004
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Kanjarang
-        type: barangay
-        psgc_id: 0906610005
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Kayawan
-        type: barangay
-        psgc_id: 0906610006
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Kiput
-        type: barangay
-        psgc_id: 0906610007
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Likud
-        type: barangay
-        psgc_id: 0906610008
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Luuk-tulay
-        type: barangay
-        psgc_id: 0906610009
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Niog-niog
-        type: barangay
-        psgc_id: 0906610010
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Patian
-        type: barangay
-        psgc_id: 0906610011
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Pisak-pisak
-        type: barangay
-        psgc_id: 0906610012
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Saimbangon
-        type: barangay
-        psgc_id: 0906610013
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Sangkap
-        type: barangay
-        psgc_id: 0906610014
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-      - name: Timuddas
-        type: barangay
-        psgc_id: 0906610015
-        parent_psgc_id: 0906610000
-        nicknames: null
-        components: []
-    - name: Patikul
-      type: municipality
-      psgc_id: 0906611000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Anuling
-        type: barangay
-        psgc_id: 0906611001
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Bakong
-        type: barangay
-        psgc_id: 0906611002
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Bangkal
-        type: barangay
-        psgc_id: 0906611003
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Bonbon
-        type: barangay
-        psgc_id: 0906611004
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Buhanginan
-        type: barangay
-        psgc_id: 0906611005
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Bungkaung
-        type: barangay
-        psgc_id: 0906611006
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Danag
-        type: barangay
-        psgc_id: 0906611007
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Igasan
-        type: barangay
-        psgc_id: 0906611008
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Kabbon Takas
-        type: barangay
-        psgc_id: 0906611009
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Kadday Mampallam
-        type: barangay
-        psgc_id: 0906611010
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Kan Ague
-        type: barangay
-        psgc_id: 0906611011
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Kaunayan
-        type: barangay
-        psgc_id: 0906611012
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Langhub
-        type: barangay
-        psgc_id: 0906611013
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Latih
-        type: barangay
-        psgc_id: 0906611014
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Liang
-        type: barangay
-        psgc_id: 0906611015
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Maligay
-        type: barangay
-        psgc_id: 0906611016
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Mauboh
-        type: barangay
-        psgc_id: 0906611017
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Pangdanon
-        type: barangay
-        psgc_id: 0906611018
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Panglayahan
-        type: barangay
-        psgc_id: 0906611019
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Pansul
-        type: barangay
-        psgc_id: 0906611020
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Patikul Higad
-        type: barangay
-        psgc_id: 0906611021
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Sandah
-        type: barangay
-        psgc_id: 0906611022
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Taglibi
-        type: barangay
-        psgc_id: 0906611023
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Tandu-Bagua
-        type: barangay
-        psgc_id: 0906611024
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Tanum
-        type: barangay
-        psgc_id: 0906611025
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Taung
-        type: barangay
-        psgc_id: 0906611026
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Timpok
-        type: barangay
-        psgc_id: 0906611027
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Tugas
-        type: barangay
-        psgc_id: 0906611028
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Umangay
-        type: barangay
-        psgc_id: 0906611029
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-      - name: Gandasuli
-        type: barangay
-        psgc_id: 0906611030
-        parent_psgc_id: 0906611000
-        nicknames: null
-        components: []
-    - name: Siasi
-      type: municipality
-      psgc_id: 0906612000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Bakud
-        type: barangay
-        psgc_id: 0906612001
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Buan
-        type: barangay
-        psgc_id: 0906612004
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Bulansing Tara
-        type: barangay
-        psgc_id: 0906612006
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Bulihkullul
-        type: barangay
-        psgc_id: 0906612007
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Campo Islam
-        type: barangay
-        psgc_id: 0906612008
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Poblacion
-        type: barangay
-        psgc_id: 0906612009
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Duggo
-        type: barangay
-        psgc_id: 0906612010
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Duhol Tara
-        type: barangay
-        psgc_id: 0906612011
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: East Kungtad
-        type: barangay
-        psgc_id: 0906612012
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: East Sisangat
-        type: barangay
-        psgc_id: 0906612013
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Ipil
-        type: barangay
-        psgc_id: 0906612015
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Jambangan
-        type: barangay
-        psgc_id: 0906612016
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Kabubu
-        type: barangay
-        psgc_id: 0906612018
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Kong-Kong Laminusa
-        type: barangay
-        psgc_id: 0906612019
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Kud-kud
-        type: barangay
-        psgc_id: 0906612020
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Kungtad West
-        type: barangay
-        psgc_id: 0906612021
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Luuk Laminusa
-        type: barangay
-        psgc_id: 0906612023
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Latung
-        type: barangay
-        psgc_id: 0906612025
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Luuk Tara
-        type: barangay
-        psgc_id: 0906612026
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Manta
-        type: barangay
-        psgc_id: 0906612030
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Minapan
-        type: barangay
-        psgc_id: 0906612032
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Nipa-nipa
-        type: barangay
-        psgc_id: 0906612035
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: North Laud
-        type: barangay
-        psgc_id: 0906612037
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: North Manta
-        type: barangay
-        psgc_id: 0906612038
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: North Musu Laud
-        type: barangay
-        psgc_id: 0906612040
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: North Silumpak
-        type: barangay
-        psgc_id: 0906612041
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Punungan
-        type: barangay
-        psgc_id: 0906612042
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Pislong
-        type: barangay
-        psgc_id: 0906612046
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Ratag
-        type: barangay
-        psgc_id: 0906612048
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Sablay
-        type: barangay
-        psgc_id: 0906612049
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Sarukot
-        type: barangay
-        psgc_id: 0906612050
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Siburi
-        type: barangay
-        psgc_id: 0906612053
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Singko
-        type: barangay
-        psgc_id: 0906612056
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Siolakan
-        type: barangay
-        psgc_id: 0906612057
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Siundoh
-        type: barangay
-        psgc_id: 0906612058
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Siowing
-        type: barangay
-        psgc_id: 0906612059
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Sipanding
-        type: barangay
-        psgc_id: 0906612060
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Sisangat
-        type: barangay
-        psgc_id: 0906612061
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: South Musu Laud
-        type: barangay
-        psgc_id: 0906612065
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: South Silumpak
-        type: barangay
-        psgc_id: 0906612066
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Southwestern Bulikullul
-        type: barangay
-        psgc_id: 0906612067
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Subah Buaya
-        type: barangay
-        psgc_id: 0906612069
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tampakan Laminusa
-        type: barangay
-        psgc_id: 0906612070
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tengah Laminusa
-        type: barangay
-        psgc_id: 0906612071
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tong Laminusa
-        type: barangay
-        psgc_id: 0906612072
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tong-tong
-        type: barangay
-        psgc_id: 0906612073
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tonglabah
-        type: barangay
-        psgc_id: 0906612074
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tubig Kutah
-        type: barangay
-        psgc_id: 0906612075
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Tulling
-        type: barangay
-        psgc_id: 0906612076
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-      - name: Puukan Laminusa
-        type: barangay
-        psgc_id: 0906612080
-        parent_psgc_id: 0906612000
-        nicknames: null
-        components: []
-    - name: Talipao
-      type: municipality
-      psgc_id: 0906613000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Andalan
-        type: barangay
-        psgc_id: 0906613001
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Bagsak
-        type: barangay
-        psgc_id: 0906613002
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Bandang
-        type: barangay
-        psgc_id: 0906613003
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Bilaan
-        type: barangay
-        psgc_id: 0906613004
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Bud Bunga
-        type: barangay
-        psgc_id: 0906613007
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Buntod
-        type: barangay
-        psgc_id: 0906613008
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Buroh
-        type: barangay
-        psgc_id: 0906613009
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Dalih
-        type: barangay
-        psgc_id: 0906613010
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Gata
-        type: barangay
-        psgc_id: 0906613011
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kabatuhan Tiis
-        type: barangay
-        psgc_id: 0906613014
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kabungkol
-        type: barangay
-        psgc_id: 0906613015
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kagay
-        type: barangay
-        psgc_id: 0906613016
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kahawa
-        type: barangay
-        psgc_id: 0906613017
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kandaga
-        type: barangay
-        psgc_id: 0906613018
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kanlibot
-        type: barangay
-        psgc_id: 0906613019
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kiutaan
-        type: barangay
-        psgc_id: 0906613020
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kuhaw
-        type: barangay
-        psgc_id: 0906613021
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kulamboh
-        type: barangay
-        psgc_id: 0906613023
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kuttong
-        type: barangay
-        psgc_id: 0906613024
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lagtoh
-        type: barangay
-        psgc_id: 0906613025
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lambanah
-        type: barangay
-        psgc_id: 0906613026
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Liban
-        type: barangay
-        psgc_id: 0906613027
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Liu-Bud Pantao
-        type: barangay
-        psgc_id: 0906613028
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lower Binuang
-        type: barangay
-        psgc_id: 0906613029
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lower Kamuntayan
-        type: barangay
-        psgc_id: 0906613030
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lower Laus
-        type: barangay
-        psgc_id: 0906613031
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lower Sinumaan
-        type: barangay
-        psgc_id: 0906613032
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lower Talipao
-        type: barangay
-        psgc_id: 0906613033
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lumbayao
-        type: barangay
-        psgc_id: 0906613035
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lumping Pigih Daho
-        type: barangay
-        psgc_id: 0906613036
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Lungkiaban
-        type: barangay
-        psgc_id: 0906613037
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Mabahay
-        type: barangay
-        psgc_id: 0906613038
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Mahala
-        type: barangay
-        psgc_id: 0906613039
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Mampallam
-        type: barangay
-        psgc_id: 0906613040
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Marsada
-        type: barangay
-        psgc_id: 0906613041
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Mauboh
-        type: barangay
-        psgc_id: 0906613042
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Mungit-mungit
-        type: barangay
-        psgc_id: 0906613043
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Niog-Sangahan
-        type: barangay
-        psgc_id: 0906613044
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Pantao
-        type: barangay
-        psgc_id: 0906613045
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Samak
-        type: barangay
-        psgc_id: 0906613047
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Talipao Proper
-        type: barangay
-        psgc_id: 0906613048
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Tampakan
-        type: barangay
-        psgc_id: 0906613049
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Tiis
-        type: barangay
-        psgc_id: 0906613051
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Tinggah
-        type: barangay
-        psgc_id: 0906613052
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Tubod
-        type: barangay
-        psgc_id: 0906613053
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Tuyang
-        type: barangay
-        psgc_id: 0906613054
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Upper Kamuntayan
-        type: barangay
-        psgc_id: 0906613055
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Upper Laus
-        type: barangay
-        psgc_id: 0906613056
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Upper Sinumaan
-        type: barangay
-        psgc_id: 0906613057
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Upper Talipao
-        type: barangay
-        psgc_id: 0906613058
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Kabatuhan Bilaan
-        type: barangay
-        psgc_id: 0906613059
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-      - name: Upper Binuang
-        type: barangay
-        psgc_id: 0906613060
-        parent_psgc_id: 0906613000
-        nicknames: null
-        components: []
-    - name: Tapul
-      type: municipality
-      psgc_id: 0906614000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Banting
-        type: barangay
-        psgc_id: 0906614003
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Hawan
-        type: barangay
-        psgc_id: 0906614010
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Alu-Kabingaan
-        type: barangay
-        psgc_id: 0906614013
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Kalang
-        type: barangay
-        psgc_id: 0906614014
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Kamaunggi
-        type: barangay
-        psgc_id: 0906614016
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Kanmangon
-        type: barangay
-        psgc_id: 0906614017
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Kanaway
-        type: barangay
-        psgc_id: 0906614018
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Kaumpang
-        type: barangay
-        psgc_id: 0906614019
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Pagatpat
-        type: barangay
-        psgc_id: 0906614025
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Pangdan
-        type: barangay
-        psgc_id: 0906614027
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Puok
-        type: barangay
-        psgc_id: 0906614028
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Sayli
-        type: barangay
-        psgc_id: 0906614030
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Sumambat
-        type: barangay
-        psgc_id: 0906614032
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Tangkapaan
-        type: barangay
-        psgc_id: 0906614033
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-      - name: Tulakan
-        type: barangay
-        psgc_id: 0906614035
-        parent_psgc_id: 0906614000
-        nicknames: null
-        components: []
-    - name: Tongkil
-      type: municipality
-      psgc_id: 0906615000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Bakkaan
-        type: barangay
-        psgc_id: 0906615001
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Bangalaw
-        type: barangay
-        psgc_id: 0906615002
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Danao
-        type: barangay
-        psgc_id: 0906615003
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Dungon
-        type: barangay
-        psgc_id: 0906615004
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Kahikukuk
-        type: barangay
-        psgc_id: 0906615005
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Luuk
-        type: barangay
-        psgc_id: 0906615006
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: North Paarol
-        type: barangay
-        psgc_id: 0906615007
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Sigumbal
-        type: barangay
-        psgc_id: 0906615009
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: South Paarol
-        type: barangay
-        psgc_id: 0906615010
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Tabialan
-        type: barangay
-        psgc_id: 0906615011
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Tainga-Bakkao
-        type: barangay
-        psgc_id: 0906615012
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Tambun-bun
-        type: barangay
-        psgc_id: 0906615013
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Tinutungan
-        type: barangay
-        psgc_id: 0906615014
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-      - name: Tattalan
-        type: barangay
-        psgc_id: 0906615015
-        parent_psgc_id: 0906615000
-        nicknames: null
-        components: []
-    - name: Panglima Estino
-      type: municipality
-      psgc_id: 0906616000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Gagguil
-        type: barangay
-        psgc_id: 0906616001
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Gata-gata
-        type: barangay
-        psgc_id: 0906616002
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Kamih-Pungud
-        type: barangay
-        psgc_id: 0906616003
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Lihbug Kabaw
-        type: barangay
-        psgc_id: 0906616004
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Lubuk-lubuk
-        type: barangay
-        psgc_id: 0906616005
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Pandakan
-        type: barangay
-        psgc_id: 0906616006
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Punay
-        type: barangay
-        psgc_id: 0906616007
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Tiptipon
-        type: barangay
-        psgc_id: 0906616008
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Jinggan
-        type: barangay
-        psgc_id: 0906616009
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Likbah
-        type: barangay
-        psgc_id: 0906616010
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Marsada
-        type: barangay
-        psgc_id: 0906616011
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-      - name: Paiksa
-        type: barangay
-        psgc_id: 0906616012
-        parent_psgc_id: 0906616000
-        nicknames: null
-        components: []
-    - name: Lugus
-      type: municipality
-      psgc_id: 0906617000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Alu Bus-Bus
-        type: barangay
-        psgc_id: 0906617001
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Alu-Duyong
-        type: barangay
-        psgc_id: 0906617002
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Bas Lugus
-        type: barangay
-        psgc_id: 0906617003
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Gapas Rugasan
-        type: barangay
-        psgc_id: 0906617004
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Gapas Tubig Tuwak
-        type: barangay
-        psgc_id: 0906617005
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Huwit-huwit Proper
-        type: barangay
-        psgc_id: 0906617006
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Huwit-huwit Bas Nonok
-        type: barangay
-        psgc_id: 0906617007
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Kutah Parang
-        type: barangay
-        psgc_id: 0906617008
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Laha
-        type: barangay
-        psgc_id: 0906617009
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Larap
-        type: barangay
-        psgc_id: 0906617010
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Lugus Proper
-        type: barangay
-        psgc_id: 0906617011
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Mangkallay
-        type: barangay
-        psgc_id: 0906617012
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Mantan
-        type: barangay
-        psgc_id: 0906617013
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Pait
-        type: barangay
-        psgc_id: 0906617014
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Parian Kayawan
-        type: barangay
-        psgc_id: 0906617015
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Sibul
-        type: barangay
-        psgc_id: 0906617016
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-      - name: Tingkangan
-        type: barangay
-        psgc_id: 0906617017
-        parent_psgc_id: 0906617000
-        nicknames: null
-        components: []
-    - name: Pandami
-      type: municipality
-      psgc_id: 0906618000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Baligtang
-        type: barangay
-        psgc_id: 0906618001
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Bud Sibaud
-        type: barangay
-        psgc_id: 0906618002
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Hambilan
-        type: barangay
-        psgc_id: 0906618003
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Kabbon
-        type: barangay
-        psgc_id: 0906618004
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Lahi
-        type: barangay
-        psgc_id: 0906618005
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Lapak
-        type: barangay
-        psgc_id: 0906618006
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Malanta
-        type: barangay
-        psgc_id: 0906618007
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Mamanok
-        type: barangay
-        psgc_id: 0906618008
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: North Manubul
-        type: barangay
-        psgc_id: 0906618009
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Parian Dakula
-        type: barangay
-        psgc_id: 0906618010
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Sibaud Proper
-        type: barangay
-        psgc_id: 0906618011
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Siganggang
-        type: barangay
-        psgc_id: 0906618012
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: South Manubul
-        type: barangay
-        psgc_id: 0906618013
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Suba-suba
-        type: barangay
-        psgc_id: 0906618014
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Tenga Manubul
-        type: barangay
-        psgc_id: 0906618015
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-      - name: Laud Sibaud
-        type: barangay
-        psgc_id: 0906618016
-        parent_psgc_id: 0906618000
-        nicknames: null
-        components: []
-    - name: Omar
-      type: municipality
-      psgc_id: 0906619000
-      parent_psgc_id: 0906600000
-      nicknames: null
-      components:
-      - name: Andalan
-        type: barangay
-        psgc_id: 0906619001
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Angilan
-        type: barangay
-        psgc_id: 0906619002
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Capual Island
-        type: barangay
-        psgc_id: 0906619003
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Huwit-huwit
-        type: barangay
-        psgc_id: 0906619004
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Lahing-Lahing
-        type: barangay
-        psgc_id: 0906619005
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Niangkaan
-        type: barangay
-        psgc_id: 0906619006
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Sucuban
-        type: barangay
-        psgc_id: 0906619007
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
-      - name: Tangkuan
-        type: barangay
-        psgc_id: 0906619008
-        parent_psgc_id: 0906619000
-        nicknames: null
-        components: []
   - name: Zamboanga del Norte
     type: province
     psgc_id: 0907200000
