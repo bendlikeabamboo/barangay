@@ -7,7 +7,7 @@ Philippine regions, provinces, cities, municipalities, and barangay. Available i
 YAML, and Python dictionary formats and with fuzzy search. Latest and updated as of July
 2025.
 
-__SOURCE FILE__: [2025-07-31 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
+__SOURCE FILE__: [2025-07-31 Publication](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
 __PyPI__: https://pypi.org/project/barangay/ <br>
 __GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay) <br>
 __Installation__: `pip install barangay`
@@ -21,7 +21,7 @@ __Installation__: `pip install barangay`
 ### Data dictionaries
 - Comprehensive, up-to-date list of Philippine barangays and their administrative
   hierarchy based on Philippine Standard Geographic Code ([PSGC](https://psa.gov.ph/classification/psgc))
-- Data also available in both JSON and YAML formats under [`data/`](https://github.com/bendlikeabamboo/barangay/tree/main/data/)
+- Data also available in both JSON and YAML formats under [`data/`](https://github.com/bendlikeabamboo/barangay/tree/main/barangay/data)
 - Available in different dictionary data models
   - Direct Nested Hierarchical Model
   - Metadata-rich Recursive Hierarchical Model
