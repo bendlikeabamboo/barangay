@@ -2,11 +2,11 @@
 [<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PyPI Downloads](https://static.pepy.tech/badge/barangay)](https://pepy.tech/projects/barangay) [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)<p>
 <p>
 List of Philippine regions, provinces, cities, municipalities, and barangay according to
- the August 2025 masterlist from Philippine Standard Geographic Code (PSGC) Release. 
+ the October 2025 masterlist from Philippine Standard Geographic Code (PSGC) Release. 
  Available in JSON, YAML, and Python dictionary formats and with fuzzy search. Latest 
- and updated as of August 29, 2025
+ and updated as of October 13, 2025
 
-__SOURCE FILE__: [Release Date: 2025-08-29](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
+__SOURCE FILE__: [Release Date: 2025-10-13](https://psa.gov.ph/classification/psgc/node/1684080966) <br>
 __PyPI__: https://pypi.org/project/barangay/ <br>
 __GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay) <br>
 __Installation__: `pip install barangay`
@@ -200,4 +200,5 @@ print(oriental_mindoro_parent)
 
 ## PSGC Previous Releases
 Previous PSGC releases are in [/data](https://github.com/bendlikeabamboo/barangay/tree/main/barangay/data)
-- [2025-06-30 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+- [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+- [2025-08-29 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
