@@ -918,7 +918,7 @@
   psgc_id: '1903637000'
   parent_psgc_id: '1903600000'
   nicknames: null
-- name: Tagoloan II
+- name: Tagoloan Ii
   type: municipality
   psgc_id: '1903638000'
   parent_psgc_id: '1903600000'
@@ -99728,7 +99728,7 @@
   psgc_id: '0405607060'
   parent_psgc_id: '0405607000'
   nicknames: null
-- name: Pinagsakayan
+- name: Pinagsakahan
   type: barangay
   psgc_id: '0405607061'
   parent_psgc_id: '0405607000'
@@ -112593,7 +112593,7 @@
   psgc_id: 0907313011
   parent_psgc_id: 0907313000
   nicknames: null
-- name: Lubosan
+- name: Lubusan
   type: barangay
   psgc_id: 0907313012
   parent_psgc_id: 0907313000
