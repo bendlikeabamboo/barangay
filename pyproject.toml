@@ -1,21 +1,25 @@
 [project]
 name = "barangay"
 version = "2025.10.13.0"
-description = """Philippines Standard Geographic Code (PSGC) 2025 Python package, Fuzzy Search, JSON, and YAML."""
+description = "Philippines Standard Geographic Code (PSGC) 2025 Python package, Fuzzy Search, JSON, and YAML."
 authors = [{ name = "bendlikeabamboo", email = "manuelb@hawitsu.xyz" }]
-license = { text = "MIT" }
-readme = "README.md"
 requires-python = ">=3.10"
-keywords = ["philippines", "geography", "barangay", "region"]
+readme = "README.md"
+license = { text = "MIT" }
+keywords = [
+    "philippines",
+    "geography",
+    "barangay",
+    "region",
+]
 classifiers = [
     "Topic :: Scientific/Engineering :: GIS",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
 dependencies = [
-    "pandas (>=2.3.2,<3.0.0)",
-    "pyarrow (>=21.0.0,<22.0.0)",
-    "fastparquet (>=2024.11.0,<2025.0.0)",
+    "pandas>=2.3.2,<3.0.0",
+    "fastparquet>=2024.11.0,<2025.0.0",
     "rapidfuzz (>=3.14.0,<4.0.0)",
     "pydantic (>=2.11.7,<3.0.0)",
 ]
@@ -27,14 +31,14 @@ documentation = "https://github.com/bendlikeabamboo/barangay/blob/main/README.md
 "Bug Tracker" = "https://github.com/bendlikeabamboo/barangay/issues"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry.group.dev]
-optional = true
-
-[tool.poetry.group.dev.dependencies]
-jupyterlab = "^4.4.5"
-pyyaml = "^6.0.2"
-tqdm = "^4.67.1"
-ipywidgets = "^8.1.7"
+[dependency-groups]
+dev = [
+    "jupyterlab>=4.4.5,<5",
+    "pyyaml>=6.0.2,<7",
+    "tqdm>=4.67.1,<5",
+    "ipywidgets>=8.1.7,<9",
+    "pyarrow>=22.0.0",
+]
