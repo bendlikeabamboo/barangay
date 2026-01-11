@@ -72,7 +72,7 @@ class FuzzBase:
         fuzzer_base: pd.DataFrame = _fuzzer_base,
         sanitizer: Callable[..., str] = _basic_sanitizer,
     ):
-        self.fuzzer_base = fuzzer_base
+        self.fuzzer_base = fuzzer_base.copy()
         self.sanitizer = sanitizer
 
         # rpmb = region, province, municipality, barangay
@@ -80,35 +80,34 @@ class FuzzBase:
             self.fuzzer_base["barangay"].astype(str).apply(sanitizer)
         )
         self.fuzzer_base["0p0b"] = (
-            self.fuzzer_base["province_or_huc"].astype(str)
-            + " "
-            + self.fuzzer_base["barangay"].astype(str)
-        ).apply(sanitizer)
+            self.fuzzer_base["province_or_huc"]
+            .astype(str)
+            .str.cat(self.fuzzer_base["barangay"].astype(str), sep=" ")
+        ).apply(sanitizer)  # type: ignore
         self.fuzzer_base["00mb"] = (
-            self.fuzzer_base["municipality_or_city"].astype(str)
-            + " "
-            + self.fuzzer_base["barangay"].astype(str)
-        ).apply(sanitizer)
+            self.fuzzer_base["municipality_or_city"]
+            .astype(str)
+            .str.cat(self.fuzzer_base["barangay"].astype(str), sep=" ")
+        ).apply(sanitizer)  # type: ignore
         self.fuzzer_base["0pmb"] = (
-            self.fuzzer_base["province_or_huc"].astype(str)
-            + " "
-            + self.fuzzer_base["municipality_or_city"].astype(str)
-            + " "
-            + self.fuzzer_base["barangay"].astype(str)
-        ).apply(sanitizer)
+            self.fuzzer_base["province_or_huc"]
+            .astype(str)
+            .str.cat(self.fuzzer_base["municipality_or_city"].astype(str), sep=" ")
+            .str.cat(self.fuzzer_base["barangay"].astype(str), sep=" ")
+        ).apply(sanitizer)  # type: ignore
 
         # TODO: Figure out correct approach here.
         self.fuzzer_base["f_000b_ratio"] = self.fuzzer_base["000b"].apply(
-            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)
+            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)  # type: ignore
         )
         self.fuzzer_base["f_00mb_ratio"] = self.fuzzer_base["00mb"].apply(
-            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)
+            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)  # type: ignore
         )
         self.fuzzer_base["f_0p0b_ratio"] = self.fuzzer_base["0p0b"].apply(
-            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)
+            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)  # type: ignore
         )
         self.fuzzer_base["f_0pmb_ratio"] = self.fuzzer_base["0pmb"].apply(
-            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)
+            lambda ref: partial(fuzz.token_sort_ratio, s1=ref)  # type: ignore
         )
 
 
