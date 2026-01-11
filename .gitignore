@@ -49,6 +49,10 @@ test-results/
 .dmypy.json
 dmypy.json
 
+# ruff
+.ruff_cache/*
+.ruff_cache
+
 # Pytest
 .pytest_cache/
 
@@ -73,6 +77,7 @@ Desktop.ini
 *.env
 *.ini
 *.cfg
+.env
 
 # Optional: ignore compiled wheels
 *.whl
