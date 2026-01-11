@@ -1,23 +1,29 @@
-# barangay
+# 🇵🇭 barangay
 [<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PyPI Downloads](https://static.pepy.tech/badge/barangay)](https://pepy.tech/projects/barangay) [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)<p>
 <p>
 List of Philippine regions, provinces, cities, municipalities, and barangay according to
- the October 2025 masterlist from Philippine Standard Geographic Code (PSGC) Release. 
- Available in JSON, YAML, and Python dictionary formats and with fuzzy search. Latest 
+ the October 2025 masterlist from Philippine Standard Geographic Code (PSGC) Release.
+ Available in JSON, YAML, and Python dictionary formats and with fuzzy search. Latest
  and updated as of October 13, 2025
 
-__SOURCE FILE__: [Release Date: 2025-10-13](https://psa.gov.ph/classification/psgc/node/1684080966) <br>
-__PyPI__: https://pypi.org/project/barangay/ <br>
-__GitHub__: [bendlikeabamboo/barangay](https://github.com/bendlikeabamboo/barangay) <br>
-__Installation__: `pip install barangay`
+## 🔗 barangay: Package Links
+- __Source File__: 📄 [Release: 2025-10-13](https://psa.gov.ph/classification/psgc/node/1684080966) <br>
+- __PyPI__: 📦 [barangay](https://pypi.org/project/barangay/) <br>
+- __GitHub__: 💻 [barangay](https://github.com/bendlikeabamboo/barangay) <br>
+- __Installation__: 🛠️ `pip install barangay`
 
-## Features
+## 🌐 Barangay-API: Package Links
+- __Barangay-API__: 🚀 [Barangay-API Official Deployment](https://barangay-api.hawitsu.xyz/scalar)
+- __Barangay-API Source Code:__ 💻 [Barangay-API GitHub](https://github.com/bendlikeabamboo/barangay-api)
+- __Barangay-API Docker Image:__ 🐳 [Barangay-API Docker](https://hub.docker.com/r/bendlikeabamboo/barangay-api)
 
-### Fuzzy Search
+## ✨ Features
+
+### 🔍 Fuzzy Search
 - Performant, customizable, and easy to use fuzzy search function
 - Works for unstandardized strings like addresses and text entries
 
-### Data dictionaries
+### 📚 Data dictionaries
 - Comprehensive, up-to-date list of Philippine barangays and their administrative
   hierarchy based on Philippine Standard Geographic Code ([PSGC](https://psa.gov.ph/classification/psgc))
 - Data also available in both JSON and YAML formats under [`data/`](https://github.com/bendlikeabamboo/barangay/tree/main/barangay/data)
@@ -27,20 +33,20 @@ __Installation__: `pip install barangay`
   - Metadata-rich Flat Model
 - Easy integration with Python projects
 
-## Installation
+## ⚙️ Installation
 
 ```bash
 pip install barangay
 ```
 
-## Usage
+## 🚀 Usage
 Sample usage in [`notebooks/sample_usage.ipynb`](https://github.com/bendlikeabamboo/barangay/blob/main/notebooks/sample_usage.ipynb)
 
-### Fuzzy Search
+### 🔍 Fuzzy Search
 
 Simple string search
 
-#### Example
+#### 💡 Example
 
 ```python
 from barangay import search
@@ -72,8 +78,8 @@ search(
 )
 ```
 
-### Data Dictionaries
-#### barangay.BARANGAY: Direct Nested Hierarchical Model
+### 📚 Data Dictionaries
+#### 📂 barangay.BARANGAY: Direct Nested Hierarchical Model
 Traversing `barangay.BARANGAY` is straightforward since it’s a purely nested dictionary
 composed of names, with no additional metadata.
 
@@ -113,7 +119,7 @@ provinces are important. To address this, I developed `barangay.BARANGAY_EXTENDE
 more complex fractal dictionary that accurately mirrors the intricate geographical
 divisions of the Philippines.
 
-#### barangay.BARANGAY_EXTENDED: Metadata-rich Recursive Hierarchical Model
+#### 🌳 barangay.BARANGAY_EXTENDED: Metadata-rich Recursive Hierarchical Model
 Traversing `barangay.BARANGAY_EXTENDED` is slightly more involved, as each location
 includes rich metadata stored in dictionary fields. Instead of simple key-value pairs,
 traversal involves navigating lists of dictionaries—adding a bit of complexity, but also
@@ -172,7 +178,7 @@ pprint(santa_ana_components)
 print("\n\n")
 ```
 
-#### barangay.BARANGAY_FLAT: Metadata-rich Flat Model
+#### 📜 barangay.BARANGAY_FLAT: Metadata-rich Flat Model
 
 The barangay.BARANGAY_FLAT structure offers a fully flattened list of all Philippine
 administrative units—regions, provinces, cities, municipalities, and barangays—with rich
@@ -198,11 +204,11 @@ oriental_mindoro_parent = [loc for loc in BARANGAY_FLAT if loc["psgc_id"]=="1700
 print(oriental_mindoro_parent)
 ```
 
-## PSGC Previous Releases
+## 📅 PSGC Previous Releases
 Previous PSGC releases are in [/data](https://github.com/bendlikeabamboo/barangay/tree/main/barangay/data)
-- [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
-- [2025-08-29 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
+- 📄 [2025-07-08 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684077694) <br>
+- 📄 [2025-08-29 PSGC Release](https://psa.gov.ph/classification/psgc/node/1684078573) <br>
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) for more information.
