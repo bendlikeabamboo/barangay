@@ -2,12 +2,12 @@
 [<p style="text-align:center;">![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PyPI Downloads](https://static.pepy.tech/badge/barangay)](https://pepy.tech/projects/barangay) [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)<p>
 <p>
 List of Philippine regions, provinces, cities, municipalities, and barangay according to
- the October 2025 masterlist from Philippine Standard Geographic Code (PSGC) Release.
+ the January 2026 masterlist from Philippine Standard Geographic Code (PSGC) Release.
  Available in JSON, YAML, and Python dictionary formats and with fuzzy search. Latest
- and updated as of October 13, 2025
+ and updated as of January 13, 2026
 
 ## 🔗 barangay: Package Links
-- __Source File__: 📄 [Release: 2025-10-13](https://psa.gov.ph/classification/psgc/node/1684080966) <br>
+- __Source File__: 📄 [Release: 2026-01-13](https://psa.gov.ph/classification/psgc/node/1684082306) <br>
 - __PyPI__: 📦 [barangay](https://pypi.org/project/barangay/) <br>
 - __GitHub__: 💻 [barangay](https://github.com/bendlikeabamboo/barangay) <br>
 - __Installation__: 🛠️ `pip install barangay`
