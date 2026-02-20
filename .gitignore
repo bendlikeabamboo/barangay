@@ -97,3 +97,6 @@ pip-log.txt
 *.swp
 
 **scratch**
+
+# Sphinx documentation build
+docs/_build/

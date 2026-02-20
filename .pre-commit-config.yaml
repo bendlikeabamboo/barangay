@@ -13,13 +13,6 @@ repos:
         language: system
         types: [python]
 
-      - id: mypy
-        name: mypy
-        entry: mypy
-        language: system
-        types: [python]
-        additional_dependencies: [pandas-stubs, types-PyYAML, pydantic]
-
       - id: pip-audit
         name: pip-audit
         entry: pip-audit

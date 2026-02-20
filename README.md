@@ -3,7 +3,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/barangay.svg)](https://pypi.org/project/barangay/)
 [![PyPI Downloads](https://static.pepy.tech/badge/barangay)](https://pepy.tech/projects/barangay)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/pypi/pyversions/barangay.svg)](https://pypi.org/project/barangay/)
+[![Python](https://img.shields.io/pypi/v/barangay)](https://pypi.org/project/barangay/)
 [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)
 
 Philippine geographic data with fuzzy search. Based on the January 2026 PSGC masterlist.
@@ -49,6 +49,7 @@ print(results[0]['barangay'])  # Tongmageng
   - [Resources](#resources)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Command Line Interface](#command-line-interface)
 
 ---
 
@@ -240,3 +241,9 @@ Contributions are welcome! See our [Contributing Guide](CONTRIBUTING.md) and [Co
 ## License
 
 [MIT](LICENSE) © bendlikeabamboo
+
+---
+
+## Command Line Interface
+
+A CLI is available for quick searches and data management. See the [comprehensive CLI documentation](docs/user_guide/cli.rst) for details.
