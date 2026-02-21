@@ -201,64 +201,30 @@ Output:
 
 Using BARANGAY_FLAT (Flat Model)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Work with pandas DataFrame:
 
 .. code-block:: python
 
-   import pandas as pd
-   from barangay import BARANGAY_FLAT
+  from barangay import BARANGAY_FLAT
 
-   # Convert to DataFrame
-   df = pd.DataFrame(BARANGAY_FLAT)
-   print(df.head())
+  # Find a specific barangay
+  brgy = [loc for loc in BARANGAY_FLAT if loc["name"] == "Marayos"][0]
 
-   # Filter by region
-   ncr_barangays = df[df['region'] == 'National Capital Region (NCR)']
-   print(f"\nNCR Barangays: {len(ncr_barangays)}")
+  # Trace hierarchy using parent_psgc_id
+  parent = [loc for loc in BARANGAY_FLAT
+          if loc["psgc_id"] == brgy["parent_psgc_id"]][0]
 
-   # Filter by city
-   manila_barangays = df[df['municipality_or_city'] == 'City of Manila']
-   print(f"Manila Barangays: {len(manila_barangays)}")
-
-   # Get barangays starting with 'Barangay 1'
-   barangay_1xx = df[df['barangay'].str.startswith('Barangay 1')]
-   print(f"\nBarangays starting with 'Barangay 1': {len(barangay_1xx)}")
+  print(f"Parent municipality of Brgy. Marayos: {parent}")
 
 Output:
 
 .. code-block:: text
 
-       barangay municipality_or_city province_or_huc      region        psgc_id
-   0  Barangay 128     City of Manila  National Capital Region (NCR)  137501128
-   1  Barangay 129     City of Manila  National Capital Region (NCR)  137501129
-   2  Barangay 130     City of Manila  National Capital Region (NCR)  137501130
-   ...
+  Parent municipality of Brgy. Marayos: {'name': 'Pinamalayan', 'type': 'municipality', 'psgc_id': '1705209000', 'parent_psgc_id': '1705200000', 'nicknames': None}
 
-   NCR Barangays: 1709
-   Manila Barangays: 897
-   Barangays starting with 'Barangay 1': 100
 
 Data Model Selection Guide
 --------------------------
-
-Decision Tree
-~~~~~~~~~~~~~
-
-1. **Do you need to work with pandas DataFrame?**
-   * Yes → Use BARANGAY_FLAT
-   * No → Continue to step 2
-
-2. **Do you need rich metadata (codes, levels, etc.)?**
-   * Yes → Use BARANGAY_EXTENDED
-   * No → Continue to step 3
-
-3. **Do you need hierarchical access (region → city → barangay)?**
-   * Yes → Use BARANGAY
-   * No → Use BARANGAY_FLAT
-
-Quick Reference
-~~~~~~~~~~~~~~~
 
 .. list-table:: Quick Decision Guide
    :widths: 50 50
@@ -302,73 +268,6 @@ Access Speed
 
 .. tip:: For most use cases, the performance difference between models is negligible. Choose the model based on your access pattern and data structure needs.
 
-Complete Example
-----------------
-
-Here's a complete example showing how to use all three models:
-
-.. code-block:: python
-
-   from barangay import BARANGAY, BARANGAY_EXTENDED, BARANGAY_FLAT
-   import pandas as pd
-
-   # Using BARANGAY (Basic)
-   print("=== BARANGAY (Basic Model) ===")
-   region = "National Capital Region (NCR)"
-   city = "City of Manila"
-   barangay = "Barangay 128"
-
-   barangays_in_manila = list(BARANGAY[region][city].keys())
-   print(f"Barangays in {city}: {len(barangays_in_manila)}")
-   print(f"First 3: {barangays_in_manila[:3]}")
-
-   # Using BARANGAY_EXTENDED (Extended)
-   print("\n=== BARANGAY_EXTENDED (Extended Model) ===")
-   ncr = BARANGAY_EXTENDED[region]
-   manila = ncr["children"][city]
-   barangay_128 = manila["children"][barangay]
-
-   print(f"Region: {ncr['name']} (Code: {ncr['code']})")
-   print(f"City: {manila['name']} (Code: {manila['code']})")
-   print(f"Barangay: {barangay_128['name']} (Code: {barangay_128['code']})")
-
-   # Using BARANGAY_FLAT (Flat)
-   print("\n=== BARANGAY_FLAT (Flat Model) ===")
-   df = pd.DataFrame(BARANGAY_FLAT)
-
-   # Filter NCR barangays
-   ncr_df = df[df['region'] == region]
-   print(f"NCR Barangays: {len(ncr_df)}")
-
-   # Filter Manila barangays
-   manila_df = df[df['municipality_or_city'] == city]
-   print(f"Manila Barangays: {len(manila_df)}")
-
-   # Find specific barangay
-   barangay_128_df = df[df['barangay'] == barangay]
-   print(f"\nBarangay 128 info:")
-   print(barangay_128_df[['barangay', 'municipality_or_city', 'province_or_huc', 'psgc_id']])
-
-Output:
-
-.. code-block:: text
-
-   === BARANGAY (Basic Model) ===
-   Barangays in City of Manila: 897
-   First 3: ['Barangay 128', 'Barangay 129', 'Barangay 130']
-
-   === BARANGAY_EXTENDED (Extended Model) ===
-   Region: National Capital Region (NCR) (Code: 13)
-   City: City of Manila (Code: 137501000)
-   Barangay: Barangay 128 (Code: 137501128)
-
-   === BARANGAY_FLAT (Flat Model) ===
-   NCR Barangays: 1709
-   Manila Barangays: 897
-
-   Barangay 128 info:
-           barangay municipality_or_city province_or_huc      psgc_id
-   0  Barangay 128     City of Manila  National Capital Region (NCR)  137501128
 
 Next Steps
 ----------
