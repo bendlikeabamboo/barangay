@@ -85,8 +85,6 @@ Each result contains:
      - Municipality or city name
    * - psgc_id
      - Philippine Standard Geographic Code
-   * - max_score
-     - Maximum similarity score (0-100)
    * - f_000b_ratio_score
      - Score for barangay-only matching
    * - f_0p0b_ratio_score
@@ -110,7 +108,14 @@ Score Interpretation
 
    results = search("Tongmagen, Tawi-Tawi")
    for result in results:
-       score = result['max_score']
+       # Get the maximum score from active matching strategies
+       scores = [
+           result.get('f_000b_ratio_score', 0),
+           result.get('f_0p0b_ratio_score', 0),
+           result.get('f_00mb_ratio_score', 0),
+           result.get('f_0pmb_ratio_score', 0)
+       ]
+       score = max(scores)
        if score >= 90:
            confidence = "High"
        elif score >= 70:
@@ -213,7 +218,15 @@ Maximum number of results to return. Results are sorted by similarity score.
    # Get top 3 results
    results = search("San Jose", n=3)
    for i, result in enumerate(results, 1):
-       print(f"{i}. {result['barangay']} ({result['max_score']:.1f}%)")
+       # Get the maximum score from active matching strategies
+       scores = [
+           result.get('f_000b_ratio_score', 0),
+           result.get('f_0p0b_ratio_score', 0),
+           result.get('f_00mb_ratio_score', 0),
+           result.get('f_0pmb_ratio_score', 0)
+       ]
+       score = max(scores)
+       print(f"{i}. {result['barangay']} ({score:.1f}%)")
 
 as_of
 ~~~~~
@@ -411,14 +424,24 @@ Use multiple match hooks for comprehensive matching:
        n=10
    )
 
-   # Group results by administrative level
-   province_matches = [r for r in results if r['f_0p0b_ratio_score'] == r['max_score']]
-   municipality_matches = [r for r in results if r['f_00mb_ratio_score'] == r['max_score']]
-   barangay_matches = [r for r in results if r['f_000b_ratio_score'] == r['max_score']]
+    # Group results by administrative level
+    # Get the maximum score from active matching strategies for each result
+    for r in results:
+        scores = [
+            r.get('f_000b_ratio_score', 0),
+            r.get('f_0p0b_ratio_score', 0),
+            r.get('f_00mb_ratio_score', 0),
+            r.get('f_0pmb_ratio_score', 0)
+        ]
+        r['max_score'] = max(scores)
+    
+    province_matches = [r for r in results if r['f_0p0b_ratio_score'] == r['max_score']]
+    municipality_matches = [r for r in results if r['f_00mb_ratio_score'] == r['max_score']]
+    barangay_matches = [r for r in results if r['f_000b_ratio_score'] == r['max_score']]
 
-   print(f"Province matches: {len(province_matches)}")
-   print(f"Municipality matches: {len(municipality_matches)}")
-   print(f"Barangay matches: {len(barangay_matches)}")
+    print(f"Province matches: {len(province_matches)}")
+    print(f"Municipality matches: {len(municipality_matches)}")
+    print(f"Barangay matches: {len(barangay_matches)}")
 
 Custom Sanitizers
 ~~~~~~~~~~~~~~~~~
@@ -671,6 +694,16 @@ Multiple Equally Good Matches:
 
    results = search("San Jose", n=10)
    if len(results) > 1:
+       # Get the maximum score from active matching strategies for each result
+       for r in results:
+           scores = [
+               r.get('f_000b_ratio_score', 0),
+               r.get('f_0p0b_ratio_score', 0),
+               r.get('f_00mb_ratio_score', 0),
+               r.get('f_0pmb_ratio_score', 0)
+           ]
+           r['max_score'] = max(scores)
+       
        top_score = results[0]['max_score']
        top_matches = [r for r in results if r['max_score'] == top_score]
        if len(top_matches) > 1:
@@ -684,11 +717,19 @@ Low Confidence Matches:
 
    from barangay import search
 
-   results = search("Tongmagen")
-   for result in results:
-       if result['max_score'] < 70:
-           print(f"Low confidence: {result['barangay']} ({result['max_score']:.1f}%)")
-           print("  Consider manual verification")
+    results = search("Tongmagen")
+    for result in results:
+        # Get the maximum score from active matching strategies
+        scores = [
+            result.get('f_000b_ratio_score', 0),
+            result.get('f_0p0b_ratio_score', 0),
+            result.get('f_00mb_ratio_score', 0),
+            result.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
+        if score < 70:
+            print(f"Low confidence: {result['barangay']} ({score:.1f}%)")
+            print("  Consider manual verification")
 
 Complete Example
 ----------------
@@ -723,30 +764,46 @@ Here's a complete example demonstrating advanced search features:
                    'original': address
                }
 
-           # Get best match
-           best = results[0]
+            # Get best match
+            best = results[0]
 
-           # Determine confidence
-           if best['max_score'] >= 90:
-               confidence = 'high'
-           elif best['max_score'] >= 70:
-               confidence = 'medium'
-           else:
-               confidence = 'low'
+            # Get the maximum score from active matching strategies
+            scores = [
+                best.get('f_000b_ratio_score', 0),
+                best.get('f_0p0b_ratio_score', 0),
+                best.get('f_00mb_ratio_score', 0),
+                best.get('f_0pmb_ratio_score', 0)
+            ]
+            # Get the maximum score from active matching strategies
+            scores = [
+                best.get('f_000b_ratio_score', 0),
+                best.get('f_0p0b_ratio_score', 0),
+                best.get('f_00mb_ratio_score', 0),
+                best.get('f_0pmb_ratio_score', 0)
+            ]
+            best['max_score'] = max(scores)
 
-           return {
-               'valid': True,
-               'confidence': confidence,
-               'original': address,
-               'standardized': {
-                   'barangay': best['barangay'],
-                   'municipality_or_city': best['municipality_or_city'],
-                   'province_or_huc': best['province_or_huc'],
-                   'psgc_id': best['psgc_id'],
-               },
-               'score': best['max_score'],
-               'alternatives': results[1:] if len(results) > 1 else []
-           }
+            # Determine confidence
+            if best['max_score'] >= 90:
+                confidence = 'high'
+            elif best['max_score'] >= 70:
+                confidence = 'medium'
+            else:
+                confidence = 'low'
+
+            return {
+                'valid': True,
+                'confidence': confidence,
+                'original': address,
+                'standardized': {
+                    'barangay': best['barangay'],
+                    'municipality_or_city': best['municipality_or_city'],
+                    'province_or_huc': best['province_or_huc'],
+                    'psgc_id': best['psgc_id'],
+                },
+                'score': best['max_score'],
+                'alternatives': results[1:] if len(results) > 1 else []
+            }
 
    # Usage
    validator = AddressValidator(threshold=70.0)

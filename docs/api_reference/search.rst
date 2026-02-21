@@ -58,15 +58,23 @@ Search with Custom Parameters
 
    from barangay import search
 
-   # Search with custom parameters
-   results = search(
-       "Tongmagen, Tawi-Tawi",
-       n=4,
-       match_hooks=["municipality", "barangay"],
-       threshold=70.0,
-   )
-   for result in results:
-       print(f"{result['barangay']} (score: {result['max_score']})")
+    # Search with custom parameters
+    results = search(
+        "Tongmagen, Tawi-Tawi",
+        n=4,
+        match_hooks=["municipality", "barangay"],
+        threshold=70.0,
+    )
+    for result in results:
+        # Get the maximum score from active matching strategies
+        scores = [
+            result.get('f_000b_ratio_score', 0),
+            result.get('f_0p0b_ratio_score', 0),
+            result.get('f_00mb_ratio_score', 0),
+            result.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
+        print(f"{result['barangay']} (score: {score})")
 
 Historical Data Search
 ======================

@@ -50,26 +50,35 @@ Read addresses from CSV and validate them in batch:
             address = row[address_column]
             matches = search(address, n=1, threshold=threshold, fuzz_base=fuzz_base)
 
-            if matches and matches[0]['max_score'] >= threshold:
-                results.append({
-                    **row.to_dict(),
-                    'is_valid': True,
-                    'barangay': matches[0]['barangay'],
-                    'municipality': matches[0]['municipality_or_city'],
-                    'province': matches[0]['province_or_huc'],
-                    'psgc_id': matches[0]['psgc_id'],
-                    'score': matches[0]['max_score']
-                })
-            else:
-                results.append({
-                    **row.to_dict(),
-                    'is_valid': False,
-                    'barangay': None,
-                    'municipality': None,
-                    'province': None,
-                    'psgc_id': None,
-                    'score': None
-                })
+            if matches:
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
+                if score >= threshold:
+                    results.append({
+                        **row.to_dict(),
+                        'is_valid': True,
+                        'barangay': matches[0]['barangay'],
+                        'municipality': matches[0]['municipality_or_city'],
+                        'province': matches[0]['province_or_huc'],
+                        'psgc_id': matches[0]['psgc_id'],
+                        'score': score
+                    })
+                    continue
+            results.append({
+                **row.to_dict(),
+                'is_valid': False,
+                'barangay': None,
+                'municipality': None,
+                'province': None,
+                'psgc_id': None,
+                'score': None
+            })
 
         # Save results
         result_df = pd.DataFrame(results)
@@ -148,26 +157,35 @@ Validate addresses stored in a database:
                 address = row[address_column]
                 matches = search(address, n=1, threshold=threshold, fuzz_base=fuzz_base)
 
-                if matches and matches[0]['max_score'] >= threshold:
-                    results.append({
-                        id_column: row[id_column],
-                        'is_valid': 1,
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    })
-                else:
-                    results.append({
-                        id_column: row[id_column],
-                        'is_valid': 0,
-                        'barangay': None,
-                        'municipality': None,
-                        'province': None,
-                        'psgc_id': None,
-                        'score': None
-                    })
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        results.append({
+                            id_column: row[id_column],
+                            'is_valid': 1,
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        })
+                        continue
+                results.append({
+                    id_column: row[id_column],
+                    'is_valid': 0,
+                    'barangay': None,
+                    'municipality': None,
+                    'province': None,
+                    'psgc_id': None,
+                    'score': None
+                })
 
             # Update database
             result_df = pd.DataFrame(results)
@@ -233,26 +251,35 @@ Validate addresses from API responses:
                 address = item.get(address_field, '')
                 matches = search(address, n=1, threshold=threshold, fuzz_base=fuzz_base)
 
-                if matches and matches[0]['max_score'] >= threshold:
-                    all_results.append({
-                        **item,
-                        'is_valid': True,
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    })
-                else:
-                    all_results.append({
-                        **item,
-                        'is_valid': False,
-                        'barangay': None,
-                        'municipality': None,
-                        'province': None,
-                        'psgc_id': None,
-                        'score': None
-                    })
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        all_results.append({
+                            **item,
+                            'is_valid': True,
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        })
+                        continue
+                all_results.append({
+                    **item,
+                    'is_valid': False,
+                    'barangay': None,
+                    'municipality': None,
+                    'province': None,
+                    'psgc_id': None,
+                    'score': None
+                })
 
             print(f"Processed page {page} ({len(data)} addresses)")
             page += 1
@@ -307,26 +334,35 @@ Use efficient data structures and algorithms for large datasets:
         for address in iterator:
             matches = search(address, n=1, threshold=threshold, fuzz_base=fuzz_base)
 
-            if matches and matches[0]['max_score'] >= threshold:
-                results.append({
-                    'address': address,
-                    'is_valid': True,
-                    'barangay': matches[0]['barangay'],
-                    'municipality': matches[0]['municipality_or_city'],
-                    'province': matches[0]['province_or_huc'],
-                    'psgc_id': matches[0]['psgc_id'],
-                    'score': matches[0]['max_score']
-                })
-            else:
-                results.append({
-                    'address': address,
-                    'is_valid': False,
-                    'barangay': None,
-                    'municipality': None,
-                    'province': None,
-                    'psgc_id': None,
-                    'score': None
-                })
+            if matches:
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
+                if score >= threshold:
+                    results.append({
+                        'address': address,
+                        'is_valid': True,
+                        'barangay': matches[0]['barangay'],
+                        'municipality': matches[0]['municipality_or_city'],
+                        'province': matches[0]['province_or_huc'],
+                        'psgc_id': matches[0]['psgc_id'],
+                        'score': score
+                    })
+                    continue
+            results.append({
+                'address': address,
+                'is_valid': False,
+                'barangay': None,
+                'municipality': None,
+                'province': None,
+                'psgc_id': None,
+                'score': None
+            })
 
         return pd.DataFrame(results)
 
@@ -358,26 +394,34 @@ Use multiprocessing for CPU-bound operations:
 
         matches = search(address, n=1, threshold=threshold, fuzz_base=fuzz_base)
 
-        if matches and matches[0]['max_score'] >= threshold:
-            return {
-                'address': address,
-                'is_valid': True,
-                'barangay': matches[0]['barangay'],
-                'municipality': matches[0]['municipality_or_city'],
-                'province': matches[0]['province_or_huc'],
-                'psgc_id': matches[0]['psgc_id'],
-                'score': matches[0]['max_score']
-            }
-        else:
-            return {
-                'address': address,
-                'is_valid': False,
-                'barangay': None,
-                'municipality': None,
-                'province': None,
-                'psgc_id': None,
-                'score': None
-            }
+        if matches:
+            # Get the maximum score from active matching strategies
+            scores = [
+                matches[0].get('f_000b_ratio_score', 0),
+                matches[0].get('f_0p0b_ratio_score', 0),
+                matches[0].get('f_00mb_ratio_score', 0),
+                matches[0].get('f_0pmb_ratio_score', 0)
+            ]
+            score = max(scores)
+            if score >= threshold:
+                return {
+                    'address': address,
+                    'is_valid': True,
+                    'barangay': matches[0]['barangay'],
+                    'municipality': matches[0]['municipality_or_city'],
+                    'province': matches[0]['province_or_huc'],
+                    'psgc_id': matches[0]['psgc_id'],
+                    'score': score
+                }
+        return {
+            'address': address,
+            'is_valid': False,
+            'barangay': None,
+            'municipality': None,
+            'province': None,
+            'psgc_id': None,
+            'score': None
+        }
 
     def parallel_batch_validate(
         addresses: list[str],
@@ -494,28 +538,37 @@ Track progress with detailed statistics:
                     fuzz_base=self.fuzz_base
                 )
 
-                if matches and matches[0]['max_score'] >= self.threshold:
-                    results.append({
-                        'address': address,
-                        'is_valid': True,
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    })
-                    self.stats['valid'] += 1
-                else:
-                    results.append({
-                        'address': address,
-                        'is_valid': False,
-                        'barangay': None,
-                        'municipality': None,
-                        'province': None,
-                        'psgc_id': None,
-                        'score': None
-                    })
-                    self.stats['invalid'] += 1
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= self.threshold:
+                        results.append({
+                            'address': address,
+                            'is_valid': True,
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        })
+                        self.stats['valid'] += 1
+                        continue
+                results.append({
+                    'address': address,
+                    'is_valid': False,
+                    'barangay': None,
+                    'municipality': None,
+                    'province': None,
+                    'psgc_id': None,
+                    'score': None
+                })
+                self.stats['invalid'] += 1
 
                 # Log progress every 1000 addresses
                 if len(results) % 1000 == 0:
@@ -604,26 +657,35 @@ Process large files in chunks to avoid memory issues:
                 address = row[address_column]
                 matches = search(address, n=1, threshold=threshold, fuzz_base=fuzz_base)
 
-                if matches and matches[0]['max_score'] >= threshold:
-                    results.append({
-                        **row.to_dict(),
-                        'is_valid': True,
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    })
-                else:
-                    results.append({
-                        **row.to_dict(),
-                        'is_valid': False,
-                        'barangay': None,
-                        'municipality': None,
-                        'province': None,
-                        'psgc_id': None,
-                        'score': None
-                    })
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        results.append({
+                            **row.to_dict(),
+                            'is_valid': True,
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        })
+                        continue
+                results.append({
+                    **row.to_dict(),
+                    'is_valid': False,
+                    'barangay': None,
+                    'municipality': None,
+                    'province': None,
+                    'psgc_id': None,
+                    'score': None
+                })
 
             # Save chunk to file
             result_df = pd.DataFrame(results)
@@ -756,17 +818,37 @@ Here's a comprehensive BatchProcessor class with all features:
                         fuzz_base=self.fuzz_base
                     )
 
-                    if matches and matches[0]['max_score'] >= self.threshold:
-                        result = {
-                            'address': address,
-                            'is_valid': True,
-                            'barangay': matches[0]['barangay'],
-                            'municipality': matches[0]['municipality_or_city'],
-                            'province': matches[0]['province_or_huc'],
-                            'psgc_id': matches[0]['psgc_id'],
-                            'score': matches[0]['max_score']
-                        }
-                        self.stats['valid'] += 1
+                    if matches:
+                        # Get the maximum score from active matching strategies
+                        scores = [
+                            matches[0].get('f_000b_ratio_score', 0),
+                            matches[0].get('f_0p0b_ratio_score', 0),
+                            matches[0].get('f_00mb_ratio_score', 0),
+                            matches[0].get('f_0pmb_ratio_score', 0)
+                        ]
+                        score = max(scores)
+                        if score >= self.threshold:
+                            result = {
+                                'address': address,
+                                'is_valid': True,
+                                'barangay': matches[0]['barangay'],
+                                'municipality': matches[0]['municipality_or_city'],
+                                'province': matches[0]['province_or_huc'],
+                                'psgc_id': matches[0]['psgc_id'],
+                                'score': score
+                            }
+                            self.stats['valid'] += 1
+                        else:
+                            result = {
+                                'address': address,
+                                'is_valid': False,
+                                'barangay': None,
+                                'municipality': None,
+                                'province': None,
+                                'psgc_id': None,
+                                'score': None
+                            }
+                            self.stats['invalid'] += 1
                     else:
                         result = {
                             'address': address,

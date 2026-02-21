@@ -25,6 +25,11 @@ If you need a specific version, specify it with:
 
    pip install barangay==2026.1.13.1
 
+.. tip::
+
+   Starting with v2026.1.13.1, all versions now have access to historical data using the
+   "as_of" configuration.
+
 Install from Source
 -------------------
 
@@ -86,22 +91,26 @@ To verify that everything is working, try a basic search in Python:
    from barangay import search
 
    results = search("Tongmageng, Tawi-Tawi")
-   if results:
-       print(f"Found: {results[0]['barangay']}")
-       print(f"Municipality: {results[0]['municipality_or_city']}")
-       print(f"Province: {results[0]['province_or_huc']}")
-       print(f"Score: {results[0]['max_score']}")
-   else:
-       print("No results found")
 
 Expected output:
 
 .. code-block:: text
 
-   Found: Tongmageng
-   Municipality: Sitangkai
-   Province: Tawi-Tawi
-   Score: 95.5
+   [
+      {
+         'barangay': 'Tongmageng',
+         'province_or_huc': 'Tawi-Tawi',
+         'municipality_or_city': 'Sitangkai',
+         'psgc_id': '1907005010',
+         'f_0p0b_ratio_score': 100.0,
+         'f_00mb_ratio_score': 76.92307692307692,
+         'f_0pmb_ratio_score': 79.16666666666666,
+         '000b': 'tongmageng',
+         '0p0b': 'tawitawi tongmageng',
+         '00mb': 'sitangkai tongmageng',
+         '0pmb': 'tawitawi sitangkai tongmageng'
+      }
+   ]
 
 Dependencies
 ------------

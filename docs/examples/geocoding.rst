@@ -68,15 +68,26 @@ Combine address validation with geocoding to ensure accuracy:
             # Validate barangay if requested
             if validate_barangay:
                 matches = search(address, n=1, threshold=threshold)
-                if matches and matches[0]['max_score'] >= threshold:
-                    result['is_valid_barangay'] = True
-                    result['barangay_match'] = {
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    }
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        result['is_valid_barangay'] = True
+                        result['barangay_match'] = {
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        }
+                    else:
+                        result['is_valid_barangay'] = False
                 else:
                     result['is_valid_barangay'] = False
 
@@ -264,12 +275,20 @@ Reverse geocode coordinates and match to nearest barangay:
             from barangay import search
             matches = search(search_string, n=1, threshold=70.0)
             if matches:
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
                 return {
                     'barangay': matches[0]['barangay'],
                     'municipality': matches[0]['municipality_or_city'],
                     'province': matches[0]['province_or_huc'],
                     'psgc_id': matches[0]['psgc_id'],
-                    'score': matches[0]['max_score']
+                    'score': score
                 }
             return None
 
@@ -482,15 +501,26 @@ Here's a comprehensive GeocodingHelper class with various features:
                     threshold=threshold,
                     fuzz_base=self.fuzz_base
                 )
-                if matches and matches[0]['max_score'] >= threshold:
-                    result['is_valid_barangay'] = True
-                    result['barangay_match'] = {
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    }
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        result['is_valid_barangay'] = True
+                        result['barangay_match'] = {
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        }
+                    else:
+                        result['is_valid_barangay'] = False
                 else:
                     result['is_valid_barangay'] = False
 
@@ -580,12 +610,20 @@ Here's a comprehensive GeocodingHelper class with various features:
                             fuzz_base=self.fuzz_base
                         )
                         if matches:
+                            # Get the maximum score from active matching strategies
+                            scores = [
+                                matches[0].get('f_000b_ratio_score', 0),
+                                matches[0].get('f_0p0b_ratio_score', 0),
+                                matches[0].get('f_00mb_ratio_score', 0),
+                                matches[0].get('f_0pmb_ratio_score', 0)
+                            ]
+                            score = max(scores)
                             result['nearest_barangay'] = {
                                 'barangay': matches[0]['barangay'],
                                 'municipality': matches[0]['municipality_or_city'],
                                 'province': matches[0]['province_or_huc'],
                                 'psgc_id': matches[0]['psgc_id'],
-                                'score': matches[0]['max_score']
+                                'score': score
                             }
             except requests.RequestException as e:
                 result['error'] = f"Reverse geocoding failed: {str(e)}"
@@ -736,15 +774,26 @@ Using Google Maps Geocoding API
             # Validate barangay if requested
             if validate_barangay:
                 matches = search(address, n=1, threshold=threshold)
-                if matches and matches[0]['max_score'] >= threshold:
-                    result['is_valid_barangay'] = True
-                    result['barangay_match'] = {
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    }
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        result['is_valid_barangay'] = True
+                        result['barangay_match'] = {
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        }
+                    else:
+                        result['is_valid_barangay'] = False
                 else:
                     result['is_valid_barangay'] = False
 
@@ -814,15 +863,26 @@ Using Mapbox Geocoding API
             # Validate barangay if requested
             if validate_barangay:
                 matches = search(address, n=1, threshold=threshold)
-                if matches and matches[0]['max_score'] >= threshold:
-                    result['is_valid_barangay'] = True
-                    result['barangay_match'] = {
-                        'barangay': matches[0]['barangay'],
-                        'municipality': matches[0]['municipality_or_city'],
-                        'province': matches[0]['province_or_huc'],
-                        'psgc_id': matches[0]['psgc_id'],
-                        'score': matches[0]['max_score']
-                    }
+                if matches:
+                    # Get the maximum score from active matching strategies
+                    scores = [
+                        matches[0].get('f_000b_ratio_score', 0),
+                        matches[0].get('f_0p0b_ratio_score', 0),
+                        matches[0].get('f_00mb_ratio_score', 0),
+                        matches[0].get('f_0pmb_ratio_score', 0)
+                    ]
+                    score = max(scores)
+                    if score >= threshold:
+                        result['is_valid_barangay'] = True
+                        result['barangay_match'] = {
+                            'barangay': matches[0]['barangay'],
+                            'municipality': matches[0]['municipality_or_city'],
+                            'province': matches[0]['province_or_huc'],
+                            'psgc_id': matches[0]['psgc_id'],
+                            'score': score
+                        }
+                    else:
+                        result['is_valid_barangay'] = False
                 else:
                     result['is_valid_barangay'] = False
 

@@ -713,7 +713,6 @@ option.
           "municipality_or_city": "Sitangkai",
           "province_or_huc": "Tawi-Tawi",
           "psgc_id": "157501001",
-          "max_score": 95.2,
           "f_000b_ratio_score": 95.2,
           "f_0p0b_ratio_score": 0.0,
           "f_00mb_ratio_score": 95.2,

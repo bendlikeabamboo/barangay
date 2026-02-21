@@ -450,20 +450,36 @@ List all municipalities in a specific region:
 
 .. code:: bash
 
-   barangay info list-municipalities "NCR"
+   barangay info list-municipalities "National Capital Region (NCR)"
 
 Output:
 
 .. code:: text
 
-   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-   ┃ Municipality/City                                    ┃
-   ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-   │ City of Manila                                      │
-   │ Quezon City                                         │
-   │ Caloocan City                                       │
-   │ ...                                                  │
-   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+      Municipalities in
+   National Capital Region
+            (NCR)
+   ┏━━━━━━━━━━━━━━━━━━━━━┓
+   ┃ Municipality/City   ┃
+   ┡━━━━━━━━━━━━━━━━━━━━━┩
+   │ City of Caloocan    │
+   │ City of Las Piñas   │
+   │ City of Makati      │
+   │ City of Malabon     │
+   │ City of Mandaluyong │
+   │ City of Manila      │
+   │ City of Marikina    │
+   │ City of Muntinlupa  │
+   │ City of Navotas     │
+   │ City of Parañaque   │
+   │ City of Pasig       │
+   │ City of San Juan    │
+   │ City of Taguig      │
+   │ City of Valenzuela  │
+   │ Pasay City          │
+   │ Pateros             │
+   │ Quezon City         │
+   └─────────────────────┘
 
 List Barangays in a Municipality
 

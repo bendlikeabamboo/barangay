@@ -151,10 +151,18 @@ Use the ``n`` parameter to get more results:
 
    from barangay import search
 
-   # Get top 10 results
-   results = search("San Jose", n=10)
-   for i, result in enumerate(results, 1):
-       print(f"{i}. {result['barangay']} ({result['max_score']:.1f}%)")
+    # Get top 10 results
+    results = search("San Jose", n=10)
+    for i, result in enumerate(results, 1):
+        # Get the maximum score from active matching strategies
+        scores = [
+            result.get('f_000b_ratio_score', 0),
+            result.get('f_0p0b_ratio_score', 0),
+            result.get('f_00mb_ratio_score', 0),
+            result.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
+        print(f"{i}. {result['barangay']} ({score:.1f}%)")
 
 How do I filter results by similarity score?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -378,19 +386,26 @@ Check the similarity score:
 
    results = search("Tongmagen, Tawi-Tawi")
 
-   if results:
-       best = results[0]
-       score = best['max_score']
+    if results:
+        best = results[0]
+        # Get the maximum score from active matching strategies
+        scores = [
+            best.get('f_000b_ratio_score', 0),
+            best.get('f_0p0b_ratio_score', 0),
+            best.get('f_00mb_ratio_score', 0),
+            best.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
 
-       if score >= 90:
-           confidence = "High"
-       elif score >= 70:
-           confidence = "Medium"
-       else:
-           confidence = "Low"
+        if score >= 90:
+            confidence = "High"
+        elif score >= 70:
+            confidence = "Medium"
+        else:
+            confidence = "Low"
 
-       print(f"Match: {best['barangay']}")
-       print(f"Score: {score:.1f}% ({confidence})")
+        print(f"Match: {best['barangay']}")
+        print(f"Score: {score:.1f}% ({confidence})")
    else:
        print("No matches found")
 
@@ -597,26 +612,34 @@ Yes, use for address validation:
 
    from barangay import search
 
-   def validate_address(address):
-       results = search(address, threshold=80.0, n=1)
+    def validate_address(address):
+        results = search(address, threshold=80.0, n=1)
 
-       if not results:
-           return {'valid': False, 'reason': 'No matches found'}
+        if not results:
+            return {'valid': False, 'reason': 'No matches found'}
 
-       best = results[0]
-       if best['max_score'] < 80:
-           return {'valid': False, 'reason': 'Low confidence match'}
+        best = results[0]
+        # Get the maximum score from active matching strategies
+        scores = [
+            best.get('f_000b_ratio_score', 0),
+            best.get('f_0p0b_ratio_score', 0),
+            best.get('f_00mb_ratio_score', 0),
+            best.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
+        if score < 80:
+            return {'valid': False, 'reason': 'Low confidence match'}
 
-       return {
-           'valid': True,
-           'standardized': {
-               'barangay': best['barangay'],
-               'municipality_or_city': best['municipality_or_city'],
-               'province_or_huc': best['province_or_huc'],
-               'psgc_id': best['psgc_id'],
-           },
-           'score': best['max_score']
-       }
+        return {
+            'valid': True,
+            'standardized': {
+                'barangay': best['barangay'],
+                'municipality_or_city': best['municipality_or_city'],
+                'province_or_huc': best['province_or_huc'],
+                'psgc_id': best['psgc_id'],
+            },
+            'score': score
+        }
 
 Can I use this with data cleaning?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -627,28 +650,36 @@ Yes, use for cleaning messy address data:
 
    from barangay import search
 
-   def clean_addresses(addresses):
-       cleaned = []
-       for address in addresses:
-           results = search(address, threshold=70.0, n=1)
+    def clean_addresses(addresses):
+        cleaned = []
+        for address in addresses:
+            results = search(address, threshold=70.0, n=1)
 
-           if results:
-               best = results[0]
-               cleaned.append({
-                   'original': address,
-                   'barangay': best['barangay'],
-                   'municipality_or_city': best['municipality_or_city'],
-                   'province_or_huc': best['province_or_huc'],
-                   'psgc_id': best['psgc_id'],
-                   'score': best['max_score']
-               })
-           else:
-               cleaned.append({
-                   'original': address,
-                   'error': 'No match found'
-               })
+            if results:
+                best = results[0]
+                # Get the maximum score from active matching strategies
+                scores = [
+                    best.get('f_000b_ratio_score', 0),
+                    best.get('f_0p0b_ratio_score', 0),
+                    best.get('f_00mb_ratio_score', 0),
+                    best.get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
+                cleaned.append({
+                    'original': address,
+                    'barangay': best['barangay'],
+                    'municipality_or_city': best['municipality_or_city'],
+                    'province_or_huc': best['province_or_huc'],
+                    'psgc_id': best['psgc_id'],
+                    'score': score
+                })
+            else:
+                cleaned.append({
+                    'original': address,
+                    'error': 'No match found'
+                })
 
-       return cleaned
+        return cleaned
 
 Can I use this with data analysis?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

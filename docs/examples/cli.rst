@@ -446,8 +446,8 @@ Process JSON output with jq:
    # Extract specific fields
    barangay search "Tongmageng" --format json | jq '.[] | {barangay, municipality, province: .province_or_huc, psgc_id}'
 
-   # Filter by score
-   barangay search "San Jose" --format json | jq '.[] | select(.max_score > 80)'
+    # Filter by score (calculate max from individual score fields)
+    barangay search "San Jose" --format json | jq '.[] | select([.f_000b_ratio_score, .f_0p0b_ratio_score, .f_00mb_ratio_score, .f_0pmb_ratio_score] | max > 80)'
 
    # Count results
    barangay search "San Jose" --format json | jq 'length'
@@ -547,11 +547,11 @@ Create a validation endpoint:
        exit 1
    fi
 
-   RESULT=$(barangay search "$BARANGAY" --threshold "$THRESHOLD" --format json | jq '.[0]')
+    RESULT=$(barangay search "$BARANGAY" --threshold "$THRESHOLD" --format json | jq '.[0]')
 
-   if [ "$(echo "$RESULT" | jq -r '.max_score')" != "null" ]; then
-       SCORE=$(echo "$RESULT" | jq -r '.max_score')
-       if (( $(echo "$SCORE >= $THRESHOLD" | bc -l) )); then
+    if [ "$(echo "$RESULT" | jq -r '.f_000b_ratio_score')" != "null" ]; then
+        SCORE=$(echo "$RESULT" | jq -r '[.f_000b_ratio_score, .f_0p0b_ratio_score, .f_00mb_ratio_score, .f_0pmb_ratio_score] | max')
+        if (( $(echo "$SCORE >= $THRESHOLD" | bc -l) )); then
            echo '{"valid": true, "data": '"$RESULT"'}'
        else
            echo '{"valid": false, "message": "Score below threshold"}'

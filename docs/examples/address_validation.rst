@@ -36,8 +36,17 @@ The simplest approach validates a single address and returns whether it's valid 
             Tuple of (is_valid, matched_data)
         """
         results = search(address, n=1, threshold=threshold)
-        if results and results[0]['max_score'] >= threshold:
-            return True, results[0]
+        if results:
+            # Get the maximum score from active matching strategies
+            scores = [
+                results[0].get('f_000b_ratio_score', 0),
+                results[0].get('f_0p0b_ratio_score', 0),
+                results[0].get('f_00mb_ratio_score', 0),
+                results[0].get('f_0pmb_ratio_score', 0)
+            ]
+            score = max(scores)
+            if score >= threshold:
+                return True, results[0]
         return False, None
 
     # Example usage
@@ -82,7 +91,15 @@ When validation fails, provide helpful feedback to users:
             }
 
         best_match = results[0]
-        is_valid = best_match['max_score'] >= threshold
+        # Get the maximum score from active matching strategies
+        scores = [
+            best_match.get('f_000b_ratio_score', 0),
+            best_match.get('f_0p0b_ratio_score', 0),
+            best_match.get('f_00mb_ratio_score', 0),
+            best_match.get('f_0pmb_ratio_score', 0)
+        ]
+        best_score = max(scores)
+        is_valid = best_score >= threshold
 
         if is_valid:
             return {
@@ -93,7 +110,16 @@ When validation fails, provide helpful feedback to users:
             }
         else:
             # Provide suggestions with lower threshold
-            suggestions = [r for r in results if r['max_score'] >= 60.0]
+            suggestions = []
+            for r in results:
+                r_scores = [
+                    r.get('f_000b_ratio_score', 0),
+                    r.get('f_0p0b_ratio_score', 0),
+                    r.get('f_00mb_ratio_score', 0),
+                    r.get('f_0pmb_ratio_score', 0)
+                ]
+                if max(r_scores) >= 60.0:
+                    suggestions.append(r)
             return {
                 'is_valid': False,
                 'message': f'Address not found. Did you mean?',
@@ -104,8 +130,15 @@ When validation fails, provide helpful feedback to users:
     result = validate_with_suggestions("Tongmagen, Tawi-Tawi")
     print(result['message'])
     for suggestion in result['suggestions']:
+        suggestion_scores = [
+            suggestion.get('f_000b_ratio_score', 0),
+            suggestion.get('f_0p0b_ratio_score', 0),
+            suggestion.get('f_00mb_ratio_score', 0),
+            suggestion.get('f_0pmb_ratio_score', 0)
+        ]
+        suggestion_score = max(suggestion_scores)
         print(f"  - {suggestion['barangay']}, {suggestion['municipality_or_city']} "
-              f"(score: {suggestion['max_score']:.1f})")
+              f"(score: {suggestion_score:.1f})")
 
 Output:
 
@@ -140,26 +173,35 @@ When processing multiple addresses, use batch validation for efficiency:
         results = []
         for address in addresses:
             matches = search(address, n=1, threshold=threshold)
-            if matches and matches[0]['max_score'] >= threshold:
-                results.append({
-                    'original_address': address,
-                    'is_valid': True,
-                    'barangay': matches[0]['barangay'],
-                    'municipality': matches[0]['municipality_or_city'],
-                    'province': matches[0]['province_or_huc'],
-                    'psgc_id': matches[0]['psgc_id'],
-                    'score': matches[0]['max_score']
-                })
-            else:
-                results.append({
-                    'original_address': address,
-                    'is_valid': False,
-                    'barangay': None,
-                    'municipality': None,
-                    'province': None,
-                    'psgc_id': None,
-                    'score': None
-                })
+            if matches:
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
+                if score >= threshold:
+                    results.append({
+                        'original_address': address,
+                        'is_valid': True,
+                        'barangay': matches[0]['barangay'],
+                        'municipality': matches[0]['municipality_or_city'],
+                        'province': matches[0]['province_or_huc'],
+                        'psgc_id': matches[0]['psgc_id'],
+                        'score': score
+                    })
+                    continue
+            results.append({
+                'original_address': address,
+                'is_valid': False,
+                'barangay': None,
+                'municipality': None,
+                'province': None,
+                'psgc_id': None,
+                'score': None
+            })
 
         return pd.DataFrame(results)
 
@@ -213,24 +255,33 @@ For large datasets, consider using progress tracking and parallel processing:
             address = row[address_column]
             matches = search(address, n=1, threshold=threshold)
 
-            if matches and matches[0]['max_score'] >= threshold:
-                results.append({
-                    'is_valid': True,
-                    'barangay': matches[0]['barangay'],
-                    'municipality': matches[0]['municipality_or_city'],
-                    'province': matches[0]['province_or_huc'],
-                    'psgc_id': matches[0]['psgc_id'],
-                    'score': matches[0]['max_score']
-                })
-            else:
-                results.append({
-                    'is_valid': False,
-                    'barangay': None,
-                    'municipality': None,
-                    'province': None,
-                    'psgc_id': None,
-                    'score': None
-                })
+            if matches:
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
+                if score >= threshold:
+                    results.append({
+                        'is_valid': True,
+                        'barangay': matches[0]['barangay'],
+                        'municipality': matches[0]['municipality_or_city'],
+                        'province': matches[0]['province_or_huc'],
+                        'psgc_id': matches[0]['psgc_id'],
+                        'score': score
+                    })
+                    continue
+            results.append({
+                'is_valid': False,
+                'barangay': None,
+                'municipality': None,
+                'province': None,
+                'psgc_id': None,
+                'score': None
+            })
 
         # Add results to DataFrame
         result_df = pd.DataFrame(results)
@@ -271,7 +322,15 @@ Integrate address validation into web forms:
             })
 
         best_match = results[0]
-        is_valid = best_match['max_score'] >= 80.0
+        # Get the maximum score from active matching strategies
+        scores = [
+            best_match.get('f_000b_ratio_score', 0),
+            best_match.get('f_0p0b_ratio_score', 0),
+            best_match.get('f_00mb_ratio_score', 0),
+            best_match.get('f_0pmb_ratio_score', 0)
+        ]
+        best_score = max(scores)
+        is_valid = best_score >= 80.0
 
         if is_valid:
             return jsonify({
@@ -281,19 +340,26 @@ Integrate address validation into web forms:
                     'municipality': best_match['municipality_or_city'],
                     'province': best_match['province_or_huc'],
                     'psgc_id': best_match['psgc_id'],
-                    'score': best_match['max_score']
+                    'score': best_score
                 }
             })
         else:
-            suggestions = [
-                {
-                    'barangay': r['barangay'],
-                    'municipality': r['municipality_or_city'],
-                    'province': r['province_or_huc'],
-                    'score': r['max_score']
-                }
-                for r in results if r['max_score'] >= 60.0
-            ]
+            suggestions = []
+            for r in results:
+                r_scores = [
+                    r.get('f_000b_ratio_score', 0),
+                    r.get('f_0p0b_ratio_score', 0),
+                    r.get('f_00mb_ratio_score', 0),
+                    r.get('f_0pmb_ratio_score', 0)
+                ]
+                r_score = max(r_scores)
+                if r_score >= 60.0:
+                    suggestions.append({
+                        'barangay': r['barangay'],
+                        'municipality': r['municipality_or_city'],
+                        'province': r['province_or_huc'],
+                        'score': r_score
+                    })
             return jsonify({
                 'is_valid': False,
                 'message': 'Address not found. Did you mean?',
@@ -330,7 +396,15 @@ Create a CLI tool for address validation:
             return
 
         best_match = results[0]
-        is_valid = best_match['max_score'] >= args.threshold
+        # Get the maximum score from active matching strategies
+        scores = [
+            best_match.get('f_000b_ratio_score', 0),
+            best_match.get('f_0p0b_ratio_score', 0),
+            best_match.get('f_00mb_ratio_score', 0),
+            best_match.get('f_0pmb_ratio_score', 0)
+        ]
+        best_score = max(scores)
+        is_valid = best_score >= args.threshold
 
         if is_valid:
             print(f"✅ Valid address: {args.address}")
@@ -338,15 +412,22 @@ Create a CLI tool for address validation:
             print(f"   Municipality/City: {best_match['municipality_or_city']}")
             print(f"   Province: {best_match['province_or_huc']}")
             print(f"   PSGC ID: {best_match['psgc_id']}")
-            print(f"   Confidence: {best_match['max_score']:.1f}%")
+            print(f"   Confidence: {best_score:.1f}%")
         else:
             print(f"❌ Invalid address: {args.address}")
             if args.show_suggestions:
                 print("\nDid you mean?")
                 for i, suggestion in enumerate(results[:3], 1):
+                    suggestion_scores = [
+                        suggestion.get('f_000b_ratio_score', 0),
+                        suggestion.get('f_0p0b_ratio_score', 0),
+                        suggestion.get('f_00mb_ratio_score', 0),
+                        suggestion.get('f_0pmb_ratio_score', 0)
+                    ]
+                    suggestion_score = max(suggestion_scores)
                     print(f"   {i}. {suggestion['barangay']}, "
                           f"{suggestion['municipality_or_city']} "
-                          f"(score: {suggestion['max_score']:.1f}%)")
+                          f"(score: {suggestion_score:.1f}%)")
 
     if __name__ == '__main__':
         main()
@@ -420,7 +501,15 @@ Here's a comprehensive AddressValidator class that handles various validation sc
                 }
 
             best_match = results[0]
-            is_valid = best_match['max_score'] >= threshold
+            # Get the maximum score from active matching strategies
+            scores = [
+                best_match.get('f_000b_ratio_score', 0),
+                best_match.get('f_0p0b_ratio_score', 0),
+                best_match.get('f_00mb_ratio_score', 0),
+                best_match.get('f_0pmb_ratio_score', 0)
+            ]
+            best_score = max(scores)
+            is_valid = best_score >= threshold
 
             if is_valid:
                 return {
@@ -431,23 +520,29 @@ Here's a comprehensive AddressValidator class that handles various validation sc
                         'municipality': best_match['municipality_or_city'],
                         'province': best_match['province_or_huc'],
                         'psgc_id': best_match['psgc_id'],
-                        'score': best_match['max_score']
+                        'score': best_score
                     },
                     'suggestions': [],
                     'message': 'Address is valid'
                 }
             else:
-                suggestions = [
-                    {
-                        'barangay': r['barangay'],
-                        'municipality': r['municipality_or_city'],
-                        'province': r['province_or_huc'],
-                        'psgc_id': r['psgc_id'],
-                        'score': r['max_score']
-                    }
-                    for r in results
-                    if r['max_score'] >= self.suggestion_threshold
-                ]
+                suggestions = []
+                for r in results:
+                    r_scores = [
+                        r.get('f_000b_ratio_score', 0),
+                        r.get('f_0p0b_ratio_score', 0),
+                        r.get('f_00mb_ratio_score', 0),
+                        r.get('f_0pmb_ratio_score', 0)
+                    ]
+                    r_score = max(r_scores)
+                    if r_score >= self.suggestion_threshold:
+                        suggestions.append({
+                            'barangay': r['barangay'],
+                            'municipality': r['municipality_or_city'],
+                            'province': r['province_or_huc'],
+                            'psgc_id': r['psgc_id'],
+                            'score': r_score
+                        })
                 return {
                     'is_valid': False,
                     'address': address,
@@ -615,7 +710,15 @@ Addresses may contain special characters that need special handling:
             }
 
         best_match = results[0]
-        is_valid = best_match['max_score'] >= 80.0
+        # Get the maximum score from active matching strategies
+        scores = [
+            best_match.get('f_000b_ratio_score', 0),
+            best_match.get('f_0p0b_ratio_score', 0),
+            best_match.get('f_00mb_ratio_score', 0),
+            best_match.get('f_0pmb_ratio_score', 0)
+        ]
+        best_score = max(scores)
+        is_valid = best_score >= 80.0
 
         return {
             'is_valid': is_valid,
@@ -657,7 +760,15 @@ Validate addresses against historical data for legacy systems:
             }
 
         best_match = results[0]
-        is_valid = best_match['max_score'] >= threshold
+        # Get the maximum score from active matching strategies
+        scores = [
+            best_match.get('f_000b_ratio_score', 0),
+            best_match.get('f_0p0b_ratio_score', 0),
+            best_match.get('f_00mb_ratio_score', 0),
+            best_match.get('f_0pmb_ratio_score', 0)
+        ]
+        best_score = max(scores)
+        is_valid = best_score >= threshold
 
         return {
             'is_valid': is_valid,

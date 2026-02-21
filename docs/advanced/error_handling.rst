@@ -310,7 +310,15 @@ The most common error handling pattern:
         results = search("Tongmageng, Tawi-Tawi")
         # Process results
         for result in results:
-            print(f"{result['barangay']} (score: {result['max_score']:.1f})")
+            # Get the maximum score from active matching strategies
+            scores = [
+                result.get('f_000b_ratio_score', 0),
+                result.get('f_0p0b_ratio_score', 0),
+                result.get('f_00mb_ratio_score', 0),
+                result.get('f_0pmb_ratio_score', 0)
+            ]
+            score = max(scores)
+            print(f"{result['barangay']} (score: {score:.1f})")
     except ValueError as e:
         print(f"Invalid parameters: {e}")
     except RuntimeError as e:
@@ -353,8 +361,16 @@ Handle errors at multiple levels:
 
             # Level 2: Validate match
             best_match = matches[0]
-            if best_match['max_score'] < 80.0:
-                result['error'] = f'Low confidence match (score: {best_match["max_score"]:.1f})'
+            # Get the maximum score from active matching strategies
+            scores = [
+                best_match.get('f_000b_ratio_score', 0),
+                best_match.get('f_0p0b_ratio_score', 0),
+                best_match.get('f_00mb_ratio_score', 0),
+                best_match.get('f_0pmb_ratio_score', 0)
+            ]
+            best_score = max(scores)
+            if best_score < 80.0:
+                result['error'] = f'Low confidence match (score: {best_score:.1f})'
                 return result
 
             # Level 3: Load additional data
@@ -454,9 +470,17 @@ Create custom logging for specific operations:
             logger.debug(f"Found {len(results)} results")
 
             for i, result in enumerate(results):
+                # Get the maximum score from active matching strategies
+                scores = [
+                    result.get('f_000b_ratio_score', 0),
+                    result.get('f_0p0b_ratio_score', 0),
+                    result.get('f_00mb_ratio_score', 0),
+                    result.get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
                 logger.debug(
                     f"Result {i+1}: {result['barangay']} "
-                    f"(score: {result['max_score']:.1f})"
+                    f"(score: {score:.1f})"
                 )
 
             return results
@@ -703,18 +727,20 @@ Validate output data before using it:
                 continue
 
             # Check required fields
-            required_fields = ['barangay', 'province_or_huc', 'municipality_or_city', 'psgc_id', 'max_score']
+            required_fields = ['barangay', 'province_or_huc', 'municipality_or_city', 'psgc_id']
             for field in required_fields:
                 if field not in result:
                     errors.append(f"Result {i} missing required field: {field}")
 
             # Check score range
-            if 'max_score' in result:
-                score = result['max_score']
-                if not isinstance(score, (int, float)):
-                    errors.append(f"Result {i} max_score must be a number")
-                elif score < 0 or score > 100:
-                    warnings.append(f"Result {i} max_score out of range: {score}")
+            score_fields = ['f_000b_ratio_score', 'f_0p0b_ratio_score', 'f_00mb_ratio_score', 'f_0pmb_ratio_score']
+            for score_field in score_fields:
+                if score_field in result:
+                    score = result[score_field]
+                    if not isinstance(score, (int, float)):
+                        errors.append(f"Result {i} {score_field} must be a number")
+                    elif score < 0 or score > 100:
+                        warnings.append(f"Result {i} {score_field} out of range: {score}")
 
         return {
             'valid': len(errors) == 0,

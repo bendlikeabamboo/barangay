@@ -419,8 +419,16 @@ You can create custom matching strategies by combining different administrative 
     )
 
     for result in results:
+        # Get the maximum score from active matching strategies
+        scores = [
+            result.get('f_000b_ratio_score', 0),
+            result.get('f_0p0b_ratio_score', 0),
+            result.get('f_00mb_ratio_score', 0),
+            result.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
         print(f"{result['barangay']}, {result['municipality_or_city']} "
-              f"(score: {result['max_score']:.1f})")
+              f"(score: {score:.1f})")
 
 Weighted Matching
 ~~~~~~~~~~~~~~~~~
@@ -598,10 +606,18 @@ Compare accuracy of different matching strategies:
             matches = search(search_string, match_hooks=hooks, n=1)
             if matches:
                 is_correct = matches[0]['barangay'] == expected_barangay
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
                 results[name] = {
                     'found': True,
                     'is_correct': is_correct,
-                    'score': matches[0]['max_score'],
+                    'score': score,
                     'matched_barangay': matches[0]['barangay']
                 }
             else:

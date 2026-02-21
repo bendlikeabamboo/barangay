@@ -356,10 +356,10 @@ Validate addresses using historical data:
                'barangay': best['barangay'],
                'municipality_or_city': best['municipality_or_city'],
                'province_or_huc': best['province_or_huc'],
-               'psgc_id': best['psgc_id'],
-           },
-           'score': best['max_score']
-       }
+            'psgc_id': best['psgc_id'],
+            },
+            'score': best['score']
+        }
 
    # Example: Validate an address from 2025
    address = "Tongmageng, Tawi-Tawi"

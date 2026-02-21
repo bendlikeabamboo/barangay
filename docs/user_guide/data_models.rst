@@ -18,7 +18,7 @@ Comparison Table
 ~~~~~~~~~~~~~~~~
 
 .. list-table:: Data Model Comparison
-   :widths: 20 20 20 20 20
+   :widths: 20 20 20 20
    :header-rows: 1
 
    * - Feature

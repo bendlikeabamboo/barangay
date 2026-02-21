@@ -116,27 +116,31 @@ Access data hierarchically:
 
 .. code-block:: python
 
-   from barangay import BARANGAY
+  from barangay import BARANGAY
 
-   # Get all regions
-   regions = list(BARANGAY.keys())
-   print(f"Regions: {regions[:3]}")
+  # Get all regions
+  regions = list(BARANGAY.keys())
+  print(f"Regions: {regions[:3]}")
 
-   # Get cities/municipalities in a region
-   ncr_cities = list(BARANGAY["National Capital Region (NCR)"].keys())
-   print(f"NCR Cities: {ncr_cities[:3]}")
+  # Get cities/municipalities in a region
+  ncr_cities = list(BARANGAY["National Capital Region (NCR)"].keys())
+  print(f"NCR Cities: {ncr_cities[:3]}")
 
-   # Get barangays in a city
-   manila_barangays = list(BARANGAY["National Capital Region (NCR)"]["City of Manila"].keys())
-   print(f"Manila Barangays: {manila_barangays[:3]}")
+  # Get barangays in a city
+  manila_municipalities = list(BARANGAY["National Capital Region (NCR)"]["City of Manila"].keys())
+  print(f"Manila Municipalities: {manila_municipalities[:3]}")
+
+  binondo_barangays = list(BARANGAY["National Capital Region (NCR)"]["City of Manila"]["Binondo"])
+  print(f"Binondo Barangays: {binondo_barangays[:3]}")
 
 Output:
 
 .. code-block:: text
 
-   Regions: ['National Capital Region (NCR)', 'Cordillera Administrative Region (CAR)', 'Ilocos Region (Region I)']
-   NCR Cities: ['City of Manila', 'Quezon City', 'Caloocan City']
-   Manila Barangays: ['Barangay 128', 'Barangay 129', 'Barangay 130']
+  Regions: ['Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)', 'Cordillera Administrative Region (CAR)', 'MIMAROPA Region']
+  NCR Cities: ['City of Manila', 'City of Caloocan', 'City of Las Piñas']
+  Manila Municipalities: ['Binondo', 'Ermita', 'Intramuros']
+  Binondo Barangays: ['Barangay 291', 'Barangay 290', 'Barangay 293']
 
 Using BARANGAY_EXTENDED (Extended Model)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -145,41 +149,55 @@ Access rich metadata:
 
 .. code-block:: python
 
-   from barangay import BARANGAY_EXTENDED
+  from barangay import BARANGAY_EXTENDED
+  import random
 
-   # Get region information
-   ncr = BARANGAY_EXTENDED["National Capital Region (NCR)"]
-   print(f"Region: {ncr['name']}")
-   print(f"Code: {ncr['code']}")
-   print(f"Level: {ncr['level']}")
+  # Get region hierarchical tree
+  regions = [x for x in BARANGAY_EXTENDED["components"]]
+  region_names = [x["name"] for x in BARANGAY_EXTENDED["components"]]
+  print(f"Sample regions in the Philippines: {random.sample(region_names, k=3)}")
 
-   # Get city information
-   manila = ncr["children"]["City of Manila"]
-   print(f"\nCity: {manila['name']}")
-   print(f"Code: {manila['code']}")
-   print(f"Level: {manila['level']}")
+  # Get region hierarchical tree
+  davao_region = [x for x in regions if x["name"] == "Region XI (Davao Region)"][0]
+  davao_provinces_and_hucs = [x for x in davao_region["components"]]
+  davao_provinces_and_hucs_names = [x["name"] for x in davao_region["components"]]
+  print(
+      f"Sample provinces and HUCs in Davao Region: {random.sample(davao_provinces_and_hucs_names, k=3)}"
+  )
 
-   # Get barangay information
-   barangay_128 = manila["children"]["Barangay 128"]
-   print(f"\nBarangay: {barangay_128['name']}")
-   print(f"Code: {barangay_128['code']}")
-   print(f"Level: {barangay_128['level']}")
+  # Get HUC hierarchical tree
+  print("\nSample hierarchy for highly urbanized cities (HUCs):")
+  davao_city = [x for x in davao_provinces_and_hucs if x["name"] == "City of Davao"][0]
+  davao_city_barangays = [x for x in davao_city["components"]]
+  davao_city_barangay_names = [x["name"] for x in davao_city["components"]]
+  print(f"Sample Davao City barangays: {random.sample(davao_city_barangay_names, k=3)}")
+
+  # Get provincial hierarchical tree
+  print("\nSample for provinces:")
+  davao_oriental_province = [x for x in davao_provinces_and_hucs if x["name"] == "Davao Occidental"][0]
+  davao_oriental_municipalities = [x for x in davao_oriental_province["components"]]
+  davao_oriental_municipalities_names = [x["name"] for x in davao_oriental_province["components"]]
+  print(f"Sample Davao Oriental municipalities: {random.sample(davao_oriental_municipalities_names, k=3)}")
+
+  sarangani_province = [x for x in davao_oriental_municipalities if x["name"] == "Sarangani"][0]
+  sarangani_barangays = [x for x in sarangani_province["components"]]
+  sarangani_barangay_names = [x["name"] for x in sarangani_province["components"]]
+  print(f"Sample Sarangani barangays: {random.sample(sarangani_barangay_names, k=3)}")
+
 
 Output:
 
 .. code-block:: text
 
-   Region: National Capital Region (NCR)
-   Code: 13
-   Level: region
+  Sample regions in the Philippines: ['Region XII (SOCCSKSARGEN)', 'Region VIII (Eastern Visayas)', 'Region XI (Davao Region)']
+  Sample provinces and HUCs in Davao Region: ['Davao Oriental', 'Davao del Norte', 'Davao del Sur']
 
-   City: City of Manila
-   Code: 137501000
-   Level: city
+  Sample hierarchy for highly urbanized cities (HUCs):
+  Sample Davao City barangays: ['Barangay 15-B', 'Vicente Hizon Sr.', 'Barangay 35-D']
 
-   Barangay: Barangay 128
-   Code: 137501128
-   Level: barangay
+  Sample for provinces:
+  Sample Davao Oriental municipalities: ['Malita', 'Sarangani', 'Don Marcelino']
+  Sample Sarangani barangays: ['Konel', 'Batuganding', 'Camalig']
 
 Using BARANGAY_FLAT (Flat Model)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

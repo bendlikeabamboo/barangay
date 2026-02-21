@@ -133,8 +133,16 @@ Apply custom sanitizers to search operations:
     )
 
     for result in results:
+        # Get the maximum score from active matching strategies
+        scores = [
+            result.get('f_000b_ratio_score', 0),
+            result.get('f_0p0b_ratio_score', 0),
+            result.get('f_00mb_ratio_score', 0),
+            result.get('f_0pmb_ratio_score', 0)
+        ]
+        score = max(scores)
         print(f"{result['barangay']}, {result['municipality_or_city']} "
-              f"(score: {result['max_score']:.1f})")
+              f"(score: {score:.1f})")
 
 Advanced Custom Sanitizers
 --------------------------
@@ -418,9 +426,21 @@ Create test cases to validate sanitizer behavior:
             matches = search(sanitized, n=1, threshold=threshold)
 
             # Check result
-            if matches and matches[0]['max_score'] >= threshold:
-                passed = True
-                matched = matches[0]['barangay']
+            if matches:
+                # Get the maximum score from active matching strategies
+                scores = [
+                    matches[0].get('f_000b_ratio_score', 0),
+                    matches[0].get('f_0p0b_ratio_score', 0),
+                    matches[0].get('f_00mb_ratio_score', 0),
+                    matches[0].get('f_0pmb_ratio_score', 0)
+                ]
+                score = max(scores)
+                if score >= threshold:
+                    passed = True
+                    matched = matches[0]['barangay']
+                else:
+                    passed = False
+                    matched = None
             else:
                 passed = False
                 matched = None
