@@ -21,12 +21,18 @@ data with fuzzy search capabilities.
    :target: https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml
    :alt: barangay build
 
+.. image:: https://img.shields.io/badge/Visit%20the%20Docs-red
+   :target: https://bendlikeabamboo.github.io/barangay/
+   :alt: Visit the Docs
+
 
 Features
 ********
 
 -  **Fuzzy Search**: Fast, customizable matching for unstandardized
    addresses
+-  **Command Line Interface**: Easy-to-use CLI for quick searches and
+   data operations
 -  **Multiple Data Models**: Basic (nested), Extended (recursive), and
    Flat (list) structures
 -  **Historical Data**: Access previous PSGC releases by date
@@ -62,25 +68,27 @@ Documentation Sections
    :maxdepth: 2
    :caption: Getting Started
 
-   getting_started/installation
-   getting_started/first_search
-   getting_started/common_patterns
+   getting_started/installation.rst
+   getting_started/first_search.rst
+   getting_started/common_patterns.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Core Concepts
+   :caption: User Guide
 
-   core_concepts/index.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: How-To Guides
-
+   how_to/cli_operations
    how_to/address_validation
    how_to/batch_processing
-   how_to/cli_operations
    how_to/performance
    how_to/custom_matching
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Concepts
+
+   core_concepts/data_models.rst
+   core_concepts/historical.rst
+   core_concepts/search_fundamentals.rst
 
 .. toctree::
    :maxdepth: 2

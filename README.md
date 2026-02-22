@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/pypi/v/barangay)](https://pypi.org/project/barangay/)
 [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)
+[![Visit the Docs](https://img.shields.io/badge/Visit%20the%20Docs-red)](https://bendlikeabamboo.github.io/barangay/)
 
 Philippine geographic data with fuzzy search. Based on the January 2026 PSGC masterlist.
 
@@ -49,7 +50,6 @@ print(results[0]['barangay'])  # Tongmageng
   - [Resources](#resources)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Command Line Interface](#command-line-interface)
 
 ---
 
@@ -58,8 +58,9 @@ print(results[0]['barangay'])  # Tongmageng
 | Feature | Description |
 |---------|-------------|
 | 🔍 **Fuzzy Search** | Fast, customizable matching for unstandardized addresses |
-| 📚 **Multiple Data Models** | Choose the structure that fits your use case |
 | 📅 **Historical Data** | Access previous PSGC releases by date |
+| 👩‍💻 **Command Line Interface** | Easy-to-use command line interface |
+| 📚 **Multiple Data Models** | Choose the structure that fits your use case |
 | 💾 **Smart Caching** | Automatic caching for faster subsequent loads |
 | 📦 **Ready-to-Use** | JSON, YAML, and Python dictionary formats included |
 
@@ -223,11 +224,10 @@ Use fewer `match_hooks` for better performance when appropriate.
 
 ## Resources
 
-- 📚 [Full Documentation](https://github.com/bendlikeabamboo/barangay/tree/main/docs) - Comprehensive guides and API reference
-- � [PSGC Source](https://psa.gov.ph/classification/psgc/node/1684082306) - January 2026 masterlist
+- 📚 [Full Documentation](https://bendlikeabamboo.github.io/barangay/) - Comprehensive guides and API reference
+- 📩 [PSGC Source](https://psa.gov.ph/classification/psgc/node/1684082306) - January 2026 masterlist
 - 📦 [PyPI Package](https://pypi.org/project/barangay/)
 - 💻 [GitHub Repository](https://github.com/bendlikeabamboo/barangay)
-- 📓 [Sample Usage Notebook](https://github.com/bendlikeabamboo/barangay/blob/main/notebooks/sample_usage.ipynb)
 - 🐳 [Barangay-API Docker](https://hub.docker.com/r/bendlikeabamboo/barangay-api) - REST API companion
 
 ---
@@ -243,7 +243,3 @@ Contributions are welcome! See our [Contributing Guide](CONTRIBUTING.md) and [Co
 [MIT](LICENSE) © bendlikeabamboo
 
 ---
-
-## Command Line Interface
-
-A CLI is available for quick searches and data management. See the [comprehensive CLI documentation](docs/user_guide/cli.rst) for details.

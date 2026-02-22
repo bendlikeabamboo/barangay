@@ -2,6 +2,9 @@ name: Deploy Documentation
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'docs/**'
 
 permissions:
   contents: read
@@ -24,17 +27,10 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v4
-
       - name: Install dependencies
         run: |
-          uv sync
-          uv sync --group docs
-
-      - name: Activate environment
-        run: |
-          source .venv/bin/activate
+          pip install .
+          pip install .[docs]
 
       - name: Build documentation
         run: |

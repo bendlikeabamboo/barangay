@@ -57,7 +57,7 @@ Yes, the PSGC data is public domain and free to use. The barangay package is lic
 What Python version is required?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The package requires **Python 3.10 or higher**.
+The package requires **Python 3.13 or higher**.
 
 Check your Python version:
 
