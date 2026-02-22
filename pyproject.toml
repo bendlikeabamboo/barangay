@@ -1,9 +1,9 @@
 [project]
 name = "barangay"
-version = "2026.1.13.0"
+version = "2026.1.13.1"
 description = "Philippines Standard Geographic Code (PSGC) 2026 Python package, Fuzzy Search, JSON, and YAML."
 authors = [{ name = "bendlikeabamboo", email = "manuelb@hawitsu.xyz" }]
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "MIT" }
 keywords = [
@@ -22,6 +22,11 @@ dependencies = [
     "fastparquet>=2024.11.0,<2025.0.0",
     "rapidfuzz (>=3.14.0,<4.0.0)",
     "pydantic (>=2.11.7,<3.0.0)",
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.0",
+    "pip>=26.0.1",
+    "click>=8.1.0,<9.0.0",
+    "rich>=13.9.0,<14.0.0",
 ]
 
 [project.urls]
@@ -29,6 +34,9 @@ homepage = "https://hawitsu.xyz"
 repository = "https://github.com/bendlikeabamboo/barangay"
 documentation = "https://github.com/bendlikeabamboo/barangay/blob/main/README.md"
 "Bug Tracker" = "https://github.com/bendlikeabamboo/barangay/issues"
+
+[project.scripts]
+barangay = "barangay.cli:app"
 
 [build-system]
 requires = ["hatchling"]
@@ -41,11 +49,23 @@ dev = [
     "ipywidgets>=8.1.7,<9",
     "pyarrow>=22.0.0",
     "pre-commit>=4.5.1",
-    "mypy>=1.19.1",
     "pandas-stubs>=2.3.3.251219",
     "types-pyyaml>=6.0.12.20250915",
     "pip-audit>=2.10.0",
     "ruff>=0.14.11",
     "ipykernel>=7.1.0",
     "pytest>=9.0.2",
+    "ty>=0.0.17",
+]
+docs = [
+    "sphinx>=8.0.0",
+    "furo>=2024.0.0",
+    "sphinx-copybutton>=0.5.0",
+    "sphinx-design>=0.6.0",
+    "sphinx-autodoc-typehints>=2.0.0",
+    "sphinx-autobuild>=2024.0.0",
+    "shibuya>=2026.1.9",
+    "docformatter>=1.7.7",
+    "myst-parser>=5.0.0",
+    "pydata-sphinx-theme>=0.16.1",
 ]
