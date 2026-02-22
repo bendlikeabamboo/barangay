@@ -21,6 +21,10 @@ data with fuzzy search capabilities.
    :target: https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml
    :alt: barangay build
 
+.. image:: https://img.shields.io/badge/Visit%20the%20Docs-red
+   :target: https://bendlikeabamboo.github.io/barangay/
+   :alt: Visit the Docs
+
 
 Features
 ********
