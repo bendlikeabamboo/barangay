@@ -2,6 +2,9 @@ name: Deploy Documentation
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'docs/**'
 
 permissions:
   contents: read
