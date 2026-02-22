@@ -855,7 +855,7 @@ Usage:
 See Also
 --------
 
-* :doc:`../user_guide/cli` - CLI user guide
+* :doc:`../how_to/cli_operations` - CLI user guide
 * :doc:`../api_reference/cli` - CLI API reference
 * :doc:`address_validation` - Address validation examples
 * :doc:`batch_processing` - Batch processing examples

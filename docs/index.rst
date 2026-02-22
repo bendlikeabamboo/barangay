@@ -1,6 +1,6 @@
-#####################
+####################
  Welcome to Barangay
-#####################
+####################
 
 Barangay is a Python package for Philippine geographic/administrative
 data with fuzzy search capabilities.
@@ -23,7 +23,7 @@ data with fuzzy search capabilities.
 
 
 Features
-*********
+********
 
 -  **Fuzzy Search**: Fast, customizable matching for unstandardized
    addresses
@@ -36,7 +36,7 @@ Features
 
 
 Quick Start
-************
+***********
 
 Installation:
 
@@ -56,68 +56,64 @@ Basic usage:
 
 
 Documentation Sections
-***********************
+**********************
 
 .. toctree::
    :maxdepth: 2
-   :caption: Quick Start
+   :caption: Getting Started
 
-   quick_start/installation
-   quick_start/first_search
-   quick_start/data_models_overview
-
-.. toctree::
-   :maxdepth: 2
-   :caption: User Guides
-
-   user_guide/search
-   user_guide/data_models
-   user_guide/historical_data
-   user_guide/configuration
-   user_guide/performance
-   user_guide/cli
+   getting_started/installation
+   getting_started/first_search
+   getting_started/common_patterns
 
 .. toctree::
    :maxdepth: 2
-   :caption: API Reference
+   :caption: Core Concepts
 
-   api_reference/search
-   api_reference/fuzz
-   api_reference/data_manager
-   api_reference/models
-   api_reference/config
-   api_reference/date_resolver
-   api_reference/data
-   api_reference/downloader
-   api_reference/utils
-   api_reference/cli
+   core_concepts/index.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Advanced Topics
+   :caption: How-To Guides
 
-   advanced/fuzzy_matching
-   advanced/caching
-   advanced/error_handling
-   advanced/custom_sanitizers
+   how_to/address_validation
+   how_to/batch_processing
+   how_to/cli_operations
+   how_to/performance
+   how_to/custom_matching
 
 .. toctree::
    :maxdepth: 2
    :caption: Examples
 
-   examples/address_validation
+   examples/cli
    examples/geocoding
    examples/data_analysis
-   examples/batch_processing
-   examples/cli
+   examples/recipes
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   api_reference/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced
+
+   advanced/caching
+   advanced/custom_sanitizers
+   advanced/error_handling
+   advanced/fuzzy_matching
 
 .. toctree::
    :maxdepth: 2
    :caption: Troubleshooting
 
    troubleshooting/common_errors
-   troubleshooting/performance
    troubleshooting/faq
+   troubleshooting/issues
+   troubleshooting/performance
 
 .. toctree::
    :maxdepth: 2
@@ -127,7 +123,7 @@ Documentation Sections
 
 
 Indices and tables
-###################
+##################
 
 -  :ref:`genindex`
 -  :ref:`modindex`
@@ -135,58 +131,8 @@ Indices and tables
 
 
 Links
-******
+*****
 
--  :doc:`ARCHITECTURE` - Documentation architecture
 -  `GitHub Repository <https://github.com/bendlikeabamboo/barangay>`_
 -  `Issue Tracker <https://github.com/bendlikeabamboo/barangay/issues>`_
 -  `PyPI <https://pypi.org/project/barangay/>`_
-
-Documentation Status
-*********************
-
-.. list-table:: Documentation Completeness
-   :widths: 25 25 25 25
-   :header-rows: 1
-
-   -  - Section
-      - Status
-      - Files
-      - Description
-
-   -  - Quick Start
-      - ✅ Complete
-      - 3 files
-      - Installation, first search, data models overview
-
-   -  - User Guides
-      - ✅ Complete
-      - 6 files
-      - Search, data models, historical data, configuration,
-        performance, CLI
-
-   -  - API Reference
-      - ✅ Complete
-      - 8 files
-      - Complete API documentation for all modules
-
-   -  - Advanced Topics
-      - ✅ Complete
-      - 4 files
-      - Fuzzy matching, caching, error handling, custom sanitizers
-
-   -  - Examples
-      - ✅ Complete
-      - 5 files
-      - Address validation, geocoding, data analysis, batch processing,
-        CLI usage
-
-   -  - Troubleshooting
-      - ✅ Complete
-      - 3 files
-      - Common errors, performance issues, FAQ
-
-   -  - Contributing
-      - ✅ Complete
-      - 1 file
-      - Contributing guide and documentation guidelines

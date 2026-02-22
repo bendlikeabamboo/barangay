@@ -28,7 +28,7 @@ If you need a specific version, specify it with:
 .. tip::
 
    Starting with v2026.1.13.1, all versions now have access to historical data using the
-   "as_of" configuration.
+   "as_of" configuration, downloaded only on demand.
 
 Install from Source
 -------------------
@@ -44,16 +44,6 @@ If you want to install from source, you can clone the repository and install:
    # Install in development mode
    pip install -e .
 
-Or using uv (recommended for development):
-
-.. code-block:: bash
-
-   # Clone the repository
-   git clone https://github.com/bendlikeabamboo/barangay.git
-   cd barangay
-
-   # Install with uv
-   uv pip install -e .
 
 Verify Installation
 -------------------
@@ -157,13 +147,15 @@ If you get a permission error during installation, try:
 
    pip install --user barangay
 
-Or use a virtual environment:
+
+Or use a virtual environment using `uv <https://docs.astral.sh/uv/>`_:
+
 
 .. code-block:: bash
 
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install barangay
+   uv venv
+   source .venv/bin/activate # on Windows: .venv\Scripts\activate
+   uv pip install barangay
 
 Import Error
 ~~~~~~~~~~~~
@@ -190,10 +182,9 @@ If you encounter dependency conflicts, try installing in a fresh virtual environ
 
 .. code-block:: bash
 
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install --upgrade pip
-   pip install barangay
+   uv venv
+   source .venv/bin/activate # on Windows: .venv\Scripts\activate
+   uv pip install barangay
 
 Slow Download
 ~~~~~~~~~~~~~
@@ -223,10 +214,8 @@ For development, it's recommended to install the package in editable mode along 
    cd barangay
 
    # Install with development dependencies using uv
-   uv pip install -e ".[dev]"
+   uv sync --all-groups
 
-   # Or using pip
-   pip install -e ".[dev]"
 
 This will install:
 
@@ -242,8 +231,8 @@ Next Steps
 Now that you have barangay installed, check out these guides:
 
 * :doc:`first_search` - Learn how to perform your first search
-* :doc:`data_models_overview` - Understand the different data models available
-* :doc:`../user_guide/search` - Comprehensive guide to fuzzy search
-* :doc:`../user_guide/configuration` - Configure the package for your needs
+* :doc:`../core_concepts/data_models` - Understand the different data models available
+* :doc:`../core_concepts/search_fundamentals` - Comprehensive guide to fuzzy search
+* :doc:`../core_concepts/configuration` - Configure the package for your needs
 
 If you encounter any issues not covered here, please check the :doc:`../troubleshooting/common_errors` guide or `report an issue <https://github.com/bendlikeabamboo/barangay/issues>`_.

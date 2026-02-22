@@ -1097,7 +1097,7 @@ Memory Management Tips
 See Also
 --------
 
-* :ref:`api-search` - Search function API reference
-* :ref:`examples-address-validation` - Address validation examples
-* :ref:`advanced-caching` - Caching mechanisms
-* :ref:`advanced-error-handling` - Error handling patterns
+* :doc:`../api_reference/search` - Search function API reference
+* :doc:`address_validation` - Address validation examples
+* :doc:`../advanced/caching` - Caching mechanisms
+* :doc:`../advanced/error_handling` - Error handling patterns

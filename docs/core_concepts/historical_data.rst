@@ -647,9 +647,9 @@ Next Steps
 
 Now that you understand historical data, explore these topics:
 
-* :doc:`search` - Learn about fuzzy search features
+* :doc:`search_fundamentals` - Learn about fuzzy search features
 * :doc:`data_models` - Detailed information about data structures
 * :doc:`configuration` - Configure the package for your needs
-* :doc:`performance` - Performance optimization tips
+* :doc:`../how_to/performance` - Performance optimization tips
 
 For API reference, see :doc:`../api_reference/date_resolver` and :doc:`../api_reference/data_manager`.

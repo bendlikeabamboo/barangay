@@ -122,7 +122,7 @@ from barangay.config import (  # noqa:E402
 )
 
 # Update available_dates at module import
-available_dates = get_available_dates() + [current]
+available_dates = list(set(get_available_dates() + [current]))
 
 __all__ = [
     # Main search function

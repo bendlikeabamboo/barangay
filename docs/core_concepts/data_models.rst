@@ -1,7 +1,7 @@
-Data Models Guide
-=================
+Data Models
+===========
 
-This guide provides detailed information about the three data models available in the barangay package: BARANGAY (basic), BARANGAY_EXTENDED (extended), and BARANGAY_FLAT (flat).
+The barangay package provides three different data models to suit various use cases. Each model has its own structure and is optimized for specific tasks.
 
 Overview of Data Models
 -----------------------
@@ -14,10 +14,78 @@ The barangay package provides three data models to suit different use cases:
 
 Each model has its own strengths and is optimized for specific tasks.
 
-Comparison Table
-~~~~~~~~~~~~~~~~
-
 .. list-table:: Data Model Comparison
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Model
+     - Best For
+     - Structure
+   * - BARANGAY
+     - Simple lookups, hierarchical access
+     - Nested dictionary (region → city/municipality → barangay)
+   * - BARANGAY_EXTENDED
+     - Complex hierarchies, rich metadata
+     - Recursive with additional fields (code, level, population, etc.)
+   * - BARANGAY_FLAT
+     - Search, filtering, DataFrame operations
+     - Flat list with parent references
+
+When to Use Each Model
+----------------------
+
+BARANGAY (Basic Model)
+~~~~~~~~~~~~~~~~~~~~~~
+
+Use BARANGAY when you need:
+
+* Simple, hierarchical access to barangay data
+* Quick lookups by region, city/municipality, and barangay
+* Memory-efficient storage for basic information
+* A straightforward structure for navigation
+
+Example use cases:
+
+* Building a dropdown selector for addresses
+* Displaying geographic hierarchies
+* Simple data validation
+
+BARANGAY_EXTENDED (Extended Model)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use BARANGAY_EXTENDED when you need:
+
+* Rich metadata about each administrative level
+* Information about codes, levels, and other attributes
+* Detailed hierarchical relationships
+* Complete information for complex applications
+
+Example use cases:
+
+* Geographic information systems (GIS)
+* Data analysis with additional attributes
+* Applications requiring detailed administrative information
+
+BARANGAY_FLAT (Flat Model)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use BARANGAY_FLAT when you need:
+
+* Easy filtering and searching
+* Integration with pandas DataFrame operations
+* Batch processing of barangay data
+* Parent references for navigation
+
+Example use cases:
+
+* Data analysis and visualization
+* Machine learning feature engineering
+* Exporting data to other formats
+
+Feature Comparison
+------------------
+
+.. list-table:: Feature Comparison
    :widths: 20 20 20 20
    :header-rows: 1
 
@@ -60,11 +128,9 @@ BARANGAY (Basic Model)
 Structure
 ~~~~~~~~~
 
-BARANGAY is a nested dictionary with three levels:
+BARANGAY is a nested dictionary with three levels::
 
-
-region → municipality_or_city → barangay
-````````````````````````````````````````
+   region → municipality_or_city → barangay
 
 Each level contains:
 
@@ -462,64 +528,6 @@ Example: Data Analysis
    df.to_csv('philippine_barangays.csv', index=False)
    print("Exported to philippine_barangays.csv")
 
-Data Model Selection Guide
---------------------------
-
-Decision Tree
-~~~~~~~~~~~~~
-
-1. **Do you need to work with pandas DataFrame?**
-   * Yes → Use BARANGAY_FLAT
-   * No → Continue to step 2
-
-2. **Do you need rich metadata (codes, levels, etc.)?**
-   * Yes → Use BARANGAY_EXTENDED
-   * No → Continue to step 3
-
-3. **Do you need hierarchical access (region → city → barangay)?**
-   * Yes → Use BARANGAY
-   * No → Use BARANGAY_FLAT
-
-Use Case Matrix
-~~~~~~~~~~~~~~~
-
-.. list-table:: Use Case Matrix
-   :widths: 40 20 20 20
-   :header-rows: 1
-
-   * - Use Case
-     - BARANGAY
-     - BARANGAY_EXTENDED
-     - BARANGAY_FLAT
-   * - Dropdown selectors
-     - ✓
-     - ✓
-     - ✗
-   * - Data analysis
-     - ✗
-     - ✗
-     - ✓
-   * - GIS applications
-     - ✗
-     - ✓
-     - ✓
-   * - Simple lookups
-     - ✓
-     - ✓
-     - ✓
-   * - Export to CSV/Excel
-     - ✗
-     - ✗
-     - ✓
-   * - Memory-constrained apps
-     - ✓
-     - ✗
-     - ✓
-   * - Need PSGC codes
-     - ✗
-     - ✓
-     - ✓
-
 Working with Different Models
 -----------------------------
 
@@ -616,11 +624,73 @@ Export to different formats:
    df.to_json('philippine_barangays.json', orient='records', indent=2)
    print("Exported to JSON")
 
+Data Model Selection Guide
+--------------------------
+
+Decision Tree
+~~~~~~~~~~~~~
+
+1. **Do you need to work with pandas DataFrame?**
+   * Yes → Use BARANGAY_FLAT
+   * No → Continue to step 2
+
+2. **Do you need rich metadata (codes, levels, etc.)?**
+   * Yes → Use BARANGAY_EXTENDED
+   * No → Continue to step 3
+
+3. **Do you need hierarchical access (region → city → barangay)?**
+   * Yes → Use BARANGAY
+   * No → Use BARANGAY_FLAT
+
+Use Case Matrix
+~~~~~~~~~~~~~~~
+
+.. list-table:: Use Case Matrix
+   :widths: 40 20 20 20
+   :header-rows: 1
+
+   * - Use Case
+     - BARANGAY
+     - BARANGAY_EXTENDED
+     - BARANGAY_FLAT
+   * - Dropdown selectors
+     - ✓
+     - ✓
+     - ✗
+   * - Data analysis
+     - ✗
+     - ✗
+     - ✓
+   * - GIS applications
+     - ✗
+     - ✓
+     - ✓
+   * - Simple lookups
+     - ✓
+     - ✓
+     - ✓
+   * - Export to CSV/Excel
+     - ✗
+     - ✗
+     - ✓
+   * - Memory-constrained apps
+     - ✓
+     - ✗
+     - ✓
+   * - Need PSGC codes
+     - ✗
+     - ✓
+     - ✓
+
 Memory and Performance Considerations
 -------------------------------------
 
 Memory Usage
 ~~~~~~~~~~~~
+
+* **BARANGAY**: Most memory-efficient for hierarchical access
+* **BARANGAY_EXTENDED**: Higher memory usage due to rich metadata
+* **BARANGAY_FLAT**: Efficient for DataFrame operations, moderate memory
 
 .. list-table:: Memory Usage Comparison
    :widths: 30 35 35
@@ -641,6 +711,10 @@ Memory Usage
 
 Access Speed
 ~~~~~~~~~~~~
+
+* **BARANGAY**: Fast for hierarchical lookups (O(1) for direct access)
+* **BARANGAY_EXTENDED**: Similar to BARANGAY, with additional attribute access
+* **BARANGAY_FLAT**: Fast for filtering and searching with pandas operations
 
 .. list-table:: Access Speed Comparison
    :widths: 30 35 35
@@ -797,11 +871,10 @@ Here's a complete example demonstrating all three models:
 Next Steps
 ----------
 
-Now that you understand the data models, explore these topics:
+Now that you understand the different data models, explore these topics:
 
-* :doc:`search` - Learn about fuzzy search features
-* :doc:`historical_data` - How to access historical data
-* :doc:`configuration` - Configure the package for your needs
-* :doc:`performance` - Performance optimization tips
+* :doc:`../getting_started/first_search` - Learn about fuzzy search features
+* :doc:`../examples/data_analysis` - Data analysis examples
+* :doc:`../advanced/fuzzy_matching` - Advanced fuzzy matching techniques
 
 For API reference, see :doc:`../api_reference/data`.

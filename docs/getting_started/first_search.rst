@@ -305,9 +305,8 @@ Next Steps
 
 Now that you've performed your first search, explore these topics:
 
-* :doc:`data_models_overview` - Learn about the different data models available
-* :doc:`../user_guide/search` - Comprehensive guide to fuzzy search features
-* :doc:`../user_guide/data_models` - Detailed information about data structures
-* :doc:`../user_guide/historical_data` - How to access historical data
+* :doc:`../core_concepts/data_models` - Learn about the different data models available
+* :doc:`../core_concepts/search_fundamentals` - Comprehensive guide to fuzzy search features
+* :doc:`../core_concepts/historical_data` - How to access historical data
 
-For more advanced search features and customization options, see the :doc:`../user_guide/search` guide.
+For more advanced search features and customization options, see the :doc:`../core_concepts/search_fundamentals` guide.

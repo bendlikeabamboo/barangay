@@ -825,7 +825,7 @@ Performance Tips
 See Also
 --------
 
-* :ref:`api-search` - Search function API reference
-* :ref:`userguide-fuzzy-search` - Fuzzy search user guide
-* :ref:`examples-batch-processing` - Batch processing examples
-* :ref:`advanced-error-handling` - Error handling patterns
+* :doc:`../api_reference/search` - Search function API reference
+* :doc:`../advanced/fuzzy_matching` - Fuzzy search user guide
+* :doc:`batch_processing` - Batch processing examples
+* :doc:`../advanced/error_handling` - Error handling patterns

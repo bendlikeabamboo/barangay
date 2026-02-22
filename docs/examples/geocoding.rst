@@ -982,7 +982,7 @@ Performance Tips
 See Also
 --------
 
-* :ref:`api-search` - Search function API reference
-* :ref:`examples-data-analysis` - Data analysis examples
-* :ref:`examples-batch-processing` - Batch processing examples
-* :ref:`advanced-caching` - Caching mechanisms
+* :doc:`../api_reference/search` - Search function API reference
+* :doc:`data_analysis` - Data analysis examples
+* :doc:`../how_to/batch_processing` - Batch processing examples
+* :doc:`../advanced/caching` - Caching mechanisms

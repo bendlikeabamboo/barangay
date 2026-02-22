@@ -67,4 +67,5 @@ docs = [
     "shibuya>=2026.1.9",
     "docformatter>=1.7.7",
     "myst-parser>=5.0.0",
+    "pydata-sphinx-theme>=0.16.1",
 ]

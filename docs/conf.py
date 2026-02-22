@@ -119,16 +119,24 @@ html_theme = "shibuya"
 
 # Theme options
 html_theme_options = {
-    "sidebar_hide_name": False,
-    "navigation_with_keys": True,
-    "light_css_variables": {
-        "color-brand-primary": "#0066cc",
-        "color-brand-content": "#0066cc",
-    },
-    "dark_css_variables": {
-        "color-brand-primary": "#3399ff",
-        "color-brand-content": "#3399ff",
-    },
+    # "sidebar_hide_name": False,
+    # "show_nav_level": 2,
+    # "navigation_with_keys": True,
+    # "light_css_variables": {
+    #     "color-brand-primary": "#0066cc",
+    #     "color-brand-content": "#0066cc",
+    # },
+    # "dark_css_variables": {
+    #     "color-brand-primary": "#3399ff",
+    #     "color-brand-content": "#3399ff",
+    # },
+    # "show_prev_next": True,
+    # "show_nav_level": 5,
+    # "navigation_depth": 5,
+    # "collapse_navigation": True,
+    # "sticky_navigation": True,
+    # "includehidden": True,
+    # "titles_only": False,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
