@@ -32,6 +32,10 @@ jobs:
           uv sync
           uv sync --group docs
 
+      - name: Activate environment
+        run: |
+          source .venv/bin/activate
+
       - name: Build documentation
         run: |
           cd docs
