@@ -1,10 +1,12 @@
 site_name: barangay
 site_description: Python Package for Philippine Standard Geographic Code
 site_author: bendlikeabamboo
+site_logo: favicon.png
 repo_url: https://github.com/bendlikeabamboo/barangay
 
 theme:
   name: shadcn
+  favicon: favicon.png
   extra_css:
     - stylesheets/extra.css
 

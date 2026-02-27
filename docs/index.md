@@ -43,7 +43,7 @@ print(f"Barangay Name: {top_result["barangay"]}")
 print(f"PSGC ID: {top_result["psgc_id"]}")
 ```
 
-Ouput:
+Output:
 ```txt
 Barangay Name: Tongmageng
 PSGC ID: 1907005010
@@ -131,6 +131,8 @@ Output:
 | Tongusong | Sitangkai | Tawi-Tawi | 1907005012 | 81.1 |
 | Tongehat | Sibutu | Tawi-Tawi | 1907011014 | 77.8 |
 
+**Note:** The `Score` column shows the maximum score across all matching patterns (barangay only, province+barangay, municipality+barangay, province+municipality+barangay).
+
 
 #### Export data
 ```sh
@@ -141,7 +143,7 @@ barangay export --model flat --format json --output data.json
 barangay info version
 ```
 
-Ouput:
+Output:
 ```txt
 Current version: 2026-01-13
 Available dates: 2026-01-13, 2025-08-29, 2025-10-13, 2025-07-08

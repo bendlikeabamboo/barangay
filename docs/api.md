@@ -33,7 +33,13 @@ results = search("Tongmageng, Tawi-Tawi")
 - `MB` (municipality + barangay): Matches against municipality and barangay combined
 - `PMB` (province + municipality + barangay): Matches against all three levels combined
 
-The `max_score` field contains the highest score across all active match patterns.
+Each result includes the following score fields:
+- `f_000b_ratio_score`: Score for barangay-only match
+- `f_0p0b_ratio_score`: Score for province + barangay match
+- `f_00mb_ratio_score`: Score for municipality + barangay match
+- `f_0pmb_ratio_score`: Score for province + municipality + barangay match
+
+Each result also includes base fields (`000b`, `0p0b`, `00mb`, `0pmb`) for the corresponding match patterns.
 
 **Example:**
 
@@ -47,7 +53,7 @@ results = search(
 )
 
 for result in results:
-    print(f"{result['barangay']} (score: {result['max_score']})")
+    print(f"{result['barangay']} (score: {result['f_00mb_ratio_score']})")
 ```
 
 ## Data Access
@@ -231,11 +237,10 @@ results3 = search("San Jose", fuzz_base=fuzz_base)
 Class for fuzzy matching operations with pre-computed matching functions.
 
 ```python
-from barangay import FuzzBase, load_fuzzer_base
+from barangay import FuzzBase, create_fuzz_base
 
-# Create from loaded fuzzer base data
-fuzzer_base_df = load_fuzzer_base(as_of="2025-08-29")
-fuzz_base = FuzzBase(fuzzer_base=fuzzer_base_df)
+# Create FuzzBase instance using factory function
+fuzz_base = create_fuzz_base(as_of="2025-08-29")
 ```
 
 **Parameters:**

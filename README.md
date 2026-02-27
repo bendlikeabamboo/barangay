@@ -26,32 +26,6 @@ print(results[0]['barangay'])  # Tongmageng
 
 ---
 
-## Table of Contents
-
-- [🇵🇭 barangay](#-barangay)
-  - [Quick Start](#quick-start)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [Fuzzy Search](#fuzzy-search)
-    - [Basic Usage](#basic-usage)
-    - [Custom Search](#custom-search)
-    - [Parameters](#parameters)
-    - [Match Hooks](#match-hooks)
-  - [Data Models](#data-models)
-    - [BARANGAY](#barangay)
-    - [BARANGAY\_EXTENDED](#barangay_extended)
-    - [BARANGAY\_FLAT](#barangay_flat)
-  - [Historical Data](#historical-data)
-    - [Available Dates](#available-dates)
-    - [Module Attributes](#module-attributes)
-  - [Performance](#performance)
-  - [Resources](#resources)
-  - [Contributing](#contributing)
-  - [License](#license)
-
----
-
 ## Features
 
 | Feature | Description |
@@ -75,51 +49,116 @@ pip install barangay
 
 ---
 
-## Fuzzy Search
+## CLI
 
-The `search()` function performs fuzzy string matching across administrative levels.
+```bash
+# Search for barangays
+barangay search "Tongmageng, Tawi-Tawi"
 
-### Basic Usage
+# Export data
+barangay export --model flat --format json --output data.json
+
+# Show information
+barangay info version
+barangay info stats
+
+# Work with historical data
+barangay history list-dates
+barangay history search-history "Tongmageng" --as-of "2025-07-08"
+
+# Manage cache
+barangay cache info
+barangay cache clear
+
+# Batch operations
+barangay batch batch-search queries.txt --limit 5 --output results.json
+barangay batch validate barangay_names.txt
+```
+
+📖 **Full CLI Reference:** [docs/cli.md](https://bendlikeabamboo.github.io/barangay/cli/)
+
+---
+
+## Python API
+
+### Fuzzy Search
 
 ```python
 from barangay import search
 
 # Simple search
-search("Tongmageng, Tawi-Tawi")
-```
+results = search("Tongmageng, Tawi-Tawi")
 
-### Custom Search
-
-```python
-from barangay import search
-
+# Custom search
 search(
     "Tongmagen, Tawi-Tawi",
     n=4,                    # Number of results
     match_hooks=["municipality", "barangay"],  # Match levels
     threshold=70.0,         # Minimum similarity (0-100)
 )
+
+# Historical data
+search("Tongmageng", as_of="2025-07-08")
 ```
 
-### Parameters
+### Data Access
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `search_string` | `str` | — | Text to search for |
-| `n` | `int` | `5` | Maximum results to return |
-| `match_hooks` | `list` | `["province", "municipality", "barangay"]` | Administrative levels to match |
-| `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
-| `as_of` | `str \| None` | `None` | Date for historical data (YYYY-MM-DD) |
+```python
+from barangay import barangay, barangay_flat, barangay_extended
 
-### Match Hooks
+# Basic nested model (simple lookups)
+ncr_cities = list(barangay["National Capital Region (NCR)"].keys())
 
-Choose which administrative levels to include in matching:
+# Extended model (recursive with metadata)
+for region in barangay_extended.components:
+    print(f"{region.name} ({region.type})")
 
-- `"barangay"` - Barangay names only (required)
-- `"municipality"` - Municipality or city names
-- `"province"` - province or highly urbanized city (HUC) names
+# Flat model (search & filtering)
+brgy = [loc for loc in barangay_flat if loc.name == "Marayos"][0]
+```
 
-Combine any of these options. Fewer hooks = faster performance.
+### Utilities
+
+```python
+from barangay import sanitize_input, resolve_date, get_available_dates
+
+# Sanitize strings
+cleaned = sanitize_input("City of San Jose", exclude=["city of "])
+# Result: "san jose"
+
+# Resolve to closest available date
+resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-01-13")
+# Result: '2025-07-08'
+
+# Get all available dates
+dates = get_available_dates()
+# ['2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
+```
+
+📖 **Full API Reference:** [docs/api.md](https://bendlikeabamboo.github.io/barangay/api/)
+
+---
+
+## Configuration
+
+Configure via environment variables:
+
+```bash
+export BARANGAY_AS_OF="2025-07-08"      # Default dataset date
+export BARANGAY_VERBOSE="true"          # Enable verbose logging
+export BARANGAY_CACHE_DIR="/custom/path" # Custom cache directory
+```
+
+Or set programmatically:
+
+```python
+import barangay
+barangay.as_of = "2025-07-08"
+```
+
+**Priority:** Function parameter → Module attribute → Environment variable → Default (latest)
+
+📖 **Full Configuration Guide:** [docs/configuration.md](https://bendlikeabamboo.github.io/barangay/configuration/)
 
 ---
 
@@ -129,54 +168,11 @@ Three data structures are available. Choose based on your use case:
 
 | Model | Use Case | Structure |
 |-------|----------|-----------|
-| [`BARANGAY`](#barangay) | Simple lookups | Nested dictionary (region → city → barangay) |
-| [`BARANGAY_EXTENDED`](#barangay_extended) | Complex hierarchies | Recursive with rich metadata |
-| [`BARANGAY_FLAT`](#barangay_flat) | Search & filtering | Flat list with parent references |
+| [`barangay`](https://bendlikeabamboo.github.io/barangay/api/#barangay-admindiv) | Simple lookups | Nested dictionary (region → city → barangay) |
+| [`barangay_extended`](https://bendlikeabamboo.github.io/barangay/api/#barangay_extended-admindivextended) | Complex hierarchies | Recursive with rich metadata |
+| [`barangay_flat`](https://bendlikeabamboo.github.io/barangay/api/#barangay_flat-listadmindivflat) | Search & filtering | Flat list with parent references |
 
-### BARANGAY
-
-Simple nested dictionary. Best for straightforward lookups.
-
-```python
-from barangay import BARANGAY
-
-# Access NCR cities
-ncr_cities = list(BARANGAY["National Capital Region (NCR)"].keys())
-
-# Access Binondo barangays
-manila_brgys = BARANGAY["National Capital Region (NCR)"]["City of Manila"]["Binondo"]
-```
-
-### BARANGAY_EXTENDED
-
-Metadata-rich recursive model. Handles complex hierarchies (e.g., HUCs, municipalities directly under regions).
-
-```python
-from barangay import BARANGAY_EXTENDED
-
-# Get NCR components
-ncr = [item for item in BARANGAY_EXTENDED["components"]
-       if item["name"] == "National Capital Region (NCR)"][0]
-
-# List all NCR cities/municipalities with types
-for component in ncr["components"]:
-    print(f"{component['name']} ({component['type']})")
-```
-
-### BARANGAY_FLAT
-
-Flat list with parent references. Ideal for search, filtering, and DataFrame operations.
-
-```python
-from barangay import BARANGAY_FLAT
-
-# Find a specific barangay
-brgy = [loc for loc in BARANGAY_FLAT if loc["name"] == "Marayos"][0]
-
-# Trace hierarchy using parent_psgc_id
-parent = [loc for loc in BARANGAY_FLAT
-          if loc["psgc_id"] == brgy["parent_psgc_id"]][0]
-```
+**Note:** Pydantic models (`barangay`, `barangay_extended`, `barangay_flat`) are recommended. Dict versions (`BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT`) are available for backward compatibility.
 
 ---
 
@@ -184,26 +180,16 @@ parent = [loc for loc in BARANGAY_FLAT
 
 Access previous PSGC releases by date. Data is automatically cached after first download.
 
-```python
-from barangay import search
+**Current Data Version:** `2026-01-13` (January 13 2026 PSGC masterlist)
 
-# Search using data from a specific date
-search("Tongmageng", as_of="2025-07-08")
-```
-
-### Available Dates
-
+**Available Dates:**
 - Current: `2026-01-13` (bundled)
 - Historical: `2025-07-08`, `2025-08-29`, `2025-10-13`
 
-### Module Attributes
-
 ```python
-from barangay import current, available_dates, as_of
-
-print(current)           # '2026-01-13'
-print(available_dates)   # ['2025-07-08', '2025-08-29', '2025-10-13']
-print(as_of)             # None (uses latest)
+import barangay
+print(barangay.current)           # '2026-01-13'
+print(barangay.available_dates)   # ['2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
 ```
 
 ---
@@ -240,5 +226,3 @@ Contributions are welcome! See our [Contributing Guide](CONTRIBUTING.md) and [Co
 ## License
 
 [MIT](LICENSE) © bendlikeabamboo
-
----

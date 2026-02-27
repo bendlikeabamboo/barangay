@@ -35,7 +35,7 @@ barangay search "Tongmageng" --format json
 barangay search "Tongmageng" --as-of "2025-07-08" --format table
 ```
 
-**Note:** Results include scores for each matching level (barangay only, province+barangay, municipality+barangay, province+municipality+barangay). The `max_score` field shows the highest score across all match patterns.
+**Note:** Results include scores for each matching level (barangay only, province+barangay, municipality+barangay, province+municipality+barangay). Use `--format json` to see individual score fields.
 
 ## Export
 
@@ -123,12 +123,12 @@ List available historical dates.
 barangay history list-dates
 ```
 
-### `barangay history search`
+### `barangay history search-history`
 
 Search historical data.
 
 ```bash
-barangay history search "Tongmageng" --as-of "2025-07-08"
+barangay history search-history "Tongmageng" --as-of "2025-07-08"
 ```
 
 **Options:**
@@ -143,15 +143,15 @@ barangay history search "Tongmageng" --as-of "2025-07-08"
 **Example:**
 
 ```bash
-barangay history search "Tongmageng" --as-of "2025-07-08" --limit 5 --format table
+barangay history search-history "Tongmageng" --as-of "2025-07-08" --limit 5 --format table
 ```
 
-### `barangay history export`
+### `barangay history export-history`
 
 Export historical data.
 
 ```bash
-barangay history export --as-of "2025-07-08" --model flat
+barangay history export-history --as-of "2025-07-08" --model flat
 ```
 
 **Options:**
@@ -166,7 +166,7 @@ barangay history export --as-of "2025-07-08" --model flat
 **Example:**
 
 ```bash
-barangay history export --as-of "2025-07-08" --model flat --format json --output 2025-07-08.json
+barangay history export-history --as-of "2025-07-08" --model flat --format json --output 2025-07-08.json
 ```
 
 ## Cache
@@ -213,12 +213,12 @@ barangay cache download --date "2025-07-08"
 
 ## Batch
 
-### `barangay batch search`
+### `barangay batch batch-search`
 
 Batch search from file (one query per line).
 
 ```bash
-barangay batch search queries.txt --limit 5 --output results.json
+barangay batch batch-search queries.txt --limit 5 --output results.json
 ```
 
 **Options:**
@@ -234,7 +234,7 @@ barangay batch search queries.txt --limit 5 --output results.json
 
 ```bash
 # queries.txt contains one query per line
-barangay batch search queries.txt --limit 5 --output results.json
+barangay batch batch-search queries.txt --limit 5 --output results.json
 ```
 
 ### `barangay batch validate`
