@@ -1,41 +1,3 @@
-"""Data manager for barangay package.
-
-This module provides the DataManager class for handling data loading, caching,
-and downloading of Philippine barangay data. The DataManager supports multiple
-data formats and can load data from bundled package files, local cache, or
-download from GitHub.
-
-Main Classes:
-    :class:`DataManager`: Manages data loading, caching, and downloading
-
-The DataManager supports the following data types:
-    - basic: Basic barangay data (JSON format)
-    - extended: Extended barangay data with recursive structure (JSON format)
-    - flat: Flat barangay data with parent references (JSON format)
-    - fuzzer_base: Pre-processed data for fuzzy matching (Parquet format)
-
-Data Loading Priority:
-    1. Bundled package data (for current date)
-    2. Local cache (for historical dates)
-    3. Download from GitHub (if not cached)
-
-Examples:
-    Using DataManager directly:
-
-    >>> from barangay.data_manager import DataManager
-    >>> dm = DataManager()
-    >>> data = dm.get_data(as_of="2025-07-08", data_type="basic")
-
-    The DataManager is also used internally by the data loading functions:
-
-    >>> from barangay import load_barangay_data
-    >>> data = load_barangay_data(as_of="2025-07-08")
-
-See Also:
-    :mod:`barangay.data`: Data loading module
-    :mod:`barangay.downloader`: Data downloading module
-"""
-
 import json
 import logging
 import os
@@ -68,113 +30,24 @@ DATA_TYPE_EXTENSIONS = {
 
 
 class DataManager:
-    """Manages data loading, caching, and downloading.
-
-    The DataManager class provides a unified interface for loading barangay data
-    from multiple sources. It handles data loading from bundled package files,
-    local cache, and downloading from GitHub repository.
-
-    The class supports the following data types:
-        - basic: Basic barangay data (nested dictionary structure)
-        - extended: Extended barangay data (recursive with metadata)
-        - flat: Flat barangay data (list with parent references)
-        - fuzzer_base: Pre-processed data for fuzzy matching (DataFrame)
-
-    Data Loading Strategy:
-        1. If as_of is None or matches CURRENT_DATE: Load from bundled package
-        2. If as_of is a historical date: Try cache first, then download from GitHub
-        3. Cache downloaded data locally for faster subsequent access
-
-    Attributes:
-        _cache_dir: Path to the cache directory for storing downloaded data
-        _logged_dataset: Flag to ensure dataset info is logged only once
-
-    Examples:
-        Basic usage:
-
-        >>> from barangay.data_manager import DataManager
-        >>> dm = DataManager()
-        >>> data = dm.get_data(data_type="basic")
-
-        Loading historical data:
-
-        >>> from barangay.data_manager import DataManager
-        >>> dm = DataManager()
-        >>> data = dm.get_data(as_of="2025-07-08", data_type="basic")
-
-        Loading fuzzer base:
-
-        >>> from barangay.data_manager import DataManager
-        >>> dm = DataManager()
-        >>> df = dm.get_data(data_type="fuzzer_base")
-
-    See Also:
-        :func:`load_barangay_data`: Load basic barangay data
-        :func:`load_barangay_extended_data`: Load extended barangay data
-        :func:`load_barangay_flat_data`: Load flat barangay data
-        :func:`load_fuzzer_base`: Load fuzzer base data
-    """
+    """Manages data loading, caching, and downloading for barangay datasets."""
 
     def __init__(self):
-        """Initialize the DataManager.
-
-        Sets up the cache directory and initializes the logging flag.
-        The cache directory is determined by system defaults or the
-        BARANGAY_CACHE_DIR environment variable.
-        """
+        """Initialize DataManager with cache dir and logging state."""
         self._cache_dir: Path = self._get_cache_dir()
         self._logged_dataset = False
 
     def get_data(
         self, as_of: str | None = None, data_type: str = "basic"
     ) -> dict | object:
-        """Get data, loading from package, cache, or downloading from GitHub.
-
-        This method provides a unified interface for loading barangay data from
-        multiple sources. It automatically handles date resolution, caching, and
-        downloading as needed.
+        """Load data from package, cache, or GitHub.
 
         Args:
-            as_of: Date string (YYYY-MM-DD) or None for latest data. If specified,
-                the method will resolve the date to the closest available dataset.
-                If None, the latest bundled data is used.
-            data_type: Type of data to load. Valid options are:
-                - "basic": Basic barangay data (nested dictionary)
-                - "extended": Extended barangay data (recursive with metadata)
-                - "flat": Flat barangay data (list with parent references)
-                - "fuzzer_base": Pre-processed data for fuzzy matching (DataFrame)
+            as_of: Target date or None for latest.
+            data_type: Data type ('basic', 'extended', etc.).
 
         Returns:
-            dict | object: The loaded data. The return type depends on data_type:
-                - basic, extended, flat: dict
-                - fuzzer_base: pandas.DataFrame
-
-        Raises:
-            ValueError: If data_type is invalid (not one of the supported types).
-
-        Examples:
-            Load latest basic data:
-
-            >>> from barangay.data_manager import DataManager
-            >>> dm = DataManager()
-            >>> data = dm.get_data(data_type="basic")
-
-            Load historical data:
-
-            >>> from barangay.data_manager import DataManager
-            >>> dm = DataManager()
-            >>> data = dm.get_data(as_of="2025-07-08", data_type="basic")
-
-            Load fuzzer base:
-
-            >>> from barangay.data_manager import DataManager
-            >>> dm = DataManager()
-            >>> df = dm.get_data(data_type="fuzzer_base")
-
-        See Also:
-            :meth:`_load_from_package`: Load data from bundled package
-            :meth:`_load_from_cache`: Load data from local cache
-            :meth:`_download_from_github`: Download data from GitHub
+            Data as dict or DataFrame.
         """
         if data_type not in DATA_TYPE_MAPPING:
             raise ValueError(
@@ -211,33 +84,13 @@ class DataManager:
             return self._download_from_github(resolved_date, data_type)
 
     def _load_from_package(self, data_type: str) -> dict | object:
-        """Load data from package (bundled with installation).
-
-        This method loads data from the package's bundled data files using
-        importlib.resources. It supports both installed packages and development
-        mode.
+        """Load data from bundled package resources.
 
         Args:
-            data_type: Type of data to load. Valid options are "basic", "extended",
-                "flat", or "fuzzer_base".
+            data_type: Type of data to load.
 
         Returns:
-            dict | object: The loaded data. Returns dict for JSON files and
-                pandas.DataFrame for Parquet files.
-
-        Raises:
-            FileNotFoundError: If the data file is not found in the package.
-            ValueError: If the file type is not supported.
-
-        Note:
-            This method uses multiple fallback strategies to load data:
-            1. importlib.resources.files() (Python 3.9+)
-            2. importlib.resources.path() (older Python versions)
-            3. Direct file system access (development mode)
-
-        See Also:
-            :meth:`_load_from_cache`: Load data from local cache
-            :meth:`_download_from_github`: Download data from GitHub
+            Data as dict or DataFrame.
         """
         from importlib import resources
 
@@ -278,28 +131,14 @@ class DataManager:
     def _load_from_cache(
         self, resolved_date: str, data_type: str
     ) -> dict | object | None:
-        """Load data from cache if available.
-
-        This method attempts to load data from the local cache directory.
-        Cached files are named using the pattern "{date}_{filename}".
+        """Load data from local cache.
 
         Args:
-            resolved_date: Date string (YYYY-MM-DD) of the cached data.
-            data_type: Type of data to load. Valid options are "basic", "extended",
-                "flat", or "fuzzer_base".
+            resolved_date: Date string for cache lookup.
+            data_type: Type of data to load.
 
         Returns:
-            dict | object | None: The loaded data if found in cache, None otherwise.
-                Returns dict for JSON files and pandas.DataFrame for Parquet files.
-
-        Note:
-            If loading from cache fails (e.g., corrupted file), the method logs
-            a warning and returns None, allowing the caller to try downloading
-            the data.
-
-        See Also:
-            :meth:`_save_to_cache`: Save data to cache
-            :meth:`_download_from_github`: Download data from GitHub
+            Cached data or None if not found.
         """
         filename = DATA_TYPE_MAPPING[data_type]
         cache_key = f"{resolved_date}_{filename}"
@@ -325,32 +164,14 @@ class DataManager:
     def _download_from_github(
         self, resolved_date: str, data_type: str
     ) -> dict | object:
-        """Download data from GitHub and save to cache.
-
-        This method downloads barangay data from the GitHub repository and saves
-        it to the local cache for faster subsequent access. The downloaded file
-        is automatically loaded and returned.
+        """Download data from GitHub and cache it.
 
         Args:
-            resolved_date: Date string (YYYY-MM-DD) of the data to download.
-            data_type: Type of data to download. Valid options are "basic", "extended",
-                "flat", or "fuzzer_base".
+            resolved_date: Target date string.
+            data_type: Type of data to download.
 
         Returns:
-            dict | object: The downloaded and loaded data. Returns dict for JSON files
-                and pandas.DataFrame for Parquet files.
-
-        Raises:
-            RuntimeError: If the download fails (network error, invalid URL, etc.).
-            ValueError: If the file type is not supported.
-
-        Note:
-            The downloaded file is saved to the cache directory with the naming
-            pattern "{date}_{filename}" for future use.
-
-        See Also:
-            :meth:`_load_from_cache`: Load data from local cache
-            :meth:`_save_to_cache`: Save data to cache
+            Downloaded data as dict or DataFrame.
         """
         from .downloader import download_data
 
@@ -369,28 +190,12 @@ class DataManager:
             raise ValueError(f"Unsupported file type: {filename}")
 
     def _save_to_cache(self, resolved_date: str, data_type: str, data) -> None:
-        """Save data to cache.
-
-        This method saves data to the local cache directory for faster subsequent
-        access. The cache file is named using the pattern "{date}_{filename}".
+        """Save data to local cache directory.
 
         Args:
-            resolved_date: Date string (YYYY-MM-DD) of the data.
-            data_type: Type of data to save. Valid options are "basic", "extended",
-                "flat", or "fuzzer_base".
-            data: Data to save. Should be dict for JSON files or pandas.DataFrame
-                for Parquet files.
-
-        Raises:
-            ValueError: If the file type is not supported or if data type is
-                incompatible with the file format.
-
-        Note:
-            The cache directory is created automatically if it doesn't exist.
-
-        See Also:
-            :meth:`_load_from_cache`: Load data from local cache
-            :meth:`_download_from_github`: Download data from GitHub
+            resolved_date: Date string for cache key.
+            data_type: Type of data being cached.
+            data: Data to save (dict or DataFrame).
         """
         filename = DATA_TYPE_MAPPING[data_type]
         cache_key = f"{resolved_date}_{filename}"
@@ -412,19 +217,11 @@ class DataManager:
             raise ValueError(f"Unsupported file type: {filename}")
 
     def _log_dataset_info(self, status_message: str, verbose: bool) -> None:
-        """Log dataset info message (only once per session).
-
-        This method logs a status message about which dataset is being used.
-        The message is only logged once per session to avoid duplicate log entries.
+        """Log dataset info if verbose mode is enabled.
 
         Args:
-            status_message: Status message to log (e.g., "Using 2025-07-08 dataset").
-            verbose: Whether verbose logging is enabled. If False, the message
-                is not logged.
-
-        Note:
-            The method uses a flag to ensure the message is logged only once
-            per DataManager instance, even if called multiple times.
+            status_message: Information message to log.
+            verbose: Whether to enable verbose logging.
         """
         if not verbose or self._logged_dataset:
             return
@@ -433,21 +230,10 @@ class DataManager:
         self._logged_dataset = True
 
     def _get_cache_dir(self) -> Path:
-        """Get cache directory for data files.
-
-        This method determines the appropriate cache directory based on the
-        operating system and environment variables.
+        """Get cache directory path for the system.
 
         Returns:
-            Path: The cache directory path. The location depends on the OS:
-                - Windows: %LOCALAPPDATA%\\barangay\\cache
-                - Linux/Mac with XDG_CACHE_HOME: $XDG_CACHE_HOME/barangay
-                - Linux/Mac fallback: ~/.cache/barangay
-                - Custom: $BARANGAY_CACHE_DIR if set
-
-        Note:
-            The BARANGAY_CACHE_DIR environment variable takes precedence over
-            system defaults if set.
+            Path to cache directory.
         """
         # Try environment variable first
         cache_dir = os.getenv("BARANGAY_CACHE_DIR")

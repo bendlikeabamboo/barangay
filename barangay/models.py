@@ -1,111 +1,107 @@
-"""Pydantic models for the barangay package.
-
-This module provides Pydantic models for representing Philippine barangay data
-with type validation and serialization support.
-
-Main Classes:
-    :class:`BarangayModel`: Model representing a barangay with administrative divisions
-
-Examples:
-    Creating a BarangayModel instance:
-
-    >>> from barangay import BarangayModel
-    >>> barangay = BarangayModel(
-    ...     barangay="Tongmageng",
-    ...     province_or_huc="Tawi-Tawi",
-    ...     municipality_or_city="Sitangkai",
-    ...     psgc_id="157501001"
-    ... )
-    >>> print(barangay.barangay)
-    Tongmageng
-
-    Converting to dictionary:
-
-    >>> from barangay import BarangayModel
-    >>> barangay = BarangayModel(
-    ...     barangay="Barangay 1",
-    ...     province_or_huc="Province A",
-    ...     municipality_or_city="City 1",
-    ...     psgc_id="010010001"
-    ... )
-    >>> data = barangay.model_dump()
-    >>> print(data)
-    {'barangay': 'Barangay 1', 'province_or_huc': 'Province A', ...}
-
-See Also:
-    :mod:`pydantic`: Pydantic documentation for BaseModel
-"""
-
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, RootModel
+from typing import Literal, Optional, List
 
 
 class BarangayModel(BaseModel):
-    """Model representing a barangay with its administrative divisions.
-
-    This Pydantic model provides type validation and serialization for Philippine
-    barangay data. It includes the barangay name, its administrative divisions
-    (province/HUC and municipality/city), and the Philippine Standard Geographic
-    Code (PSGC).
+    """Model representing a barangay with its location details.
 
     Attributes:
-        barangay: Name of the barangay. This is the smallest administrative
-            division in the Philippines, often referred to as a village or
-            neighborhood.
-        province_or_huc: Name of the province or Highly Urbanized City (HUC).
-            In the Philippines, HUCs are cities that are independent from
-            any province and have their own legislative districts.
-        municipality_or_city: Name of the municipality or city. This is the
-            intermediate administrative division between the province/HUC and
-            the barangay.
-        psgc_id: Philippine Standard Geographic Code. This is a unique
-            identifier assigned by the Philippine Statistics Authority to each
-            geographic area in the country. The code is typically 9 digits
-            long and follows a hierarchical structure.
-
-    Examples:
-        Creating a BarangayModel instance:
-
-        >>> from barangay import BarangayModel
-        >>> barangay = BarangayModel(
-        ...     barangay="Tongmageng",
-        ...     province_or_huc="Tawi-Tawi",
-        ...     municipality_or_city="Sitangkai",
-        ...     psgc_id="157501001"
-        ... )
-        >>> print(barangay.barangay)
-        Tongmageng
-
-        Converting to dictionary:
-
-        >>> from barangay import BarangayModel
-        >>> barangay = BarangayModel(
-        ...     barangay="Barangay 1",
-        ...     province_or_huc="Province A",
-        ...     municipality_or_city="City 1",
-        ...     psgc_id="010010001"
-        ... )
-        >>> data = barangay.model_dump()
-        >>> print(data)
-        {'barangay': 'Barangay 1', 'province_or_huc': 'Province A', ...}
-
-        JSON serialization:
-
-        >>> from barangay import BarangayModel
-        >>> barangay = BarangayModel(
-        ...     barangay="Barangay 1",
-        ...     province_or_huc="Province A",
-        ...     municipality_or_city="City 1",
-        ...     psgc_id="010010001"
-        ... )
-        >>> json_str = barangay.model_dump_json()
-        >>> print(json_str)
-        {"barangay":"Barangay 1","province_or_huc":"Province A",...}
-
-    See Also:
-        :class:`pydantic.BaseModel`: Base Pydantic model class
+        barangay: Name of the barangay.
+        province_or_huc: Province or highly urbanized city name.
+        municipality_or_city: Municipality or city name.
+        psgc_id: Philippine Standard Geographic Code identifier.
     """
 
     barangay: str
     province_or_huc: str
     municipality_or_city: str
     psgc_id: str
+
+
+class AdminDivExtended(BaseModel):
+    """Model for extended administrative division data with nesting.
+
+    Attributes:
+        name: Name of the administrative division.
+        type: Type of administrative division.
+        psgc_id: PSGC identifier or 'n/a'.
+        parent_psgc_id: Parent PSGC identifier or 'n/a'.
+        nicknames: Optional list of alternative names.
+        components: List of nested administrative divisions.
+    """
+
+    name: str
+    type: Literal[
+        "country",
+        "region",
+        "province",
+        "city",
+        "municipality",
+        "barangay",
+        "special_geographic_area",
+        "submunicipality",
+    ]
+    psgc_id: str | Literal["n/a"]
+    parent_psgc_id: str | Literal["n/a"]
+    nicknames: Optional[List[str]] = None
+    components: List["AdminDivExtended"] = Field(default_factory=list)
+
+
+class AdminDiv(RootModel):
+    """Root model for administrative division mapping or list.
+
+    Attributes:
+        root: Either a dict mapping PSGC IDs to AdminDiv or a list of IDs.
+    """
+
+    root: dict[str, "AdminDiv"] | List[str]
+
+    def __getitem__(self, key):
+        return self.root[key]
+
+    def __contains__(self, key):
+        return key in self.root
+
+    def __iter__(self):
+        """Iterate over the root structure.
+
+        Returns:
+            Iterator over dict keys or list items.
+        """
+        return iter(self.root)
+
+    def keys(self):
+        return self.root.keys() if isinstance(self.root, dict) else []
+
+    def values(self):
+        return self.root.values() if isinstance(self.root, dict) else []
+
+    def items(self):
+        return self.root.items() if isinstance(self.root, dict) else []
+
+
+class AdminDivFlat(BaseModel):
+    """Flat model for administrative division data without nesting.
+
+    Attributes:
+        name: Name of the administrative division.
+        type: Type of administrative division.
+        psgc_id: PSGC identifier or 'n/a'.
+        parent_psgc_id: Parent PSGC identifier or 'n/a'.
+        nicknames: Optional list of alternative names.
+    """
+
+    name: str
+    type: Literal[
+        "country",
+        "region",
+        "province",
+        "city",
+        "municipality",
+        "barangay",
+        "special_geographic_area",
+        "submunicipality",
+    ]
+    psgc_id: str | Literal["n/a"]
+    parent_psgc_id: str | Literal["n/a"]
+    nicknames: Optional[List[str]] = None

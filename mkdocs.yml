@@ -1,0 +1,30 @@
+site_name: barangay
+site_description: Python Package for Philippine Standard Geographic Code
+site_author: bendlikeabamboo
+site_logo: favicon.png
+repo_url: https://github.com/bendlikeabamboo/barangay
+
+theme:
+  name: shadcn
+  favicon: favicon.png
+  extra_css:
+    - stylesheets/extra.css
+
+nav:
+  - barangay: index.md
+  - API Reference: api.md
+  - CLI Reference: cli.md
+  - Configuration: configuration.md
+  - Data Model Reference:
+    - Overview: data_models/overview.md
+    - Python: data_models/python.md
+
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - tables
+
+plugins:
+  - search
+  - badges
