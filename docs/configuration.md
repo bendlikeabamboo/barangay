@@ -1,0 +1,106 @@
+# Configuration
+
+## Environment Variables
+
+The barangay package can be configured using environment variables.
+
+### BARANGAY_AS_OF
+
+Default dataset date (YYYY-MM-DD format). If set, this date will be used for all searches unless overridden by function parameters or module attributes.
+
+```bash
+export BARANGAY_AS_OF="2025-07-08"
+```
+
+**Priority:** Lower than function parameters and module attributes.
+
+### BARANGAY_VERBOSE
+
+Enable verbose logging. Valid values are `"true"`, `"1"`, `"yes"`, `"on"` (case-insensitive). Default is `"true"`.
+
+```bash
+export BARANGAY_VERBOSE="true"
+```
+
+### BARANGAY_CACHE_DIR
+
+Custom cache directory path. If set, downloaded data will be stored in this directory instead of the system default.
+
+```bash
+export BARANGAY_CACHE_DIR="/custom/cache/path"
+```
+
+## Configuration Priority
+
+The `as_of` date is resolved in the following priority order (highest to lowest):
+
+1. **Function parameter** - Passed directly to functions
+2. **Module attribute** - `barangay.as_of`
+3. **Environment variable** - `BARANGAY_AS_OF`
+4. **Default** - None (use latest bundled data)
+
+## Examples
+
+### Setting Configuration via Environment Variables
+
+```bash
+# Set default dataset date
+export BARANGAY_AS_OF="2025-07-08"
+
+# Enable verbose logging
+export BARANGAY_VERBOSE="true"
+
+# Set custom cache directory
+export BARANGAY_CACHE_DIR="/custom/cache/path"
+```
+
+### Using Module Attributes
+
+```python
+import barangay
+
+# Set default date for session
+barangay.as_of = "2025-07-08"
+
+# Use the default date in searches
+from barangay import search
+results = search("Tongmageng")  # Uses 2025-07-08
+```
+
+### Using Function Parameters
+
+```python
+from barangay import search
+
+# Override all other settings
+results = search("Tongmageng", as_of="2025-08-29")
+```
+
+### Programmatic Configuration
+
+```python
+from barangay import resolve_as_of, get_cache_dir, get_verbose
+
+# Resolve as_of date
+date = resolve_as_of(as_of_param="2025-08-29")
+print(date)  # '2025-08-29'
+
+# Get verbose setting
+verbose = get_verbose()
+print(verbose)  # True
+
+# Get cache directory
+cache_dir = get_cache_dir()
+print(cache_dir)  # /home/user/.cache/barangay
+```
+
+## Cache Directory
+
+The cache directory location depends on the operating system:
+
+- **Windows:** `%LOCALAPPDATA%\barangay\cache`
+- **Linux/Mac with XDG_CACHE_HOME:** `$XDG_CACHE_HOME/barangay`
+- **Linux/Mac fallback:** `~/.cache/barangay`
+- **Custom:** `$BARANGAY_CACHE_DIR` if set
+
+The cache directory stores downloaded historical data for faster subsequent loads.

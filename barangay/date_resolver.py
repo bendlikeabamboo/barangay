@@ -1,45 +1,3 @@
-"""Date resolver for barangay package.
-
-This module provides functions for resolving approximate dates to the closest available
-dataset. It supports fetching available dates from GitHub API and caching the
-results locally for improved performance.
-
-Main Functions:
-    :func:`resolve_date`: Resolve requested date to closest available dataset
-    :func:`get_available_dates`: Fetch available dates from GitHub API
-    :func:`_is_valid_date`: Check if string is a valid date in YYYY-MM-DD format
-
-Date Resolution Logic:
-    The date resolution follows these rules:
-        1. If as_of is None: Use latest bundled data
-        2. If exact match exists: Use that date
-        3. If no exact match: Use the closest date <= requested date
-        4. If requested date is before all available dates: Use the earliest date
-
-Examples:
-    Resolving a date:
-
-    >>> from barangay.date_resolver import resolve_date
-    >>> resolved, message = resolve_date(
-    ...     "2026-01-01",
-    ...     ["2025-07-08", "2025-08-29", "2025-10-13"],
-    ...     "2026-01-13"
-    ... )
-    >>> print(resolved)
-    2025-10-13
-
-    Getting available dates:
-
-    >>> from barangay.date_resolver import get_available_dates
-    >>> dates = get_available_dates()
-    >>> print(dates[:3])
-    ['2025-07-08', '2025-08-29', '2025-10-13']
-
-See Also:
-    :mod:`barangay.config`: Configuration module
-    :mod:`barangay.data_manager`: Data management module
-"""
-
 import json
 import logging
 import os
@@ -63,71 +21,15 @@ AVAILABLE_DATES_CACHE_FILE = "available_dates.json"
 def resolve_date(
     as_of: str | None, available_dates: list[str], current_date: str
 ) -> tuple[str | None, str]:
-    """Resolve requested date to closest available dataset.
-
-    This function resolves a requested date to the closest available dataset
-    using a set of resolution rules. It returns both the resolved date
-    and a status message describing which dataset is being used.
-
-    Resolution Logic:
-        1. If as_of is None: Return None (use latest bundled data)
-        2. If exact match exists: Return that date
-        3. If no exact match: Return the closest date <= requested date
-        4. If requested date is before all available dates: Return the earliest date
+    """Resolve the requested date to the best matching available date.
 
     Args:
-        as_of: Requested date (YYYY-MM-DD) or None for latest data.
-        available_dates: Sorted list of available dates from GitHub.
-        current_date: Current dataset date in package (bundled with installation).
+        as_of: The requested date string or None for latest.
+        available_dates: List of available date strings.
+        current_date: The current date string.
 
     Returns:
-        tuple[str | None, str]: A tuple containing:
-            - resolved_date: The resolved date string or None for latest
-            - status_message: A descriptive message about which dataset is being used
-
-    Examples:
-        Exact match:
-
-        >>> from barangay.date_resolver import resolve_date
-        >>> resolved, message = resolve_date(
-        ...     "2025-07-08",
-        ...     ["2025-07-08", "2025-08-29", "2025-10-13"],
-        ...     "2026-01-13"
-        ... )
-        >>> print(resolved)
-        2025-07-08
-        >>> print(message)
-        Using 2025-07-08 dataset
-
-        Closest match:
-
-        >>> from barangay.date_resolver import resolve_date
-        >>> resolved, message = resolve_date(
-        ...     "2026-01-01",
-        ...     ["2025-07-08", "2025-08-29", "2025-10-13"],
-        ...     "2026-01-13"
-        ... )
-        >>> print(resolved)
-        2025-10-13
-        >>> print(message)
-        Using 2025-10-13 dataset (closest to 2026-01-01)
-
-        Latest (None):
-
-        >>> from barangay.date_resolver import resolve_date
-        >>> resolved, message = resolve_date(
-        ...     None,
-        ...     ["2025-07-08", "2025-08-29", "2025-10-13"],
-        ...     "2026-01-13"
-        ... )
-        >>> print(resolved)
-        None
-        >>> print(message)
-        Using latest dataset
-
-    See Also:
-        :func:`get_available_dates`: Fetch available dates from GitHub API
-        :func:`resolve_as_of`: Resolve as_of date from multiple layers
+        Tuple of resolved date and status message.
     """
     # Combine github dates with current date
     all_dates = sorted(set(available_dates + [current_date]))
@@ -152,24 +54,10 @@ def resolve_date(
 
 
 def get_cache_dir() -> Path:
-    """Get cache directory for available dates cache.
-
-    This function determines the appropriate cache directory based on the operating
-    system and environment variables. The cache directory is used to store
-    the available dates list to avoid repeated GitHub API calls.
+    """Get the cache directory path for storing cached data.
 
     Returns:
-        Path: The cache directory path. The location depends on the OS:
-            - Windows: %LOCALAPPDATA%\\barangay\\cache
-            - Linux/Mac with XDG_CACHE_HOME: $XDG_CACHE_HOME/barangay
-            - Linux/Mac fallback: ~/.cache/barangay
-
-    Note:
-        The BARANGAY_CACHE_DIR environment variable takes precedence over
-        system defaults if set.
-
-    See Also:
-        :func:`get_available_dates`: Fetch available dates from GitHub API
+        Path object pointing to the cache directory.
     """
     if os.name == "nt":  # Windows
         local_app_data = os.getenv("LOCALAPPDATA")
@@ -185,36 +73,10 @@ def get_cache_dir() -> Path:
 
 
 def get_available_dates() -> list[str]:
-    """Fetch available dates from GitHub API.
-
-    This function fetches the list of available dataset dates from the GitHub
-    repository. The results are cached locally for 1 hour to reduce API calls
-    and improve performance.
-
-    The cache file is stored at:
-        ~/.cache/barangay/available_dates.json (Linux/Mac)
-        %LOCALAPPDATA%\\barangay\\cache\\available_dates.json (Windows)
+    """Fetch available dataset dates from GitHub API.
 
     Returns:
-        list[str]: A sorted list of available date strings in YYYY-MM-DD format.
-            Returns an empty list if fetching fails and no cached data is available.
-
-    Note:
-        - The cache has a 1-hour TTL (time to live)
-        - If the GitHub API call fails, cached data is returned if available
-        - If both the API call and cache fail, an empty list is returned
-
-    Examples:
-        Getting available dates:
-
-        >>> from barangay.date_resolver import get_available_dates
-        >>> dates = get_available_dates()
-        >>> print(dates[:3])
-        ['2025-07-08', '2025-08-29', '2025-10-13']
-
-    See Also:
-        :func:`resolve_date`: Resolve requested date to closest available dataset
-        :func:`_is_valid_date`: Check if string is a valid date
+        List of available date strings in YYYY-MM-DD format.
     """
     import time
     from urllib.request import Request, urlopen
@@ -274,40 +136,13 @@ def get_available_dates() -> list[str]:
 
 
 def _is_valid_date(date_str: str) -> bool:
-    """Check if string is a valid date in YYYY-MM-DD format.
-
-    This function validates that a string matches the YYYY-MM-DD format and
-    represents a valid calendar date.
+    """Validate if a string matches YYYY-MM-DD date format.
 
     Args:
-        date_str: String to validate.
+        date_str: The string to validate.
 
     Returns:
-        bool: True if the string is a valid date in YYYY-MM-DD format,
-            False otherwise.
-
-    Examples:
-        Valid dates:
-
-        >>> from barangay.date_resolver import _is_valid_date
-        >>> _is_valid_date("2025-07-08")
-        True
-        >>> _is_valid_date("2026-01-13")
-        True
-
-        Invalid dates:
-
-        >>> from barangay.date_resolver import _is_valid_date
-        >>> _is_valid_date("2025-13-01")
-        False
-        >>> _is_valid_date("2025-02-30")
-        False
-        >>> _is_valid_date("not-a-date")
-        False
-
-    Note:
-        This is a private function intended for internal use by the
-        date_resolver module.
+        True if valid date format, False otherwise.
     """
     import re
     from datetime import datetime

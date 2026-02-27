@@ -1,41 +1,3 @@
-"""Search functionality for the barangay package.
-
-This module provides fuzzy string matching capabilities for searching Philippine
-barangay data across different administrative levels (province, municipality,
-barangay). The search function uses the RapidFuzz library for fast and accurate
-fuzzy matching.
-
-Main Functions:
-    :func:`search`: Main search function for finding barangays using fuzzy matching
-
-Examples:
-    Basic search:
-
-    >>> from barangay import search
-    >>> results = search("San Jose, Manila")
-    >>> for result in results:
-    ...     print(f"{result['barangay']}, {result['municipality_or_city']}")
-
-    Search with custom parameters:
-
-    >>> from barangay import search
-    >>> results = search(
-    ...     "Tongmagen, Tawi-Tawi",
-    ...     n=4,
-    ...     match_hooks=["municipality", "barangay"],
-    ...     threshold=70.0,
-    ... )
-
-    Historical data search:
-
-    >>> from barangay import search
-    >>> results = search("Tongmageng", as_of="2025-07-08")
-
-See Also:
-    :mod:`barangay.fuzz`: Fuzzy matching module
-    :mod:`barangay.data`: Data loading module
-"""
-
 from typing import Callable, List, Literal
 
 import pandas as pd
@@ -62,96 +24,19 @@ def search(
     fuzz_base: FuzzBase | None = None,
     as_of: str | None = None,
 ) -> List[dict]:
-    """Search for barangays using fuzzy string matching.
-
-    This function performs fuzzy matching on barangay names across different
-    administrative levels (province, municipality, barangay) using the
-    RapidFuzz library's token_sort_ratio algorithm. It returns the top matching
-    results sorted by similarity score.
-
-    The function supports multiple matching strategies based on the combination
-    of match_hooks:
-        - B (Barangay only): Match against barangay names only
-        - PB (Province + Barangay): Match against province and barangay names
-        - MB (Municipality + Barangay): Match against municipality and barangay names
-        - PMB (Province + Municipality + Barangay): Match against all three levels
+    """Search barangay data with fuzzy matching.
 
     Args:
-        search_string: The string to search for. This can be a partial address,
-            a barangay name, or any combination of administrative levels.
-        match_hooks: List of administrative levels to match against. Valid options
-            are "province", "municipality", and "barangay". Default is all three.
-        threshold: Minimum similarity score (0-100) for a match to be included in
-            the results. Lower values return more results but with lower confidence.
-        n: Maximum number of results to return. Results are sorted by similarity
-            score in descending order.
-        search_sanitizer: Function to sanitize the search string before matching.
-            The default sanitizer removes common prefixes/suffixes and normalizes
-            the string.
-        fuzz_base: FuzzBase instance with pre-computed matching functions. If None,
-            a new instance is created using the as_of date. Reusing a FuzzBase
-            instance can improve performance for multiple searches.
-        as_of: Date string (YYYY-MM-DD) or None for latest data. Only used if
-            fuzz_base is None. Allows searching historical data from specific dates.
+        search_string: String to search for in barangay data.
+        match_hooks: List of location levels to match. Defaults to all.
+        threshold: Minimum similarity score (0-100). Defaults to 60.0.
+        n: Maximum number of results to return. Defaults to 5.
+        search_sanitizer: Function to clean search input.
+        fuzz_base: FuzzBase instance for scoring. Auto-created if None.
+        as_of: Date string for data version. Used with fuzz_base.
 
     Returns:
-        List[dict]: A list of dictionaries containing matching barangay data with
-        scores. Each dictionary includes:
-
-        - barangay (str): Barangay name
-        - province_or_huc (str): Province or Highly Urbanized City name
-        - municipality_or_city (str): Municipality or city name
-        - psgc_id (str): Philippine Standard Geographic Code
-        - max_score (float): Maximum similarity score across all active match types
-        - f_000b_ratio_score (float): Score for barangay-only matching
-        - f_0p0b_ratio_score (float): Score for province + barangay matching
-        - f_00mb_ratio_score (float): Score for municipality + barangay matching
-        - f_0pmb_ratio_score (float): Score for all three levels matching
-        - 000b (str): Sanitized barangay name
-        - 0p0b (str): Sanitized province + barangay string
-        - 00mb (str): Sanitized municipality + barangay string
-        - 0pmb (str): Sanitized province + municipality + barangay string
-
-    Raises:
-        ValueError: If match_hooks contains invalid values.
-
-    Examples:
-        Basic search:
-
-        >>> from barangay import search
-        >>> results = search("Tongmageng, Tawi-Tawi")
-        >>> print(results[0]['barangay'])
-        Tongmageng
-
-        Search with custom parameters:
-
-        >>> from barangay import search
-        >>> results = search(
-        ...     "Tongmagen, Tawi-Tawi",
-        ...     n=4,
-        ...     match_hooks=["municipality", "barangay"],
-        ...     threshold=70.0,
-        ... )
-        >>> for result in results:
-        ...     print(f"{result['barangay']} (score: {result['max_score']})")
-
-        Historical data search:
-
-        >>> from barangay import search
-        >>> results = search("Tongmageng", as_of="2025-07-08")
-
-        Using a custom sanitizer:
-
-        >>> from barangay import search, sanitize_input
-        >>> results = search(
-        ...     "City of San Jose",
-        ...     search_sanitizer=lambda x: sanitize_input(x, exclude=["city of "]),
-        ... )
-
-    See Also:
-        :class:`FuzzBase`: Class for pre-computing fuzzy matching functions
-        :func:`create_fuzz_base`: Factory function to create FuzzBase instances
-        :func:`sanitize_input`: String sanitization utility
+        List of matching barangay records as dictionaries.
     """
     # Create fuzz_base if not provided
     if fuzz_base is None:
