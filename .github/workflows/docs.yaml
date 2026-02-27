@@ -1,11 +1,11 @@
-name: Deploy Documentation
+name: Docs Build & Deploy
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'docs/**'
-      - 'mkdocs.yml'
+      - 'mkdocs.yaml'
 
 permissions:
   contents: read
@@ -45,6 +45,7 @@ jobs:
           path: site
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
