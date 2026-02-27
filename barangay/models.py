@@ -56,6 +56,29 @@ class AdminDiv(RootModel):
 
     root: dict[str, "AdminDiv"] | List[str]
 
+    def __getitem__(self, key):
+        return self.root[key]
+
+    def __contains__(self, key):
+        return key in self.root
+
+    def __iter__(self):
+        """Iterate over the root structure.
+
+        Returns:
+            Iterator over dict keys or list items.
+        """
+        return iter(self.root)
+
+    def keys(self):
+        return self.root.keys() if isinstance(self.root, dict) else []
+
+    def values(self):
+        return self.root.values() if isinstance(self.root, dict) else []
+
+    def items(self):
+        return self.root.items() if isinstance(self.root, dict) else []
+
 
 class AdminDivFlat(BaseModel):
     """Flat model for administrative division data without nesting.

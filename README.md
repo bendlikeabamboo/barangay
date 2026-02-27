@@ -71,7 +71,7 @@ print(results[0]['barangay'])  # Tongmageng
 pip install barangay
 ```
 
-**Requirements:** Python 3.10+
+**Requirements:** Python 3.13+
 
 ---
 
@@ -115,9 +115,9 @@ search(
 
 Choose which administrative levels to include in matching:
 
-- `"barangay"` - Barangay names only
-- `"municipality"` - Municipality/city names
-- `"province"` - Province/HUC names
+- `"barangay"` - Barangay names only (required)
+- `"municipality"` - Municipality or city names
+- `"province"` - province or highly urbanized city (HUC) names
 
 Combine any of these options. Fewer hooks = faster performance.
 
@@ -143,7 +143,7 @@ from barangay import BARANGAY
 # Access NCR cities
 ncr_cities = list(BARANGAY["National Capital Region (NCR)"].keys())
 
-# Access Manila barangays
+# Access Binondo barangays
 manila_brgys = BARANGAY["National Capital Region (NCR)"]["City of Manila"]["Binondo"]
 ```
 

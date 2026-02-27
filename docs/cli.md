@@ -12,10 +12,12 @@ barangay search "Tongmageng, Tawi-Tawi"
 
 **Options:**
 
-- `--limit`, `-l`: Maximum number of results (default: 5)
-- `--threshold`, `-t`: Minimum similarity score 0-100 (default: 60.0)
-- `--as-of`: Historical date (YYYY-MM-DD)
-- `--format`, `-f`: Output format - `json` or `table` (default: table)
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--limit`, `-l` | `int` | `5` | No | Maximum number of results |
+| `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
+| `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
+| `--format`, `-f` | `str` | `table` | No | Output format - `json` or `table` |
 
 **Examples:**
 
@@ -33,6 +35,8 @@ barangay search "Tongmageng" --format json
 barangay search "Tongmageng" --as-of "2025-07-08" --format table
 ```
 
+**Note:** Results include scores for each matching level (barangay only, province+barangay, municipality+barangay, province+municipality+barangay). The `max_score` field shows the highest score across all match patterns.
+
 ## Export
 
 ### `barangay export`
@@ -45,10 +49,12 @@ barangay export --model flat --format json --output data.json
 
 **Options:**
 
-- `--model`: Data model - `flat`, `extended`, or `basic` (default: flat)
-- `--format`, `-f`: Output format - `json` or `csv` (default: json)
-- `--output`, `-o`: Output file (default: stdout)
-- `--as-of`: Historical date (YYYY-MM-DD)
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--model` | `str` | `flat` | No | Data model - `flat`, `extended`, or `basic` |
+| `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` |
+| `--output`, `-o` | `str` | `stdout` | No | Output file |
+| `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
 
 **Examples:**
 
@@ -97,6 +103,8 @@ List municipalities in a region.
 barangay info list-municipalities "National Capital Region (NCR)"
 ```
 
+**Note:** Region name must match exactly as shown in the data (e.g., "National Capital Region (NCR)", not just "NCR").
+
 ### `barangay info list-barangays`
 
 List barangays in a municipality.
@@ -125,10 +133,12 @@ barangay history search "Tongmageng" --as-of "2025-07-08"
 
 **Options:**
 
-- `--as-of`: Historical date (YYYY-MM-DD) - **required**
-- `--limit`, `-l`: Maximum number of results (default: 5)
-- `--threshold`, `-t`: Minimum similarity score 0-100 (default: 60.0)
-- `--format`, `-f`: Output format - `json` or `table` (default: table)
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--as-of` | `str` | - | Yes | Historical date (YYYY-MM-DD) |
+| `--limit`, `-l` | `int` | `5` | No | Maximum number of results |
+| `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
+| `--format`, `-f` | `str` | `table` | No | Output format - `json` or `table` |
 
 **Example:**
 
@@ -146,10 +156,12 @@ barangay history export --as-of "2025-07-08" --model flat
 
 **Options:**
 
-- `--as-of`: Historical date (YYYY-MM-DD) - **required**
-- `--model`: Data model - `flat`, `extended`, or `basic` (default: flat)
-- `--format`, `-f`: Output format - `json` or `csv` (default: json)
-- `--output`, `-o`: Output file (default: stdout)
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--as-of` | `str` | - | Yes | Historical date (YYYY-MM-DD) |
+| `--model` | `str` | `flat` | No | Data model - `flat`, `extended`, or `basic` |
+| `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` |
+| `--output`, `-o` | `str` | `stdout` | No | Output file |
 
 **Example:**
 
@@ -185,7 +197,9 @@ barangay cache download
 
 **Options:**
 
-- `--date`: Date to download (YYYY-MM-DD)
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--date` | `str` | - | No | Date to download (YYYY-MM-DD) |
 
 **Examples:**
 
@@ -209,10 +223,12 @@ barangay batch search queries.txt --limit 5 --output results.json
 
 **Options:**
 
-- `--limit`, `-l`: Maximum number of results per query (default: 5)
-- `--threshold`, `-t`: Minimum similarity score 0-100 (default: 60.0)
-- `--as-of`: Historical date (YYYY-MM-DD)
-- `--output`, `-o`: Output JSON file (default: stdout)
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--limit`, `-l` | `int` | `5` | No | Maximum number of results per query |
+| `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
+| `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
+| `--output`, `-o` | `str` | `stdout` | No | Output JSON file |
 
 **Example:**
 
@@ -228,6 +244,8 @@ Validate barangay names from file (one per line).
 ```bash
 barangay batch validate barangay_names.txt
 ```
+
+**Note:** This command uses a high threshold (95.0) to validate exact matches. It displays whether each barangay name is valid or not found.
 
 **Example:**
 

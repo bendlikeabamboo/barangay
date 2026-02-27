@@ -64,7 +64,30 @@ def mock_basic_data():
 
 @pytest.fixture
 def mock_flat_data():
-    """Mock flat barangay data (list of dicts)."""
+    """Mock flat barangay data (list of AdminDivFlat objects)."""
+    from barangay.models import AdminDivFlat
+
+    return [
+        AdminDivFlat(
+            name="Barangay 1",
+            type="barangay",
+            psgc_id="000000001",
+            parent_psgc_id="000000010",
+            nicknames=["BRGY1"],
+        ),
+        AdminDivFlat(
+            name="Barangay 2",
+            type="barangay",
+            psgc_id="000000002",
+            parent_psgc_id="000000020",
+            nicknames=None,
+        ),
+    ]
+
+
+@pytest.fixture
+def mock_flat_data_dicts():
+    """Mock flat barangay data (list of dicts for export tests)."""
     return [
         {
             "name": "Barangay 1",
@@ -292,13 +315,14 @@ class TestInfoCommands:
         mock_flat_data,
         mock_extended_data,
     ):
-        """Test stats command displays correct counts for all models."""
+        """Test stats command displays correct barangay counts for all models."""
         mock_basic.model_dump.return_value = mock_basic_data
-        mock_flat.__len__ = Mock(return_value=2)
+        mock_flat.__iter__ = Mock(return_value=iter(mock_flat_data))
+        mock_extended.return_value = mock_extended_data
 
         result = runner.invoke(app, ["info", "stats"])
         assert result.exit_code == 0
-        assert "Data Statistics" in result.output
+        assert "Barangay Statistics" in result.output
         assert "Basic (nested)" in result.output
         assert "Flat (list)" in result.output
         assert "Extended (recursive)" in result.output
@@ -370,9 +394,9 @@ class TestExportCommands:
         assert isinstance(parsed, dict)
 
     @patch("barangay.cli.DataManager")
-    def test_export_flat_json(self, mock_dm, runner, mock_flat_data):
+    def test_export_flat_json(self, mock_dm, runner, mock_flat_data_dicts):
         """Test export command with flat model and JSON format."""
-        mock_dm.return_value.get_data.return_value = mock_flat_data
+        mock_dm.return_value.get_data.return_value = mock_flat_data_dicts
         result = runner.invoke(app, ["export", "--model", "flat", "--format", "json"])
         assert result.exit_code == 0
         parsed = json.loads(result.output)
@@ -390,9 +414,9 @@ class TestExportCommands:
         assert isinstance(parsed, (dict, object))
 
     @patch("barangay.cli.DataManager")
-    def test_export_flat_csv(self, mock_dm, runner, mock_flat_data):
+    def test_export_flat_csv(self, mock_dm, runner, mock_flat_data_dicts):
         """Test export command with flat model and CSV format."""
-        mock_dm.return_value.get_data.return_value = mock_flat_data
+        mock_dm.return_value.get_data.return_value = mock_flat_data_dicts
         result = runner.invoke(app, ["export", "--model", "flat", "--format", "csv"])
         assert result.exit_code == 0
         lines = result.output.strip().split("\n")
@@ -713,9 +737,9 @@ class TestBatchCommands:
 class TestUtilityFunctions:
     """Test suite for utility functions."""
 
-    def test_dict_to_csv(self, mock_flat_data):
+    def test_dict_to_csv(self, mock_flat_data_dicts):
         """Test _dict_to_csv utility function."""
-        csv_output = _dict_to_csv(mock_flat_data)
+        csv_output = _dict_to_csv(mock_flat_data_dicts)
         lines = csv_output.strip().split("\n")
         assert len(lines) == 3  # Header + 2 data rows
         assert "name" in lines[0]

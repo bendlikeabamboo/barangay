@@ -14,6 +14,12 @@ export BARANGAY_AS_OF="2025-07-08"
 
 **Priority:** Lower than function parameters and module attributes.
 
+**Note:** If not set, the package uses the latest bundled data (current version: 2026-01-13).
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `BARANGAY_AS_OF` | `str` | - | Default dataset date (YYYY-MM-DD format) |
+
 ### BARANGAY_VERBOSE
 
 Enable verbose logging. Valid values are `"true"`, `"1"`, `"yes"`, `"on"` (case-insensitive). Default is `"true"`.
@@ -22,6 +28,10 @@ Enable verbose logging. Valid values are `"true"`, `"1"`, `"yes"`, `"on"` (case-
 export BARANGAY_VERBOSE="true"
 ```
 
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `BARANGAY_VERBOSE` | `str` | `"true"` | Enable verbose logging. Valid values: `"true"`, `"1"`, `"yes"`, `"on"` (case-insensitive) |
+
 ### BARANGAY_CACHE_DIR
 
 Custom cache directory path. If set, downloaded data will be stored in this directory instead of the system default.
@@ -29,6 +39,10 @@ Custom cache directory path. If set, downloaded data will be stored in this dire
 ```bash
 export BARANGAY_CACHE_DIR="/custom/cache/path"
 ```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `BARANGAY_CACHE_DIR` | `str` | - | Custom cache directory path |
 
 ## Configuration Priority
 
@@ -67,6 +81,8 @@ from barangay import search
 results = search("Tongmageng")  # Uses 2025-07-08
 ```
 
+**Note:** The module-level `barangay.as_of` attribute is checked during date resolution. If set, it takes precedence over environment variables.
+
 ### Using Function Parameters
 
 ```python
@@ -104,3 +120,10 @@ The cache directory location depends on the operating system:
 - **Custom:** `$BARANGAY_CACHE_DIR` if set
 
 The cache directory stores downloaded historical data for faster subsequent loads.
+
+**Cache Files:**
+
+- `{date}_barangay.json` - Basic nested data for a specific date
+- `{date}_barangay_extended.json` - Extended recursive data for a specific date
+- `{date}_barangay_flat.json` - Flat list data for a specific date
+- `{date}_fuzzer_base.parquet` - Fuzzy matching base data for a specific date

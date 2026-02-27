@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, List
+from typing import TYPE_CHECKING, Any, Collection, List
 
 from pydantic import ValidationError
 
@@ -69,6 +69,8 @@ def load_barangay_flat_data(as_of: str | None = None) -> List[AdminDivFlat]:
         List[AdminDivFlat]: List of validated flat admin division entries.
     """
     maybe_data: Any = _data_manager.get_data(as_of=as_of, data_type="flat")
+    if not isinstance(maybe_data, Collection) or isinstance(maybe_data, (str, bytes)):
+        raise ValueError("Invalid data fetched.")
     data: List[AdminDivFlat] = []
     for maybe_datum in maybe_data:
         try:
@@ -95,7 +97,7 @@ def load_fuzzer_base(as_of: str | None = None) -> pd.DataFrame:
 
 
 # Load data at module import (backward compatibility)
-barangay: AdminDivFlat = load_barangay_data()
+barangay: AdminDiv = load_barangay_data()
 barangay_extended: AdminDivExtended = load_barangay_extended_data()
 barangay_flat: List[AdminDivFlat] = load_barangay_flat_data()
 _fuzzer_base_df = load_fuzzer_base()

@@ -5,6 +5,8 @@ repo_url: https://github.com/bendlikeabamboo/barangay
 
 theme:
   name: shadcn
+  extra_css:
+    - stylesheets/extra.css
 
 nav:
   - barangay: index.md
@@ -19,6 +21,7 @@ nav:
 markdown_extensions:
   - admonition
   - codehilite
+  - tables
 
 plugins:
   - search

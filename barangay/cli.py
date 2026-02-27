@@ -121,46 +121,46 @@ def stats():
         None
     """
 
-    def count_nested(d):
-        """Count total items in nested dict.
+    def count_barangays_nested(d):
+        """Count total barangays in nested dict.
 
         Args:
-            d: Nested dictionary to count.
+            d: Nested dictionary to count barangays from.
 
         Returns:
-            Total count of items.
+            Total count of barangays.
         """
         count = 0
         for v in d.values():
             if isinstance(v, dict):
-                count += count_nested(v)
-            else:
-                count += 1
+                count += count_barangays_nested(v)
+            elif isinstance(v, list):
+                count += len(v)
         return count
 
-    def count_extended(data):
-        """Count items in AdminDivExtended model.
+    def count_barangays_extended(data):
+        """Count barangays in AdminDivExtended model.
 
         Args:
             data: AdminDivExtended instance.
 
         Returns:
-            Total count of items.
+            Total count of barangays.
         """
-        count = 1
+        count = 1 if data.type == "barangay" else 0
         for comp in data.components:
-            count += count_extended(comp)
+            count += count_barangays_extended(comp)
         return count
 
-    # Cache model_dump() result to avoid repeated conversions
+    # Count barangays in each model
     barangay_dict = barangay.model_dump()
-    basic_count = count_nested(barangay_dict)
-    flat_count = len(barangay_flat)
-    extended_count = count_extended(barangay_extended)
+    basic_count = count_barangays_nested(barangay_dict)
+    flat_count = sum(1 for item in barangay_flat if item.type == "barangay")
+    extended_count = count_barangays_extended(barangay_extended)
 
-    table = Table(title="Data Statistics")
+    table = Table(title="Barangay Statistics")
     table.add_column("Model", style="cyan")
-    table.add_column("Count", style="green")
+    table.add_column("Barangay Count", style="green")
 
     table.add_row("Basic (nested)", str(basic_count))
     table.add_row("Flat (list)", str(flat_count))

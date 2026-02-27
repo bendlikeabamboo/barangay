@@ -13,16 +13,13 @@ Python Package for Philippine regions, provinces, municipalities, cities, and ba
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
 </a>
 <a href="https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml">
-    <img src="https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg" alt="PyPI Downloads">
-</a>
-<a href="https://bendlikeabamboo.github.io/barangay/">
-    <img src="https://img.shields.io/badge/Visit%20the%20Docs-red" alt="PyPI Downloads">
+    <img src="https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg" alt="Release Badge">
 </a>
 </div>
 
 ## Features
 
-- **Bundled PSGC Dataset**: Native access to PSGC data, no database or API calls needed.
+- **Bundled PSGC Dataset**: Native access to PSGC data, no database or API calls needed
 - **Historical PSGC Data**: On-demand access to previous PSGC releases by date
 - **Fuzzy Search**: Fast, customizable fuzzy matching
 - **Multiple Data Models**: Basic (nested), Extended (recursive), and Flat (list)
@@ -46,6 +43,7 @@ print(f"Barangay Name: {top_result["barangay"]}")
 print(f"PSGC ID: {top_result["psgc_id"]}")
 ```
 
+Ouput:
 ```txt
 Barangay Name: Tongmageng
 PSGC ID: 1907005010
@@ -118,17 +116,47 @@ Binondo Barangays:
 
 ### CLI Usage
 
+#### Search
 ```sh
 # Search
 barangay search "Tongmageng, Tawi-Tawi"
+```
+Output:
 
-# Export data
+| Barangay | Municipality/City | Province/HUC | PSGC ID | Score |
+|----------|-------------------|--------------|---------|-------|
+| Tongmageng | Sitangkai | Tawi-Tawi | 1907005010 | 100.0 |
+| Tonggosong | Simunul | Tawi-Tawi | 1907004005 | 84.2 |
+| Tongbangkaw | Tandubas | Tawi-Tawi | 1907007042 | 82.1 |
+| Tongusong | Sitangkai | Tawi-Tawi | 1907005012 | 81.1 |
+| Tongehat | Sibutu | Tawi-Tawi | 1907011014 | 77.8 |
+
+
+#### Export data
+```sh
 barangay export --model flat --format json --output data.json
-
-# Show info
+```
+#### Show info
+```sh
 barangay info version
+```
+
+Ouput:
+```txt
+Current version: 2026-01-13
+Available dates: 2026-01-13, 2025-08-29, 2025-10-13, 2025-07-08
+```
+
+```sh
 barangay info stats
 ```
+Output:
+
+| Model | Barangay Count |
+|-------|----------------|
+| Basic (nested) | 42011 |
+| Flat (list) | 42011 |
+| Extended (recursive) | 42011 |
 
 ## Data Version
 
