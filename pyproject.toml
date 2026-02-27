@@ -31,22 +31,15 @@ dependencies = [
 
 [project.optional-dependencies]
 docs = [
-    "sphinx>=8.0.0",
-    "furo>=2024.0.0",
-    "sphinx-copybutton>=0.5.0",
-    "sphinx-design>=0.6.0",
-    "sphinx-autodoc-typehints>=2.0.0",
-    "sphinx-autobuild>=2024.0.0",
-    "shibuya>=2026.1.9",
-    "docformatter>=1.7.7",
-    "myst-parser>=5.0.0",
-    "pydata-sphinx-theme>=0.16.1",
+    "mkdocs>=1.6.1",
+    "mkdocs-shadcn>=0.9.9",
+    "mkdocs-badges>=0.5.2",
 ]
 
 [project.urls]
-homepage = "https://hawitsu.xyz"
+homepage = "https://github.com/bendlikeabamboo/barangay"
 repository = "https://github.com/bendlikeabamboo/barangay"
-documentation = "https://github.com/bendlikeabamboo/barangay/blob/main/README.md"
+documentation = "https://bendlikeabamboo.github.io/barangay/"
 "Bug Tracker" = "https://github.com/bendlikeabamboo/barangay/issues"
 
 [project.scripts]
@@ -70,16 +63,10 @@ dev = [
     "ipykernel>=7.1.0",
     "pytest>=9.0.2",
     "ty>=0.0.17",
+    "pytest-cov>=7.0.0",
 ]
 docs = [
-    "sphinx>=8.0.0",
-    "furo>=2024.0.0",
-    "sphinx-copybutton>=0.5.0",
-    "sphinx-design>=0.6.0",
-    "sphinx-autodoc-typehints>=2.0.0",
-    "sphinx-autobuild>=2024.0.0",
-    "shibuya>=2026.1.9",
-    "docformatter>=1.7.7",
-    "myst-parser>=5.0.0",
-    "pydata-sphinx-theme>=0.16.1",
+    "mkdocs>=1.6.1",
+    "mkdocs-shadcn>=0.9.9",
+    "mkdocs-badges>=0.5.2",
 ]

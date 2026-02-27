@@ -1,0 +1,36 @@
+/* Table alignment fixes */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--muted);
+}
+
+tr:nth-child(even) {
+  background-color: var(--muted);
+}
+
+/* Ensure monospace for code blocks */
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Limit max width for table description columns */
+table td:last-child, table th:last-child {
+  max-width: 500px;
+  min-width: 200px;
+  width: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

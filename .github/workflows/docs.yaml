@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'docs/**'
+      - 'mkdocs.yml'
 
 permissions:
   contents: read
@@ -27,20 +28,21 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
       - name: Install dependencies
         run: |
-          pip install .
-          pip install .[docs]
+          uv pip install .
+          uv pip install .[docs]
 
       - name: Build documentation
-        run: |
-          cd docs
-          make html
+        run: mkdocs build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/_build/html
+          path: site
 
   deploy:
     environment:

@@ -1,5 +1,3 @@
-"""CLI for barangay package."""
-
 import csv
 import json
 from pathlib import Path
@@ -9,9 +7,9 @@ from rich.console import Console
 from rich.table import Table
 
 from barangay import (
-    BARANGAY,
-    BARANGAY_EXTENDED,
-    BARANGAY_FLAT,
+    barangay,
+    barangay_extended,
+    barangay_flat,
     DataManager,
     available_dates,
     current,
@@ -26,7 +24,11 @@ console = Console()
 @click.group()
 @click.version_option(version=current)
 def app():
-    """Barangay: Philippine Geographic/Administrative Data CLI."""
+    """Main CLI entry point.
+
+    Returns:
+        None
+    """
     pass
 
 
@@ -46,7 +48,18 @@ def app():
     help="Output format",
 )
 def search_cmd(query, limit, threshold, as_of, output_format):
-    """Fuzzy search for barangays."""
+    """Search for barangays by name.
+
+    Args:
+        query: Search query string.
+        limit: Maximum number of results.
+        threshold: Minimum similarity score (0-100).
+        as_of: Historical date (YYYY-MM-DD).
+        output_format: Output format (json or table).
+
+    Returns:
+        None
+    """
     try:
         results = search(query, n=limit, threshold=threshold, as_of=as_of)
 
@@ -81,37 +94,73 @@ def search_cmd(query, limit, threshold, as_of, output_format):
 
 @app.group()
 def info():
-    """Show data information."""
+    """Information commands group.
+
+    Returns:
+        None
+    """
     pass
 
 
 @info.command()
 def version():
-    """Show current data version."""
+    """Show current version and available dates.
+
+    Returns:
+        None
+    """
     console.print(f"[cyan]Current version:[/cyan] {current}")
     console.print(f"[cyan]Available dates:[/cyan] {', '.join(available_dates)}")
 
 
 @info.command()
 def stats():
-    """Show data statistics."""
+    """Display data statistics.
 
-    def count_dict(d):
+    Returns:
+        None
+    """
+
+    def count_barangays_nested(d):
+        """Count total barangays in nested dict.
+
+        Args:
+            d: Nested dictionary to count barangays from.
+
+        Returns:
+            Total count of barangays.
+        """
         count = 0
         for v in d.values():
             if isinstance(v, dict):
-                count += count_dict(v)
-            else:
-                count += 1
+                count += count_barangays_nested(v)
+            elif isinstance(v, list):
+                count += len(v)
         return count
 
-    basic_count = count_dict(BARANGAY)
-    flat_count = len(BARANGAY_FLAT)
-    extended_count = count_dict(BARANGAY_EXTENDED)
+    def count_barangays_extended(data):
+        """Count barangays in AdminDivExtended model.
 
-    table = Table(title="Data Statistics")
+        Args:
+            data: AdminDivExtended instance.
+
+        Returns:
+            Total count of barangays.
+        """
+        count = 1 if data.type == "barangay" else 0
+        for comp in data.components:
+            count += count_barangays_extended(comp)
+        return count
+
+    # Count barangays in each model
+    barangay_dict = barangay.model_dump()
+    basic_count = count_barangays_nested(barangay_dict)
+    flat_count = sum(1 for item in barangay_flat if item.type == "barangay")
+    extended_count = count_barangays_extended(barangay_extended)
+
+    table = Table(title="Barangay Statistics")
     table.add_column("Model", style="cyan")
-    table.add_column("Count", style="green")
+    table.add_column("Barangay Count", style="green")
 
     table.add_row("Basic (nested)", str(basic_count))
     table.add_row("Flat (list)", str(flat_count))
@@ -121,11 +170,17 @@ def stats():
 
 @info.command()
 def list_regions():
-    """List all regions."""
+    """List all regions.
+
+    Returns:
+        None
+    """
     table = Table(title="Regions")
     table.add_column("Region", style="cyan")
 
-    for region in sorted(BARANGAY.keys()):
+    # Cache model_dump() result to avoid repeated conversions
+    barangay_dict = barangay.model_dump()
+    for region in sorted(barangay_dict.keys()):
         table.add_row(region)
     console.print(table)
 
@@ -133,15 +188,24 @@ def list_regions():
 @info.command()
 @click.argument("region")
 def list_municipalities(region):
-    """List municipalities in a region."""
-    if region not in BARANGAY:
+    """List municipalities in a region.
+
+    Args:
+        region: Region name.
+
+    Returns:
+        None
+    """
+    # Cache model_dump() result to avoid repeated conversions
+    barangay_dict = barangay.model_dump()
+    if region not in barangay_dict:
         console.print(f"[red]Region '{region}' not found.[/red]")
         raise click.ClickException(f"Region '{region}' not found")
 
     table = Table(title=f"Municipalities in {region}")
     table.add_column("Municipality/City", style="cyan")
 
-    for municipality in sorted(BARANGAY[region].keys()):
+    for municipality in sorted(barangay_dict[region].keys()):
         table.add_row(municipality)
     console.print(table)
 
@@ -149,15 +213,24 @@ def list_municipalities(region):
 @info.command()
 @click.argument("municipality")
 def list_barangays(municipality):
-    """List barangays in a municipality."""
+    """List barangays in a municipality.
+
+    Args:
+        municipality: Municipality name.
+
+    Returns:
+        None
+    """
+    # Cache model_dump() result to avoid repeated conversions
+    barangay_dict = barangay.model_dump()
     found = False
-    for region, municipalities in BARANGAY.items():
+    for region, municipalities in barangay_dict.items():
         if municipality in municipalities:
             table = Table(title=f"Barangays in {municipality} ({region})")
             table.add_column("Barangay", style="cyan")
 
-            for barangay in sorted(municipalities[municipality]):
-                table.add_row(barangay)
+            for brgy in sorted(municipalities[municipality]):
+                table.add_row(brgy)
             console.print(table)
             found = True
             break
@@ -185,24 +258,29 @@ def list_barangays(municipality):
 @click.option("--output", "-o", help="Output file (default: stdout)")
 @click.option("--as-of", help="Historical date (YYYY-MM-DD)")
 def export(model, output_format, output, as_of):
-    """Export data to JSON/CSV."""
+    """Export data to JSON or CSV.
+
+    Args:
+        model: Data model (flat, extended, or basic).
+        output_format: Output format (json or csv).
+        output: Output file path.
+        as_of: Historical date (YYYY-MM-DD).
+
+    Returns:
+        None
+    """
     try:
         dm = DataManager()
         data_type = {"basic": "basic", "flat": "flat", "extended": "extended"}[model]
         data = dm.get_data(as_of=as_of, data_type=data_type)
 
-        if model == "flat":
-            items = data
-        else:
-            items = data
-
         if output_format == "json":
-            output_data = json.dumps(items, indent=2, ensure_ascii=False)
+            output_data = json.dumps(data, indent=2, ensure_ascii=False)
         else:
             if model == "flat":
-                output_data = _dict_to_csv(items)
+                output_data = _dict_to_csv(data)
             else:
-                output_data = _nested_to_csv(items)
+                output_data = _nested_to_csv(data)
 
         if output:
             Path(output).write_text(output_data, encoding="utf-8")
@@ -215,7 +293,14 @@ def export(model, output_format, output, as_of):
 
 
 def _dict_to_csv(data):
-    """Convert flat data to CSV string."""
+    """Convert list of dicts to CSV string.
+
+    Args:
+        data: List of dictionaries to convert.
+
+    Returns:
+        CSV formatted string.
+    """
     import io
 
     output = io.StringIO()
@@ -227,7 +312,14 @@ def _dict_to_csv(data):
 
 
 def _nested_to_csv(data):
-    """Convert nested data to CSV string."""
+    """Convert nested dict to CSV string.
+
+    Args:
+        data: Nested dictionary with regions and municipalities.
+
+    Returns:
+        CSV formatted string.
+    """
     import io
 
     output = io.StringIO()
@@ -236,20 +328,28 @@ def _nested_to_csv(data):
 
     for region, municipalities in data.items():
         for municipality, barangays in municipalities.items():
-            for barangay in barangays:
-                writer.writerow([region, municipality, barangay])
+            for brgy in barangays:
+                writer.writerow([region, municipality, brgy])
     return output.getvalue()
 
 
 @app.group()
 def history():
-    """Historical data operations."""
+    """History commands group.
+
+    Returns:
+        None
+    """
     pass
 
 
 @history.command()
 def list_dates():
-    """List available historical dates."""
+    """List available historical dates.
+
+    Returns:
+        None
+    """
     dates = get_available_dates()
     table = Table(title="Available Historical Dates")
     table.add_column("Date", style="cyan")
@@ -277,7 +377,18 @@ def list_dates():
     help="Output format",
 )
 def search_history(query, as_of, limit, threshold, output_format):
-    """Search historical data."""
+    """Search historical data for barangays.
+
+    Args:
+        query: Search query string.
+        as_of: Historical date (YYYY-MM-DD).
+        limit: Maximum number of results.
+        threshold: Minimum similarity score (0-100).
+        output_format: Output format (json or table).
+
+    Returns:
+        None
+    """
     try:
         results = search(query, n=limit, threshold=threshold, as_of=as_of)
 
@@ -328,24 +439,29 @@ def search_history(query, as_of, limit, threshold, output_format):
 )
 @click.option("--output", "-o", help="Output file (default: stdout)")
 def export_history(as_of, model, output_format, output):
-    """Export historical data."""
+    """Export historical data to JSON or CSV.
+
+    Args:
+        as_of: Historical date (YYYY-MM-DD).
+        model: Data model (flat, extended, or basic).
+        output_format: Output format (json or csv).
+        output: Output file path.
+
+    Returns:
+        None
+    """
     try:
         dm = DataManager()
         data_type = {"basic": "basic", "flat": "flat", "extended": "extended"}[model]
         data = dm.get_data(as_of=as_of, data_type=data_type)
 
-        if model == "flat":
-            items = data
-        else:
-            items = data
-
         if output_format == "json":
-            output_data = json.dumps(items, indent=2, ensure_ascii=False)
+            output_data = json.dumps(data, indent=2, ensure_ascii=False)
         else:
             if model == "flat":
-                output_data = _dict_to_csv(items)
+                output_data = _dict_to_csv(data)
             else:
-                output_data = _nested_to_csv(items)
+                output_data = _nested_to_csv(data)
 
         if output:
             Path(output).write_text(output_data, encoding="utf-8")
@@ -359,13 +475,21 @@ def export_history(as_of, model, output_format, output):
 
 @app.group()
 def cache():
-    """Cache management."""
+    """Cache commands group.
+
+    Returns:
+        None
+    """
     pass
 
 
 @cache.command()
 def clear():
-    """Clear cache directory."""
+    """Clear the cache directory.
+
+    Returns:
+        None
+    """
     cache_dir = get_cache_dir()
     if not cache_dir.exists():
         console.print("[yellow]Cache directory is empty.[/yellow]")
@@ -379,7 +503,11 @@ def clear():
 
 @cache.command()
 def info():
-    """Show cache information."""
+    """Show cache information.
+
+    Returns:
+        None
+    """
     cache_dir = get_cache_dir()
 
     table = Table(title="Cache Information")
@@ -409,7 +537,14 @@ def info():
 @cache.command()
 @click.option("--date", help="Date to download (YYYY-MM-DD)")
 def download(date):
-    """Download data to cache."""
+    """Download cached data.
+
+    Args:
+        date: Date to download (YYYY-MM-DD).
+
+    Returns:
+        None
+    """
     try:
         dm = DataManager()
         if date:
@@ -427,7 +562,11 @@ def download(date):
 
 @app.group()
 def batch():
-    """Batch processing."""
+    """Batch commands group.
+
+    Returns:
+        None
+    """
     pass
 
 
@@ -440,7 +579,18 @@ def batch():
 @click.option("--as-of", help="Historical date (YYYY-MM-DD)")
 @click.option("--output", "-o", help="Output JSON file (default: stdout)")
 def batch_search(file, limit, threshold, as_of, output):
-    """Batch search from file (one query per line)."""
+    """Run batch search for multiple queries.
+
+    Args:
+        file: Input file with one query per line.
+        limit: Maximum results per query.
+        threshold: Minimum similarity score (0-100).
+        as_of: Historical date (YYYY-MM-DD).
+        output: Output JSON file path.
+
+    Returns:
+        None
+    """
     try:
         queries = Path(file).read_text(encoding="utf-8").strip().split("\n")
         results = {}
@@ -470,7 +620,14 @@ def batch_search(file, limit, threshold, as_of, output):
 @batch.command()
 @click.argument("file", type=click.Path(exists=True))
 def validate(file):
-    """Validate barangay names from file (one per line)."""
+    """Validate barangay names from file.
+
+    Args:
+        file: Input file with one name per line.
+
+    Returns:
+        None
+    """
     try:
         barangay_names = Path(file).read_text(encoding="utf-8").strip().split("\n")
 
