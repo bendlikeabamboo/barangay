@@ -213,6 +213,7 @@ Use fewer `match_hooks` for better performance when appropriate.
 - 📩 [PSGC Source](https://psa.gov.ph/classification/psgc/node/1684082306) - January 2026 masterlist
 - 📦 [PyPI Package](https://pypi.org/project/barangay/)
 - 💻 [GitHub Repository](https://github.com/bendlikeabamboo/barangay)
+- 📊 [Data Repository](https://github.com/bendlikeabamboo/barangay-data-repository) - Raw PSGC datasets (JSON, YAML)
 - 🐳 [Barangay-API Docker](https://hub.docker.com/r/bendlikeabamboo/barangay-api) - REST API companion
 
 ---
