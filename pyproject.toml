@@ -1,6 +1,6 @@
 [project]
 name = "barangay"
-version = "2026.1.13.2"
+version = "2026.1.13.3"
 description = "Philippines Standard Geographic Code (PSGC) 2026 Python package, Fuzzy Search, JSON, and YAML."
 authors = [{ name = "bendlikeabamboo", email = "mbalmeo32@gmail.com" }]
 requires-python = ">=3.13"
