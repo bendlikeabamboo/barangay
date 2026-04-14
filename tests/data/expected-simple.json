@@ -1,0 +1,43 @@
+{
+    "Region VIII (Eastern Visayas)": {
+        "Eastern Samar": {
+            "Arteche": [
+                "Aguinaldo"
+            ],
+            "City of Borongan": [
+                "Alang-alang"
+            ]
+        },
+        "Leyte": {
+            "Abuyog": [
+                "Alangilan"
+            ]
+        },
+        "City of Tacloban ": [
+            "Barangay 105"
+        ]
+    },
+    "National Capital Region (NCR)": {
+        "City of Caloocan": [
+            "Barangay 1"
+        ],
+        "City of Las Pi\u00f1as": [
+            "Almanza Uno"
+        ],
+        "City of Manila": {
+            "Tondo I/II": [
+                "Barangay 1"
+            ]
+        },
+        "Pateros": [
+            "Aguho"
+        ]
+    },
+    "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)": {
+        "Maguindanao del Norte": {
+            "City of Cotabato": [
+                "Bagua"
+            ]
+        }
+    }
+}

@@ -1,0 +1,225 @@
+{
+    "name": "Philippines",
+    "type": "country",
+    "psgc_id": "0000000000",
+    "parent_psgc_id": "n/a",
+    "nicknames": null,
+    "components": [
+        {
+            "name": "Region VIII (Eastern Visayas)",
+            "type": "region",
+            "psgc_id": "0800000000",
+            "parent_psgc_id": "0000000000",
+            "nicknames": null,
+            "components": [
+                {
+                    "name": "Eastern Samar",
+                    "type": "province",
+                    "psgc_id": "0802600000",
+                    "parent_psgc_id": "0800000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Arteche",
+                            "type": "municipality",
+                            "psgc_id": "0802601000",
+                            "parent_psgc_id": "0802600000",
+                            "nicknames": null,
+                            "components": [
+                                {
+                                    "name": "Aguinaldo",
+                                    "type": "barangay",
+                                    "psgc_id": "0802601001",
+                                    "parent_psgc_id": "0802601000",
+                                    "nicknames": null,
+                                    "components": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "City of Borongan",
+                            "type": "city",
+                            "psgc_id": "0802604000",
+                            "parent_psgc_id": "0802600000",
+                            "nicknames": null,
+                            "components": [
+                                {
+                                    "name": "Alang-alang",
+                                    "type": "barangay",
+                                    "psgc_id": "0802604001",
+                                    "parent_psgc_id": "0802604000",
+                                    "nicknames": null,
+                                    "components": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Leyte",
+                    "type": "province",
+                    "psgc_id": "0803700000",
+                    "parent_psgc_id": "0800000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Abuyog",
+                            "type": "municipality",
+                            "psgc_id": "0803701000",
+                            "parent_psgc_id": "0803700000",
+                            "nicknames": null,
+                            "components": [
+                                {
+                                    "name": "Alangilan",
+                                    "type": "barangay",
+                                    "psgc_id": "0803701001",
+                                    "parent_psgc_id": "0803701000",
+                                    "nicknames": null,
+                                    "components": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "City of Tacloban",
+                    "type": "city",
+                    "psgc_id": "0831600000",
+                    "parent_psgc_id": "0800000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Barangay 105",
+                            "type": "barangay",
+                            "psgc_id": "0831600024",
+                            "parent_psgc_id": "0831600000",
+                            "nicknames": null,
+                            "components": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "National Capital Region (NCR)",
+            "type": "region",
+            "psgc_id": "1300000000",
+            "parent_psgc_id": "0000000000",
+            "nicknames": null,
+            "components": [
+                {
+                    "name": "City of Caloocan",
+                    "type": "city",
+                    "psgc_id": "1380100000",
+                    "parent_psgc_id": "1300000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Barangay 1",
+                            "type": "barangay",
+                            "psgc_id": "1380100001",
+                            "parent_psgc_id": "1380100000",
+                            "nicknames": null,
+                            "components": []
+                        }
+                    ]
+                },
+                {
+                    "name": "City of Las Pi\u00f1as",
+                    "type": "city",
+                    "psgc_id": "1380200000",
+                    "parent_psgc_id": "1300000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Almanza Uno",
+                            "type": "barangay",
+                            "psgc_id": "1380200001",
+                            "parent_psgc_id": "1380200000",
+                            "nicknames": null,
+                            "components": []
+                        }
+                    ]
+                },
+                {
+                    "name": "City of Manila",
+                    "type": "city",
+                    "psgc_id": "1380600000",
+                    "parent_psgc_id": "1300000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Tondo I/II",
+                            "type": "submunicipality",
+                            "psgc_id": "1380601000",
+                            "parent_psgc_id": "1380600000",
+                            "nicknames": null,
+                            "components": [
+                                {
+                                    "name": "Barangay 1",
+                                    "type": "barangay",
+                                    "psgc_id": "1380601001",
+                                    "parent_psgc_id": "1380601000",
+                                    "nicknames": null,
+                                    "components": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Pateros",
+                    "type": "municipality",
+                    "psgc_id": "1381701000",
+                    "parent_psgc_id": "1300000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "Aguho",
+                            "type": "barangay",
+                            "psgc_id": "1381701001",
+                            "parent_psgc_id": "1381701000",
+                            "nicknames": null,
+                            "components": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)",
+            "type": "region",
+            "psgc_id": "1900000000",
+            "parent_psgc_id": "0000000000",
+            "nicknames": null,
+            "components": [
+                {
+                    "name": "Maguindanao del Norte",
+                    "type": "province",
+                    "psgc_id": "1908700000",
+                    "parent_psgc_id": "1900000000",
+                    "nicknames": null,
+                    "components": [
+                        {
+                            "name": "City of Cotabato",
+                            "type": "city",
+                            "psgc_id": "1908703000",
+                            "parent_psgc_id": "1908700000",
+                            "nicknames": null,
+                            "components": [
+                                {
+                                    "name": "Bagua",
+                                    "type": "barangay",
+                                    "psgc_id": "1908703001",
+                                    "parent_psgc_id": "1908703000",
+                                    "nicknames": null,
+                                    "components": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
