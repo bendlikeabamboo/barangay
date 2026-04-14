@@ -1,7 +1,6 @@
 site_name: barangay
 site_description: Python Package for Philippine Standard Geographic Code
 site_author: bendlikeabamboo
-site_logo: favicon.png
 repo_url: https://github.com/bendlikeabamboo/barangay
 site_url: https://bendlikeabamboo.github.io/barangay/
 
@@ -19,6 +18,9 @@ nav:
   - Data Model Reference:
     - Overview: data_models/overview.md
     - Python: data_models/python.md
+  - Contributing:
+    - Overview: contributing/index.md
+    - Data Update: contributing/data_update.md
 
 
 markdown_extensions:

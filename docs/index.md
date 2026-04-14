@@ -169,3 +169,4 @@ Current data version: [**2026-01-13** (January 13 2026 PSGC masterlist)](https:/
 - [API Reference](api.md)
 - [CLI Reference](cli.md)
 - [Configuration](configuration.md)
+- [Contributing](contributing.md)
