@@ -1,84 +1,106 @@
-# Barangay CLI Skill
+---
+name: barangay-cli
+description: "Search, export, and manage Philippine barangay geographic data via the barangay CLI and Python API. Use when querying Philippine administrative units, fuzzy-matching barangay names, exporting PSGC data to CSV or JSON, browsing historical PSGC releases, batch-validating barangay codes, or listing regions and municipalities."
+---
 
-Interact with the Philippines barangay data package via CLI for searching, exporting, and managing administrative unit data.
+# Barangay CLI
 
-## Invocation
+Search, export, and manage Philippine geographic data (barangays, municipalities, regions) from the PSGC masterlist via the `barangay` CLI or Python API.
 
-```bash
-# Direct CLI invocation
-python -m barangay <command> [options]
+## Workflow
 
-# Or if installed
-barangay <command> [options]
-```
+1. **Search** barangays by name with fuzzy matching
+2. **Browse** regions, municipalities, and barangays hierarchically
+3. **Export** data in JSON or CSV using basic, flat, or extended models
+4. **Query historical** PSGC snapshots by date
+5. **Batch process** multiple queries or validate barangay codes from a file
 
 ## Commands
 
 ### Search
-`search <query>` - Fuzzy search barangays by name
-- `--limit N` - Max results (default: 5)
-- `--threshold 0-100` - Match sensitivity (default: 60.0)
-- `--as-of YYYY-MM-DD` - Search historical data
-- `--format {json,table}` - Output format (default: table)
-
-### Info
-`info version` - Show package version
-`info stats` - Display data statistics
-`info list-regions` - List all regions
-`info list-municipalities <region>` - List municipalities in region
-`info list-barangays <municipality>` - List barangays in municipality
-
-### Export
-`export` - Export all data to file
-- `--model {basic,flat,extended}` - Data structure model
-- `--format {json,csv}` - Output format (default: json)
-- `--output PATH` - Output file path
-- `--as-of YYYY-MM-DD` - Export historical data
-
-### History
-`history list-dates` - List available historical dates
-`history search-history <query> --as-of <date>` - Search historical records (--as-of is required)
-`history export-history --as-of <date>` - Export historical snapshot (--as-of is required)
-
-### Cache
-`cache info` - Display cache status
-`cache clear` - Clear local cache
-`cache download [--date]` - Download/update data (latest or specific date)
-
-### Batch
-`batch batch-search <file>` - Search multiple queries from file
-`batch validate <file>` - Validate barangay codes/identifiers in file
-
-## Examples
 
 ```bash
-# Search barangays
-python -m barangay search "Santo Nino" --limit 5 --format json
-
-# List municipalities in NCR
-python -m barangay info list-municipalities NCR
-
-# Export to CSV with extended model
-python -m barangay export --model extended --format csv --output data.csv
-
-# Search historical data
-python -m barangay search "Manila" --as-of 2025-01-13 --format table
-
-# Download latest data
-python -m barangay cache download
-
-# Batch process
-python -m barangay batch batch-search queries.txt
+barangay search "Santo Nino" --limit 5 --format json
+barangay search "Manila" --as-of 2025-01-13 --format table
 ```
 
-## Important Notes
+- `--limit N` — max results (default: 5)
+- `--threshold 0-100` — match sensitivity (default: 60.0)
+- `--as-of YYYY-MM-DD` — search a historical snapshot
+- `--format {json,table}` — output format (default: table)
 
-- **Date Format**: Use `YYYY-MM-DD` for `--as-of` parameter
-- **Models**:
-  - `basic` - Nested structure (regions → municipalities → barangays)
-  - `flat` - Flattened list with all fields
-  - `extended` - Recursive structure with parent references
-- **Output Formats**: Default varies by command (search=table, export=json)
-- **Cache**: Data is cached locally; use `cache clear` to reset
-- **Fuzzy Search**: Threshold is 0-100 (lower = more results, higher = stricter matches)
-- **History Commands**: `--as-of` is required for `search-history` and `export-history`
+### Info
+
+```bash
+barangay info version
+barangay info stats
+barangay info list-regions
+barangay info list-municipalities "National Capital Region (NCR)"
+barangay info list-barangays "Manila"
+```
+
+### Export
+
+```bash
+barangay export --model extended --format csv --output data.csv
+barangay export --model flat --format json --output data.json
+barangay export --as-of 2025-07-08 --output historical.json
+```
+
+- `--model {basic,flat,extended}` — basic (nested), flat (list), extended (recursive with metadata)
+- `--format {json,csv}` — default: json
+- `--output PATH` — destination file
+
+### History
+
+```bash
+barangay history list-dates
+barangay history search-history "Tongmageng" --as-of 2025-07-08
+barangay history export-history --as-of 2025-07-08
+```
+
+`--as-of` is required for `search-history` and `export-history`.
+
+### Cache
+
+```bash
+barangay cache info
+barangay cache clear
+barangay cache download          # latest
+barangay cache download --date 2025-07-08
+```
+
+### Batch
+
+```bash
+barangay batch batch-search queries.txt --limit 5 --output results.json
+barangay batch validate barangay_names.txt
+```
+
+## Python API
+
+```python
+from barangay import search, barangay, barangay_flat, barangay_extended
+
+# Fuzzy search
+results = search("Tongmageng, Tawi-Tawi")
+
+# Custom search with hooks and threshold
+results = search("Tongmagen", n=4, match_hooks=["municipality", "barangay"], threshold=70.0)
+
+# Historical search
+results = search("Tongmageng", as_of="2025-07-08")
+
+# Nested model — region lookups
+ncr_cities = list(barangay["National Capital Region (NCR)"].keys())
+
+# Flat model — filtering
+matches = [loc for loc in barangay_flat if loc.name == "Marayos"]
+```
+
+## Notes
+
+- Dates use `YYYY-MM-DD` format
+- Models: basic (nested dict), flat (list with parent refs), extended (recursive with metadata)
+- Search threshold: lower = more results, higher = stricter
+- Data is cached locally after first download; use `cache clear` to reset
