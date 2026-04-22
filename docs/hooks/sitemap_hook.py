@@ -1,3 +1,4 @@
+import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -6,6 +7,9 @@ def on_post_build(config, **kwargs):
     site_url = config["site_url"].rstrip("/")
     if not site_url:
         return
+
+    output_dir = Path(config["site_dir"])
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     urlset = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 
@@ -24,9 +28,13 @@ def on_post_build(config, **kwargs):
 
     tree = ET.ElementTree(urlset)
     ET.indent(tree, space="  ")
-    output_dir = Path(config["site_dir"])
-    output_dir.mkdir(parents=True, exist_ok=True)
     tree.write(output_dir / "sitemap.xml", xml_declaration=True, encoding="utf-8")
+
+    docs_dir = Path(config["docs_dir"])
+    for txt_file in ["llms.txt", "llms-full.txt"]:
+        src = docs_dir / txt_file
+        if src.exists():
+            shutil.copy2(src, output_dir / txt_file)
 
 
 def _collect_pages(nav):

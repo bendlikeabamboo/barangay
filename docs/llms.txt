@@ -1,0 +1,87 @@
+# barangay
+
+> Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions. Offline access to all 42,011 barangays — no API calls or database needed. Based on the official April 2026 PSGC masterlist from the Philippine Statistics Authority.
+
+## Installation
+
+```bash
+pip install barangay
+```
+
+Requires Python 3.13+.
+
+## Quick Start
+
+```python
+from barangay import search
+
+results = search("Tongmageng, Tawi-Tawi")
+print(results[0]["barangay"])  # 'Tongmageng'
+print(results[0]["psgc_id"])   # '1907005010'
+```
+
+## Key Features
+
+- **Fuzzy search** — handles misspellings and unstandardized addresses using rapidfuzz
+- **Bundled data** — all 42,011 barangays, 1,488 municipalities, 146 cities, 82 provinces, 17 regions included offline
+- **Historical PSGC** — access previous masterlist releases by date (2023–2026)
+- **Three data models** — nested (dict-like), flat (list), extended (recursive with metadata)
+- **CLI included** — search, export, validate, batch operations
+- **Smart caching** — automatic local caching for subsequent loads
+
+## API Overview
+
+### Search
+
+```python
+from barangay import search
+
+results = search("query", n=5, threshold=60.0, match_hooks=["province", "municipality", "barangay"], as_of=None)
+```
+
+### Data Access
+
+```python
+from barangay import barangay, barangay_flat, barangay_extended
+
+# Nested: region → municipality/city → barangay
+ncr = barangay["National Capital Region (NCR)"]
+
+# Flat: list of all admin divisions with psgc_id, parent_psgc_id, type
+brgy = [item for item in barangay_flat if item.name == "Marayos"]
+
+# Extended: recursive tree with metadata
+for region in barangay_extended.components:
+    print(region.name, region.psgc_id)
+```
+
+### Utilities
+
+```python
+from barangay import sanitize_input, resolve_date, get_available_dates, create_fuzz_base
+
+cleaned = sanitize_input("City of San Jose", exclude=["city of "])
+fuzz_base = create_fuzz_base()  # reuse for batch searches
+dates = get_available_dates()
+```
+
+## CLI
+
+```bash
+barangay search "Tongmageng, Tawi-Tawi"
+barangay export --model flat --format json --output data.json
+barangay info version
+barangay batch validate names.txt
+```
+
+## PyPI
+
+https://pypi.org/project/barangay/
+
+## Repository
+
+https://github.com/bendlikeabamboo/barangay
+
+## Documentation
+
+https://bendlikeabamboo.github.io/barangay/
