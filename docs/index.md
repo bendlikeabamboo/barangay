@@ -1,6 +1,40 @@
-# barangay
+# barangay — Philippine Geographic Data Python Package
 
-Python Package for Philippine regions, provinces, municipalities, cities, and barangays. Based on Philippine Standard Geographic Code (PSGC) official masterlist.
+> Python package for accessing Philippine Standard Geographic Code (PSGC)
+> data covering all 42,011 barangays, 1,488 municipalities, 146 cities,
+> 82 provinces, and 17 regions — offline, no API calls needed.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "barangay",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Cross-platform",
+  "programmingLanguage": "Python",
+  "description": "Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions.",
+  "installUrl": "https://pypi.org/project/barangay/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "howTo": {
+    "@type": "HowTo",
+    "name": "Install and search Philippine barangays with Python",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "text": "Install the package: pip install barangay"
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Search for a barangay: from barangay import search; search('Tongmageng, Tawi-Tawi')"
+      }
+    ]
+  }
+}
+</script>
 
 <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
 <a href="https://pypi.org/project/barangay/">
@@ -169,4 +203,4 @@ Current data version: [**2026-04-13** (April 13 2026 PSGC masterlist)](https://p
 - [API Reference](api.md)
 - [CLI Reference](cli.md)
 - [Configuration](configuration.md)
-- [Contributing](contributing.md)
+- [Contributing](contributing/index.md)

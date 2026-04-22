@@ -6,7 +6,7 @@
 [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)
 [![Visit the Docs](https://img.shields.io/badge/Visit%20the%20Docs-red)](https://bendlikeabamboo.github.io/barangay/)
 
-Philippine geographic data with fuzzy search. Based on the April 2026 PSGC masterlist.
+Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions. Based on the official April 2026 PSGC masterlist. Offline access to all 42,011 barangays — no API calls or database needed.
 
 ---
 

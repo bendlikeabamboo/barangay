@@ -11,11 +11,25 @@ keywords = [
     "geography",
     "barangay",
     "region",
+    "province",
+    "municipality",
+    "city",
+    "PSGC",
+    "philippine-standard-geographic-code",
+    "fuzzy-search",
+    "address-validation",
+    "administrative-divisions",
+    "geographic-data",
+    "philippine-data",
+    "address-matching",
 ]
 classifiers = [
     "Topic :: Scientific/Engineering :: GIS",
     "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
     "Topic :: Scientific/Engineering :: Information Analysis",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
     "pandas>=2.3.2,<3.0.0",

@@ -98,7 +98,8 @@ pip-log.txt
 
 **scratch**
 
-# Sphinx documentation build
+# MkDocs documentation build
+site/
 docs/_build/
 
 notebooks2
