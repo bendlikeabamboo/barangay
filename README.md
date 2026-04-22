@@ -6,7 +6,7 @@
 [![Release](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg)](https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml)
 [![Visit the Docs](https://img.shields.io/badge/Visit%20the%20Docs-red)](https://bendlikeabamboo.github.io/barangay/)
 
-Philippine geographic data with fuzzy search. Based on the January 2026 PSGC masterlist.
+Philippine geographic data with fuzzy search. Based on the April 2026 PSGC masterlist.
 
 ---
 
@@ -127,12 +127,12 @@ cleaned = sanitize_input("City of San Jose", exclude=["city of "])
 # Result: "san jose"
 
 # Resolve to closest available date
-resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-01-13")
+resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
 # Result: '2025-07-08'
 
 # Get all available dates
 dates = get_available_dates()
-# ['2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
+# ['2026-04-13', '2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
 ```
 
 📖 **Full API Reference:** [docs/api.md](https://bendlikeabamboo.github.io/barangay/api/)
@@ -180,16 +180,16 @@ Three data structures are available. Choose based on your use case:
 
 Access previous PSGC releases by date. Data is automatically cached after first download.
 
-**Current Data Version:** `2026-01-13` (January 13 2026 PSGC masterlist)
+**Current Data Version:** `2026-04-13` (April 13 2026 PSGC masterlist)
 
 **Available Dates:**
-- Current: `2026-01-13` (bundled)
-- Historical: `2025-07-08`, `2025-08-29`, `2025-10-13`
+- Current: `2026-04-13` (bundled)
+- Historical: `2026-01-13`, `2025-07-08`, `2025-08-29`, `2025-10-13`
 
 ```python
 import barangay
-print(barangay.current)           # '2026-01-13'
-print(barangay.available_dates)   # ['2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
+print(barangay.current)           # '2026-04-13'
+print(barangay.available_dates)   # ['2026-04-13', '2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
 ```
 
 ---

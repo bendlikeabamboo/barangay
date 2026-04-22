@@ -2,7 +2,7 @@
 
 Want to help keep `barangay` up to date with the latest PSGC masterlist? This guide walks you through the entire data update process from start to finish.
 
-The package uses **calendar versioning** — a version like `v2026.01.13.0` means the data comes from the PSGC release dated **2026-01-13**. Every time the Philippine Statistics Authority publishes an updated masterlist, thsis package needs a refresh.
+The package uses **calendar versioning** — a version like `v2026.04.13.0` means the data comes from the PSGC release dated **2026-04-13**. Every time the Philippine Statistics Authority publishes an updated masterlist, thsis package needs a refresh.
 
 ---
 

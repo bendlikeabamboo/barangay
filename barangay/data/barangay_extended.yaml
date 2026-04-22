@@ -15910,7 +15910,7 @@ components:
       parent_psgc_id: '1401100000'
       nicknames: null
       components:
-      - name: Ambuclao
+      - name: Ambuklao
         type: barangay
         psgc_id: '1401104001'
         parent_psgc_id: '1401104000'
@@ -15928,7 +15928,7 @@ components:
         parent_psgc_id: '1401104000'
         nicknames: null
         components: []
-      - name: Daclan
+      - name: Daklan
         type: barangay
         psgc_id: '1401104004'
         parent_psgc_id: '1401104000'
@@ -74026,7 +74026,7 @@ components:
         parent_psgc_id: '0201521000'
         nicknames: null
         components: []
-    - name: Sanchez-Mira
+    - name: Sanchez Mira
       type: municipality
       psgc_id: '0201522000'
       parent_psgc_id: '0201500000'
@@ -105643,12 +105643,6 @@ components:
       - name: Salong
         type: barangay
         psgc_id: '0401007037'
-        parent_psgc_id: '0401007000'
-        nicknames: null
-        components: []
-      - name: San Rafael
-        type: barangay
-        psgc_id: 0401007038
         parent_psgc_id: '0401007000'
         nicknames: null
         components: []
@@ -156220,7 +156214,7 @@ components:
         parent_psgc_id: '0502002000'
         nicknames: null
         components: []
-      - name: Ginitligan
+      - name: Genitligan
         type: barangay
         psgc_id: '0502002010'
         parent_psgc_id: '0502002000'
@@ -228400,7 +228394,7 @@ components:
         parent_psgc_id: '1001309000'
         nicknames: null
         components: []
-      - name: Santo Rosario
+      - name: Sto. Rosario
         type: barangay
         psgc_id: '1001309030'
         parent_psgc_id: '1001309000'
@@ -228874,7 +228868,7 @@ components:
         parent_psgc_id: '1001312000'
         nicknames: null
         components: []
-      - name: Saint Peter
+      - name: St. Peter
         type: barangay
         psgc_id: '1001312058'
         parent_psgc_id: '1001312000'
@@ -228892,7 +228886,7 @@ components:
         parent_psgc_id: '1001312000'
         nicknames: null
         components: []
-      - name: "Santo Ni\xF1o"
+      - name: "Sto. Ni\xF1o"
         type: barangay
         psgc_id: '1001312061'
         parent_psgc_id: '1001312000'
@@ -229132,7 +229126,7 @@ components:
         parent_psgc_id: '1001314000'
         nicknames: null
         components: []
-      - name: "Santo Ni\xF1o"
+      - name: "Sto. Ni\xF1o"
         type: barangay
         psgc_id: '1001314021'
         parent_psgc_id: '1001314000'

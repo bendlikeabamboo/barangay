@@ -100,3 +100,6 @@ pip-log.txt
 
 # Sphinx documentation build
 docs/_build/
+
+notebooks2
+notebooks

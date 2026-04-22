@@ -4340,7 +4340,7 @@
         "nicknames": null
     },
     {
-        "name": "Sanchez-Mira",
+        "name": "Sanchez Mira",
         "type": "municipality",
         "psgc_id": "0201522000",
         "parent_psgc_id": "0201500000",
@@ -29827,7 +29827,7 @@
         "nicknames": null
     },
     {
-        "name": "Ambuclao",
+        "name": "Ambuklao",
         "type": "barangay",
         "psgc_id": "1401104001",
         "parent_psgc_id": "1401104000",
@@ -29848,7 +29848,7 @@
         "nicknames": null
     },
     {
-        "name": "Daclan",
+        "name": "Daklan",
         "type": "barangay",
         "psgc_id": "1401104004",
         "parent_psgc_id": "1401104000",
@@ -122416,13 +122416,6 @@
         "nicknames": null
     },
     {
-        "name": "San Rafael",
-        "type": "barangay",
-        "psgc_id": "0401007038",
-        "parent_psgc_id": "0401007000",
-        "nicknames": null
-    },
-    {
         "name": "Sinisian",
         "type": "barangay",
         "psgc_id": "0401007039",
@@ -178332,7 +178325,7 @@
         "nicknames": null
     },
     {
-        "name": "Ginitligan",
+        "name": "Genitligan",
         "type": "barangay",
         "psgc_id": "0502002010",
         "parent_psgc_id": "0502002000",
@@ -256424,7 +256417,7 @@
         "nicknames": null
     },
     {
-        "name": "Santo Rosario",
+        "name": "Sto. Rosario",
         "type": "barangay",
         "psgc_id": "1001309030",
         "parent_psgc_id": "1001309000",
@@ -256956,7 +256949,7 @@
         "nicknames": null
     },
     {
-        "name": "Saint Peter",
+        "name": "St. Peter",
         "type": "barangay",
         "psgc_id": "1001312058",
         "parent_psgc_id": "1001312000",
@@ -256977,7 +256970,7 @@
         "nicknames": null
     },
     {
-        "name": "Santo Ni\u00f1o",
+        "name": "Sto. Ni\u00f1o",
         "type": "barangay",
         "psgc_id": "1001312061",
         "parent_psgc_id": "1001312000",
@@ -257243,7 +257236,7 @@
         "nicknames": null
     },
     {
-        "name": "Santo Ni\u00f1o",
+        "name": "Sto. Ni\u00f1o",
         "type": "barangay",
         "psgc_id": "1001314021",
         "parent_psgc_id": "1001314000",

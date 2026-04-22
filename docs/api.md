@@ -304,7 +304,7 @@ Resolve approximate dates to the closest available dataset. This is useful when 
 from barangay import resolve_date
 
 # Resolve to closest available date
-resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-01-13")
+resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
 print(resolved_date)  # '2025-07-08' (closest available)
 print(status)  # Message describing the resolution
 ```
@@ -328,7 +328,7 @@ from barangay import get_available_dates
 
 dates = get_available_dates()
 print(dates)
-# ['2023-01-25', '2023-04-18', '2023-08-15', '2023-10-24', '2024-01-23', '2024-04-23', '2024-05-08', '2024-07-12', '2024-10-18', '2025-01-30', '2025-04-23', '2025-07-08', '2025-08-29', '2025-10-13', '2026-01-13']
+# ['2023-01-25', '2023-04-18', '2023-08-15', '2023-10-24', '2024-01-23', '2024-04-23', '2024-05-08', '2024-07-12', '2024-10-18', '2025-01-30', '2025-04-23', '2025-07-08', '2025-08-29', '2025-10-13', '2026-01-13', '2026-04-13']
 ```
 
 **Returns:** List[str] of available dates in YYYY-MM-DD format
@@ -437,7 +437,7 @@ print(config)
 import barangay
 
 # Current dataset date (from bundled package)
-print(barangay.current)           # '2026-01-13'
+print(barangay.current)           # '2026-04-13'
 
 # Available dataset dates (historical + current)
 print(barangay.available_dates)    # List of available dates

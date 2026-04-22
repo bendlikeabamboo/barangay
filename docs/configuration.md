@@ -14,7 +14,7 @@ export BARANGAY_AS_OF="2025-07-08"
 
 **Priority:** Lower than function parameters and module attributes.
 
-**Note:** If not set, the package uses the latest bundled data (current version: 2026-01-13).
+**Note:** If not set, the package uses the latest bundled data (current version: 2026-04-13).
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|

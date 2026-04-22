@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 logger: logging.Logger = logging.getLogger(__name__)
 
 # Current dataset date (matches the data bundled with the package)
-CURRENT_DATE = "2026-01-13"
+CURRENT_DATE = "2026-04-13"
 
 # Data type to filename mapping
 DATA_TYPE_MAPPING: Dict[str, str] = {

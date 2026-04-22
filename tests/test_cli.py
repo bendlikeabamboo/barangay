@@ -293,8 +293,11 @@ class TestSearchCommands:
 class TestInfoCommands:
     """Test suite for info commands."""
 
-    @patch("barangay.cli.current", "2026-01-13")
-    @patch("barangay.cli.available_dates", ["2025-07-08", "2025-08-29", "2025-10-13"])
+    @patch("barangay.cli.current", "2026-04-13")
+    @patch(
+        "barangay.cli.available_dates",
+        ["2025-07-08", "2025-08-29", "2025-10-13", "2026-01-13"],
+    )
     def test_version(self, runner):
         """Test version command."""
         result = runner.invoke(app, ["info", "version"])
@@ -525,16 +528,22 @@ class TestHistoryCommands:
     """Test suite for history commands."""
 
     @patch("barangay.cli.get_available_dates")
-    @patch("barangay.cli.current", "2026-01-13")
+    @patch("barangay.cli.current", "2026-04-13")
     def test_list_dates(self, mock_dates, runner):
         """Test list_dates command."""
-        mock_dates.return_value = ["2025-07-08", "2025-08-29", "2025-10-13"]
+        mock_dates.return_value = [
+            "2025-07-08",
+            "2025-08-29",
+            "2025-10-13",
+            "2026-01-13",
+        ]
         result = runner.invoke(app, ["history", "list-dates"])
         assert result.exit_code == 0
         assert "Available Historical Dates" in result.output
         assert "2025-07-08" in result.output
         assert "2025-08-29" in result.output
         assert "2026-01-13" in result.output
+        assert "2026-04-13" in result.output
         assert "Current" in result.output
 
 

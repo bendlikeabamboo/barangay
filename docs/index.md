@@ -145,8 +145,8 @@ barangay info version
 
 Output:
 ```txt
-Current version: 2026-01-13
-Available dates: 2023-01-25, 2023-04-18, 2023-08-15, 2023-10-24, 2024-01-23, 2024-04-23, 2024-05-08, 2024-07-12, 2024-10-18, 2025-01-30, 2025-04-23, 2025-07-08, 2025-08-29, 2025-10-13, 2026-01-13
+Current version: 2026-04-13
+Available dates: 2023-01-25, 2023-04-18, 2023-08-15, 2023-10-24, 2024-01-23, 2024-04-23, 2024-05-08, 2024-07-12, 2024-10-18, 2025-01-30, 2025-04-23, 2025-07-08, 2025-08-29, 2025-10-13, 2026-01-13, 2026-04-13
 ```
 
 ```sh
@@ -162,7 +162,7 @@ Output:
 
 ## Data Version
 
-Current data version: [**2026-01-13** (January 13 2026 PSGC masterlist)](https://psa.gov.ph/classification/psgc/node/1684082306)
+Current data version: [**2026-04-13** (April 13 2026 PSGC masterlist)](https://psa.gov.ph/classification/psgc/node/1684083211)
 
 ## Documentation
 
