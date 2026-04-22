@@ -1,5 +1,7 @@
 site_name: barangay
-site_description: Python Package for Philippine Standard Geographic Code
+site_description: >-
+  Philippine Standard Geographic Code (PSGC) Python package with fuzzy search.
+  Access 42,011 barangays, municipalities, cities, provinces, and regions offline.
 site_author: bendlikeabamboo
 repo_url: https://github.com/bendlikeabamboo/barangay
 site_url: https://bendlikeabamboo.github.io/barangay/
@@ -10,23 +12,45 @@ theme:
   extra_css:
     - stylesheets/extra.css
 
+extra:
+  meta:
+    - name: description
+      content: "Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions."
+    - name: keywords
+      content: "PSGC, barangay, Philippines, geographic code, python, philippine standard geographic code, fuzzy search, address validation"
+    - property: og:title
+      content: "barangay - Philippine Geographic Data Python Package"
+    - property: og:description
+      content: "Python package for accessing Philippine Standard Geographic Code (PSGC) data with fuzzy search."
+    - property: og:type
+      content: "website"
+    - property: og:url
+      content: "https://bendlikeabamboo.github.io/barangay/"
+    - property: og:image
+      content: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+
 nav:
   - barangay: index.md
   - API Reference: api.md
   - CLI Reference: cli.md
   - Configuration: configuration.md
   - Data Model Reference:
-    - Overview: data_models/overview.md
-    - Python: data_models/python.md
+      - Overview: data_models/overview.md
+      - Python: data_models/python.md
+  - Tutorials:
+      - Address Validation: tutorials/address_validation.md
+      - Bulk Barangay Lookup: tutorials/bulk_barangay_lookup.md
   - Contributing:
-    - Overview: contributing/index.md
-    - Data Update: contributing/data_update.md
-
+      - Overview: contributing/index.md
+      - Data Update: contributing/data_update.md
 
 markdown_extensions:
   - admonition
   - codehilite
   - tables
+
+hooks:
+  - docs/hooks/sitemap_hook.py
 
 plugins:
   - search
