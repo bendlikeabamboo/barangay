@@ -210,7 +210,7 @@ Use fewer `match_hooks` for better performance when appropriate.
 ## Resources
 
 - 📚 [Full Documentation](https://bendlikeabamboo.github.io/barangay/) - Comprehensive guides and API reference
-- 📩 [PSGC Source](https://psa.gov.ph/classification/psgc/node/1684082306) - January 2026 masterlist
+- 📩 [PSGC Source](https://psa.gov.ph/classification/psgc/node/1684083211) - April 2026 masterlist
 - 📦 [PyPI Package](https://pypi.org/project/barangay/)
 - 💻 [GitHub Repository](https://github.com/bendlikeabamboo/barangay)
 - 📊 [Data Repository](https://github.com/bendlikeabamboo/barangay-data-repository) - Raw PSGC datasets (JSON, YAML)
