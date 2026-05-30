@@ -397,4 +397,4 @@ class TestAdminDivFlat:
             "nicknames": None,
         }
         model = AdminDivFlat(**data)
-        assert model.model_dump() == data
+        assert model.model_dump(exclude={"extensions"}) == data

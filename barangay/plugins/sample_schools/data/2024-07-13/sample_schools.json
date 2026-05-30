@@ -1,0 +1,100 @@
+[
+  {
+    "psgc_id": "1380100001",
+    "data": [
+      {
+        "beiss_id": 10001,
+        "name": "Caloocan North Elementary School",
+        "classification": "Elementary",
+        "students": 1250
+      },
+      {
+        "beiss_id": 10002,
+        "name": "North City National High School",
+        "classification": "Junior",
+        "students": 890
+      },
+      {
+        "beiss_id": 10003,
+        "name": "Caloocan City Science High School",
+        "classification": "Senior",
+        "students": 450
+      },
+      {
+        "beiss_id": 10004,
+        "name": "Barangay 1 Integrated School",
+        "classification": "Elementary",
+        "students": 520
+      }
+    ]
+  },
+  {
+    "psgc_id": "1380601000",
+    "data": [
+      {
+        "beiss_id": 20001,
+        "name": "Tondo Central School",
+        "classification": "Elementary",
+        "students": 2150
+      },
+      {
+        "beiss_id": 20002,
+        "name": "Tondo National High School",
+        "classification": "Junior",
+        "students": 1650
+      },
+      {
+        "beiss_id": 20003,
+        "name": "Manila Science High School",
+        "classification": "Senior",
+        "students": 710
+      }
+    ]
+  },
+  {
+    "psgc_id": "0831600000",
+    "data": [
+      {
+        "beiss_id": 30001,
+        "name": "Tacloban Central Elementary School",
+        "classification": "Elementary",
+        "students": 1020
+      },
+      {
+        "beiss_id": 30002,
+        "name": "Tacloban City National High School",
+        "classification": "Junior",
+        "students": 750
+      },
+      {
+        "beiss_id": 30004,
+        "name": "Eastern Visayas State University Lab School",
+        "classification": "Senior",
+        "students": 380
+      }
+    ]
+  },
+  {
+    "psgc_id": "1908703001",
+    "data": [
+      {
+        "beiss_id": 40001,
+        "name": "Bagua Elementary School",
+        "classification": "Elementary",
+        "students": 680
+      },
+      {
+        "beiss_id": 40002,
+        "name": "Bagua Madrasa",
+        "classification": "Elementary",
+        "students": 330
+      },
+      {
+        "beiss_id": 40005,
+        "name": "Cotabato City Central Elementary",
+        "classification": "Elementary",
+        "students": 890
+      }
+    ]
+  }
+]

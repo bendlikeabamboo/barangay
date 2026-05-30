@@ -1,0 +1,9 @@
+name: sample_elevation_time
+description: SAMPLE — Elevation data by province with time-versioned snapshots using YYYY-MM-DD/ folder layout. Not real data.
+version: 0.1.0
+format: json
+key: psgc_id
+current: 2025-01-15
+dates:
+  - 2024-01-15
+  - 2025-01-15
