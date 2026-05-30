@@ -1,0 +1,8 @@
+[
+  {"psgc_id": "1300000000", "elevation_m": 16, "terrain": "lowland"},
+  {"psgc_id": "0800000000", "elevation_m": 52, "terrain": "lowland"},
+  {"psgc_id": "0400000000", "elevation_m": 322, "terrain": "upland"},
+  {"psgc_id": "1400000000", "elevation_m": 1500, "terrain": "highland"},
+  {"psgc_id": "0802600000", "elevation_m": 34, "terrain": "lowland"},
+  {"psgc_id": "0803700000", "elevation_m": 48, "terrain": "lowland"}
+]

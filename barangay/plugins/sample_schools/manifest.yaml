@@ -1,0 +1,9 @@
+name: sample_schools
+description: SAMPLE — BEISS school records per barangay. Not real data. Demonstrates array/list data extension where each PSGC ID maps to a list of school records.
+version: 0.1.0
+format: json
+key: psgc_id
+current: 2024-07-13
+dates:
+  - 2024-04-13
+  - 2024-07-13

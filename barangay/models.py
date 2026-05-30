@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, RootModel
-from typing import Literal, Optional, List
+from typing import Any, Literal, Optional, List
 
 
 class BarangayModel(BaseModel):
@@ -16,6 +16,40 @@ class BarangayModel(BaseModel):
     province_or_huc: str
     municipality_or_city: str
     psgc_id: str
+
+
+class PluginExtensionMetadata(BaseModel):
+    """Metadata describing a plugin extension.
+
+    Attributes:
+        name: Name of the plugin extension.
+        description: Optional description of the plugin extension.
+        version: Optional version string of the plugin extension.
+        repository: Optional repository URL for the plugin extension.
+        format: Optional format identifier for the extension data.
+        as_of: Optional date string indicating when the data was current.
+    """
+
+    name: str
+    description: str | None = None
+    version: str | None = None
+    repository: str | None = None
+    format: str | None = None
+    as_of: str | None = None
+
+
+class PluginExtension(BaseModel):
+    """A plugin extension attached to an administrative division.
+
+    Attributes:
+        field_group: Logical grouping name for the extension fields.
+        metadata: Metadata describing the plugin extension.
+        data: Dictionary or list of dictionaries of extension field names to values.
+    """
+
+    field_group: str
+    metadata: PluginExtensionMetadata
+    data: dict[str, Any] | list[dict[str, Any]]
 
 
 class AdminDivExtended(BaseModel):
@@ -45,6 +79,7 @@ class AdminDivExtended(BaseModel):
     parent_psgc_id: str | Literal["n/a"]
     nicknames: Optional[List[str]] = None
     components: List["AdminDivExtended"] = Field(default_factory=list)
+    extensions: List["PluginExtension"] = Field(default_factory=list)
 
 
 class AdminDiv(RootModel):
@@ -89,6 +124,7 @@ class AdminDivFlat(BaseModel):
         psgc_id: PSGC identifier or 'n/a'.
         parent_psgc_id: Parent PSGC identifier or 'n/a'.
         nicknames: Optional list of alternative names.
+        extensions: List of plugin extensions attached to this division.
     """
 
     name: str
@@ -105,3 +141,4 @@ class AdminDivFlat(BaseModel):
     psgc_id: str | Literal["n/a"]
     parent_psgc_id: str | Literal["n/a"]
     nicknames: Optional[List[str]] = None
+    extensions: List["PluginExtension"] = Field(default_factory=list)

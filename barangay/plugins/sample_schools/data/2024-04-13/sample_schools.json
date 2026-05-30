@@ -1,0 +1,82 @@
+[
+  {
+    "psgc_id": "1380100001",
+    "data": [
+      {
+        "beiss_id": 10001,
+        "name": "Caloocan North Elementary School",
+        "classification": "Elementary",
+        "students": 1200
+      },
+      {
+        "beiss_id": 10002,
+        "name": "North City National High School",
+        "classification": "Junior",
+        "students": 850
+      },
+      {
+        "beiss_id": 10003,
+        "name": "Caloocan City Science High School",
+        "classification": "Senior",
+        "students": 420
+      }
+    ]
+  },
+  {
+    "psgc_id": "1380601000",
+    "data": [
+      {
+        "beiss_id": 20001,
+        "name": "Tondo Central School",
+        "classification": "Elementary",
+        "students": 2100
+      },
+      {
+        "beiss_id": 20002,
+        "name": "Tondo National High School",
+        "classification": "Junior",
+        "students": 1600
+      },
+      {
+        "beiss_id": 20003,
+        "name": "Manila Science High School",
+        "classification": "Senior",
+        "students": 680
+      }
+    ]
+  },
+  {
+    "psgc_id": "0831600000",
+    "data": [
+      {
+        "beiss_id": 30001,
+        "name": "Tacloban Central Elementary School",
+        "classification": "Elementary",
+        "students": 980
+      },
+      {
+        "beiss_id": 30002,
+        "name": "Tacloban City National High School",
+        "classification": "Junior",
+        "students": 720
+      }
+    ]
+  },
+  {
+    "psgc_id": "1908703001",
+    "data": [
+      {
+        "beiss_id": 40001,
+        "name": "Bagua Elementary School",
+        "classification": "Elementary",
+        "students": 650
+      },
+      {
+        "beiss_id": 40002,
+        "name": "Bagua Madrasa",
+        "classification": "Elementary",
+        "students": 310
+      }
+    ]
+  }
+]

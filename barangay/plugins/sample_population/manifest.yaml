@@ -1,0 +1,9 @@
+name: sample_population
+description: SAMPLE — Population counts by city/municipality. Not real data. Demonstrates time-aware JSON plugin with date-versioned snapshots.
+version: 0.1.0
+format: json
+key: psgc_id
+current: 2023-01-01
+dates:
+  - 2020-01-01
+  - 2023-01-01

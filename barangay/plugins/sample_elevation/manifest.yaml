@@ -1,0 +1,5 @@
+name: sample_elevation
+description: SAMPLE — Average elevation above sea level (meters) by province. Not real data.
+version: 0.1.0
+format: csv
+key: psgc_id

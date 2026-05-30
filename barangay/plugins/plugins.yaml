@@ -1,0 +1,22 @@
+# Plugin configuration — set enabled: true for any plugin you want to activate.
+#
+# SAMPLE plugins below are bundled for demonstration only and are disabled by
+# default. They contain fabricated data — do not use for real analysis.
+#
+# Plugin types demonstrated:
+#   sample_elevation        — CSV, non-time-aware, scalar dict fields
+#   sample_population       — JSON, time-aware, date-prefixed filenames, scalar dict
+#   sample_schools          — JSON, time-aware, date-prefixed filenames, array data
+#   sample_elevation_time   — JSON, time-aware, YYYY-MM-DD/ folder layout, scalar dict
+
+plugins:
+  - name: sample_elevation
+    enabled: false
+  - name: sample_population
+    enabled: false
+  - name: sample_schools
+    enabled: false
+  - name: sample_elevation_time
+    enabled: false
+  - name: psgc-aux-data
+    enabled: true
