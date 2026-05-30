@@ -44,6 +44,18 @@ export BARANGAY_CACHE_DIR="/custom/cache/path"
 |-----------|------|---------|-------------|
 | `BARANGAY_CACHE_DIR` | `str` | - | Custom cache directory path |
 
+### BARANGAY_PLUGINS_DIR
+
+One or more directories to scan for plugins. Multiple paths are separated by the OS path separator (`:` on Linux/Mac, `;` on Windows). See the [Plugins](plugins.md) guide for details.
+
+```bash
+export BARANGAY_PLUGINS_DIR="/opt/barangay-plugins:/home/user/custom-plugins"
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `BARANGAY_PLUGINS_DIR` | `str` | - | Plugin source directories (OS path separator) |
+
 ## Configuration Priority
 
 The `as_of` date is resolved in the following priority order (highest to lowest):

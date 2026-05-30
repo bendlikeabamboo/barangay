@@ -18,6 +18,7 @@ barangay search "Tongmageng, Tawi-Tawi"
 | `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
 | `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
 | `--format`, `-f` | `str` | `table` | No | Output format - `json` or `table` |
+| `--plugin` | `str` | - | No | Enable a plugin for enrichment (repeatable) |
 
 **Examples:**
 
@@ -33,6 +34,9 @@ barangay search "Tongmageng" --format json
 
 # Historical data search
 barangay search "Tongmageng" --as-of "2025-07-08" --format table
+
+# With plugin enrichment
+barangay search "Tongmageng" --plugin psgc-aux-data --format json
 ```
 
 **Note:** Results include scores for each matching level (barangay only, province+barangay, municipality+barangay, province+municipality+barangay). Use `--format json` to see individual score fields.
@@ -55,6 +59,7 @@ barangay export --model flat --format json --output data.json
 | `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` |
 | `--output`, `-o` | `str` | `stdout` | No | Output file |
 | `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
+| `--plugin` | `str` | - | No | Enable a plugin for enrichment (repeatable; only with `--model flat`) |
 
 **Examples:**
 
@@ -67,6 +72,9 @@ barangay export --model basic --format csv --output data.csv
 
 # Export historical data
 barangay export --model flat --format json --as-of "2025-07-08" --output historical.json
+
+# Export with plugin enrichment
+barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
 ```
 
 ## Info

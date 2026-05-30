@@ -40,6 +40,7 @@ nav:
   - Tutorials:
       - Address Validation: tutorials/address_validation.md
       - Bulk Barangay Lookup: tutorials/bulk_barangay_lookup.md
+  - Plugins: plugins.md
   - Contributing:
       - Overview: contributing/index.md
       - Data Update: contributing/data_update.md
