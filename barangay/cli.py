@@ -17,6 +17,10 @@ from barangay import (
     get_cache_dir,
     search,
 )
+from barangay.explode import ExplodeError, explode_flat
+from barangay.plugin_loader import (
+    PluginLoader,
+)
 
 console = Console()
 
@@ -47,7 +51,13 @@ def app():
     default="table",
     help="Output format",
 )
-def search_cmd(query, limit, threshold, as_of, output_format):
+@click.option(
+    "--plugin",
+    "plugins",
+    multiple=True,
+    help="Enable a specific plugin for enrichment (repeatable)",
+)
+def search_cmd(query, limit, threshold, as_of, output_format, plugins):
     """Search for barangays by name.
 
     Args:
@@ -67,6 +77,9 @@ def search_cmd(query, limit, threshold, as_of, output_format):
             console.print("[yellow]No results found.[/yellow]")
             return
 
+        if plugins:
+            results = _apply_plugins_to_results(results, plugins, as_of)
+
         if output_format == "json":
             console.print_json(data=results)
         else:
@@ -77,19 +90,73 @@ def search_cmd(query, limit, threshold, as_of, output_format):
             table.add_column("PSGC ID", style="blue")
             table.add_column("Score", style="yellow")
 
+            plugin_columns: list[str] = []
+            for r in results:
+                for key in r:
+                    if "." in key and key not in plugin_columns:
+                        plugin_columns.append(key)
+
+            for col in plugin_columns:
+                table.add_column(col, style="dim")
+
             for r in results:
                 max_score = max(v for k, v in r.items() if k.endswith("_score"))
-                table.add_row(
+                values = [
                     r["barangay"],
                     r["municipality_or_city"],
                     r["province_or_huc"],
                     r["psgc_id"],
                     f"{max_score:.1f}",
-                )
+                ]
+                for col in plugin_columns:
+                    values.append(str(r.get(col, "")))
+                table.add_row(*values)
             console.print(table)
+    except ExplodeError as e:
+        console.print(f"[red]Error: {e}[/red]")
+        raise click.ClickException(str(e))
     except Exception as e:
         console.print(f"[red]Error: {e}[/red]")
         raise click.ClickException(str(e))
+
+
+def _apply_plugins_to_results(
+    results: list[dict],
+    plugins: tuple[str, ...],
+    as_of: str | None,
+) -> list[dict]:
+    loader = PluginLoader(env=True)
+    for name in plugins:
+        loader.enable_plugin(name)
+    plugin_index = loader.build_index(as_of=as_of)
+
+    if plugin_index:
+        from barangay.explode import classify_plugins, validate_single_array
+
+        _, array_plugins = classify_plugins(plugin_index)
+        validate_single_array(array_plugins)
+        if array_plugins:
+            click.echo(
+                click.style(
+                    "Warning: Array-type plugins are not supported with search. "
+                    "Only scalar plugin data will be included.",
+                    fg="yellow",
+                ),
+                err=True,
+            )
+
+    output: list[dict] = []
+    for r in results:
+        psgc_id = str(r.get("psgc_id", ""))
+        plugins_data = plugin_index.get(psgc_id, {})
+        row = dict(r)
+        for plugin_name, entry in plugins_data.items():
+            data = entry.get("data")
+            if isinstance(data, dict):
+                for key, value in data.items():
+                    row[f"{plugin_name}.{key}"] = value
+        output.append(row)
+    return output
 
 
 @app.group()
@@ -257,7 +324,13 @@ def list_barangays(municipality):
 )
 @click.option("--output", "-o", help="Output file (default: stdout)")
 @click.option("--as-of", help="Historical date (YYYY-MM-DD)")
-def export(model, output_format, output, as_of):
+@click.option(
+    "--plugin",
+    "plugins",
+    multiple=True,
+    help="Enable a specific plugin for enrichment (repeatable)",
+)
+def export(model, output_format, output, as_of, plugins):
     """Export data to JSON or CSV.
 
     Args:
@@ -265,14 +338,22 @@ def export(model, output_format, output, as_of):
         output_format: Output format (json or csv).
         output: Output file path.
         as_of: Historical date (YYYY-MM-DD).
-
-    Returns:
-        None
+        plugins: Plugin names to enable for enrichment.
     """
     try:
+        if plugins and model != "flat":
+            raise click.ClickException("Plugins are only supported with --model flat")
+
         dm = DataManager()
         data_type = {"basic": "basic", "flat": "flat", "extended": "extended"}[model]
         data = dm.get_data(as_of=as_of, data_type=data_type)
+
+        if plugins and model == "flat":
+            loader = PluginLoader(env=True)
+            for name in plugins:
+                loader.enable_plugin(name)
+            plugin_index = loader.build_index(as_of=as_of)
+            data = explode_flat(data, plugin_index)
 
         if output_format == "json":
             output_data = json.dumps(data, indent=2, ensure_ascii=False)
