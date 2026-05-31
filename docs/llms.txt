@@ -28,6 +28,7 @@ print(results[0]["psgc_id"])   # '1907005010'
 - **Three data models** — nested (dict-like), flat (list), extended (recursive with metadata)
 - **CLI included** — search, export, validate, batch operations
 - **Smart caching** — automatic local caching for subsequent loads
+- **Plug-in system** — enrich PSGC data with custom extensions (CSV, JSON, Parquet), built-in and remote plugins supported
 
 ## API Overview
 
@@ -69,7 +70,9 @@ dates = get_available_dates()
 
 ```bash
 barangay search "Tongmageng, Tawi-Tawi"
+barangay search "Tongmageng" --plugin psgc-aux-data --format json
 barangay export --model flat --format json --output data.json
+barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
 barangay info version
 barangay batch validate names.txt
 ```

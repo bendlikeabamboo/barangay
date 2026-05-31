@@ -36,6 +36,7 @@ PSGC ID: 1907005010
 - **Multiple Data Models**: Basic (nested), Extended (recursive), and Flat (list)
 - **Command Line Interface**: Full CLI for search, export, validation, batch operations
 - **Smart Caching**: Automatic local caching for faster subsequent loads
+- **Plug-in System**: Enrich PSGC data with custom extensions (CSV, JSON, Parquet), built-in and remote plugins with time-aware support
 
 ---
 
@@ -259,6 +260,7 @@ barangay search "Tongmageng, Tawi-Tawi"
 barangay search "Tongmageng" --limit 5 --threshold 70.0
 barangay search "Tongmageng" --format json
 barangay search "Tongmageng" --as-of "2025-07-08"
+barangay search "Tongmageng" --plugin psgc-aux-data --format json
 ```
 
 | Option | Type | Default | Description |
@@ -274,6 +276,7 @@ barangay search "Tongmageng" --as-of "2025-07-08"
 barangay export --model flat --format json --output data.json
 barangay export --model basic --format csv --output data.csv
 barangay export --model flat --format json --as-of "2025-07-08" --output historical.json
+barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
 ```
 
 | Option | Type | Default | Description |
