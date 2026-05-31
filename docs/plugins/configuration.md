@@ -1,0 +1,112 @@
+# Configuration
+
+## Plugin Discovery
+
+Plugins are discovered from these sources, in order of priority (lowest to highest):
+
+1. **Built-in plugins directory** — `{package}/barangay/plugins/`
+2. **`BARANGAY_PLUGINS_DIR` environment variable** — one or more directories separated by your OS path separator (`:` on Linux/Mac, `;` on Windows)
+3. **Project config file** — `barangay.yaml` or `barangay_config.yaml` in your project root (or any parent directory), under the `plugin_dirs` key
+4. **Programmatic extra dirs** — passed to `PluginLoader(extra_dirs=[...])`
+
+Higher-priority sources override the `enabled` status of lower-priority ones.
+
+## `plugins.yaml`
+
+A `plugins.yaml` file in each plugin source directory controls which plugins are active:
+
+```yaml
+plugins:
+  - name: psgc-aux-data
+    enabled: true
+  - name: sample_elevation
+    enabled: false
+  - name: sample_population
+    enabled: false
+  - name: sample_schools
+    enabled: false
+  - name: sample_elevation_time
+    enabled: false
+```
+
+The built-in `plugins.yaml` ships with `psgc-aux-data` enabled and all sample plugins disabled. When using `--plugin` on the CLI or `loader.enable_plugin()` in Python, the specified plugins are enabled on top of whatever the config files say.
+
+## `BARANGAY_PLUGINS_DIR`
+
+Set one or more directories to scan for plugins. Multiple paths are separated by the OS path separator:
+
+```bash
+# Linux / macOS
+export BARANGAY_PLUGINS_DIR="/opt/barangay-plugins:/home/user/custom-plugins"
+
+# Windows
+set BARANGAY_PLUGINS_DIR=C:\barangay-plugins;D:\custom-plugins
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `BARANGAY_PLUGINS_DIR` | `str` | - | Plugin source directories (OS path separator) |
+
+## Project Config File
+
+Create a `barangay.yaml` (or `barangay_config.yaml`) in your project root to configure plugin directories:
+
+```yaml
+plugin_dirs:
+  - ./plugins
+  - /shared/barangay-plugins
+```
+
+The config file is searched upward from the current working directory, so it can live in any parent directory of your project.
+
+## Programmatic Configuration
+
+### Custom plugin directories
+
+```python
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(env=True)
+loader.add_plugin_dir("/path/to/my/plugins")
+loader.enable_plugin("my_custom_plugin")
+
+enriched = loader.enrich_flat(flat_data, as_of="2025-08-29")
+```
+
+### Explicit config file
+
+```python
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(
+    env=True,
+    config_file="/path/to/barangay.yaml",
+    extra_dirs=["/another/plugin/dir"],
+)
+```
+
+### Inspecting the resolved configuration
+
+```python
+from barangay.plugin_loader import resolve_plugin_sources, load_plugin_config
+
+dirs = resolve_plugin_sources(env=True)
+config = load_plugin_config(dirs)
+print(config)
+```
+
+```text
+{'sample_elevation': False, 'sample_population': False, 'sample_schools': False, 'sample_elevation_time': False, 'psgc-aux-data': True}
+```
+
+## Configuration Priority for Plugin Enable/Disable
+
+When multiple `plugins.yaml` files exist across source directories, higher-priority sources override the `enabled` status:
+
+1. Built-in `plugins.yaml` (lowest priority)
+2. `BARANGAY_PLUGINS_DIR` directory's `plugins.yaml`
+3. Project config `plugin_dirs` directory's `plugins.yaml`
+4. `PluginLoader(extra_dirs=...)` directory's `plugins.yaml`
+5. `loader.enable_plugin()` / CLI `--plugin` (highest priority)
+
+This means a CLI flag or programmatic call can enable a plugin even if it's `enabled: false` in the config file.

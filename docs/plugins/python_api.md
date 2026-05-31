@@ -1,0 +1,294 @@
+# Python API
+
+The plugin system exposes both a high-level `PluginLoader` class and low-level functions for programmatic use.
+
+## `PluginLoader` (High-Level)
+
+### Constructor
+
+```python
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(
+    env=True,                            # Read BARANGAY_PLUGINS_DIR env var?
+    config_file=None,                    # Explicit config file path
+    extra_dirs=["/path/to/my/plugins"],   # Additional plugin directories
+)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `env` | `bool` | `True` | Read `BARANGAY_PLUGINS_DIR` environment variable |
+| `config_file` | `str \| Path \| None` | `None` | Explicit path to a `barangay.yaml` config file |
+| `extra_dirs` | `list[str \| Path] \| None` | `None` | Additional plugin directories (highest priority) |
+
+### Methods
+
+#### `enable_plugin(name)`
+
+Enable a plugin by name. Sets the in-memory config.
+
+```python
+loader = PluginLoader(env=True)
+loader.enable_plugin("psgc-aux-data")
+```
+
+#### `disable_plugin(name)`
+
+Disable a plugin by name.
+
+```python
+loader.disable_plugin("sample_elevation")
+```
+
+#### `add_plugin_dir(path)`
+
+Add a plugin directory at highest priority. Reloads config automatically.
+
+```python
+loader.add_plugin_dir("/path/to/my/plugins")
+loader.enable_plugin("my_custom_plugin")
+```
+
+#### `build_index(as_of=None)`
+
+Build the plugin index for a given date. Returns a `dict[str, dict[str, dict[str, Any]]]` mapping `psgc_id` to plugin data.
+
+```python
+plugin_index = loader.build_index()        # current date
+plugin_index = loader.build_index(as_of="2025-08-29")  # historical
+```
+
+#### `enrich_flat(flat_data, as_of=None)`
+
+Builds the index then enriches flat records. Each record gets an `"extensions"` list.
+
+```python
+from barangay import barangay_flat
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(env=True)
+loader.enable_plugin("psgc-aux-data")
+
+enriched = loader.enrich_flat([r.model_dump() for r in barangay_flat])
+
+for r in enriched:
+    if r.get("extensions"):
+        print(r["name"], r["extensions"][0]["data"])
+        break
+```
+
+```text
+Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) {'correspondence_code': '0150000000', 'old_names': None, 'city_class': None, 'income_classification': None, 'urban_rural': None, 'population': 4545486, 'status': None}
+```
+
+Each enriched record contains an `extensions` list. Each extension has:
+
+```python
+{
+    "field_group": "psgc-aux-data",       # plugin name
+    "metadata": PluginExtensionMetadata(  # Pydantic model
+        name="psgc-aux-data",
+        description="Supplementary PSGC data...",
+        version="0.1.0",
+        repository="https://github.com/bendlikeabamboo/psgc-aux-data-repository",
+        format="json",
+        as_of="2026-04-13",
+    ),
+    "data": {                              # the actual plugin fields
+        "correspondence_code": "0150000000",
+        "old_names": None,
+        "city_class": None,
+        "income_classification": None,
+        "urban_rural": None,
+        "population": 4545486,
+        "status": None,
+    }
+}
+```
+
+#### `enrich_extended(node, as_of=None)`
+
+Builds the index then recursively enriches tree nodes. Walks the `components` tree and attaches `extensions` to each matching node.
+
+```python
+from barangay import barangay_extended
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(env=True)
+loader.enable_plugin("psgc-aux-data")
+
+enriched = loader.enrich_extended(barangay_extended.model_dump())
+
+# Access NCR region node
+for comp in enriched.get("components", []):
+    if comp.get("name") == "National Capital Region (NCR)":
+        ext = comp["extensions"][0]
+        print(f"{comp['name']}: population={ext['data']['population']}")
+        break
+```
+
+```text
+National Capital Region (NCR): population=14001751
+```
+
+Extensions propagate recursively — every node in the tree (region, province, city, barangay) that has a matching `psgc_id` in the plugin index gets its `extensions` populated.
+
+## Low-Level Functions
+
+### `build_plugin_index()`
+
+Builds the plugin index using the default configuration (enabled plugins from config files).
+
+```python
+from barangay.plugin_loader import build_plugin_index, enrich_flat
+from barangay import barangay_flat
+
+plugin_index = build_plugin_index()
+enriched = enrich_flat([r.model_dump() for r in barangay_flat], plugin_index)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `as_of` | `str \| None` | `None` | Historical date (YYYY-MM-DD) |
+| `plugin_config` | `dict \| None` | `None` | Override plugin enable/disable config |
+| `plugin_dirs` | `list[Path] \| None` | `None` | Override plugin source directories |
+
+### `enrich_flat(flat_data, plugin_index)`
+
+Attaches an `extensions` list to each flat record where the `psgc_id` matches.
+
+```python
+from barangay.plugin_loader import build_plugin_index, enrich_flat
+from barangay import barangay_flat
+
+plugin_index = build_plugin_index()
+enriched = enrich_flat([r.model_dump() for r in barangay_flat], plugin_index)
+```
+
+### `enrich_extended(node, plugin_index)`
+
+Recursively walks the tree and attaches `extensions` to matching nodes.
+
+```python
+from barangay.plugin_loader import build_plugin_index, enrich_extended
+from barangay import barangay_extended
+
+plugin_index = build_plugin_index()
+enriched = enrich_extended(barangay_extended.model_dump(), plugin_index)
+```
+
+### `resolve_plugin_sources()`
+
+Returns the ordered list of plugin source directories.
+
+```python
+from barangay.plugin_loader import resolve_plugin_sources
+
+dirs = resolve_plugin_sources(env=True)
+for d in dirs:
+    print(d)
+```
+
+```text
+/home/user/projects/barangay/barangay/plugins
+```
+
+### `load_plugin_config()`
+
+Reads and merges all `plugins.yaml` from every source directory. Higher-priority overrides `enabled` status.
+
+```python
+from barangay.plugin_loader import resolve_plugin_sources, load_plugin_config
+
+dirs = resolve_plugin_sources(env=True)
+config = load_plugin_config(dirs)
+print(config)
+```
+
+```text
+{'sample_elevation': False, 'sample_population': False, 'sample_schools': False, 'sample_elevation_time': False, 'psgc-aux-data': True}
+```
+
+### `load_manifest()`
+
+Reads and validates a plugin's `manifest.yaml`.
+
+```python
+from barangay.plugin_loader import resolve_plugin_sources, load_manifest
+
+dirs = resolve_plugin_sources(env=True)
+manifest = load_manifest("psgc-aux-data", dirs)
+print(manifest["name"], manifest["format"], manifest["repository"])
+```
+
+```text
+psgc-aux-data json https://github.com/bendlikeabamboo/psgc-aux-data-repository
+```
+
+### `load_plugin_data()`
+
+Loads a plugin's data file and returns it as a `psgc_id`-keyed dict.
+
+```python
+from barangay.plugin_loader import load_plugin_data, load_manifest, resolve_plugin_sources
+
+dirs = resolve_plugin_sources(env=True)
+manifest = load_manifest("sample_elevation", dirs)
+data = load_plugin_data(manifest, plugin_dirs=dirs)
+```
+
+## Pydantic Models
+
+### `PluginExtensionMetadata`
+
+Metadata attached to each extension.
+
+```python
+from barangay.models import PluginExtensionMetadata
+
+meta = PluginExtensionMetadata(
+    name="psgc-aux-data",
+    description="Supplementary PSGC data...",
+    version="0.1.0",
+    repository="https://github.com/user/repo",
+    format="json",
+    as_of="2026-04-13",
+)
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | `str` | Plugin name |
+| `description` | `str \| None` | Plugin description |
+| `version` | `str \| None` | Plugin version |
+| `repository` | `str \| None` | Remote repository URL |
+| `format` | `str \| None` | Data format (csv, json, parquet) |
+| `as_of` | `str \| None` | Resolved date for time-aware plugins |
+
+### `PluginExtension`
+
+A single extension entry on a record.
+
+```python
+from barangay.models import PluginExtension, PluginExtensionMetadata
+
+ext = PluginExtension(
+    field_group="psgc-aux-data",
+    metadata=PluginExtensionMetadata(name="psgc-aux-data"),
+    data={"population": 4545486, "old_names": None},
+)
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field_group` | `str` | Plugin name (used as namespace) |
+| `metadata` | `PluginExtensionMetadata` | Plugin metadata |
+| `data` | `dict \| list[dict]` | Scalar data (dict) or array data (list) |
+
+## Exceptions
+
+| Exception | Raised When |
+|-----------|-------------|
+| `PluginManifestError` | Manifest is missing required fields, not found, or invalid |
+| `PluginDataError` | Data file cannot be read or remote fetch fails |

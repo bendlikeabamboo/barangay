@@ -203,4 +203,5 @@ Current data version: [**2026-04-13** (April 13 2026 PSGC masterlist)](https://p
 - [API Reference](api.md)
 - [CLI Reference](cli.md)
 - [Configuration](configuration.md)
+- [Plugins](plugins/index.md)
 - [Contributing](contributing/index.md)

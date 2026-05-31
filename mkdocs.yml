@@ -40,6 +40,13 @@ nav:
   - Tutorials:
       - Address Validation: tutorials/address_validation.md
       - Bulk Barangay Lookup: tutorials/bulk_barangay_lookup.md
+  - Plugins:
+      - Overview: plugins/index.md
+      - CLI Reference: plugins/cli.md
+      - Python API: plugins/python_api.md
+      - Configuration: plugins/configuration.md
+      - Creating a Plugin: plugins/creating.md
+      - Built-in Plugins: plugins/built-in.md
   - Contributing:
       - Overview: contributing/index.md
       - Data Update: contributing/data_update.md
