@@ -1,10 +1,14 @@
-from typing import Callable, List, Literal
+from typing import Callable, List, Literal, TYPE_CHECKING
 
 import pandas as pd
 
 from barangay.data import load_fuzzer_base
 from barangay.fuzz import FuzzBase, create_fuzz_base
 from barangay.utils import _basic_sanitizer
+
+if TYPE_CHECKING:
+    from barangay.database import HierarchyIndex
+    from barangay.models import AdminLevel, SearchResult
 
 
 # Create default fuzz base instance (backward compatibility)
@@ -105,3 +109,138 @@ def search(
         ]
     ]
     return truncated_results.to_dict(orient="records")
+
+
+def search_fuzzy(
+    query: str,
+    *,
+    level: "AdminLevel | None" = None,
+    threshold: float = 60.0,
+    limit: int = 5,
+    as_of: str | None = None,
+) -> List["SearchResult"]:
+    """Fuzzy search PSGC data, returning rich SearchResult objects.
+
+    This is the new API entry point. The old search() is preserved unchanged.
+
+    Args:
+        query: Search string (e.g. "Tongmageng, Tawi-Tawi").
+        level: Filter to a specific admin level, or None for all.
+        threshold: Minimum score (0-100).
+        limit: Max results.
+        as_of: Historical date.
+
+    Returns:
+        List of SearchResult, sorted by score descending.
+    """
+    from barangay.database import Database
+
+    db = Database()
+    view = db._view(level)
+    return view.search_fuzzy(query, threshold=threshold, limit=limit, as_of=as_of)
+
+
+def _search_fuzzy_new(
+    query: str,
+    *,
+    level: "AdminLevel | None",
+    threshold: float,
+    limit: int,
+    index: "HierarchyIndex",
+    as_of: str | None = None,
+) -> List["SearchResult"]:
+    """Bridge from new API to existing FuzzBase infrastructure."""
+    from barangay.fuzz import create_fuzz_base
+    from barangay.models import SearchResult
+
+    fuzz_base = create_fuzz_base(as_of=as_of)
+    raw_results = _run_fuzz_scoring(fuzz_base, query, threshold, limit)
+
+    results: List[SearchResult] = []
+    for raw in raw_results:
+        psgc_id = raw["psgc_id"]
+        record = index.get(psgc_id)
+        if record is None:
+            continue
+        if level is not None and record.type != level:
+            continue
+
+        sr = SearchResult(
+            record=record,
+            score=raw["max_score"],
+            match_type=_infer_match_type(raw),
+        )
+        sr._index = index
+        results.append(sr)
+
+    return results
+
+
+def _run_fuzz_scoring(
+    fuzz_base: FuzzBase,
+    query: str,
+    threshold: float,
+    limit: int,
+) -> List[dict]:
+    """Extracted scoring loop from existing search()."""
+    cleaned = _basic_sanitizer(query)
+    df = pd.DataFrame()
+
+    score_cols = []
+    for col_name, fuzz_col in [
+        ("f_000b_ratio", "f_000b_ratio_score"),
+        ("f_0p0b_ratio", "f_0p0b_ratio_score"),
+        ("f_00mb_ratio", "f_00mb_ratio_score"),
+        ("f_0pmb_ratio", "f_0pmb_ratio_score"),
+    ]:
+        if fuzz_col not in fuzz_base.fuzzer_base.columns:
+            if col_name in fuzz_base.fuzzer_base.columns:
+                fuzz_col_in_df = col_name + "_score"
+            else:
+                continue
+        else:
+            fuzz_col_in_df = fuzz_col
+
+        df[fuzz_col_in_df] = fuzz_base.fuzzer_base[col_name].apply(
+            lambda f: f(s2=cleaned)
+        )
+        score_cols.append(fuzz_col_in_df)
+
+    if not score_cols:
+        return []
+
+    df["max_score"] = df[score_cols].max(axis=1)
+    cutoff = df[df["max_score"] >= threshold]
+    if cutoff.empty:
+        return []
+
+    n = min(limit, len(cutoff))
+    top = cutoff.sort_values("max_score", ascending=False).head(n)
+
+    result = pd.concat(
+        [fuzz_base.fuzzer_base.loc[top.index], top[["max_score", *score_cols]]],
+        axis=1,
+    )
+    return result.to_dict(orient="records")
+
+
+def _infer_match_type(raw: dict) -> str:
+    """Infer match type from scoring columns."""
+    parts = []
+    if "f_0p0b_ratio_score" in raw and raw.get("f_0p0b_ratio_score", 0) == raw.get(
+        "max_score", 0
+    ):
+        parts.append("province")
+    if "f_00mb_ratio_score" in raw and raw.get("f_00mb_ratio_score", 0) == raw.get(
+        "max_score", 0
+    ):
+        parts.append("municipality")
+    if "f_000b_ratio_score" in raw and raw.get("f_000b_ratio_score", 0) == raw.get(
+        "max_score", 0
+    ):
+        parts.append("barangay")
+    if "f_0pmb_ratio_score" in raw and raw.get("f_0pmb_ratio_score", 0) == raw.get(
+        "max_score", 0
+    ):
+        parts.append("province+municipality+barangay")
+    return "+".join(parts) if parts else "unknown"

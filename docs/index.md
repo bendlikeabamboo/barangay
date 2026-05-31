@@ -57,6 +57,7 @@
 - **Historical PSGC Data**: On-demand access to previous PSGC releases by date
 - **Fuzzy Search**: Fast, customizable fuzzy matching
 - **Multiple Data Models**: Basic (nested), Extended (recursive), and Flat (list)
+- **Plug-in System**: Enrich PSGC data with custom extensions via plug-ins (CSV, JSON, Parquet)
 
 ## Installation
 

@@ -47,8 +47,32 @@ from barangay.config import (  # noqa:E402
     resolve_as_of,
 )
 
+# Import plugin system
+from barangay.plugin_loader import PluginLoader  # noqa:E402
+from barangay.database import Database  # noqa:E402
+from barangay.models import (  # noqa:E402
+    AdminDivRecord,
+    AdminLevel,
+    PluginInfo,
+    SearchResult,
+    ValidationResult,
+)
+from barangay.search import search_fuzzy  # noqa:E402
+from barangay.validate import validate, validate_many  # noqa:E402
+from barangay.version import use_plugins, use_version  # noqa:E402
+
 # Update available_dates at module import
 available_dates = list(set(get_available_dates() + [current]))
+
+_db = Database()
+
+regions = _db.regions
+provinces = _db.provinces
+municipalities = _db.municipalities
+cities = _db.cities
+submunicipalities = _db.submunicipalities
+barangays = _db.barangays
+special_geographic_areas = _db.special_geographic_areas
 
 # Backward compatibility aliases
 # Note: These convert Pydantic models to dicts at module import time.
@@ -66,6 +90,7 @@ __all__ = [
     "FuzzBase",
     "BarangayModel",
     "DataManager",
+    "PluginLoader",
     # Data
     "BARANGAY",
     "BARANGAY_EXTENDED",
@@ -84,4 +109,25 @@ __all__ = [
     "current",
     "as_of",
     "available_dates",
+    # Database API
+    "Database",
+    "AdminLevel",
+    "AdminDivRecord",
+    "SearchResult",
+    "ValidationResult",
+    "PluginInfo",
+    # Database namespaces
+    "regions",
+    "provinces",
+    "municipalities",
+    "cities",
+    "submunicipalities",
+    "barangays",
+    "special_geographic_areas",
+    # New functions
+    "search_fuzzy",
+    "validate",
+    "validate_many",
+    "use_version",
+    "use_plugins",
 ]

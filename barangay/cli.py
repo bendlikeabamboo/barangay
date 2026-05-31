@@ -734,5 +734,56 @@ def validate(file):
         raise click.ClickException(str(e))
 
 
+@app.group()
+def plugins():
+    """Plugin management commands."""
+    pass
+
+
+@plugins.command("list")
+def plugins_list():
+    """List available plugins."""
+    from barangay.database import Database
+
+    db = Database()
+    table = Table(title="Available Plugins")
+    table.add_column("Name", style="cyan")
+    table.add_column("Status", style="green")
+    table.add_column("Description", style="dim")
+
+    for p in db.available_plugins():
+        status = "[green]enabled[/green]" if p.enabled else "[dim]disabled[/dim]"
+        table.add_row(p.name, status, p.description or "")
+
+    console.print(table)
+
+
+@plugins.command("info")
+@click.argument("name")
+def plugins_info(name):
+    """Show details for a specific plugin."""
+    from barangay.database import Database
+
+    db = Database()
+    for p in db.available_plugins():
+        if p.name == name:
+            table = Table(title=f"Plugin: {p.name}")
+            table.add_column("Property", style="cyan")
+            table.add_column("Value", style="green")
+            table.add_row("Name", p.name)
+            table.add_row("Enabled", str(p.enabled))
+            table.add_row("Description", p.description or "N/A")
+            table.add_row("Version", p.version or "N/A")
+            table.add_row("Format", p.format or "N/A")
+            table.add_row("Repository", p.repository or "N/A")
+            if p.error:
+                table.add_row("Error", f"[red]{p.error}[/red]")
+            console.print(table)
+            return
+
+    console.print(f"[red]Plugin '{name}' not found.[/red]")
+    raise click.ClickException(f"Plugin '{name}' not found")
+
+
 if __name__ == "__main__":
     app()

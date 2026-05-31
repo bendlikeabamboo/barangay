@@ -1,4 +1,6 @@
-from pydantic import BaseModel, Field, RootModel
+from enum import Enum
+
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr, RootModel
 from typing import Any, Literal, Optional, List
 
 
@@ -142,3 +144,161 @@ class AdminDivFlat(BaseModel):
     parent_psgc_id: str | Literal["n/a"]
     nicknames: Optional[List[str]] = None
     extensions: List["PluginExtension"] = Field(default_factory=list)
+
+
+class AdminLevel(str, Enum):
+    COUNTRY = "country"
+    REGION = "region"
+    PROVINCE = "province"
+    CITY = "city"
+    MUNICIPALITY = "municipality"
+    SUBMUNICIPALITY = "submunicipality"
+    BARANGAY = "barangay"
+    SPECIAL_GEOGRAPHIC_AREA = "special_geographic_area"
+
+
+class AdminDivRecord(BaseModel):
+    """Unified record model for administrative divisions.
+
+    Attributes:
+        name: Name of the administrative division.
+        type: AdminLevel enum value for the division type.
+        psgc_id: PSGC identifier.
+        parent_psgc_id: Parent PSGC identifier.
+        nicknames: Optional list of alternative names.
+        extensions: List of plugin extensions attached to this division.
+    """
+
+    model_config = ConfigDict(frozen=False, extra="forbid")
+
+    name: str
+    type: AdminLevel
+    psgc_id: str
+    parent_psgc_id: str
+    nicknames: list[str] | None = None
+    extensions: list[PluginExtension] = Field(default_factory=list)
+
+
+def record_from_flat(flat: AdminDivFlat) -> AdminDivRecord:
+    """Convert an AdminDivFlat to an AdminDivRecord.
+
+    Args:
+        flat: The flat record to convert.
+
+    Returns:
+        An AdminDivRecord with matching fields.
+    """
+    return AdminDivRecord(
+        name=flat.name,
+        type=AdminLevel(flat.type),
+        psgc_id=flat.psgc_id,
+        parent_psgc_id=flat.parent_psgc_id,
+        nicknames=flat.nicknames,
+        extensions=flat.extensions,
+    )
+
+
+class SearchResult(BaseModel):
+    """Search result wrapping an AdminDivRecord with scoring metadata.
+
+    Attributes:
+        record: The matched administrative division record.
+        score: Relevance score for the match.
+        match_type: Type of match (e.g., 'exact', 'fuzzy', 'nickname').
+        _index: Optional internal index reference.
+    """
+
+    model_config = ConfigDict(frozen=False, extra="forbid")
+
+    record: AdminDivRecord
+    score: float
+    match_type: str
+    _index: Any = PrivateAttr(default=None)
+
+    @property
+    def name(self) -> str:
+        return self.record.name
+
+    @property
+    def psgc_id(self) -> str:
+        return self.record.psgc_id
+
+    @property
+    def province(self) -> str | None:
+        return self.record.province if hasattr(self.record, "province") else None
+
+    @property
+    def municipality(self) -> str | None:
+        return (
+            self.record.municipality if hasattr(self.record, "municipality") else None
+        )
+
+    @property
+    def region(self) -> str | None:
+        return self.record.region if hasattr(self.record, "region") else None
+
+    def __getattr__(self, name: str):
+        for ext in self.record.extensions:
+            if ext.field_group == name:
+                from barangay.database import PluginAccessor
+
+                return PluginAccessor(ext.data, ext.metadata)
+        raise AttributeError(f"'SearchResult' has no attribute '{name}'")
+
+
+class ValidationResult(BaseModel):
+    """Validation result for an administrative division input.
+
+    Attributes:
+        input: The original input string that was validated.
+        valid: Whether the input matched a valid record.
+        matched_record: The matched record, if any.
+        score: Confidence score for the match, if any.
+    """
+
+    model_config = ConfigDict(frozen=False, extra="forbid")
+
+    input: str
+    valid: bool
+    matched_record: AdminDivRecord | None = None
+    score: float | None = None
+
+    @property
+    def matched_name(self) -> str | None:
+        return self.matched_record.name if self.matched_record else None
+
+    @property
+    def matched_psgc_id(self) -> str | None:
+        return self.matched_record.psgc_id if self.matched_record else None
+
+    def __getattr__(self, name: str):
+        if self.matched_record is None:
+            raise AttributeError(f"'ValidationResult' has no attribute '{name}'")
+        for ext in self.matched_record.extensions:
+            if ext.field_group == name:
+                from barangay.database import PluginAccessor
+
+                return PluginAccessor(ext.data, ext.metadata)
+        raise AttributeError(f"'ValidationResult' has no attribute '{name}'")
+
+
+class PluginInfo(BaseModel):
+    """Metadata about a registered plugin.
+
+    Attributes:
+        name: Name of the plugin.
+        enabled: Whether the plugin is enabled.
+        description: Optional description of the plugin.
+        version: Optional version string of the plugin.
+        format: Optional format identifier for the plugin data.
+        repository: Optional repository URL for the plugin.
+        error: Optional error message if the plugin failed to load.
+    """
+
+    name: str
+    enabled: bool
+    description: str | None = None
+    version: str | None = None
+    format: str | None = None
+    repository: str | None = None
+    error: str | None = None
