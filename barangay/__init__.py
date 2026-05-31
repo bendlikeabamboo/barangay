@@ -47,6 +47,9 @@ from barangay.config import (  # noqa:E402
     resolve_as_of,
 )
 
+# Import plugin system
+from barangay.plugin_loader import PluginLoader  # noqa:E402
+
 # Update available_dates at module import
 available_dates = list(set(get_available_dates() + [current]))
 
@@ -66,6 +69,7 @@ __all__ = [
     "FuzzBase",
     "BarangayModel",
     "DataManager",
+    "PluginLoader",
     # Data
     "BARANGAY",
     "BARANGAY_EXTENDED",

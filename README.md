@@ -37,6 +37,7 @@ print(results[0]['barangay'])  # Tongmageng
 | 📚 **Multiple Data Models** | Choose the structure that fits your use case |
 | 💾 **Smart Caching** | Automatic caching for faster subsequent loads |
 | 📦 **Ready-to-Use** | JSON, YAML, and Python dictionary formats included |
+| 🧩 **Plug-in System** | Enrich PSGC data with custom extensions via plug-ins |
 
 ---
 
@@ -71,12 +72,19 @@ barangay history search-history "Tongmageng" --as-of "2025-07-08"
 barangay cache info
 barangay cache clear
 
+# Search with plugin enrichment
+barangay search "Tongmageng" --plugin psgc-aux-data --format json
+
+# Export with plugin enrichment
+barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
+
 # Batch operations
 barangay batch batch-search queries.txt --limit 5 --output results.json
 barangay batch validate barangay_names.txt
 ```
 
 📖 **Full CLI Reference:** [docs/cli.md](https://bendlikeabamboo.github.io/barangay/cli/)
+📖 **Plugin Guide:** [docs/plugins/index.md](https://bendlikeabamboo.github.io/barangay/plugins/)
 
 ---
 
