@@ -46,7 +46,7 @@ export BARANGAY_CACHE_DIR="/custom/cache/path"
 
 ### BARANGAY_PLUGINS_DIR
 
-One or more directories to scan for plugins. Multiple paths are separated by the OS path separator (`:` on Linux/Mac, `;` on Windows). See the [Plugins](plugins.md) guide for details.
+One or more directories to scan for plugins. Multiple paths are separated by the OS path separator (`:` on Linux/Mac, `;` on Windows). See the [Plugins](plugins/index.md) guide for details.
 
 ```bash
 export BARANGAY_PLUGINS_DIR="/opt/barangay-plugins:/home/user/custom-plugins"
