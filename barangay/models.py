@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 from enum import Enum
 
 from pydantic import BaseModel, ConfigDict, Field, PrivateAttr, RootModel
-from typing import Any, Literal, Optional, List
+from typing import TYPE_CHECKING, Any, Literal, Optional, List
+
+if TYPE_CHECKING:
+    from barangay.database import _EnrichedRecord
 
 
 class BarangayModel(BaseModel):
@@ -239,7 +244,7 @@ class SearchResult(BaseModel):
         return val if isinstance(val, str) else None
 
     @property
-    def enriched(self):
+    def enriched(self) -> _EnrichedRecord:
         if self._index is None:
             raise RuntimeError("Hierarchy index not available on this SearchResult")
         from barangay.database import _EnrichedRecord

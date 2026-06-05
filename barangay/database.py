@@ -1,7 +1,19 @@
-from typing import Any, Iterator
+from __future__ import annotations
 
+from typing import TYPE_CHECKING, Any, Iterator
 
-from barangay.models import AdminDivRecord, AdminLevel, PluginExtensionMetadata
+if TYPE_CHECKING:
+    import pandas as pd
+
+    from barangay.models import (
+        AdminDivRecord,
+        AdminLevel,
+        PluginExtensionMetadata,
+        PluginInfo,
+        SearchResult,
+    )
+else:
+    from barangay.models import AdminDivRecord, AdminLevel, PluginExtensionMetadata
 
 
 class MultipleResultsError(Exception):
@@ -37,7 +49,7 @@ class PluginAccessor:
     def __bool__(self) -> bool:
         return bool(self._data)
 
-    def to_dict(self) -> dict | list:
+    def to_dict(self) -> dict[str, Any] | list[dict[str, Any]]:
         return self._data
 
     @property
@@ -272,7 +284,7 @@ class _DatabaseView:
         threshold: float = 60.0,
         limit: int = 5,
         as_of: str | None = None,
-    ) -> list:
+    ) -> list[SearchResult]:
         from barangay.search import _search_fuzzy_new
 
         return _search_fuzzy_new(
@@ -331,11 +343,10 @@ class _DatabaseView:
                 result.append(d)
             return result
 
-    def to_frame(self):
+    def to_frame(self) -> pd.DataFrame:
         import pandas as pd
 
-        dicts = self.to_dicts()
-        return pd.DataFrame(dicts)
+        return pd.DataFrame(self.to_dicts())
 
 
 class _VersionState:
@@ -514,7 +525,7 @@ class Database:
         object.__setattr__(self, "_plugin_levels", levels or [])
         self.invalidate_cache()
 
-    def available_plugins(self) -> list:
+    def available_plugins(self) -> list[PluginInfo]:
         from barangay.models import PluginInfo
         from barangay.plugin_loader import (
             load_manifest,
