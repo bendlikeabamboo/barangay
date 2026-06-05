@@ -21,8 +21,15 @@ repos:
 
       - id: pytest
         name: pytest
-        entry: uv run pytest
+        entry: uv run pytest -n auto
         language: system
         types: [python]
         pass_filenames: false
         always_run: true
+
+      - id: ty
+        name: ty
+        entry: uv run ty check
+        language: system
+        types: [python]
+        pass_filenames: false

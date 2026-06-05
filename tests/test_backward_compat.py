@@ -94,6 +94,17 @@ class TestBackwardCompatSearch:
         results = barangay.search("test")
         assert isinstance(results, list)
 
+    def test_search_custom_fuzz_base(self):
+        from barangay import create_fuzz_base
+
+        fb = create_fuzz_base()
+        results = barangay.search("test", fuzz_base=fb)
+        assert isinstance(results, list)
+
+    def test_search_as_of(self):
+        results = barangay.search("test", as_of=None)
+        assert isinstance(results, list)
+
 
 class TestBackwardCompatData:
     def test_BARANGAY_is_dict(self):

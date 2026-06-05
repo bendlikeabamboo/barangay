@@ -1,3 +1,6 @@
+from typing import Any
+
+
 def use_version(as_of: str | None) -> None:
     """Switch the global Database to a specific data version.
 
@@ -20,7 +23,7 @@ def use_version(as_of: str | None) -> None:
 
 def use_plugins(
     plugins: list[str] | None = None,
-    levels: list = None,
+    levels: list[Any] | None = None,
 ) -> None:
     """Enable plugins on the global Database singleton.
 

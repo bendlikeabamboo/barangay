@@ -1,6 +1,7 @@
 """Barangay data package for Philippine administrative divisions."""
 
 from pathlib import Path
+from typing import Any
 
 # Read CURRENT_VERSION file to set module attribute
 _current_version_path = Path(__file__).parent / "data" / "CURRENT_VERSION"
@@ -79,9 +80,9 @@ special_geographic_areas = _db.special_geographic_areas
 # For better performance, use the 'barangay', 'barangay_extended', or 'barangay_flat'
 # models directly instead of these dict aliases.
 
-BARANGAY: dict[str, ...] = barangay.model_dump()
-BARANGAY_EXTENDED: dict[str, ...] = barangay_extended.model_dump()
-BARANGAY_FLAT: list[dict] = [x.model_dump() for x in barangay_flat]
+BARANGAY: dict[str, Any] = barangay.model_dump()
+BARANGAY_EXTENDED: dict[str, Any] = barangay_extended.model_dump()
+BARANGAY_FLAT: list[dict[str, Any]] = [x.model_dump() for x in barangay_flat]
 
 __all__ = [
     # Main search function

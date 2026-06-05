@@ -225,19 +225,33 @@ class SearchResult(BaseModel):
 
     @property
     def province(self) -> str | None:
-        return self.record.province if hasattr(self.record, "province") else None
+        val = getattr(self.record, "province", None)
+        return val if isinstance(val, str) else None
 
     @property
     def municipality(self) -> str | None:
-        return (
-            self.record.municipality if hasattr(self.record, "municipality") else None
-        )
+        val = getattr(self.record, "municipality", None)
+        return val if isinstance(val, str) else None
 
     @property
     def region(self) -> str | None:
-        return self.record.region if hasattr(self.record, "region") else None
+        val = getattr(self.record, "region", None)
+        return val if isinstance(val, str) else None
+
+    @property
+    def enriched(self):
+        if self._index is None:
+            raise RuntimeError("Hierarchy index not available on this SearchResult")
+        from barangay.database import _EnrichedRecord
+
+        return _EnrichedRecord(self.record, self._index)
 
     def __getattr__(self, name: str):
+        private_attrs = object.__getattribute__(self, "__private_attributes__")
+        if name in private_attrs:
+            private_values = object.__getattribute__(self, "__pydantic_private__")
+            if private_values and name in private_values:
+                return private_values[name]
         for ext in self.record.extensions:
             if ext.field_group == name:
                 from barangay.database import PluginAccessor
@@ -272,6 +286,11 @@ class ValidationResult(BaseModel):
         return self.matched_record.psgc_id if self.matched_record else None
 
     def __getattr__(self, name: str):
+        private_attrs = object.__getattribute__(self, "__private_attributes__")
+        if name in private_attrs:
+            private_values = object.__getattribute__(self, "__pydantic_private__")
+            if private_values and name in private_values:
+                return private_values[name]
         if self.matched_record is None:
             raise AttributeError(f"'ValidationResult' has no attribute '{name}'")
         for ext in self.matched_record.extensions:

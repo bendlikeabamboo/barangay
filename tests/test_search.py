@@ -60,3 +60,28 @@ class TestSearchFuzzy:
             assert "province_or_huc" in keys
             assert "municipality_or_city" in keys
             assert "psgc_id" in keys
+
+    def test_enriched_property(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Manila", limit=1)
+        if results:
+            enriched = results[0].enriched
+            assert enriched.name == results[0].record.name
+            assert enriched.psgc_id == results[0].record.psgc_id
+
+    def test_enriched_property_no_index_raises(self):
+        from barangay.models import SearchResult, AdminDivRecord, AdminLevel
+
+        record = AdminDivRecord(
+            name="Test",
+            type=AdminLevel.BARANGAY,
+            psgc_id="0000000001",
+            parent_psgc_id="0000000000",
+        )
+        sr = SearchResult(record=record, score=90.0, match_type="test")
+        try:
+            sr.enriched
+            assert False, "Should have raised RuntimeError"
+        except RuntimeError:
+            pass

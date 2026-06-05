@@ -24,13 +24,12 @@ class PluginAccessor:
         self._metadata = metadata
 
     def __getattr__(self, name: str) -> Any:
-        try:
+        if isinstance(self._data, dict):
             return self._data[name]
-        except (KeyError, TypeError) as e:
-            raise AttributeError(
-                f"Plugin '{self._metadata.name}' has no field '{name}'. "
-                f"Available: {list(self._data.keys()) if isinstance(self._data, dict) else 'N/A (array plugin)'}"
-            ) from e
+        raise AttributeError(
+            f"Plugin '{self._metadata.name}' has no field '{name}'. "
+            f"Available: 'N/A (array plugin)'"
+        )
 
     def __repr__(self) -> str:
         return f"<plugin:{self._metadata.name}>"
@@ -317,7 +316,10 @@ class _DatabaseView:
             from barangay.explode import explode_flat
 
             raw = [r._record.model_dump() for r in self]
-            return explode_flat(raw, self._plugin_index)
+            plugin_index = self._plugin_index
+            if plugin_index is None:
+                return raw
+            return explode_flat(raw, plugin_index)
         else:
             result = []
             for enriched in self:
@@ -370,6 +372,14 @@ class Database:
     """Central PSGC data access point."""
 
     _instance: "Database | None" = None
+    _initialized: bool
+    _version_state: "_VersionState"
+    _cache_key: str
+    _raw_records: list[AdminDivRecord] | None
+    _index: "HierarchyIndex | None"
+    _plugin_loader: Any
+    _plugin_levels: list[AdminLevel]
+    _plugin_index: dict[str, dict[str, dict[str, Any]]] | None
 
     def __new__(cls) -> "Database":
         if cls._instance is None:
@@ -472,6 +482,8 @@ class Database:
 
     def _view(self, level: AdminLevel | None) -> _DatabaseView:
         self._ensure_loaded()
+        assert self._raw_records is not None
+        assert self._index is not None
         return _DatabaseView(
             records=self._raw_records,
             index=self._index,

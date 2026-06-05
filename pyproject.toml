@@ -1,6 +1,6 @@
 [project]
 name = "barangay"
-version = "2026.4.13.1"
+version = "2026.4.13.2"
 description = "Philippines Standard Geographic Code (PSGC) 2026 Python package, Fuzzy Search, JSON, and YAML."
 authors = [{ name = "bendlikeabamboo", email = "mbalmeo32@gmail.com" }]
 requires-python = ">=3.13"
@@ -80,6 +80,7 @@ dev = [
     "pytest>=9.0.2",
     "ty>=0.0.17",
     "pytest-cov>=7.0.0",
+    "pytest-xdist>=3.7.0",
     "pandera[pandas]>=0.29.0",
     "openpyxl>=3.1.5",
 ]
@@ -87,6 +88,12 @@ docs = [
     "mkdocs>=1.6.1",
     "mkdocs-shadcn>=0.9.9",
     "mkdocs-badges>=0.5.2",
+]
+
+[tool.ty.src]
+exclude = [
+    "parsers/",
+    "tests/",
 ]
 
 [tool.poe.tasks]
