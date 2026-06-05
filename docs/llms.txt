@@ -125,7 +125,7 @@ import barangay
 barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
 ```
 
-## Legacy API
+## Legacy API (Deprecated — removal in 2027.X.X.X)
 
 ### Search (dict-based)
 

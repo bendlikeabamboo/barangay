@@ -292,6 +292,9 @@ except MultipleResultsError as e:
 
 ## Search (Dict-based)
 
+!!! warning "Deprecated"
+    `search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` for typed `SearchResult` objects.
+
 Search for barangays using fuzzy string matching.
 
 ```python
@@ -428,6 +431,9 @@ if brgy:
 | `nicknames` | `Optional[List[str]]` | - | Optional list of alternative names |
 
 ### Backward Compatibility Dictionaries
+
+!!! warning "Deprecated"
+    `BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT` will be removed in 2027.X.X.X. Use the Database API instead (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`).
 
 For backward compatibility, dict versions of the data are also available:
 
@@ -745,6 +751,9 @@ barangay.as_of = "2025-07-08"
 ## Data Models
 
 ### BarangayModel
+
+!!! warning "Deprecated"
+    `BarangayModel` will be removed in 2027.X.X.X. Use `AdminDivRecord` via the Database API instead.
 
 Pydantic model for barangay data validation and serialization.
 

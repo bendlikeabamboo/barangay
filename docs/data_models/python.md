@@ -1,5 +1,8 @@
 # Python Data Models
 
+!!! warning "Deprecated"
+    This page demonstrates the legacy dict-based data models (`BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT`). These dict aliases are **deprecated** and will be removed in 2027.X.X.X. Use the [Database API](../api.md) for new code (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`, hierarchy traversal via `.parent`/`.ancestors`).
+
 This package provides three data models for accessing Philippine barangay information, each optimized for different use cases.
 
 ## BARANGAY

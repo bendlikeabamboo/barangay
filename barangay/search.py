@@ -1,3 +1,4 @@
+import warnings
 from typing import Callable, List, Literal, TYPE_CHECKING
 
 import pandas as pd
@@ -30,6 +31,10 @@ def search(
 ) -> List[dict]:
     """Search barangay data with fuzzy matching.
 
+    .. deprecated::
+        search() is deprecated and will be removed in 2027.X.X.X.
+        Use search_fuzzy() instead for typed SearchResult objects.
+
     Args:
         search_string: String to search for in barangay data.
         match_hooks: List of location levels to match. Defaults to all.
@@ -42,6 +47,12 @@ def search(
     Returns:
         List of matching barangay records as dictionaries.
     """
+    warnings.warn(
+        "search() is deprecated and will be removed in 2027.X.X.X. "
+        "Use search_fuzzy() instead for typed SearchResult objects.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     # Create fuzz_base if not provided
     if fuzz_base is None:
         fuzz_base = create_fuzz_base(as_of=as_of)

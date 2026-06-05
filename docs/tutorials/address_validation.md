@@ -70,6 +70,9 @@ for r in results:
 
 ## Using `search()` with Threshold
 
+!!! warning "Deprecated"
+    `search()` returns raw dicts and will be removed in 2027.X.X.X. Use `validate()` or `search_fuzzy()` for typed results.
+
 Use the `search()` function with a high threshold to validate addresses:
 
 ```python
@@ -85,6 +88,9 @@ else:
 ```
 
 ## Handling Misspellings
+
+!!! warning "Deprecated"
+    `search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` for typed results.
 
 Fuzzy search tolerates typos and alternative spellings:
 
@@ -116,6 +122,9 @@ Each line in `addresses.txt` should contain one barangay name.
 
 ## Batch Search with Python
 
+!!! warning "Deprecated"
+    `search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` or `validate_many()` for typed results.
+
 For programmatic batch validation:
 
 ```python
@@ -136,6 +145,9 @@ for addr in addresses:
 ```
 
 ## Custom Sanitization
+
+!!! warning "Deprecated"
+    `search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` for typed results.
 
 Strip common prefixes and suffixes before matching:
 

@@ -1,5 +1,6 @@
 """Barangay data package for Philippine administrative divisions."""
 
+import warnings
 from pathlib import Path
 from typing import Any
 
@@ -78,11 +79,34 @@ special_geographic_areas = _db.special_geographic_areas
 
 # Backward compatibility aliases
 # Note: These convert Pydantic models to dicts at module import time.
-# For better performance, use the 'barangay', 'barangay_extended', or 'barangay_flat'
-# models directly instead of these dict aliases.
+# DEPRECATED: These dict aliases will be removed in 2027.X.X.X.
+# Use the Database API instead (e.g. `from barangay import barangays; barangays.get(name="Tongmageng")`).
 
+warnings.warn(
+    "BARANGAY is deprecated and will be removed in 2027.X.X.X. "
+    "Use the Database API instead: "
+    "from barangay import barangays; barangays.get(name='Tongmageng')",
+    DeprecationWarning,
+    stacklevel=2,
+)
 BARANGAY: dict[str, Any] = barangay.model_dump()
+
+warnings.warn(
+    "BARANGAY_EXTENDED is deprecated and will be removed in 2027.X.X.X. "
+    "Use the Database API instead: hierarchy traversal via .parent, .ancestors, .children "
+    "(e.g. from barangay import barangays; rec = barangays.get(name='Tongmageng'); rec.parent)",
+    DeprecationWarning,
+    stacklevel=2,
+)
 BARANGAY_EXTENDED: dict[str, Any] = barangay_extended.model_dump()
+
+warnings.warn(
+    "BARANGAY_FLAT is deprecated and will be removed in 2027.X.X.X. "
+    "Use the Database API instead: to_frame(), to_dicts(), iteration "
+    "(e.g. from barangay import barangays; barangays.to_frame())",
+    DeprecationWarning,
+    stacklevel=2,
+)
 BARANGAY_FLAT: list[dict[str, Any]] = [x.model_dump() for x in barangay_flat]
 
 __all__ = [

@@ -68,6 +68,9 @@ for r in results:
 
 ## Method 2: Python Batch Search with FuzzBase
 
+!!! note "Legacy API"
+    `search()` + `FuzzBase` is the legacy search approach. `search_fuzzy()` and Database views are recommended for new code.
+
 Reuse a `FuzzBase` instance to avoid reloading data on every search:
 
 ```python
@@ -181,7 +184,7 @@ with open("all_barangays.json", "w") as f:
 |----------|-------|----------|
 | `to_frame()` / `to_dicts()` | Fastest | Full dataset export |
 | Filter `barangay_flat` | <1ms/query | Exact or prefix matching |
-| `FuzzBase` + `search()` | ~25-80ms/query | Fuzzy matching with typos |
+| `FuzzBase` + `search()` | ~25-80ms/query | Fuzzy matching with typos (deprecated — use `search_fuzzy()` or Database views) |
 | `validate_many()` | ~25-80ms/query | Batch address validation |
 | CLI `batch-search` | Batch optimized | File-based processing |
 | `export` + external tools | Fastest | Full dataset export |
