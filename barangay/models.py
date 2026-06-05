@@ -1,8 +1,16 @@
 from __future__ import annotations
 
+import warnings
 from enum import Enum
 
-from pydantic import BaseModel, ConfigDict, Field, PrivateAttr, RootModel
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    PrivateAttr,
+    RootModel,
+    model_validator,
+)
 from typing import TYPE_CHECKING, Any, Literal, Optional, List
 
 if TYPE_CHECKING:
@@ -11,6 +19,10 @@ if TYPE_CHECKING:
 
 class BarangayModel(BaseModel):
     """Model representing a barangay with its location details.
+
+    .. deprecated::
+        BarangayModel is deprecated and will be removed in 2027.X.X.X.
+        Use AdminDivRecord (via the Database API) instead.
 
     Attributes:
         barangay: Name of the barangay.
@@ -23,6 +35,17 @@ class BarangayModel(BaseModel):
     province_or_huc: str
     municipality_or_city: str
     psgc_id: str
+
+    @model_validator(mode="wrap")
+    @classmethod
+    def _deprecation_warning(cls, values, handler, info):
+        warnings.warn(
+            "BarangayModel is deprecated and will be removed in 2027.X.X.X. "
+            "Use AdminDivRecord (via the Database API) instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        return handler(values)
 
 
 class PluginExtensionMetadata(BaseModel):

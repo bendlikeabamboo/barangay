@@ -132,7 +132,7 @@ Raised by `.get(name=...)` when the name matches multiple records. Use `.lookup(
 
 ---
 
-## Legacy API
+## Legacy API (Deprecated — removal in 2027.X.X.X)
 
 ### search()
 
@@ -250,6 +250,8 @@ if brgy:
 | `nicknames` | `Optional[List[str]]` | Optional list of alternative names |
 
 ### Backward Compatibility Dictionaries
+
+> **Deprecated:** `BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT` will be removed in 2027.X.X.X. Use the Database API instead (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`).
 
 ```python
 from barangay import BARANGAY, BARANGAY_EXTENDED, BARANGAY_FLAT
@@ -440,6 +442,8 @@ barangay batch validate barangay_names.txt
 ---
 
 ## Data Models Overview
+
+> **Note:** The sections below describe legacy dict-based data structures (`BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT`). These are **deprecated** and will be removed in 2027.X.X.X. Use the Database API instead (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`).
 
 ### BARANGAY (Nested)
 

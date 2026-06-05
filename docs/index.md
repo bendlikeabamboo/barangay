@@ -184,3 +184,6 @@ Current data version: [**2026-04-13** (April 13 2026 PSGC masterlist)](https://p
 - [Configuration](configuration.md)
 - [Plugins](plugins/index.md)
 - [Contributing](contributing/index.md)
+
+!!! warning "Deprecation Notice"
+    `BARANGAY`/`BARANGAY_EXTENDED`/`BARANGAY_FLAT` dict aliases and `search()` are deprecated and will be removed in 2027.X.X.X. Use the Database API for new code (e.g. `barangays.get(name="Tongmageng")`, `search_fuzzy("query")`). See the [API Reference](api.md) and [Database API tutorial](tutorials/database_api.md).

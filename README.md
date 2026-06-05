@@ -193,6 +193,8 @@ brgy = [loc for loc in barangay_flat if loc.name == "Marayos"][0]
 
 ### Search (Dict-based)
 
+> **Deprecated:** The `search()` function returns raw dicts and will be removed in 2027.X.X.X. Use [`search_fuzzy()`](#fuzzy-search) instead for typed results.
+
 ```python
 from barangay import search
 
@@ -261,6 +263,8 @@ Three data structures are available. Choose based on your use case:
 | [`barangay_flat`](https://bendlikeabamboo.github.io/barangay/api/#barangay_flat-listadmindivflat) | Search & filtering | Flat list with parent references |
 
 **Note:** Pydantic models (`barangay`, `barangay_extended`, `barangay_flat`) are recommended. Dict versions (`BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT`) are available for backward compatibility.
+
+> **Deprecation:** `BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT` dict aliases will be removed in 2027.X.X.X. Use the Database API instead (e.g. `from barangay import barangays; barangays.get(name="Tongmageng")`).
 
 ---
 
