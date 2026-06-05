@@ -1,8 +1,296 @@
 # API Reference
 
-## Main Search Function
+## Database API
 
-### `search()`
+### Database Views
+
+Pre-built views provide direct access to every admin level in the PSGC database. Each view is iterable, supports containment checks, and exposes search, lookup, and export methods.
+
+```python
+from barangay import regions, provinces, municipalities, cities, submunicipalities, barangays, special_geographic_areas
+
+print(regions)     # <PSGC region database: 18 records>
+print(provinces)   # <PSGC province database: 82 records>
+print(barangays)   # <PSGC barangay database: 42010 records>
+```
+
+**Available views:**
+
+| View | Admin Level |
+|------|-------------|
+| `regions` | Region |
+| `provinces` | Province |
+| `municipalities` | Municipality |
+| `cities` | City |
+| `submunicipalities` | Submunicipality |
+| `barangays` | Barangay |
+| `special_geographic_areas` | Special Geographic Area |
+
+#### `.get(name=...)` / `.get(psgc_id=...)`
+
+Look up a single record by name or PSGC ID. Returns an `_EnrichedRecord` or `None`.
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy)  # <barangay: Tongmageng (1907005010)>
+
+brgy = barangays.get(psgc_id="1907005010")
+print(brgy.region)  # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+```
+
+Raises `MultipleResultsError` when the name matches more than one record. Use `.lookup()` for guaranteed-unique PSGC ID lookups.
+
+#### `.lookup(psgc_id)`
+
+Exact lookup by PSGC ID across all levels. Returns `_EnrichedRecord` or `None`.
+
+```python
+r = barangays.lookup("1907005010")
+print(r)  # <barangay: Tongmageng (1907005010)>
+print(r.to_dict())
+# {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010', ...}
+```
+
+#### `.search_fuzzy(query)`
+
+Fuzzy search scoped to this admin level. Returns `List[SearchResult]`.
+
+```python
+results = barangays.search_fuzzy("Tongmageng, Tawi-Tawi", threshold=60.0, limit=5)
+for r in results:
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+#### `.to_frame()` / `.to_dicts()`
+
+Export records to a pandas DataFrame or list of dicts. Each dict includes resolved hierarchy fields (`region`, `province`, `municipality`, `city`).
+
+```python
+df = barangays.to_frame()
+print(df.columns.tolist())
+# ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
+#  'region', 'province', 'municipality', 'city']
+print(df.shape)  # (42010, 10)
+
+data = barangays.to_dicts()
+print(len(data))  # 42010
+```
+
+#### Iteration and containment
+
+```python
+# Iterate
+for region in regions:
+    print(region.name)
+
+# Check membership by PSGC ID
+print("1907005010" in barangays)  # True
+
+# Count
+print(len(barangays))  # 42010
+```
+
+### EnrichedRecord
+
+Every record returned by the Database API is an `_EnrichedRecord` with computed hierarchy properties.
+
+#### Core Fields
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.name` | `str` | Name of the administrative division |
+| `.type` | `AdminLevel` | Admin level enum (`"region"`, `"province"`, `"city"`, `"municipality"`, `"barangay"`, etc.) |
+| `.psgc_id` | `str` | PSGC identifier |
+| `.parent_psgc_id` | `str` | Parent PSGC identifier |
+
+#### Hierarchy Properties
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.region` | `str \| None` | Name of the containing region |
+| `.province` | `str \| None` | Name of the containing province |
+| `.municipality` | `str \| None` | Name of the containing municipality |
+| `.city` | `str \| None` | Name of the containing city |
+| `.parent` | `_EnrichedRecord \| None` | Direct parent record |
+| `.children` | `list[_EnrichedRecord]` | Direct child records |
+| `.ancestors` | `list[_EnrichedRecord]` | All ancestors from parent to root |
+
+#### Example
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)      # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)    # Tawi-Tawi
+print(brgy.municipality)  # Sitangkai
+print(brgy.parent)      # <municipality: Sitangkai (1907005000)>
+
+for a in brgy.ancestors:
+    print(repr(a))
+# <municipality: Sitangkai (1907005000)>
+# <province: Tawi-Tawi (1907000000)>
+# <region: Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) (1900000000)>
+```
+
+#### `.to_dict()`
+
+Serialize to a dict including resolved hierarchy fields:
+
+```python
+d = brgy.to_dict()
+# {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010',
+#  'parent_psgc_id': '1907005000', 'nicknames': None, 'extensions': [],
+#  'region': 'Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)',
+#  'province': 'Tawi-Tawi', 'municipality': 'Sitangkai', 'city': None}
+```
+
+### `search_fuzzy()`
+
+Typed fuzzy search returning `SearchResult` objects with rich attributes.
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("Tongmageng, Tawi-Tawi", threshold=60.0, limit=5)
+for r in results:
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `query` | `str` | — | Search string |
+| `level` | `AdminLevel \| None` | `None` | Filter to a specific admin level |
+| `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
+| `limit` | `int` | `5` | Maximum number of results |
+| `as_of` | `str \| None` | `None` | Historical date (YYYY-MM-DD) |
+
+**Returns:** `List[SearchResult]`
+
+**SearchResult properties:**
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.name` | `str` | Matched record name |
+| `.psgc_id` | `str` | Matched record PSGC ID |
+| `.score` | `float` | Similarity score (0-100) |
+| `.match_type` | `str` | Match pattern (e.g. `"province+municipality+barangay"`) |
+| `.record` | `AdminDivRecord` | Underlying record |
+| `.enriched` | `_EnrichedRecord` | Enriched view (requires hierarchy index) |
+
+### `validate()` / `validate_many()`
+
+Validate address strings against the PSGC masterlist using fuzzy matching.
+
+```python
+from barangay import validate, validate_many
+
+v = validate("Tongmageng, Tawi-Tawi")
+print(v.valid)          # True
+print(v.matched_name)   # Tongmageng
+print(v.matched_psgc_id) # 1907005010
+print(v.score)          # 100.0
+
+results = validate_many([
+    "Tongmageng, Tawi-Tawi",
+    "Brgy 291, City of Manila",
+    "Nonexistent Place",
+])
+for r in results:
+    print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
+# 'Tongmageng, Tawi-Tawi' -> valid
+# 'Brgy 291, City of Manila' -> invalid
+# 'Nonexistent Place' -> invalid
+```
+
+**`validate()` parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `address` | `str` | — | Address string to validate |
+| `threshold` | `float` | `95.0` | Minimum score for a valid match |
+| `as_of` | `str \| None` | `None` | Historical date |
+
+**Returns:** `ValidationResult`
+
+**ValidationResult properties:**
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.input` | `str` | Original input string |
+| `.valid` | `bool` | Whether a match was found above threshold |
+| `.matched_name` | `str \| None` | Name of the matched record |
+| `.matched_psgc_id` | `str \| None` | PSGC ID of the matched record |
+| `.matched_record` | `AdminDivRecord \| None` | Full matched record |
+| `.score` | `float \| None` | Confidence score |
+
+**`validate_many()`** takes a `list[str]` of addresses and returns `list[ValidationResult]`.
+
+### `use_version()` / `use_plugins()`
+
+Switch the global Database to a different data version or enable plugins.
+
+```python
+import barangay
+
+# Switch to historical data
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+
+# Enable plugins
+barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
+```
+
+**`use_version()`** invalidates the cache and triggers a reload on next access.
+
+**`use_plugins()`** enables plugins on the global Database singleton.
+
+### `Database` Class
+
+The central data access point, implemented as a singleton. You typically use the module-level views instead of instantiating directly.
+
+```python
+from barangay import Database
+
+db = Database()  # returns the singleton
+print(db.barangays)  # <PSGC barangay database: 42010 records>
+print(db.all_records)  # <PSGC all database: 43363 records>
+```
+
+**Properties:** `.regions`, `.provinces`, `.municipalities`, `.cities`, `.submunicipalities`, `.barangays`, `.special_geographic_areas`, `.all_records`
+
+**Methods:** `.use_plugins()`, `.available_plugins()`, `.active_plugins()`
+
+### `AdminLevel`
+
+Enum of administrative division types.
+
+```python
+from barangay import AdminLevel
+
+print(AdminLevel.REGION)     # AdminLevel.REGION
+print(AdminLevel.REGION.value)  # 'region'
+
+# All values: country, region, province, city, municipality, submunicipality, barangay, special_geographic_area
+```
+
+### `MultipleResultsError`
+
+Raised when `.get(name=...)` matches multiple records.
+
+```python
+from barangay import barangays, MultipleResultsError
+
+try:
+    result = barangays.get(name="San Roque")  # many barangays named San Roque
+except MultipleResultsError as e:
+    print(e)  # Name 'San Roque' matched 42 records. Use psgc_id for exact lookup, or iterate.
+```
+
+---
+
+## Search (Dict-based)
 
 Search for barangays using fuzzy string matching.
 

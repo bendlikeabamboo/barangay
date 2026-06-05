@@ -13,26 +13,27 @@ Requires Python 3.13+.
 ## Quick Start
 
 ```python
-from barangay import search
+from barangay import barangays, search_fuzzy
 
-results = search("Tongmageng, Tawi-Tawi")
-top_result = results[0]
-print(f"Barangay Name: {top_result['barangay']}")
-print(f"PSGC ID: {top_result['psgc_id']}")
-```
+print(barangays)  # <PSGC barangay database: 42010 records>
 
-Output:
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)    # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)  # Tawi-Tawi
+print(brgy.psgc_id)   # 1907005010
 
-```txt
-Barangay Name: Tongmageng
-PSGC ID: 1907005010
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
 ```
 
 ## Features
 
 - **Bundled PSGC Dataset**: Native access to PSGC data, no database or API calls needed
+- **Hierarchy Traversal**: Navigate parent, children, and ancestors of any admin division
+- **Direct Pandas Export**: `to_frame()` and `to_dicts()` for immediate DataFrame access
+- **Address Validation**: `validate()` and `validate_many()` for automated address checking
+- **Fuzzy Search**: Fast, customizable fuzzy matching with typed `SearchResult` objects
 - **Historical PSGC Data**: On-demand access to previous PSGC releases by date
-- **Fuzzy Search**: Fast, customizable fuzzy matching for unstandardized addresses
 - **Multiple Data Models**: Basic (nested), Extended (recursive), and Flat (list)
 - **Command Line Interface**: Full CLI for search, export, validation, batch operations
 - **Smart Caching**: Automatic local caching for faster subsequent loads
@@ -40,7 +41,98 @@ PSGC ID: 1907005010
 
 ---
 
-## API Reference
+## Database API
+
+### Database Views
+
+Pre-built views for each admin level:
+
+```python
+from barangay import regions, provinces, municipalities, cities, submunicipalities, barangays, special_geographic_areas
+
+print(regions)     # <PSGC region database: 18 records>
+print(provinces)   # <PSGC province database: 82 records>
+print(barangays)   # <PSGC barangay database: 42010 records>
+```
+
+Each view supports `.get(name=...)`, `.get(psgc_id=...)`, `.lookup(psgc_id)`, `.search_fuzzy(query)`, `.to_frame()`, `.to_dicts()`, iteration, `len()`, and `in` (by PSGC ID).
+
+### Lookup
+
+```python
+brgy = barangays.get(name="Tongmageng")      # by name (raises MultipleResultsError if ambiguous)
+brgy = barangays.lookup("1907005010")        # by PSGC ID (always unique)
+```
+
+### Hierarchy Traversal
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)       # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)     # Tawi-Tawi
+print(brgy.municipality)  # Sitangkai
+print(brgy.parent)       # <municipality: Sitangkai (1907005000)>
+print(brgy.ancestors)    # [municipality, province, region]
+print(brgy.children)      # direct children
+
+d = brgy.to_dict()  # includes region, province, municipality, city fields
+```
+
+### Fuzzy Search
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("query", level=None, threshold=60.0, limit=5, as_of=None)
+for r in results:
+    print(r.name, r.psgc_id, r.score, r.match_type)
+```
+
+Returns `List[SearchResult]` with properties: `.name`, `.psgc_id`, `.score`, `.match_type`, `.record`, `.enriched`.
+
+### Validation
+
+```python
+from barangay import validate, validate_many
+
+v = validate("Tongmageng, Tawi-Tawi")  # default threshold 95.0
+print(v.valid, v.matched_name, v.matched_psgc_id, v.score)
+# True Tongmageng 1907005010 100.0
+
+results = validate_many(["addr1", "addr2"])
+for r in results:
+    print(r.valid, r.matched_name, r.score)
+```
+
+### Version Switching
+
+```python
+import barangay
+
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+```
+
+### Plugins
+
+```python
+import barangay
+
+barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
+```
+
+### AdminLevel Enum
+
+Values: `country`, `region`, `province`, `city`, `municipality`, `submunicipality`, `barangay`, `special_geographic_area`.
+
+### MultipleResultsError
+
+Raised by `.get(name=...)` when the name matches multiple records. Use `.lookup(psgc_id)` for unique lookups.
+
+---
+
+## Legacy API
 
 ### search()
 

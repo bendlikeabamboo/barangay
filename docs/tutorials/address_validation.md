@@ -19,7 +19,56 @@ The `barangay` package solves this by matching addresses against the official Ph
 pip install barangay
 ```
 
-## Basic Validation
+## Using `validate()`
+
+The `validate()` function provides a simple interface for address validation with a high-confidence default threshold of 95.0:
+
+```python
+from barangay import validate
+
+v = validate("Tongmageng, Tawi-Tawi")
+print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
+```
+
+For addresses that use abbreviations or non-standard formats, lower the threshold:
+
+```python
+v = validate("Brgy 291, City of Manila", threshold=80.0)
+print(v.valid, v.matched_name, v.score)  # True Barangay 291 88.24
+```
+
+### Batch Validation with `validate_many()`
+
+Validate multiple addresses at once:
+
+```python
+from barangay import validate_many
+
+results = validate_many([
+    "Tongmageng, Tawi-Tawi",
+    "Brgy 291, City of Manila",
+    "Nonexistent Place",
+])
+for r in results:
+    status = "valid" if r.valid else "invalid"
+    print(f"{r.input!r} -> {status}")
+# 'Tongmageng, Tawi-Tawi' -> valid
+# 'Brgy 291, City of Manila' -> invalid
+# 'Nonexistent Place' -> invalid
+```
+
+### ValidationResult Properties
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.input` | `str` | Original input string |
+| `.valid` | `bool` | Whether a match was found above threshold |
+| `.matched_name` | `str \| None` | Name of the matched record |
+| `.matched_psgc_id` | `str \| None` | PSGC ID of the matched record |
+| `.matched_record` | `AdminDivRecord \| None` | Full matched record |
+| `.score` | `float \| None` | Confidence score |
+
+## Using `search()` with Threshold
 
 Use the `search()` function with a high threshold to validate addresses:
 
