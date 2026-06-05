@@ -30,7 +30,7 @@ from barangay.models import BarangayModel  # noqa:E402
 from barangay.fuzz import FuzzBase, create_fuzz_base  # noqa:E402
 
 # Import search functionality
-from barangay.search import search  # noqa:E402
+from barangay.search import search, search_fuzzy  # noqa:E402
 
 # Import utilities
 from barangay.utils import sanitize_input  # noqa:E402
@@ -50,6 +50,18 @@ from barangay.config import (  # noqa:E402
 
 # Import plugin system
 from barangay.plugin_loader import PluginLoader  # noqa:E402
+
+# Import Database API
+from barangay.database import Database, MultipleResultsError  # noqa:E402
+from barangay.models import (  # noqa:E402
+    AdminDivRecord,
+    AdminLevel,
+    PluginInfo,
+    SearchResult,
+    ValidationResult,
+)
+from barangay.validate import validate, validate_many  # noqa:E402
+from barangay.version import use_version, use_plugins  # noqa:E402
 
 # Update available_dates at module import
 available_dates = list(set(get_available_dates() + [current]))
@@ -120,4 +132,5 @@ __all__ = [
     "validate_many",
     "use_version",
     "use_plugins",
+    "MultipleResultsError",
 ]

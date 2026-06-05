@@ -6,6 +6,9 @@ Perform bulk lookups and searches across the complete PSGC dataset of 42,011 bar
 
 When cleaning large datasets of Philippine addresses or geographic references, you need efficient batch processing. The `barangay` package provides:
 
+- Database views with `to_frame()` and `to_dicts()` for direct export
+- `search_fuzzy()` for typed fuzzy search results
+- `validate_many()` for batch address validation
 - Pre-computed fuzzy matching via `FuzzBase` for fast repeated lookups
 - CLI batch commands for file-based processing
 - Direct access to flat data models for filtering and joins
@@ -16,7 +19,54 @@ When cleaning large datasets of Philippine addresses or geographic references, y
 pip install barangay
 ```
 
-## Method 1: Python Batch Search (Recommended)
+## Method 1: Database Views (Recommended)
+
+Export data directly from database views for the most common use cases:
+
+```python
+from barangay import barangays
+
+# Export all barangays to pandas DataFrame
+df = barangays.to_frame()
+print(df.shape)  # (42010, 10)
+print(df.columns.tolist())
+# ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
+#  'region', 'province', 'municipality', 'city']
+
+# Export as list of dicts
+data = barangays.to_dicts()
+print(len(data))  # 42010
+```
+
+### Fuzzy Search on a View
+
+Search within a specific admin level:
+
+```python
+results = barangays.search_fuzzy("Tongmageng, Tawi-Tawi", threshold=60.0, limit=5)
+for r in results:
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+### Batch Validation
+
+```python
+from barangay import validate_many
+
+addresses = [
+    "Tongmageng, Tawi-Tawi",
+    "Barangay 291, Manila",
+    "Poblacion, Cebu City",
+]
+results = validate_many(addresses, threshold=80.0)
+for r in results:
+    if r.valid:
+        print(f"{r.input!r} -> {r.matched_name} ({r.matched_psgc_id})")
+    else:
+        print(f"{r.input!r} -> NOT FOUND")
+```
+
+## Method 2: Python Batch Search with FuzzBase
 
 Reuse a `FuzzBase` instance to avoid reloading data on every search:
 
@@ -72,7 +122,7 @@ with open("results.json", "w") as f:
     json.dump(output, f, indent=2)
 ```
 
-## Method 2: CLI Batch Search
+## Method 3: CLI Batch Search
 
 Create a file with one query per line:
 
@@ -82,7 +132,7 @@ barangay batch batch-search queries.txt --limit 5 --output results.json
 
 This reads `queries.txt` and writes matched results to `results.json`.
 
-## Method 3: Direct Data Filtering
+## Method 4: Direct Data Filtering
 
 For exact or prefix matching, filter the flat data model directly:
 
@@ -105,7 +155,7 @@ pangasinan_barangays = [
 print(f"Pangasinan (Region I) has {len(pangasinan_barangays)} barangays")
 ```
 
-## Method 4: Export Entire Dataset
+## Method 5: Export Entire Dataset
 
 Use the CLI to export all data for offline processing:
 
@@ -129,8 +179,10 @@ with open("all_barangays.json", "w") as f:
 
 | Approach | Speed | Use Case |
 |----------|-------|----------|
-| `FuzzBase` + `search()` | ~25-80ms/query | Fuzzy matching with typos |
+| `to_frame()` / `to_dicts()` | Fastest | Full dataset export |
 | Filter `barangay_flat` | <1ms/query | Exact or prefix matching |
+| `FuzzBase` + `search()` | ~25-80ms/query | Fuzzy matching with typos |
+| `validate_many()` | ~25-80ms/query | Batch address validation |
 | CLI `batch-search` | Batch optimized | File-based processing |
 | `export` + external tools | Fastest | Full dataset export |
 
@@ -151,6 +203,7 @@ barangay batch batch-search queries.txt --as-of "2025-07-08" --output historical
 
 ## Next Steps
 
+- [Getting Started](database_api.md) — Database API overview
 - [Address Validation](address_validation.md) — validating individual addresses
-- [API Reference](../api.md) — `search()` and `FuzzBase` documentation
+- [API Reference](../api.md) — `search()`, `search_fuzzy()`, and `FuzzBase` documentation
 - [CLI Reference](../cli.md) — batch command options

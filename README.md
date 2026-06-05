@@ -18,11 +18,20 @@ pip install barangay
 ```
 
 ```python
-from barangay import search
+from barangay import barangays, search_fuzzy
 
-# Find barangays with fuzzy matching
-results = search("Tongmageng, Tawi-Tawi")
-print(results[0]['barangay'])  # Tongmageng
+# Browse all 42,011 barangays
+print(barangays)  # <PSGC barangay database: 42010 records>
+
+# Get a specific barangay
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)    # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)  # Tawi-Tawi
+print(brgy.psgc_id)   # 1907005010
+
+# Fuzzy search
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(f"{r.name} — score: {r.score}")
 ```
 
 ---
@@ -32,11 +41,13 @@ print(results[0]['barangay'])  # Tongmageng
 | Feature | Description |
 |---------|-------------|
 | 🔍 **Fuzzy Search** | Fast, customizable matching for unstandardized addresses |
+| 🏛️ **Hierarchy Traversal** | Navigate parent, children, and ancestors of any admin division |
+| 📊 **Pandas Export** | Direct `to_frame()` / `to_dicts()` export from database views |
+| ✅ **Address Validation** | `validate()` and `validate_many()` for automated address checking |
 | 📅 **Historical Data** | Access previous PSGC releases by date |
 | 👩‍💻 **Command Line Interface** | Easy-to-use command line interface |
 | 📚 **Multiple Data Models** | Choose the structure that fits your use case |
 | 💾 **Smart Caching** | Automatic caching for faster subsequent loads |
-| 📦 **Ready-to-Use** | JSON, YAML, and Python dictionary formats included |
 | 🧩 **Plug-in System** | Enrich PSGC data with custom extensions via plug-ins |
 
 ---
@@ -90,27 +101,81 @@ barangay batch validate barangay_names.txt
 
 ## Python API
 
+### Database Views
+
+Pre-built views let you browse and search any admin level directly:
+
+```python
+from barangay import regions, provinces, municipalities, cities, barangays
+
+print(regions)     # <PSGC region database: 18 records>
+print(barangays)   # <PSGC barangay database: 42010 records>
+
+# Look up by name
+brgy = barangays.get(name="Tongmageng")
+print(brgy.province)  # Tawi-Tawi
+
+# Look up by PSGC ID
+brgy = barangays.lookup("1907005010")
+print(brgy)  # <barangay: Tongmageng (1907005010)>
+
+# Iterate over records
+for region in regions:
+    print(region.name)
+```
+
+### Hierarchy Traversal
+
+Each record exposes its position in the administrative hierarchy:
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)      # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)    # Tawi-Tawi
+print(brgy.municipality)  # Sitangkai
+print(brgy.parent)      # <municipality: Sitangkai (1907005000)>
+print(brgy.ancestors)   # [<municipality: Sitangkai ...>, <province: Tawi-Tawi ...>, ...]
+
+manila = cities.get(name="City of Manila")
+print(manila.children[:2])  # [<submunicipality: Tondo I/II ...>, <submunicipality: Binondo ...>]
+```
+
 ### Fuzzy Search
 
 ```python
-from barangay import search
+from barangay import search_fuzzy
 
-# Simple search
-results = search("Tongmageng, Tawi-Tawi")
-
-# Custom search
-search(
-    "Tongmagen, Tawi-Tawi",
-    n=4,                    # Number of results
-    match_hooks=["municipality", "barangay"],  # Match levels
-    threshold=70.0,         # Minimum similarity (0-100)
-)
-
-# Historical data
-search("Tongmageng", as_of="2025-07-08")
+results = search_fuzzy("Tongmagen, Tawi-Tawi", threshold=60.0, limit=5)
+for r in results:
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+# Tongmageng (1907005010) — score: 100.0
+# Tonggosong (1907004005) — score: 84.21
+# ...
 ```
 
-### Data Access
+### Address Validation
+
+```python
+from barangay import validate, validate_many
+
+v = validate("Tongmageng, Tawi-Tawi")
+print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
+
+results = validate_many(["Tongmageng, Tawi-Tawi", "Nonexistent Place"])
+for r in results:
+    print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
+```
+
+### Export to Pandas
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()     # pd.DataFrame
+data = barangays.to_dicts()   # List[dict]
+```
+
+### Data Access (Nested & Flat Models)
 
 ```python
 from barangay import barangay, barangay_flat, barangay_extended
@@ -126,22 +191,36 @@ for region in barangay_extended.components:
 brgy = [loc for loc in barangay_flat if loc.name == "Marayos"][0]
 ```
 
+### Search (Dict-based)
+
+```python
+from barangay import search
+
+# Simple search
+results = search("Tongmageng, Tawi-Tawi")
+
+# Custom search
+search(
+    "Tongmagen, Tawi-Tawi",
+    n=4,                    # Number of results
+    match_hooks=["municipality", "barangay"],  # Match levels
+    threshold=70.0,         # Minimum similarity (0-100)
+)
+```
+
 ### Utilities
 
 ```python
-from barangay import sanitize_input, resolve_date, get_available_dates
+from barangay import sanitize_input, resolve_date, get_available_dates, use_version
 
 # Sanitize strings
 cleaned = sanitize_input("City of San Jose", exclude=["city of "])
 # Result: "san jose"
 
-# Resolve to closest available date
-resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
-# Result: '2025-07-08'
-
-# Get all available dates
-dates = get_available_dates()
-# ['2026-04-13', '2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
+# Switch to historical data
+use_version("2025-07-08")
+brgy = barangays.lookup("1907005010")
+use_version(None)  # back to latest
 ```
 
 📖 **Full API Reference:** [docs/api.md](https://bendlikeabamboo.github.io/barangay/api/)
