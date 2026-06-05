@@ -1,20 +1,14 @@
 import json
 import logging
 from pathlib import Path
-from typing import TYPE_CHECKING
 from urllib.request import Request, urlopen
-
-if TYPE_CHECKING:
-    pass
 
 logger = logging.getLogger(__name__)
 
-# GitHub repository details
 GITHUB_REPO = "bendlikeabamboo/barangay-data-repository"
 GITHUB_RAW_URL = "https://raw.githubusercontent.com/{repo}/main/{date}/{filename}"
 GITHUB_API_URL = "https://api.github.com/repos/{repo}/contents/"
 
-# Data type to filename mapping
 DATA_TYPE_MAPPING = {
     "basic": "barangay.json",
     "extended": "barangay_extended.json",
@@ -22,37 +16,24 @@ DATA_TYPE_MAPPING = {
     "fuzzer_base": "fuzzer_base.parquet",
 }
 
+__all__ = [
+    "DATA_TYPE_MAPPING",
+    "GITHUB_API_URL",
+    "GITHUB_RAW_URL",
+    "GITHUB_REPO",
+    "download_data",
+    "fetch_available_dates",
+    "get_github_url",
+]
+
 
 def get_github_url(resolved_date: str, filename: str) -> str:
-    """Construct GitHub raw URL for a file.
-
-    Args:
-        resolved_date: Date string in YYYY-MM-DD format.
-        filename: Name of the file to retrieve.
-
-    Returns:
-        str: The complete GitHub raw URL.
-    """
     return GITHUB_RAW_URL.format(
         repo=GITHUB_REPO, date=resolved_date, filename=filename
     )
 
 
 def download_data(resolved_date: str, data_type: str, cache_dir: Path) -> Path:
-    """Download data from GitHub and save to cache.
-
-    Args:
-        resolved_date: Date string in YYYY-MM-DD format.
-        data_type: Type of data (basic, extended, flat, fuzzer_base).
-        cache_dir: Directory path to cache the downloaded file.
-
-    Returns:
-        Path: Path to the cached file.
-
-    Raises:
-        ValueError: If data_type is invalid.
-        RuntimeError: If download fails.
-    """
     if data_type not in DATA_TYPE_MAPPING:
         raise ValueError(
             f"Invalid data_type: {data_type}. Must be one of {list(DATA_TYPE_MAPPING.keys())}"
@@ -68,7 +49,6 @@ def download_data(resolved_date: str, data_type: str, cache_dir: Path) -> Path:
         with urlopen(request, timeout=30) as response:
             content = response.read()
 
-            # Save to cache
             cache_dir.mkdir(parents=True, exist_ok=True)
             cache_file = cache_dir / f"{resolved_date}_{filename}"
 
@@ -83,11 +63,6 @@ def download_data(resolved_date: str, data_type: str, cache_dir: Path) -> Path:
 
 
 def fetch_available_dates() -> list[str]:
-    """Fetch available date directories from GitHub repository.
-
-    Returns:
-        list[str]: Sorted list of date strings in YYYY-MM-DD format.
-    """
     import re
     from datetime import datetime
 
@@ -104,12 +79,10 @@ def fetch_available_dates() -> list[str]:
         with urlopen(request, timeout=10) as response:
             data = json.loads(response.read().decode())
 
-            # Extract date directories (they should be in YYYY-MM-DD format)
             dates = []
             for item in data:
                 if item["type"] == "dir":
                     name = item["name"]
-                    # Validate date format
                     if re.match(r"^\d{4}-\d{2}-\d{2}$", name):
                         try:
                             datetime.strptime(name, "%Y-%m-%d")
@@ -117,7 +90,6 @@ def fetch_available_dates() -> list[str]:
                         except ValueError:
                             pass
 
-            # Sort dates
             dates.sort()
             return dates
 

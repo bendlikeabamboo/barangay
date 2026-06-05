@@ -21,6 +21,20 @@ _DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 _BUILTIN_PLUGINS_DIR = Path(__file__).parent / "plugins"
 
+__all__ = [
+    "PluginDataError",
+    "PluginLoader",
+    "PluginManifestError",
+    "build_plugin_index",
+    "enrich_extended",
+    "enrich_flat",
+    "load_manifest",
+    "load_plugin_config",
+    "load_plugin_data",
+    "resolve_plugin_date",
+    "resolve_plugin_sources",
+]
+
 
 class PluginManifestError(Exception):
     pass
@@ -35,26 +49,21 @@ def resolve_plugin_sources(
     config_file: str | Path | None = None,
     extra_dirs: list[str | Path] | None = None,
 ) -> list[Path]:
-    """Collect plugin directories in priority order (lowest to highest)."""
     dirs: list[Path] = []
 
-    # 1. Built-in
     if _BUILTIN_PLUGINS_DIR.is_dir():
         dirs.append(_BUILTIN_PLUGINS_DIR)
 
-    # 2. Env var
     if env:
         env_path = os.environ.get("BARANGAY_PLUGINS_DIR")
         if env_path:
             dirs.extend(Path(p) for p in env_path.split(os.pathsep))
 
-    # 3. Config file
     cfg = _load_project_config(config_file)
     if cfg and "plugin_dirs" in cfg:
         for d in cfg["plugin_dirs"]:
             dirs.append(Path(d))
 
-    # 4. Extra dirs (programmatic)
     if extra_dirs:
         dirs.extend(Path(d) for d in extra_dirs)
 
@@ -62,7 +71,6 @@ def resolve_plugin_sources(
 
 
 def _load_project_config(config_file: str | Path | None = None) -> dict | None:
-    """Load barangay.yaml or barangay_config.yaml from CWD or parent dirs."""
     if config_file:
         path = Path(config_file)
         if path.is_file():
@@ -90,11 +98,6 @@ def _load_project_config(config_file: str | Path | None = None) -> dict | None:
 def load_plugin_config(
     plugin_dirs: list[Path] | None = None,
 ) -> dict[str, bool]:
-    """Read and merge plugins.yaml from all source directories.
-
-    Higher-priority sources override enabled status of lower-priority plugins.
-    Returns dict mapping plugin name -> enabled status.
-    """
     if plugin_dirs is None:
         plugin_dirs = resolve_plugin_sources()
 
@@ -124,7 +127,6 @@ def load_plugin_config(
 
 
 def _find_plugin_dir(plugin_name: str, plugin_dirs: list[Path]) -> Path | None:
-    """Find a plugin directory across all source dirs (highest priority wins)."""
     result: Path | None = None
     for plugin_dir in plugin_dirs:
         candidate = plugin_dir / plugin_name
@@ -137,13 +139,6 @@ def load_manifest(
     plugin_name: str,
     plugin_dirs: list[Path] | None = None,
 ) -> dict[str, Any]:
-    """Read and validate a plugin manifest.
-
-    Required fields: name, format, key.
-    Optional: description, version, repository, ref, current, dates, fields.
-    If 'ref' is omitted and 'repository' is set, defaults to 'main'.
-    Raises PluginManifestError on validation failure.
-    """
     if plugin_dirs is None:
         plugin_dirs = resolve_plugin_sources()
 
@@ -175,10 +170,6 @@ def load_manifest(
 
 
 def _is_time_aware(plugin_name: str, plugin_dirs: list[Path] | None = None) -> bool:
-    """Detect whether a plugin is time-aware by scanning its data directory.
-
-    A plugin is time-aware if any subdirectory matches YYYY-MM-DD/.
-    """
     if plugin_dirs is None:
         plugin_dirs = resolve_plugin_sources()
 
@@ -202,12 +193,6 @@ def resolve_plugin_date(
     plugin_dates: list[str],
     plugin_current: str,
 ) -> str:
-    """Resolve the requested date to the best matching plugin date.
-
-    Uses the same logic as date_resolver.resolve_date():
-    find the closest date <= requested date.
-    Falls back to plugin_current if as_of is None.
-    """
     if as_of is None:
         return plugin_current
 
@@ -226,14 +211,6 @@ def load_plugin_data(
     resolved_date: str | None = None,
     plugin_dirs: list[Path] | None = None,
 ) -> dict[str, dict[str, Any]]:
-    """Load plugin data from the appropriate file, returning psgc_id -> {fields}.
-
-    Supports csv, json, and parquet formats.
-    The key column (default: psgc_id) is used for joining but excluded from the data dict.
-
-    If the manifest has a 'repository' field and no local data directory exists,
-    data is fetched from the remote GitHub repository.
-    """
     if plugin_dirs is None:
         plugin_dirs = resolve_plugin_sources()
 
@@ -284,19 +261,6 @@ def _fetch_remote_data_file(
     plugin_name: str,
     cache_dir: Path | None = None,
 ) -> Path:
-    """Download a single file from a remote URL to a cache location.
-
-    Args:
-        url: The remote URL to download.
-        plugin_name: Name of the plugin (used for cache key prefix).
-        cache_dir: Optional override for the cache directory.
-
-    Returns:
-        Path to the cached file.
-
-    Raises:
-        PluginDataError: If the download fails.
-    """
     if cache_dir is None:
         cache_dir = get_cache_dir() / "plugins"
     cache_dir.mkdir(parents=True, exist_ok=True)
@@ -323,18 +287,6 @@ def _fetch_remote_dates(
     repo_url: str,
     cache_dir: Path | None = None,
 ) -> list[str]:
-    """Fetch available date directories from a GitHub repository.
-
-    Calls the GitHub API /contents/ endpoint to list root directories,
-    filters for YYYY-MM-DD format, and returns a sorted list.
-
-    Args:
-        repo_url: GitHub repository URL (e.g. https://github.com/user/repo).
-        cache_dir: Optional override for the cache directory.
-
-    Returns:
-        Sorted list of date strings in YYYY-MM-DD format.
-    """
     repo = repo_url.rstrip("/").split("github.com/")[-1]
     api_url = f"https://api.github.com/repos/{repo}/contents/"
 
@@ -389,11 +341,6 @@ def _resolve_data_file(
     fmt: str,
     plugin_name: str | None = None,
 ) -> Path | None:
-    """Find the correct data file based on whether plugin is time-aware.
-
-    Time-aware plugins use YYYY-MM-DD/ subdirectories containing plugin_name.<ext>.
-    Non-time-aware plugins use a single plugin_name.<ext> file directly in data/.
-    """
     extensions = {"csv": ".csv", "json": ".json", "parquet": ".parquet"}
     ext = extensions.get(fmt, f".{fmt}")
 
@@ -422,7 +369,6 @@ def _read_data_file(
     fmt: str,
     key: str,
 ) -> dict[str, dict[str, Any]]:
-    """Read a data file and return psgc_id -> {fields} mapping."""
     result: dict[str, dict[str, Any]] = {}
 
     try:
@@ -471,7 +417,6 @@ def _extract_metadata(
     manifest: dict[str, Any],
     resolved_date: str | None = None,
 ) -> PluginExtensionMetadata:
-    """Extract PluginExtensionMetadata from a manifest."""
     return PluginExtensionMetadata(
         name=manifest["name"],
         description=manifest.get("description"),
@@ -487,18 +432,6 @@ def build_plugin_index(
     plugin_config: dict[str, bool] | None = None,
     plugin_dirs: list[Path] | None = None,
 ) -> dict[str, dict[str, dict[str, Any]]]:
-    """Build psgc_id -> {field_group: {metadata, data}} lookup from all active plugins.
-
-    Args:
-        as_of: Optional date string for historical data resolution.
-        plugin_config: Optional pre-computed plugin config (name -> enabled).
-            If None, loads from disk.
-        plugin_dirs: Optional list of plugin source directories.
-            If None, auto-discovers.
-
-    Returns:
-        Dict mapping psgc_id to a dict of field_group -> {metadata, data}.
-    """
     if plugin_config is None:
         plugin_config = load_plugin_config(plugin_dirs=plugin_dirs)
 
@@ -553,7 +486,6 @@ def enrich_flat(
     flat_data: list[dict[str, Any]],
     plugin_index: dict[str, dict[str, dict[str, Any]]],
 ) -> list[dict[str, Any]]:
-    """Attach extensions to each flat record."""
     for record in flat_data:
         psgc_id = str(record.get("psgc_id", ""))
         if psgc_id in plugin_index:
@@ -574,7 +506,6 @@ def enrich_extended(
     node: dict[str, Any],
     plugin_index: dict[str, dict[str, dict[str, Any]]],
 ) -> dict[str, Any]:
-    """Walk the tree and attach extensions to each matching node."""
     psgc_id = str(node.get("psgc_id", ""))
     if psgc_id in plugin_index:
         node["extensions"] = [
@@ -593,8 +524,6 @@ def enrich_extended(
 
 
 class PluginLoader:
-    """High-level API for loading barangay data with plugin enrichment."""
-
     def __init__(
         self,
         env: bool = True,
@@ -609,22 +538,18 @@ class PluginLoader:
         self._plugin_config: dict[str, bool] = load_plugin_config(self._plugin_dirs)
 
     def add_plugin_dir(self, path: str | Path) -> None:
-        """Add a plugin directory at highest priority."""
         self._plugin_dirs.append(Path(path))
         self._plugin_config = load_plugin_config(self._plugin_dirs)
 
     def enable_plugin(self, name: str) -> None:
-        """Enable a plugin by name."""
         self._plugin_config[name] = True
 
     def disable_plugin(self, name: str) -> None:
-        """Disable a plugin by name."""
         self._plugin_config[name] = False
 
     def build_index(
         self, as_of: str | None = None
     ) -> dict[str, dict[str, dict[str, Any]]]:
-        """Build the plugin index for the given as_of date."""
         return build_plugin_index(
             as_of=as_of,
             plugin_config=self._plugin_config,
@@ -636,7 +561,6 @@ class PluginLoader:
         flat_data: list[dict[str, Any]],
         as_of: str | None = None,
     ) -> list[dict[str, Any]]:
-        """Enrich flat records with plugin extensions."""
         index = self.build_index(as_of=as_of)
         return enrich_flat(flat_data, index)
 
@@ -645,6 +569,5 @@ class PluginLoader:
         node: dict[str, Any],
         as_of: str | None = None,
     ) -> dict[str, Any]:
-        """Enrich a tree node with plugin extensions."""
         index = self.build_index(as_of=as_of)
         return enrich_extended(node, index)

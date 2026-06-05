@@ -1,6 +1,7 @@
 import csv
 import json
 from pathlib import Path
+from typing import Literal, cast
 
 import click
 from rich.console import Console
@@ -345,7 +346,12 @@ def export(model, output_format, output, as_of, plugins):
             raise click.ClickException("Plugins are only supported with --model flat")
 
         dm = DataManager()
-        data_type = {"basic": "basic", "flat": "flat", "extended": "extended"}[model]
+        data_type_map: dict[str, Literal["basic", "flat", "extended"]] = {
+            "basic": "basic",
+            "flat": "flat",
+            "extended": "extended",
+        }
+        data_type = data_type_map[model]
         data = dm.get_data(as_of=as_of, data_type=data_type)
 
         if plugins and model == "flat":
@@ -353,7 +359,7 @@ def export(model, output_format, output, as_of, plugins):
             for name in plugins:
                 loader.enable_plugin(name)
             plugin_index = loader.build_index(as_of=as_of)
-            data = explode_flat(data, plugin_index)
+            data = explode_flat(cast(list[dict], data), plugin_index)
 
         if output_format == "json":
             output_data = json.dumps(data, indent=2, ensure_ascii=False)
@@ -533,7 +539,12 @@ def export_history(as_of, model, output_format, output):
     """
     try:
         dm = DataManager()
-        data_type = {"basic": "basic", "flat": "flat", "extended": "extended"}[model]
+        data_type_map: dict[str, Literal["basic", "flat", "extended"]] = {
+            "basic": "basic",
+            "flat": "flat",
+            "extended": "extended",
+        }
+        data_type = data_type_map[model]
         data = dm.get_data(as_of=as_of, data_type=data_type)
 
         if output_format == "json":
@@ -634,7 +645,7 @@ def download(date):
             console.print(f"[green]Downloaded data for {date}[/green]")
         else:
             console.print("[cyan]Downloading current data...[/cyan]")
-            dm.get_data(data_type="basic")
+            dm.get_data(as_of=None, data_type="basic")
             console.print("[green]Downloaded current data[/green]")
     except Exception as e:
         console.print(f"[red]Error: {e}[/red]")
@@ -732,6 +743,57 @@ def validate(file):
     except Exception as e:
         console.print(f"[red]Error: {e}[/red]")
         raise click.ClickException(str(e))
+
+
+@app.group()
+def plugins():
+    """Plugin management commands."""
+    pass
+
+
+@plugins.command("list")
+def plugins_list():
+    """List available plugins."""
+    from barangay.database import Database
+
+    db = Database()
+    table = Table(title="Available Plugins")
+    table.add_column("Name", style="cyan")
+    table.add_column("Status", style="green")
+    table.add_column("Description", style="dim")
+
+    for p in db.available_plugins():
+        status = "[green]enabled[/green]" if p.enabled else "[dim]disabled[/dim]"
+        table.add_row(p.name, status, p.description or "")
+
+    console.print(table)
+
+
+@plugins.command("info")
+@click.argument("name")
+def plugins_info(name):
+    """Show details for a specific plugin."""
+    from barangay.database import Database
+
+    db = Database()
+    for p in db.available_plugins():
+        if p.name == name:
+            table = Table(title=f"Plugin: {p.name}")
+            table.add_column("Property", style="cyan")
+            table.add_column("Value", style="green")
+            table.add_row("Name", p.name)
+            table.add_row("Enabled", str(p.enabled))
+            table.add_row("Description", p.description or "N/A")
+            table.add_row("Version", p.version or "N/A")
+            table.add_row("Format", p.format or "N/A")
+            table.add_row("Repository", p.repository or "N/A")
+            if p.error:
+                table.add_row("Error", f"[red]{p.error}[/red]")
+            console.print(table)
+            return
+
+    console.print(f"[red]Plugin '{name}' not found.[/red]")
+    raise click.ClickException(f"Plugin '{name}' not found")
 
 
 if __name__ == "__main__":

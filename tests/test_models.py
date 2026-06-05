@@ -398,3 +398,121 @@ class TestAdminDivFlat:
         }
         model = AdminDivFlat(**data)
         assert model.model_dump(exclude={"extensions"}) == data
+
+
+class TestAdminLevel:
+    def test_str_comparison(self):
+        from barangay.models import AdminLevel
+
+        assert AdminLevel.BARANGAY == "barangay"
+        assert AdminLevel.REGION == "region"
+
+    def test_all_types_covered(self):
+        from barangay.models import AdminLevel
+
+        assert len(AdminLevel) == 8
+        assert AdminLevel.COUNTRY.value == "country"
+        assert AdminLevel.REGION.value == "region"
+        assert AdminLevel.PROVINCE.value == "province"
+        assert AdminLevel.CITY.value == "city"
+        assert AdminLevel.MUNICIPALITY.value == "municipality"
+        assert AdminLevel.SUBMUNICIPALITY.value == "submunicipality"
+        assert AdminLevel.BARANGAY.value == "barangay"
+        assert AdminLevel.SPECIAL_GEOGRAPHIC_AREA.value == "special_geographic_area"
+
+    def test_invalid_type_raises(self):
+        from barangay.models import AdminLevel
+
+        with pytest.raises(ValueError):
+            AdminLevel("nonexistent_type")
+
+
+class TestAdminDivRecord:
+    def test_from_flat_fields(self):
+        from barangay.models import AdminDivFlat, record_from_flat
+
+        flat = AdminDivFlat(
+            name="Test",
+            type="barangay",
+            psgc_id="0000000001",
+            parent_psgc_id="0000000000",
+            nicknames=["test"],
+        )
+        record = record_from_flat(flat)
+        assert record.name == "Test"
+        assert record.psgc_id == "0000000001"
+        assert record.nicknames == ["test"]
+
+    def test_frozen_false(self):
+        from barangay.models import AdminDivRecord, AdminLevel
+
+        record = AdminDivRecord(
+            name="Test",
+            type=AdminLevel.BARANGAY,
+            psgc_id="0000000001",
+            parent_psgc_id="0000000000",
+        )
+        record.name = "Updated"
+        assert record.name == "Updated"
+
+    def test_extra_forbid(self):
+        from barangay.models import AdminDivRecord, AdminLevel
+
+        with pytest.raises(Exception):
+            AdminDivRecord(
+                name="Test",
+                type=AdminLevel.BARANGAY,
+                psgc_id="0000000001",
+                parent_psgc_id="0000000000",
+                extra_field="bad",
+            )
+
+    def test_model_dump_roundtrip(self):
+        from barangay.models import AdminDivRecord, AdminLevel
+
+        record = AdminDivRecord(
+            name="Test",
+            type=AdminLevel.BARANGAY,
+            psgc_id="0000000001",
+            parent_psgc_id="0000000000",
+        )
+        d = record.model_dump()
+        restored = AdminDivRecord.model_validate(d)
+        assert restored.name == record.name
+        assert restored.psgc_id == record.psgc_id
+
+
+class TestRecordFromFlat:
+    def test_conversion_preserves_extensions(self):
+        from barangay.models import (
+            AdminDivFlat,
+            PluginExtension,
+            PluginExtensionMetadata,
+            record_from_flat,
+        )
+
+        meta = PluginExtensionMetadata(name="test", version="1.0")
+        ext = PluginExtension(field_group="test", metadata=meta, data={"key": "val"})
+        flat = AdminDivFlat(
+            name="Test",
+            type="barangay",
+            psgc_id="0000000001",
+            parent_psgc_id="0000000000",
+            extensions=[ext],
+        )
+        record = record_from_flat(flat)
+        assert len(record.extensions) == 1
+        assert record.extensions[0].field_group == "test"
+
+    def test_conversion_preserves_nicknames(self):
+        from barangay.models import AdminDivFlat, record_from_flat
+
+        flat = AdminDivFlat(
+            name="Test",
+            type="barangay",
+            psgc_id="0000000001",
+            parent_psgc_id="0000000000",
+            nicknames=["alias1", "alias2"],
+        )
+        record = record_from_flat(flat)
+        assert record.nicknames == ["alias1", "alias2"]

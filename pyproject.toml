@@ -80,13 +80,21 @@ dev = [
     "pytest>=9.0.2",
     "ty>=0.0.17",
     "pytest-cov>=7.0.0",
+    "pytest-xdist>=3.7.0",
     "pandera[pandas]>=0.29.0",
     "openpyxl>=3.1.5",
+    "pip>=26.1.2",
 ]
 docs = [
     "mkdocs>=1.6.1",
     "mkdocs-shadcn>=0.9.9",
     "mkdocs-badges>=0.5.2",
+]
+
+[tool.ty.src]
+exclude = [
+    "parsers/",
+    "tests/",
 ]
 
 [tool.poe.tasks]

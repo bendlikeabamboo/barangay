@@ -1,19 +1,14 @@
 from functools import partial
-from typing import List
+
+__all__ = [
+    "_basic_sanitizer",
+    "sanitize_input",
+]
 
 
 def sanitize_input(
-    input_str: str | None, exclude: List[str] | str | None = None
+    input_str: str | None, exclude: list[str] | str | None = None
 ) -> str:
-    """Sanitizes input string by lowercasing and removing excluded items.
-
-    Args:
-        input_str: String to sanitize. None becomes empty string.
-        exclude: Items to remove. Can be list, str, or None.
-
-    Returns:
-        Sanitized lowercase string with excluded items removed.
-    """
     if input_str is None:
         input_str = ""
     if not isinstance(input_str, str):
@@ -47,4 +42,3 @@ _basic_sanitizer = partial(
         ",",
     ],
 )
-"""Pre-configured sanitizer for location strings with common exclusions."""
