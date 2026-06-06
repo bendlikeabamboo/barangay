@@ -17,17 +17,14 @@ current: str = _current
 as_of: str | None = None
 available_dates: list[str] = []
 
-# Import data
+# Import data (lazy - actual data loads deferred until first access)
+import barangay.data as _data_module  # noqa:E402
+
 from barangay.config import (  # noqa:E402
     get_cache_dir,
     get_verbose,
     load_env_config,
     resolve_as_of,
-)
-from barangay.data import (  # noqa:E402
-    barangay,
-    barangay_extended,
-    barangay_flat,
 )
 
 # Import new components
@@ -87,54 +84,24 @@ _VIEW_NAMES = frozenset(
     }
 )
 
-# Backward compatibility aliases
-# Note: These convert Pydantic models to dicts at module import time.
-# DEPRECATED: These dict aliases will be removed in 2027.X.X.X.
-# Use the Database API instead (e.g. `from barangay import barangays; barangays.get(name="Tongmageng")`).
+_DEPRECATED_NAMES = frozenset({"BARANGAY", "BARANGAY_EXTENDED", "BARANGAY_FLAT"})
+_LAZY_DATA_NAMES = frozenset({"barangay", "barangay_extended", "barangay_flat"})
 
-warnings.warn(
-    "BARANGAY is deprecated and will be removed in 2027.X.X.X. "
-    "Use the Database API instead: "
-    "from barangay import barangays; barangays.get(name='Tongmageng')",
-    DeprecationWarning,
-    stacklevel=2,
-)
-BARANGAY: dict[str, Any] = barangay.model_dump()
-
-warnings.warn(
-    "BARANGAY_EXTENDED is deprecated and will be removed in 2027.X.X.X. "
-    "Use the Database API instead: hierarchy traversal via .parent, .ancestors, .children "
-    "(e.g. from barangay import barangays; rec = barangays.get(name='Tongmageng'); rec.parent)",
-    DeprecationWarning,
-    stacklevel=2,
-)
-BARANGAY_EXTENDED: dict[str, Any] = barangay_extended.model_dump()
-
-warnings.warn(
-    "BARANGAY_FLAT is deprecated and will be removed in 2027.X.X.X. "
-    "Use the Database API instead: to_frame(), to_dicts(), iteration "
-    "(e.g. from barangay import barangays; barangays.to_frame())",
-    DeprecationWarning,
-    stacklevel=2,
-)
-BARANGAY_FLAT: list[dict[str, Any]] = [x.model_dump() for x in barangay_flat]
+_BARANGAY_CACHE: dict[str, Any] | None = None
+_BARANGAY_EXTENDED_CACHE: dict[str, Any] | None = None
+_BARANGAY_FLAT_CACHE: list[dict[str, Any]] | None = None
 
 __all__ = [
-    # Main search function
     "search",
-    # Classes
     "FuzzBase",
     "BarangayModel",
     "DataManager",
     "PluginLoader",
-    # Data
     "BARANGAY",
     "BARANGAY_EXTENDED",
     "BARANGAY_FLAT",
-    # Utilities
     "sanitize_input",
     "to_python_identifier",
-    # New components
     "create_fuzz_base",
     "get_available_dates",
     "resolve_date",
@@ -142,11 +109,9 @@ __all__ = [
     "get_verbose",
     "load_env_config",
     "resolve_as_of",
-    # Module-level attributes
     "current",
     "as_of",
     "available_dates",
-    # Database API
     "Database",
     "DatabaseView",
     "EnrichedRecord",
@@ -155,7 +120,6 @@ __all__ = [
     "SearchResult",
     "ValidationResult",
     "PluginInfo",
-    # Database namespaces
     "regions",
     "provinces",
     "municipalities",
@@ -163,7 +127,6 @@ __all__ = [
     "submunicipalities",
     "barangays",
     "special_geographic_areas",
-    # New functions
     "search_fuzzy",
     "validate",
     "validate_many",
@@ -178,6 +141,48 @@ __all__ = [
 
 
 def __getattr__(name: str):
+    global _BARANGAY_CACHE, _BARANGAY_EXTENDED_CACHE, _BARANGAY_FLAT_CACHE
+
     if name in _VIEW_NAMES:
         return getattr(_db, name)
+
+    if name in _LAZY_DATA_NAMES:
+        return getattr(_data_module, name)
+
+    if name == "BARANGAY":
+        if _BARANGAY_CACHE is None:
+            warnings.warn(
+                "BARANGAY is deprecated and will be removed in 2027.X.X.X. "
+                "Use the Database API instead: "
+                "from barangay import barangays; barangays.get(name='Tongmageng')",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            _BARANGAY_CACHE = _data_module.barangay.model_dump()
+        return _BARANGAY_CACHE
+
+    if name == "BARANGAY_EXTENDED":
+        if _BARANGAY_EXTENDED_CACHE is None:
+            warnings.warn(
+                "BARANGAY_EXTENDED is deprecated and will be removed in 2027.X.X.X. "
+                "Use the Database API instead: hierarchy traversal via .parent, .ancestors, .children "
+                "(e.g. from barangay import barangays; rec = barangays.get(name='Tongmageng'); rec.parent)",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            _BARANGAY_EXTENDED_CACHE = _data_module.barangay_extended.model_dump()
+        return _BARANGAY_EXTENDED_CACHE
+
+    if name == "BARANGAY_FLAT":
+        if _BARANGAY_FLAT_CACHE is None:
+            warnings.warn(
+                "BARANGAY_FLAT is deprecated and will be removed in 2027.X.X.X. "
+                "Use the Database API instead: to_frame(), to_dicts(), iteration "
+                "(e.g. from barangay import barangays; barangays.to_frame())",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            _BARANGAY_FLAT_CACHE = [x.model_dump() for x in _data_module.barangay_flat]
+        return _BARANGAY_FLAT_CACHE
+
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

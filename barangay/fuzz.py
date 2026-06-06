@@ -10,6 +10,7 @@ from barangay.utils import _basic_sanitizer
 __all__ = [
     "FuzzBase",
     "create_fuzz_base",
+    "invalidate_fuzz_cache",
 ]
 
 
@@ -81,9 +82,17 @@ class FuzzBase:
         )
 
 
+_fuzz_base_cache: dict[str | None, FuzzBase] = {}
+
+
 def create_fuzz_base(as_of: str | None = None) -> FuzzBase:
+    if as_of in _fuzz_base_cache:
+        return _fuzz_base_cache[as_of]
     fuzzer_base = load_fuzzer_base(as_of=as_of)
-    return FuzzBase(fuzzer_base=fuzzer_base)
+    fb = FuzzBase(fuzzer_base=fuzzer_base)
+    _fuzz_base_cache[as_of] = fb
+    return fb
 
 
-_default_fuzz_base = FuzzBase(fuzzer_base=load_fuzzer_base())
+def invalidate_fuzz_cache() -> None:
+    _fuzz_base_cache.clear()
