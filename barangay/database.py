@@ -12,6 +12,7 @@ if TYPE_CHECKING:
         PluginInfo,
         SearchResult,
     )
+    from barangay.types import MatchHook
 else:
     from barangay.models import AdminDivRecord, AdminLevel, PluginExtensionMetadata
 
@@ -302,6 +303,7 @@ class DatabaseView:
         self,
         query: str,
         *,
+        match_hooks: list["MatchHook"] | None = None,
         threshold: float = 60.0,
         limit: int = 5,
         as_of: str | None = None,
@@ -318,6 +320,7 @@ class DatabaseView:
             limit=limit,
             index=self._index,
             as_of=as_of or self._version_state.as_of,
+            match_hooks=match_hooks,
         )
 
     def __iter__(self) -> Iterator[EnrichedRecord]:
@@ -381,9 +384,9 @@ class _VersionState:
 
     def set(self, as_of: str | None) -> None:
         if as_of is not None:
-            from barangay.date_resolver import get_available_dates, resolve_date
-
             from pathlib import Path
+
+            from barangay.date_resolver import get_available_dates, resolve_date
 
             data_dir = Path(__file__).parent / "data"
             version_path = data_dir / "CURRENT_VERSION"

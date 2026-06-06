@@ -10,6 +10,7 @@ from barangay.models import (
     PluginInfo,
     SearchResult,
 )
+from barangay.types import MatchHook  # noqa: F401
 
 if TYPE_CHECKING:
     import pandas as pd
@@ -93,6 +94,7 @@ class DatabaseView:
         self,
         query: str,
         *,
+        match_hooks: list[Any] | None = None,
         threshold: float = 60.0,
         limit: int = 5,
         as_of: str | None = None,

@@ -85,3 +85,38 @@ class TestSearchFuzzy:
             assert False, "Should have raised RuntimeError"
         except RuntimeError:
             pass
+
+    def test_match_hooks_default_returns_results(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Manila", limit=1)
+        assert isinstance(results, list)
+        assert len(results) >= 0
+
+    def test_match_hooks_barangay_only(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Manila", limit=1, match_hooks=["barangay"])
+        assert isinstance(results, list)
+
+    def test_match_hooks_municipality_barangay(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy(
+            "Manila", limit=1, match_hooks=["municipality", "barangay"]
+        )
+        assert isinstance(results, list)
+
+    def test_match_hooks_province_barangay(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Manila", limit=1, match_hooks=["province", "barangay"])
+        assert isinstance(results, list)
+
+    def test_match_hooks_through_database_view(self):
+        from barangay.database import Database
+
+        db = Database()
+        view = db._view(None)
+        results = view.search_fuzzy("Manila", limit=1, match_hooks=["barangay"])
+        assert isinstance(results, list)
