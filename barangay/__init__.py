@@ -18,64 +18,74 @@ as_of: str | None = None
 available_dates: list[str] = []
 
 # Import data
-from barangay.data import (  # noqa:E402
-    barangay,
-    barangay_extended,
-    barangay_flat,
-)
-
-# Import models
-from barangay.models import BarangayModel  # noqa:E402
-
-# Import fuzzy matching
-from barangay.fuzz import FuzzBase, create_fuzz_base  # noqa:E402
-
-# Import search functionality
-from barangay.search import search, search_fuzzy  # noqa:E402
-
-# Import utilities
-from barangay.utils import sanitize_input  # noqa:E402
-
-# Import new components
-from barangay.data_manager import DataManager  # noqa:E402
-from barangay.date_resolver import (  # noqa:E402
-    get_available_dates,
-    resolve_date,
-)
 from barangay.config import (  # noqa:E402
     get_cache_dir,
     get_verbose,
     load_env_config,
     resolve_as_of,
 )
+from barangay.data import (  # noqa:E402
+    barangay,
+    barangay_extended,
+    barangay_flat,
+)
 
-# Import plugin system
-from barangay.plugin_loader import PluginLoader  # noqa:E402
+# Import new components
+from barangay.data_manager import DataManager  # noqa:E402
 
 # Import Database API
-from barangay.database import Database, MultipleResultsError  # noqa:E402
+from barangay.database import (  # noqa:E402  # noqa:E402
+    Database,
+    DatabaseView,
+    EnrichedRecord,
+    MultipleResultsError,
+    RecordNotFoundError,
+)
+from barangay.date_resolver import (  # noqa:E402
+    get_available_dates,
+    resolve_date,
+)
+
+# Import fuzzy matching
+from barangay.fuzz import FuzzBase, create_fuzz_base  # noqa:E402
+
+# Import models
 from barangay.models import (  # noqa:E402
     AdminDivRecord,
     AdminLevel,
+    BarangayModel,  # noqa:E402
     PluginInfo,
     SearchResult,
     ValidationResult,
 )
+
+# Import plugin system
+from barangay.plugin_loader import PluginLoader  # noqa:E402
+
+# Import search functionality
+from barangay.search import search, search_fuzzy  # noqa:E402
+
+# Import utilities
+from barangay.utils import sanitize_input, to_python_identifier  # noqa:E402
 from barangay.validate import validate, validate_many  # noqa:E402
-from barangay.version import use_version, use_plugins  # noqa:E402
+from barangay.version import use_plugins, use_version  # noqa:E402
 
 # Update available_dates at module import
 available_dates = list(set(get_available_dates() + [current]))
 
 _db = Database()
 
-regions = _db.regions
-provinces = _db.provinces
-municipalities = _db.municipalities
-cities = _db.cities
-submunicipalities = _db.submunicipalities
-barangays = _db.barangays
-special_geographic_areas = _db.special_geographic_areas
+_VIEW_NAMES = frozenset(
+    {
+        "regions",
+        "provinces",
+        "municipalities",
+        "cities",
+        "submunicipalities",
+        "barangays",
+        "special_geographic_areas",
+    }
+)
 
 # Backward compatibility aliases
 # Note: These convert Pydantic models to dicts at module import time.
@@ -123,6 +133,7 @@ __all__ = [
     "BARANGAY_FLAT",
     # Utilities
     "sanitize_input",
+    "to_python_identifier",
     # New components
     "create_fuzz_base",
     "get_available_dates",
@@ -137,6 +148,8 @@ __all__ = [
     "available_dates",
     # Database API
     "Database",
+    "DatabaseView",
+    "EnrichedRecord",
     "AdminLevel",
     "AdminDivRecord",
     "SearchResult",
@@ -157,4 +170,14 @@ __all__ = [
     "use_version",
     "use_plugins",
     "MultipleResultsError",
+    "RecordNotFoundError",
+    "barangay",
+    "barangay_flat",
+    "barangay_extended",
 ]
+
+
+def __getattr__(name: str):
+    if name in _VIEW_NAMES:
+        return getattr(_db, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

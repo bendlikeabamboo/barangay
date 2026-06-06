@@ -1,9 +1,29 @@
+from __future__ import annotations
+
+import re
 from functools import partial
 
 __all__ = [
     "_basic_sanitizer",
     "sanitize_input",
+    "to_python_identifier",
 ]
+
+_NON_IDENT = re.compile(r"[^0-9A-Za-z_]+")
+
+
+def to_python_identifier(name: str) -> str:
+    s = _NON_IDENT.sub("_", name)
+    if not s:
+        return "_"
+    while "__" in s:
+        s = s.replace("__", "_")
+    s = s.strip("_")
+    if not s:
+        return "_"
+    if s[0].isdigit():
+        s = f"_{s}"
+    return s
 
 
 def sanitize_input(

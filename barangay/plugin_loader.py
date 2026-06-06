@@ -14,6 +14,7 @@ from barangay.config import get_cache_dir
 from barangay.models import (
     PluginExtensionMetadata,
 )
+from barangay.utils import to_python_identifier
 
 logger = logging.getLogger(__name__)
 
@@ -472,9 +473,21 @@ def build_plugin_index(
 
         plugin_data = load_plugin_data(manifest, resolved_date, plugin_dirs=plugin_dirs)
         meta = _extract_metadata(manifest, resolved_date=resolved_date)
+        attr_name = to_python_identifier(name)
 
+        seen: dict[str, str] = {}
         for psgc_id, fields in plugin_data.items():
-            index.setdefault(psgc_id, {})[name] = {
+            if attr_name in index.get(psgc_id, {}):
+                existing = seen.get(attr_name, name)
+                if existing == name:
+                    logger.warning(
+                        "Plugin name collision: '%s' and an already-loaded plugin "
+                        "both map to attribute name '%s'",
+                        name,
+                        attr_name,
+                    )
+                    seen[attr_name] = name
+            index.setdefault(psgc_id, {})[attr_name] = {
                 "metadata": meta,
                 "data": fields,
             }

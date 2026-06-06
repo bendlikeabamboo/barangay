@@ -22,6 +22,12 @@ class MultipleResultsError(Exception):
     pass
 
 
+class RecordNotFoundError(LookupError):
+    """Raised when a record lookup finds no match."""
+
+    pass
+
+
 class PluginAccessor:
     """Attribute-accessible wrapper for a plugin's data dict."""
 
@@ -133,7 +139,7 @@ class HierarchyIndex:
         return [r for r in self._by_id.values() if r.type == level]
 
 
-class _EnrichedRecord:
+class EnrichedRecord:
     """Wraps an AdminDivRecord with computed hierarchy properties."""
 
     __slots__ = ("_record", "_index")
@@ -176,23 +182,23 @@ class _EnrichedRecord:
         return r.name if r else None
 
     @property
-    def parent(self) -> "_EnrichedRecord | None":
+    def parent(self) -> "EnrichedRecord | None":
         p = self._index.parent(self._record)
         if p is None:
             return None
-        return _EnrichedRecord(p, self._index)
+        return EnrichedRecord(p, self._index)
 
     @property
-    def children(self) -> list["_EnrichedRecord"]:
+    def children(self) -> list["EnrichedRecord"]:
         return [
-            _EnrichedRecord(c, self._index)
+            EnrichedRecord(c, self._index)
             for c in self._index.children(self._record.psgc_id)
         ]
 
     @property
-    def ancestors(self) -> list["_EnrichedRecord"]:
+    def ancestors(self) -> list["EnrichedRecord"]:
         return [
-            _EnrichedRecord(a, self._index) for a in self._index.ancestors(self._record)
+            EnrichedRecord(a, self._index) for a in self._index.ancestors(self._record)
         ]
 
     def __repr__(self) -> str:
@@ -201,7 +207,7 @@ class _EnrichedRecord:
         )
 
     def __eq__(self, other: object) -> bool:
-        if isinstance(other, _EnrichedRecord):
+        if isinstance(other, EnrichedRecord):
             return self._record.psgc_id == other._record.psgc_id
         if isinstance(other, AdminDivRecord):
             return self._record.psgc_id == other.psgc_id
@@ -219,7 +225,10 @@ class _EnrichedRecord:
         return d
 
 
-class _DatabaseView:
+_DOCS_BASE = "https://bendlikeabamboo.github.io/barangay/tutorials/database_api"
+
+
+class DatabaseView:
     """A filtered, iterable view over PSGC records of a specific admin level."""
 
     def __init__(
@@ -244,7 +253,7 @@ class _DatabaseView:
 
     def get(
         self, *, psgc_id: str | None = None, name: str | None = None
-    ) -> _EnrichedRecord | None:
+    ) -> EnrichedRecord:
         if psgc_id is not None and name is not None:
             raise ValueError("Provide exactly one of psgc_id or name, not both.")
         if psgc_id is None and name is None:
@@ -253,29 +262,41 @@ class _DatabaseView:
         if psgc_id is not None:
             record = self._index.get(psgc_id)
             if record is None:
-                return None
+                raise RecordNotFoundError(
+                    f"No record with PSGC ID {psgc_id!r}.\n"
+                    f"See {_DOCS_BASE}.html#look-up-a-record"
+                )
             if self._level is not None and record.type != self._level:
-                return None
-            return _EnrichedRecord(record, self._index)
+                raise RecordNotFoundError(
+                    f"PSGC ID {psgc_id!r} exists but is not a {self._level.value}.\n"
+                    f"See {_DOCS_BASE}.html#look-up-a-record"
+                )
+            return EnrichedRecord(record, self._index)
 
         if name is not None:
             candidates = [r for r in self._filtered() if r.name == name]
             if not candidates:
-                return None
+                raise RecordNotFoundError(
+                    f"No {self._level.value if self._level else 'record'} "
+                    f"with name {name!r}.\n"
+                    f"See {_DOCS_BASE}.html#handling-errors"
+                )
             if len(candidates) > 1:
                 raise MultipleResultsError(
-                    f"Name '{name}' matched {len(candidates)} records. "
-                    f"Use psgc_id for exact lookup, or iterate."
+                    f"Name '{name}' matched {len(candidates)} records.\n"
+                    f"Use search_fuzzy() to include more context like province, etc.\n"
+                    f"You can also use psgc_id for exact lookup, or iterate.\n"
+                    f"See {_DOCS_BASE}.html#handling-errors"
                 )
-            return _EnrichedRecord(candidates[0], self._index)
+            return EnrichedRecord(candidates[0], self._index)
 
-        return None
+        raise ValueError("Provide exactly one of psgc_id or name.")
 
-    def lookup(self, psgc_id: str) -> _EnrichedRecord | None:
+    def lookup(self, psgc_id: str) -> EnrichedRecord | None:
         record = self._index.get(psgc_id)
         if record is None:
             return None
-        return _EnrichedRecord(record, self._index)
+        return EnrichedRecord(record, self._index)
 
     def search_fuzzy(
         self,
@@ -287,6 +308,9 @@ class _DatabaseView:
     ) -> list[SearchResult]:
         from barangay.search import _search_fuzzy_new
 
+        if not isinstance(self._index, HierarchyIndex):
+            raise TypeError("Incorrect index passed. Must be of type HierarchyIndex")
+
         return _search_fuzzy_new(
             query,
             level=self._level,
@@ -296,9 +320,9 @@ class _DatabaseView:
             as_of=as_of or self._version_state.as_of,
         )
 
-    def __iter__(self) -> Iterator[_EnrichedRecord]:
+    def __iter__(self) -> Iterator[EnrichedRecord]:
         for record in self._filtered():
-            yield _EnrichedRecord(record, self._index)
+            yield EnrichedRecord(record, self._index)
 
     def __len__(self) -> int:
         return len(self._filtered())
@@ -411,35 +435,35 @@ class Database:
         object.__setattr__(self, "_plugin_index", None)
 
     @property
-    def regions(self) -> _DatabaseView:
+    def regions(self) -> DatabaseView:
         return self._view(AdminLevel.REGION)
 
     @property
-    def provinces(self) -> _DatabaseView:
+    def provinces(self) -> DatabaseView:
         return self._view(AdminLevel.PROVINCE)
 
     @property
-    def municipalities(self) -> _DatabaseView:
+    def municipalities(self) -> DatabaseView:
         return self._view(AdminLevel.MUNICIPALITY)
 
     @property
-    def cities(self) -> _DatabaseView:
+    def cities(self) -> DatabaseView:
         return self._view(AdminLevel.CITY)
 
     @property
-    def submunicipalities(self) -> _DatabaseView:
+    def submunicipalities(self) -> DatabaseView:
         return self._view(AdminLevel.SUBMUNICIPALITY)
 
     @property
-    def barangays(self) -> _DatabaseView:
+    def barangays(self) -> DatabaseView:
         return self._view(AdminLevel.BARANGAY)
 
     @property
-    def special_geographic_areas(self) -> _DatabaseView:
+    def special_geographic_areas(self) -> DatabaseView:
         return self._view(AdminLevel.SPECIAL_GEOGRAPHIC_AREA)
 
     @property
-    def all_records(self) -> _DatabaseView:
+    def all_records(self) -> DatabaseView:
         return self._view(None)
 
     def _ensure_loaded(self) -> None:
@@ -491,11 +515,11 @@ class Database:
         else:
             object.__setattr__(self, "_plugin_index", None)
 
-    def _view(self, level: AdminLevel | None) -> _DatabaseView:
+    def _view(self, level: AdminLevel | None) -> DatabaseView:
         self._ensure_loaded()
         assert self._raw_records is not None
         assert self._index is not None
-        return _DatabaseView(
+        return DatabaseView(
             records=self._raw_records,
             index=self._index,
             level=level,

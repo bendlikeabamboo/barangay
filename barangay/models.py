@@ -14,7 +14,7 @@ from pydantic import (
 from typing import TYPE_CHECKING, Any, Literal, Optional, List
 
 if TYPE_CHECKING:
-    from barangay.database import _EnrichedRecord
+    from barangay.database import EnrichedRecord
 
 
 class BarangayModel(BaseModel):
@@ -267,12 +267,12 @@ class SearchResult(BaseModel):
         return val if isinstance(val, str) else None
 
     @property
-    def enriched(self) -> _EnrichedRecord:
+    def enriched(self) -> EnrichedRecord:
         if self._index is None:
             raise RuntimeError("Hierarchy index not available on this SearchResult")
-        from barangay.database import _EnrichedRecord
+        from barangay.database import EnrichedRecord
 
-        return _EnrichedRecord(self.record, self._index)
+        return EnrichedRecord(self.record, self._index)
 
     def __getattr__(self, name: str):
         private_attrs = object.__getattribute__(self, "__private_attributes__")

@@ -1,5 +1,5 @@
 import warnings
-from typing import Callable, List, Literal, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Callable, List, Literal
 
 import pandas as pd
 
@@ -8,7 +8,6 @@ from barangay.fuzz import FuzzBase, create_fuzz_base
 from barangay.utils import _basic_sanitizer
 
 if TYPE_CHECKING:
-    from barangay.database import HierarchyIndex
     from barangay.models import AdminLevel, SearchResult
 
 
@@ -157,7 +156,7 @@ def _search_fuzzy_new(
     level: "AdminLevel | None",
     threshold: float,
     limit: int,
-    index: "HierarchyIndex",
+    index: Any,
     as_of: str | None = None,
 ) -> List["SearchResult"]:
     """Bridge from new API to existing FuzzBase infrastructure."""
