@@ -28,7 +28,7 @@ print(barangays)   # <PSGC barangay database: 42010 records>
 
 #### `.get(name=...)` / `.get(psgc_id=...)`
 
-Look up a single record by name or PSGC ID. Returns an `_EnrichedRecord` or `None`.
+Look up a single record by name or PSGC ID. Returns an `EnrichedRecord`.
 
 ```python
 brgy = barangays.get(name="Tongmageng")
@@ -38,11 +38,11 @@ brgy = barangays.get(psgc_id="1907005010")
 print(brgy.region)  # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
 ```
 
-Raises `MultipleResultsError` when the name matches more than one record. Use `.lookup()` for guaranteed-unique PSGC ID lookups.
+Raises `RecordNotFoundError` when no record matches. Raises `MultipleResultsError` when the name matches more than one record. Use `.lookup()` for nullable PSGC ID lookups. See [Handling Errors](tutorials/database_api.md#handling-errors) for details.
 
 #### `.lookup(psgc_id)`
 
-Exact lookup by PSGC ID across all levels. Returns `_EnrichedRecord` or `None`.
+Exact lookup by PSGC ID across all levels. Returns `EnrichedRecord` or `None`.
 
 ```python
 r = barangays.lookup("1907005010")
@@ -50,6 +50,8 @@ print(r)  # <barangay: Tongmageng (1907005010)>
 print(r.to_dict())
 # {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010', ...}
 ```
+
+Unlike `.get()`, `.lookup()` does **not** raise when the record is missing — it returns `None`.
 
 #### `.search_fuzzy(query)`
 
@@ -92,7 +94,7 @@ print(len(barangays))  # 42010
 
 ### EnrichedRecord
 
-Every record returned by the Database API is an `_EnrichedRecord` with computed hierarchy properties.
+Every record returned by the Database API is an `EnrichedRecord` with computed hierarchy properties.
 
 #### Core Fields
 
@@ -111,9 +113,9 @@ Every record returned by the Database API is an `_EnrichedRecord` with computed 
 | `.province` | `str \| None` | Name of the containing province |
 | `.municipality` | `str \| None` | Name of the containing municipality |
 | `.city` | `str \| None` | Name of the containing city |
-| `.parent` | `_EnrichedRecord \| None` | Direct parent record |
-| `.children` | `list[_EnrichedRecord]` | Direct child records |
-| `.ancestors` | `list[_EnrichedRecord]` | All ancestors from parent to root |
+| `.parent` | `EnrichedRecord \| None` | Direct parent record |
+| `.children` | `list[EnrichedRecord]` | Direct child records |
+| `.ancestors` | `list[EnrichedRecord]` | All ancestors from parent to root |
 
 #### Example
 
@@ -176,7 +178,7 @@ for r in results:
 | `.score` | `float` | Similarity score (0-100) |
 | `.match_type` | `str` | Match pattern (e.g. `"province+municipality+barangay"`) |
 | `.record` | `AdminDivRecord` | Underlying record |
-| `.enriched` | `_EnrichedRecord` | Enriched view (requires hierarchy index) |
+| `.enriched` | `EnrichedRecord` | Enriched view (requires hierarchy index) |
 
 ### `validate()` / `validate_many()`
 
@@ -275,6 +277,21 @@ print(AdminLevel.REGION.value)  # 'region'
 # All values: country, region, province, city, municipality, submunicipality, barangay, special_geographic_area
 ```
 
+### `RecordNotFoundError`
+
+Raised when `.get()` finds no matching record.
+
+```python
+from barangay import barangays, RecordNotFoundError
+
+try:
+    brgy = barangays.get(name="DoesNotExist")
+except RecordNotFoundError as e:
+    print(e)
+    # No barangay with name 'DoesNotExist'.
+    # See https://bendlikeabamboo.github.io/barangay/tutorials/database_api.html#handling-errors
+```
+
 ### `MultipleResultsError`
 
 Raised when `.get(name=...)` matches multiple records.
@@ -285,8 +302,12 @@ from barangay import barangays, MultipleResultsError
 try:
     result = barangays.get(name="San Roque")  # many barangays named San Roque
 except MultipleResultsError as e:
-    print(e)  # Name 'San Roque' matched 42 records. Use psgc_id for exact lookup, or iterate.
+    print(e)
+    # Name 'San Roque' matched 42 records. Use psgc_id for exact lookup, or iterate.
+    # See https://bendlikeabamboo.github.io/barangay/tutorials/database_api.html#handling-errors
 ```
+
+See [Handling Errors](tutorials/database_api.md#handling-errors) for a full guide on resolving these errors.
 
 ---
 

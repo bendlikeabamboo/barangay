@@ -1,14 +1,14 @@
 import warnings
-from typing import Callable, List, Literal, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Callable, List, Literal
 
 import pandas as pd
 
 from barangay.data import load_fuzzer_base
 from barangay.fuzz import FuzzBase, create_fuzz_base
+from barangay.types import MatchHook
 from barangay.utils import _basic_sanitizer
 
 if TYPE_CHECKING:
-    from barangay.database import HierarchyIndex
     from barangay.models import AdminLevel, SearchResult
 
 
@@ -126,6 +126,7 @@ def search_fuzzy(
     query: str,
     *,
     level: "AdminLevel | None" = None,
+    match_hooks: list[MatchHook] | None = None,
     threshold: float = 60.0,
     limit: int = 5,
     as_of: str | None = None,
@@ -137,6 +138,10 @@ def search_fuzzy(
     Args:
         query: Search string (e.g. "Tongmageng, Tawi-Tawi").
         level: Filter to a specific admin level, or None for all.
+        match_hooks: Which fuzzy scoring columns to compute. Defaults to all three
+            (province, municipality, barangay). Controls which name-levels
+            participate in matching, unlike ``level`` which is a post-filter on
+            result record types.
         threshold: Minimum score (0-100).
         limit: Max results.
         as_of: Historical date.
@@ -148,7 +153,9 @@ def search_fuzzy(
 
     db = Database()
     view = db._view(level)
-    return view.search_fuzzy(query, threshold=threshold, limit=limit, as_of=as_of)
+    return view.search_fuzzy(
+        query, threshold=threshold, limit=limit, as_of=as_of, match_hooks=match_hooks
+    )
 
 
 def _search_fuzzy_new(
@@ -157,15 +164,18 @@ def _search_fuzzy_new(
     level: "AdminLevel | None",
     threshold: float,
     limit: int,
-    index: "HierarchyIndex",
+    index: Any,
     as_of: str | None = None,
+    match_hooks: list[MatchHook] | None = None,
 ) -> List["SearchResult"]:
     """Bridge from new API to existing FuzzBase infrastructure."""
     from barangay.fuzz import create_fuzz_base
     from barangay.models import SearchResult
 
     fuzz_base = create_fuzz_base(as_of=as_of)
-    raw_results = _run_fuzz_scoring(fuzz_base, query, threshold, limit)
+    raw_results = _run_fuzz_scoring(
+        fuzz_base, query, threshold, limit, match_hooks=match_hooks
+    )
 
     results: List[SearchResult] = []
     for raw in raw_results:
@@ -192,35 +202,53 @@ def _run_fuzz_scoring(
     query: str,
     threshold: float,
     limit: int,
+    match_hooks: list[MatchHook] | None = None,
 ) -> List[dict]:
     """Extracted scoring loop from existing search()."""
+    if match_hooks is None:
+        match_hooks = ["province", "municipality", "barangay"]
+
     cleaned = _basic_sanitizer(query)
     df = pd.DataFrame()
 
-    score_cols = []
-    for col_name, fuzz_col in [
-        ("f_000b_ratio", "f_000b_ratio_score"),
-        ("f_0p0b_ratio", "f_0p0b_ratio_score"),
-        ("f_00mb_ratio", "f_00mb_ratio_score"),
-        ("f_0pmb_ratio", "f_0pmb_ratio_score"),
-    ]:
-        if fuzz_col not in fuzz_base.fuzzer_base.columns:
-            if col_name in fuzz_base.fuzzer_base.columns:
-                fuzz_col_in_df = col_name + "_score"
-            else:
-                continue
-        else:
-            fuzz_col_in_df = fuzz_col
+    active_ratios: List[str] = []
 
-        df[fuzz_col_in_df] = fuzz_base.fuzzer_base[col_name].apply(
-            lambda f: f(s2=cleaned)
-        )
-        score_cols.append(fuzz_col_in_df)
+    if len(match_hooks) == 1 and "barangay" in match_hooks:
+        if "f_000b_ratio" in fuzz_base.fuzzer_base.columns:
+            df["f_000b_ratio_score"] = fuzz_base.fuzzer_base["f_000b_ratio"].apply(
+                lambda f: f(s2=cleaned)
+            )
+            active_ratios.append("f_000b_ratio_score")
 
-    if not score_cols:
+    if "province" in match_hooks and "barangay" in match_hooks:
+        if "f_0p0b_ratio" in fuzz_base.fuzzer_base.columns:
+            df["f_0p0b_ratio_score"] = fuzz_base.fuzzer_base["f_0p0b_ratio"].apply(
+                lambda f: f(s2=cleaned)
+            )
+            active_ratios.append("f_0p0b_ratio_score")
+
+    if "municipality" in match_hooks and "barangay" in match_hooks:
+        if "f_00mb_ratio" in fuzz_base.fuzzer_base.columns:
+            df["f_00mb_ratio_score"] = fuzz_base.fuzzer_base["f_00mb_ratio"].apply(
+                lambda f: f(s2=cleaned)
+            )
+            active_ratios.append("f_00mb_ratio_score")
+
+    if (
+        "province" in match_hooks
+        and "municipality" in match_hooks
+        and "barangay" in match_hooks
+    ):
+        if "f_0pmb_ratio" in fuzz_base.fuzzer_base.columns:
+            df["f_0pmb_ratio_score"] = fuzz_base.fuzzer_base["f_0pmb_ratio"].apply(
+                lambda f: f(s2=cleaned)
+            )
+            active_ratios.append("f_0pmb_ratio_score")
+
+    if not active_ratios:
         return []
 
-    df["max_score"] = df[score_cols].max(axis=1)
+    df["max_score"] = df[active_ratios].max(axis=1)
     cutoff = df[df["max_score"] >= threshold]
     if cutoff.empty:
         return []
@@ -229,7 +257,7 @@ def _run_fuzz_scoring(
     top = cutoff.sort_values("max_score", ascending=False).head(n)
 
     result = pd.concat(
-        [fuzz_base.fuzzer_base.loc[top.index], top[["max_score", *score_cols]]],
+        [fuzz_base.fuzzer_base.loc[top.index], top[["max_score", *active_ratios]]],
         axis=1,
     )
     return result.to_dict(orient="records")

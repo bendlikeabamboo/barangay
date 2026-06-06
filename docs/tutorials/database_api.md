@@ -48,7 +48,7 @@ brgy = barangays.lookup("1907005010")
 print(brgy.name)  # Tongmageng
 ```
 
-If a name matches multiple records, `get()` raises `MultipleResultsError`. Use `lookup()` with a PSGC ID for guaranteed-unique lookups.
+If a name matches multiple records, `get()` raises `MultipleResultsError`. Use `lookup()` with a PSGC ID for guaranteed-unique lookups. See [Handling Errors](#handling-errors) for full details.
 
 ## 3. Traverse the Hierarchy
 
@@ -150,6 +150,85 @@ The default threshold is 95.0. Lower it for more lenient matching:
 ```python
 v = validate("Brgy 291, City of Manila", threshold=80.0)
 print(v.valid, v.score)  # True 88.24
+```
+
+## 7. Handling Errors
+
+### `RecordNotFoundError` — No match found
+
+`.get()` raises `RecordNotFoundError` when no record matches your query:
+
+```python
+from barangay import barangays, RecordNotFoundError
+
+try:
+    brgy = barangays.get(name="DoesNotExist")
+except RecordNotFoundError as e:
+    print(e)
+    # No barangay with name 'DoesNotExist'.
+    # See https://.../tutorials/database_api.html#handling-errors
+```
+
+### `MultipleResultsError` — Multiple matches found
+
+Some names like "San Jose" or "San Roque" appear hundreds of times across the Philippines. `.get(name=...)` raises `MultipleResultsError` when more than one record matches:
+
+```python
+from barangay import barangays, MultipleResultsError
+
+try:
+    brgy = barangays.get(name="San Jose")
+except MultipleResultsError as e:
+    print(e)
+    # Name 'San Jose' matched 244 records. Use psgc_id for exact lookup, or iterate.
+    # See https://.../tutorials/database_api.html#handling-errors
+```
+
+### How to resolve: Use a PSGC ID
+
+PSGC IDs are globally unique. Use `.get(psgc_id=...)` for exact lookups:
+
+```python
+brgy = barangays.get(psgc_id="1380100001")
+print(brgy)  # <barangay: Barangay 1 (1380100001)>
+```
+
+### How to resolve: Iterate and filter
+
+When you don't have a PSGC ID, iterate the view and filter by additional criteria:
+
+```python
+# Get all barangays named "San Jose"
+matches = [rec for rec in barangays if rec.name == "San Jose"]
+print(len(matches))  # 244
+
+# Narrow down by parent
+san_jose_in_manila = [
+    rec for rec in barangays
+    if rec.name == "San Jose" and rec.municipality == "City of Manila"
+]
+for rec in san_jose_in_manila:
+    print(rec)  # <barangay: San Jose (1380208005)>
+
+# Narrow down by region
+san_jose_in_cavite = [
+    rec for rec in barangays
+    if rec.name == "San Jose" and rec.province == "Cavite"
+]
+for rec in san_jose_in_cavite:
+    print(f"{rec.name} — {rec.municipality}, {rec.province}")
+```
+
+### How to resolve: Use `lookup()` for nullable lookups
+
+If you want `None` instead of an exception, use `.lookup()`:
+
+```python
+rec = barangays.lookup("9999999999")  # returns None instead of raising
+if rec is not None:
+    print(rec.name)
+else:
+    print("Not found")
 ```
 
 ## Next Steps

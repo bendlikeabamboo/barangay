@@ -3,8 +3,8 @@ import pytest
 from barangay.database import (
     Database,
     HierarchyIndex,
-    _DatabaseView,
-    _EnrichedRecord,
+    DatabaseView,
+    EnrichedRecord,
 )
 from barangay.models import AdminDivRecord, AdminLevel
 
@@ -124,77 +124,77 @@ class TestHierarchyIndex:
 
 class TestEnrichedRecord:
     def test_stored_fields(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.name == "Barangay 1"
         assert brgy.psgc_id == "1380100001"
         assert brgy.type == AdminLevel.BARANGAY
 
     def test_region(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.region == "National Capital Region (NCR)"
 
     def test_province_none_for_huc(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.province is None
 
     def test_municipality_none_for_huc(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.municipality is None
 
     def test_parent_navigation(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         parent = brgy.parent
         assert parent is not None
         assert parent.name == "City of Caloocan"
 
     def test_parent_chain(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         grandparent = brgy.parent.parent
         assert grandparent is not None
         assert grandparent.type == AdminLevel.REGION
 
     def test_children_of_region(self, index):
-        region = _EnrichedRecord(index.get("0133000000"), index)
+        region = EnrichedRecord(index.get("0133000000"), index)
         children = region.children
         names = [c.name for c in children]
         assert "City of Caloocan" in names
 
     def test_children_of_barangay_empty(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.children == []
 
     def test_ancestors(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         ancestor_names = [a.name for a in brgy.ancestors]
         assert "City of Caloocan" in ancestor_names
         assert "Philippines" in ancestor_names
 
     def test_to_dict(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         d = brgy.to_dict()
         assert d["name"] == "Barangay 1"
         assert d["region"] == "National Capital Region (NCR)"
         assert d["province"] is None
 
     def test_repr(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         r = repr(brgy)
         assert "barangay" in r
         assert "Barangay 1" in r
 
     def test_equality(self, index):
-        r1 = _EnrichedRecord(index.get("1380100001"), index)
-        r2 = _EnrichedRecord(index.get("1380100001"), index)
+        r1 = EnrichedRecord(index.get("1380100001"), index)
+        r2 = EnrichedRecord(index.get("1380100001"), index)
         assert r1 == r2
 
     def test_hash(self, index):
-        r1 = _EnrichedRecord(index.get("1380100001"), index)
-        r2 = _EnrichedRecord(index.get("1380100001"), index)
+        r1 = EnrichedRecord(index.get("1380100001"), index)
+        r2 = EnrichedRecord(index.get("1380100001"), index)
         assert hash(r1) == hash(r2)
         assert len({r1, r2}) == 1
 
     def test_delegates_model_dump(self, index):
-        brgy = _EnrichedRecord(index.get("1380100001"), index)
+        brgy = EnrichedRecord(index.get("1380100001"), index)
         d = brgy.model_dump()
         assert d["name"] == "Barangay 1"
         assert d["psgc_id"] == "1380100001"
@@ -204,7 +204,7 @@ class TestDatabaseView:
     def test_len(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -216,7 +216,7 @@ class TestDatabaseView:
     def test_iter(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -225,12 +225,12 @@ class TestDatabaseView:
         )
         records = list(view)
         assert len(records) == 1
-        assert isinstance(records[0], _EnrichedRecord)
+        assert isinstance(records[0], EnrichedRecord)
 
     def test_contains(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -243,7 +243,7 @@ class TestDatabaseView:
     def test_get_by_psgc_id(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -255,22 +255,22 @@ class TestDatabaseView:
         assert result.name == "Barangay 1"
 
     def test_get_by_psgc_id_wrong_level(self, sample_records, index):
-        from barangay.database import _VersionState
+        from barangay.database import RecordNotFoundError, _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.PROVINCE,
             plugin_index=None,
             version_state=_VersionState(),
         )
-        result = view.get(psgc_id="1380100001")
-        assert result is None
+        with pytest.raises(RecordNotFoundError):
+            view.get(psgc_id="1380100001")
 
     def test_get_by_name_single(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -282,21 +282,22 @@ class TestDatabaseView:
         assert result.name == "Barangay 1"
 
     def test_get_by_name_missing(self, sample_records, index):
-        from barangay.database import _VersionState
+        from barangay.database import RecordNotFoundError, _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
             plugin_index=None,
             version_state=_VersionState(),
         )
-        assert view.get(name="Nonexistent") is None
+        with pytest.raises(RecordNotFoundError):
+            view.get(name="Nonexistent")
 
     def test_get_no_args_raises(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -309,7 +310,7 @@ class TestDatabaseView:
     def test_get_both_args_raises(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -322,7 +323,7 @@ class TestDatabaseView:
     def test_to_dicts_includes_hierarchy(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -337,7 +338,7 @@ class TestDatabaseView:
     def test_repr(self, sample_records, index):
         from barangay.database import _VersionState
 
-        view = _DatabaseView(
+        view = DatabaseView(
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
@@ -357,13 +358,13 @@ class TestDatabase:
 
     def test_all_levels_accessible(self):
         db = Database()
-        assert isinstance(db.regions, _DatabaseView)
-        assert isinstance(db.provinces, _DatabaseView)
-        assert isinstance(db.cities, _DatabaseView)
-        assert isinstance(db.municipalities, _DatabaseView)
-        assert isinstance(db.barangays, _DatabaseView)
-        assert isinstance(db.submunicipalities, _DatabaseView)
-        assert isinstance(db.special_geographic_areas, _DatabaseView)
+        assert isinstance(db.regions, DatabaseView)
+        assert isinstance(db.provinces, DatabaseView)
+        assert isinstance(db.cities, DatabaseView)
+        assert isinstance(db.municipalities, DatabaseView)
+        assert isinstance(db.barangays, DatabaseView)
+        assert isinstance(db.submunicipalities, DatabaseView)
+        assert isinstance(db.special_geographic_areas, DatabaseView)
 
     def test_all_records_view(self):
         db = Database()
