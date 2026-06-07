@@ -3,17 +3,12 @@ from typing import TYPE_CHECKING, Any, Callable, List, Literal
 
 import pandas as pd
 
-from barangay.data import load_fuzzer_base
 from barangay.fuzz import FuzzBase, create_fuzz_base
 from barangay.types import MatchHook
 from barangay.utils import _basic_sanitizer
 
 if TYPE_CHECKING:
     from barangay.models import AdminLevel, SearchResult
-
-
-# Create default fuzz base instance (backward compatibility)
-_default_fuzz_base = FuzzBase(fuzzer_base=load_fuzzer_base())
 
 
 def search(

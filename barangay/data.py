@@ -23,7 +23,7 @@ _FUZZER_BASE_FILENAME = data_dir / "fuzzer_base.parquet"
 
 _data_manager = DataManager()
 
-__all__ = [
+__all__ = [  # noqa: F822
     "barangay",
     "barangay_extended",
     "barangay_flat",
@@ -67,7 +67,33 @@ def load_fuzzer_base(as_of: str | None = None) -> pd.DataFrame:
     return data
 
 
-barangay: AdminDiv = load_barangay_data()
-barangay_extended: AdminDivExtended = load_barangay_extended_data()
-barangay_flat: list[AdminDivFlat] = load_barangay_flat_data()
-_fuzzer_base_df = load_fuzzer_base()
+_barangay: AdminDiv | None = None
+_barangay_extended: AdminDivExtended | None = None
+_barangay_flat: list[AdminDivFlat] | None = None
+_fuzzer_base_df: pd.DataFrame | None = None
+
+_LAZY_ATTRS = {"barangay", "barangay_extended", "barangay_flat", "_fuzzer_base_df"}
+
+
+def __getattr__(name: str):
+    global _barangay, _barangay_extended, _barangay_flat, _fuzzer_base_df
+    if name not in _LAZY_ATTRS:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+    if name == "barangay":
+        if _barangay is None:
+            _barangay = load_barangay_data()
+        return _barangay
+    if name == "barangay_extended":
+        if _barangay_extended is None:
+            _barangay_extended = load_barangay_extended_data()
+        return _barangay_extended
+    if name == "barangay_flat":
+        if _barangay_flat is None:
+            _barangay_flat = load_barangay_flat_data()
+        return _barangay_flat
+    if name == "_fuzzer_base_df":
+        if _fuzzer_base_df is None:
+            _fuzzer_base_df = load_fuzzer_base()
+        return _fuzzer_base_df
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

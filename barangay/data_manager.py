@@ -36,6 +36,7 @@ class DataManager:
     def __init__(self):
         self._cache_dir: Path = self._get_cache_dir()
         self._logged_dataset = False
+        self._memory_cache: dict[str, dict | list[dict] | pd.DataFrame] = {}
 
     @overload
     def get_data(self, as_of: str | None, data_type: Literal["basic"]) -> dict: ...
@@ -67,16 +68,23 @@ class DataManager:
 
         self._log_dataset_info(status_message, get_verbose())
 
+        cache_key = f"{resolved_date or 'default'}_{data_type}"
+        if cache_key in self._memory_cache:
+            return self._memory_cache[cache_key]
+
         if resolved_date is None:
-            return self._load_from_package(data_type)
+            result = self._load_from_package(data_type)
         elif resolved_date == CURRENT_DATE:
-            return self._load_from_package(data_type)
+            result = self._load_from_package(data_type)
         else:
             cached_data = self._load_from_cache(resolved_date, data_type)
             if cached_data is not None:
-                return cached_data
+                result = cached_data
+            else:
+                result = self._download_from_github(resolved_date, data_type)
 
-            return self._download_from_github(resolved_date, data_type)
+        self._memory_cache[cache_key] = result
+        return result
 
     def _load_from_package(self, data_type: str) -> dict | list[dict] | pd.DataFrame:
         from importlib import resources
@@ -171,6 +179,9 @@ class DataManager:
                 raise ValueError("Data must be a DataFrame for parquet files")
         else:
             raise ValueError(f"Unsupported file type: {filename}")
+
+    def invalidate_memory_cache(self) -> None:
+        self._memory_cache.clear()
 
     def _log_dataset_info(self, status_message: str, verbose: bool) -> None:
         if not verbose or self._logged_dataset:

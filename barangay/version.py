@@ -15,10 +15,14 @@ def use_version(as_of: str | None) -> None:
         barangay.use_version(None)
     """
     from barangay.database import Database
+    from barangay.data_manager import DataManager
+    from barangay.fuzz import invalidate_fuzz_cache
 
     db = Database()
     db._version_state.set(as_of)
     db.invalidate_cache()
+    DataManager().invalidate_memory_cache()
+    invalidate_fuzz_cache()
 
 
 def use_plugins(

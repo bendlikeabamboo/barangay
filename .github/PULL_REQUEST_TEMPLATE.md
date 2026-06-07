@@ -25,7 +25,7 @@ Describe how you tested your changes.
 
 - [ ] Tests pass (`uv run pytest`)
 - [ ] Linting passes (`uv run ruff check .`)
-- [ ] Type checking passes (`uv run mypy`)
+- [ ] Type checking passes (`uv run ty check`)
 - [ ] Pre-commit hooks pass (`uv run pre-commit run --all-files`)
 
 ## Checklist

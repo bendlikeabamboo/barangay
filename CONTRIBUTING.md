@@ -37,7 +37,7 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 
 We use `pre-commit` to ensure code quality. The following hooks are configured:
 - **Ruff**: For linting and formatting.
-- **Mypy**: For static type checking.
+- **Ty**: For static type checking.
 - **Pip-audit**: To check for known vulnerabilities in dependencies.
 - **Pytest**: To run the test suite.
 
