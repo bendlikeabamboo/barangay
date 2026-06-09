@@ -46,7 +46,7 @@ body:
     attributes:
       label: Package Version
       description: Output of `pip show barangay` or the version from pyproject.toml.
-      placeholder: "e.g., 2026.4.13.2"
+      placeholder: "e.g., 2026.4.13.3"
     validations:
       required: true
 
