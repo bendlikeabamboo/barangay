@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import re
-from functools import partial
 
 __all__ = [
     "_basic_sanitizer",
@@ -10,6 +9,38 @@ __all__ = [
 ]
 
 _NON_IDENT = re.compile(r"[^0-9A-Za-z_]+")
+
+_ROMAN_TO_ARABIC: dict[re.Pattern[str], str] = {}
+for _roman, _arabic in sorted(
+    {
+        "ix": "9",
+        "viii": "8",
+        "vii": "7",
+        "vi": "6",
+        "iv": "4",
+        "v": "5",
+        "iii": "3",
+        "ii": "2",
+        "i": "1",
+    }.items(),
+    key=lambda item: len(item[0]),
+    reverse=True,
+):
+    _ROMAN_TO_ARABIC[re.compile(rf"\b{_roman}\b", re.IGNORECASE)] = _arabic
+
+_BASIC_EXCLUDE: list[str] = [
+    "(pob.)",
+    "(pob)",
+    "pob.",
+    "city of ",
+    " city",
+    ".",
+    "-",
+    "(",
+    ")",
+    "&",
+    ",",
+]
 
 
 def to_python_identifier(name: str) -> str:
@@ -46,19 +77,12 @@ def sanitize_input(
     return sanitized_str.replace(exclude.lower(), "")
 
 
-_basic_sanitizer = partial(
-    sanitize_input,
-    exclude=[
-        "(pob.)",
-        "(pob)",
-        "pob.",
-        "city of ",
-        " city",
-        ".",
-        "-",
-        "(",
-        ")",
-        "&",
-        ",",
-    ],
-)
+def _basic_sanitizer(input_str: str | None) -> str:
+    if input_str is None:
+        return ""
+    s = input_str.lower()
+    for pattern, replacement in _ROMAN_TO_ARABIC.items():
+        s = pattern.sub(replacement, s)
+    for item in _BASIC_EXCLUDE:
+        s = s.replace(item.lower(), "")
+    return s

@@ -110,3 +110,50 @@ class TestBasicSanitizer:
 
     def test_basic_sanitizer_unicode(self):
         assert _basic_sanitizer("México City") == "méxico"
+
+
+class TestRomanNumeralSanitization:
+    @pytest.mark.parametrize(
+        "input_str,expected",
+        [
+            ("Barangay I", "barangay 1"),
+            ("Barangay II", "barangay 2"),
+            ("Barangay III", "barangay 3"),
+            ("Barangay IV", "barangay 4"),
+            ("Barangay V", "barangay 5"),
+            ("Barangay VI", "barangay 6"),
+            ("Barangay VII", "barangay 7"),
+            ("Barangay VIII", "barangay 8"),
+            ("Barangay IX", "barangay 9"),
+        ],
+    )
+    def test_roman_numeral_conversion_i_through_ix(self, input_str, expected):
+        assert _basic_sanitizer(input_str) == expected
+
+    def test_roman_numeral_case_insensitive(self):
+        assert _basic_sanitizer("Barangay i") == "barangay 1"
+        assert _basic_sanitizer("Barangay iii") == "barangay 3"
+        assert _basic_sanitizer("Barangay IX") == "barangay 9"
+
+    def test_roman_numeral_word_boundary(self):
+        assert _basic_sanitizer("Iligan") == "iligan"
+        assert _basic_sanitizer("San Isidro") == "san isidro"
+        assert _basic_sanitizer("Vigan") == "vigan"
+
+    def test_roman_numeral_beyond_ix_unchanged(self):
+        assert _basic_sanitizer("Barangay XIV") == "barangay xiv"
+        assert _basic_sanitizer("Barangay XIX") == "barangay xix"
+
+    def test_roman_numeral_with_hyphen_suffix(self):
+        result = _basic_sanitizer("Carsadang Bago IV-A")
+        assert result == "carsadang bago 4a"
+
+    def test_roman_numeral_with_pob(self):
+        assert _basic_sanitizer("Barangay I (pob.)") == "barangay 1 "
+
+    def test_roman_numeral_multiple_occurrences(self):
+        assert _basic_sanitizer("Zone I District II") == "zone 1 district 2"
+
+    def test_roman_numeral_longer_before_shorter(self):
+        assert _basic_sanitizer("Barangay VIII") == "barangay 8"
+        assert _basic_sanitizer("Barangay VII") == "barangay 7"
