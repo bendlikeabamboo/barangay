@@ -94,7 +94,7 @@ class DatabaseView:
         self,
         query: str,
         *,
-        match_hooks: list[Any] | None = None,
+        match_hooks: list[MatchHook] | None = None,
         threshold: float = 60.0,
         limit: int = 5,
         as_of: str | None = None,

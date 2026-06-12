@@ -163,6 +163,7 @@ for r in results:
 |-----------|------|---------|-------------|
 | `query` | `str` | — | Search string |
 | `level` | `AdminLevel \| None` | `None` | Filter to a specific admin level |
+| `match_hooks` | `list[MatchHook] \| None` | `None` | Scoring levels: any of `"region"`, `"province"`, `"municipality"`, `"barangay"`. Defaults to all four. The most granular hook determines the record set searched. |
 | `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
 | `limit` | `int` | `5` | Maximum number of results |
 | `as_of` | `str \| None` | `None` | Historical date (YYYY-MM-DD) |
@@ -329,7 +330,7 @@ results = search("Tongmageng, Tawi-Tawi")
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `search_string` | `str` | - | The string to search for |
-| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["province", "municipality", "barangay"]` | Administrative levels to match against. Valid options: `"province"`, `"municipality"`, `"barangay"` |
+| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["province", "municipality", "barangay"]` | Administrative levels to match against. Valid options: `"province"`, `"municipality"`, `"barangay"` (requires `"barangay"` to always be present) |
 | `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
 | `n` | `int` | `5` | Maximum number of results |
 | `search_sanitizer` | `Callable` | - | Function to sanitize search string |

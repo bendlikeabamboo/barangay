@@ -138,10 +138,12 @@ def search_fuzzy(
     Args:
         query: Search string (e.g. "Tongmageng, Tawi-Tawi").
         level: Filter to a specific admin level, or None for all.
-        match_hooks: Which fuzzy scoring columns to compute. Defaults to all three
-            (province, municipality, barangay). Controls which name-levels
+        match_hooks: Which fuzzy scoring columns to compute. Defaults to all four
+            (region, province, municipality, barangay). Controls which name-levels
             participate in matching, unlike ``level`` which is a post-filter on
-            result record types.
+            result record types. The most granular level determines the record set
+            searched — e.g. ``["province"]`` searches provinces directly, while
+            ``["province", "barangay"]`` searches barangays within provinces.
         threshold: Minimum score (0-100).
         limit: Max results.
         as_of: Historical date.

@@ -83,7 +83,9 @@ d = brgy.to_dict()  # includes region, province, municipality, city fields
 ```python
 from barangay import search_fuzzy
 
-results = search_fuzzy("query", level=None, threshold=60.0, limit=5, as_of=None)
+results = search_fuzzy("query", level=None, threshold=60.0, limit=5, as_of=None, match_hooks=None)
+# match_hooks: list of "region", "province", "municipality", "barangay" or None (default: all four)
+# The most granular hook determines the record set searched.
 for r in results:
     print(r.name, r.psgc_id, r.score, r.match_type)
 ```
@@ -149,7 +151,7 @@ results = search("Tongmageng, Tawi-Tawi")
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `search_string` | `str` | - | The string to search for |
-| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["province", "municipality", "barangay"]` | Administrative levels to match against |
+| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["province", "municipality", "barangay"]` | Administrative levels to match against (requires `"barangay"` to always be present) |
 | `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
 | `n` | `int` | `5` | Maximum number of results |
 | `search_sanitizer` | `Callable` | - | Function to sanitize search string |
@@ -514,8 +516,8 @@ print(barangay.available_dates)   # ['2023-01-25', ..., '2026-04-13']
 
 | Configuration | Performance |
 |---------------|-------------|
-| Default (3 hooks) | ~80ms per search |
-| Optimized (2 hooks) | ~25ms per search |
+| Default (4 hooks) | ~80ms per search |
+| Optimized (1–2 hooks) | ~10–25ms per search |
 
 Use fewer `match_hooks` for better performance when appropriate. Reuse `FuzzBase` instances for batch operations.
 

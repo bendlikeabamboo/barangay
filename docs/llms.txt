@@ -91,7 +91,7 @@ data = barangays.to_dicts()   # List[dict]
 ```python
 from barangay import search_fuzzy
 
-results = search_fuzzy("query", level=None, threshold=60.0, limit=5, as_of=None)
+results = search_fuzzy("query", level=None, threshold=60.0, limit=5, as_of=None, match_hooks=None)
 for r in results:
     print(r.name, r.psgc_id, r.score, r.match_type)
 ```

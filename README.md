@@ -292,8 +292,8 @@ Fuzzy search is optimized for speed:
 
 | Configuration | Performance |
 |---------------|-------------|
-| Default (3 hooks) | ~80ms per search |
-| Optimized (2 hooks) | ~25ms per search |
+| Default (4 hooks) | ~80ms per search |
+| Optimized (1–2 hooks) | ~10–25ms per search |
 
 Use fewer `match_hooks` for better performance when appropriate.
 
