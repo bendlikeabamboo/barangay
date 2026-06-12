@@ -3,7 +3,12 @@ from typing import TYPE_CHECKING, Any, Callable, List, Literal
 
 import pandas as pd
 
-from barangay.fuzz import FuzzBase, create_fuzz_base
+from barangay.fuzz import (
+    FuzzBase,
+    _HOOK_GRANULARITY,
+    create_fuzz_base,
+    create_level_fuzz_base,
+)
 from barangay.types import MatchHook
 from barangay.utils import _basic_sanitizer
 
@@ -164,13 +169,9 @@ def _search_fuzzy_new(
     match_hooks: list[MatchHook] | None = None,
 ) -> List["SearchResult"]:
     """Bridge from new API to existing FuzzBase infrastructure."""
-    from barangay.fuzz import create_fuzz_base
     from barangay.models import SearchResult
 
-    fuzz_base = create_fuzz_base(as_of=as_of)
-    raw_results = _run_fuzz_scoring(
-        fuzz_base, query, threshold, limit, match_hooks=match_hooks
-    )
+    raw_results = _pick_base_and_score(query, threshold, limit, match_hooks, as_of)
 
     results: List[SearchResult] = []
     for raw in raw_results:
@@ -190,6 +191,101 @@ def _search_fuzzy_new(
         results.append(sr)
 
     return results
+
+
+_ANCESTORS_OF: dict[str, list[str]] = {
+    "region": [],
+    "province": ["region"],
+    "municipality": ["region", "province"],
+    "barangay": ["region", "province", "municipality"],
+}
+
+
+def _pick_base_and_score(
+    query: str,
+    threshold: float,
+    limit: int,
+    match_hooks: list[MatchHook] | None,
+    as_of: str | None,
+) -> List[dict]:
+    if match_hooks is None:
+        match_hooks = ["province", "municipality", "barangay"]
+
+    base_level = max(match_hooks, key=lambda h: _HOOK_GRANULARITY.get(h, -1))
+
+    if base_level == "barangay":
+        fuzz_base = create_fuzz_base(as_of=as_of)
+        return _run_fuzz_scoring(fuzz_base, query, threshold, limit, match_hooks)
+    else:
+        level_fuzz = create_level_fuzz_base(base_level, as_of=as_of)
+        return _run_level_scoring(level_fuzz, query, threshold, limit, match_hooks)
+
+
+def _run_level_scoring(
+    fuzz_base: FuzzBase,
+    query: str,
+    threshold: float,
+    limit: int,
+    match_hooks: list[MatchHook] | None = None,
+) -> List[dict]:
+    """Scoring loop for non-barangay level bases."""
+    if match_hooks is None:
+        match_hooks = ["province", "municipality", "barangay"]
+
+    cleaned = _basic_sanitizer(query)
+    df = pd.DataFrame()
+    active_ratios: List[str] = []
+
+    base_level = max(match_hooks, key=lambda h: _HOOK_GRANULARITY.get(h, -1))
+    ancestor_hooks = [h for h in match_hooks if h != base_level]
+    valid_ancestors = [
+        a for a in ancestor_hooks if a in _ANCESTORS_OF.get(base_level, [])
+    ]
+
+    if not valid_ancestors:
+        if "f_self_name_ratio" in fuzz_base.fuzzer_base.columns:
+            df["f_self_name_ratio_score"] = fuzz_base.fuzzer_base[
+                "f_self_name_ratio"
+            ].apply(lambda f: f(s2=cleaned))
+            active_ratios.append("f_self_name_ratio_score")
+    elif len(valid_ancestors) == 1:
+        ancestor = valid_ancestors[0]
+        col = f"f_{ancestor}_name_ratio"
+        if col in fuzz_base.fuzzer_base.columns:
+            score_col = f"{col}_score"
+            df[score_col] = fuzz_base.fuzzer_base[col].apply(lambda f: f(s2=cleaned))
+            active_ratios.append(score_col)
+    else:
+        for ancestor in valid_ancestors:
+            col = f"f_{ancestor}_name_ratio"
+            if col in fuzz_base.fuzzer_base.columns:
+                score_col = f"{col}_score"
+                df[score_col] = fuzz_base.fuzzer_base[col].apply(
+                    lambda f: f(s2=cleaned)
+                )
+                active_ratios.append(score_col)
+        if "f_full_name_ratio" in fuzz_base.fuzzer_base.columns:
+            df["f_full_name_ratio_score"] = fuzz_base.fuzzer_base[
+                "f_full_name_ratio"
+            ].apply(lambda f: f(s2=cleaned))
+            active_ratios.append("f_full_name_ratio_score")
+
+    if not active_ratios:
+        return []
+
+    df["max_score"] = df[active_ratios].max(axis=1)
+    cutoff = df[df["max_score"] >= threshold]
+    if cutoff.empty:
+        return []
+
+    n = min(limit, len(cutoff))
+    top = cutoff.sort_values("max_score", ascending=False).head(n)
+
+    result = pd.concat(
+        [fuzz_base.fuzzer_base.loc[top.index], top[["max_score", *active_ratios]]],
+        axis=1,
+    )
+    return result.to_dict(orient="records")
 
 
 def _run_fuzz_scoring(
@@ -261,20 +357,41 @@ def _run_fuzz_scoring(
 def _infer_match_type(raw: dict) -> str:
     """Infer match type from scoring columns."""
     parts = []
-    if "f_0p0b_ratio_score" in raw and raw.get("f_0p0b_ratio_score", 0) == raw.get(
-        "max_score", 0
+    max_score = raw.get("max_score", 0)
+
+    if "f_0p0b_ratio_score" in raw and raw.get("f_0p0b_ratio_score", 0) == max_score:
+        parts.append("province")
+    if "f_00mb_ratio_score" in raw and raw.get("f_00mb_ratio_score", 0) == max_score:
+        parts.append("municipality")
+    if "f_000b_ratio_score" in raw and raw.get("f_000b_ratio_score", 0) == max_score:
+        parts.append("barangay")
+    if "f_0pmb_ratio_score" in raw and raw.get("f_0pmb_ratio_score", 0) == max_score:
+        parts.append("province+municipality+barangay")
+
+    if (
+        "f_self_name_ratio_score" in raw
+        and raw.get("f_self_name_ratio_score", 0) == max_score
+    ):
+        parts.append("self")
+    if (
+        "f_region_name_ratio_score" in raw
+        and raw.get("f_region_name_ratio_score", 0) == max_score
+    ):
+        parts.append("region")
+    if (
+        "f_province_name_ratio_score" in raw
+        and raw.get("f_province_name_ratio_score", 0) == max_score
     ):
         parts.append("province")
-    if "f_00mb_ratio_score" in raw and raw.get("f_00mb_ratio_score", 0) == raw.get(
-        "max_score", 0
+    if (
+        "f_municipality_name_ratio_score" in raw
+        and raw.get("f_municipality_name_ratio_score", 0) == max_score
     ):
         parts.append("municipality")
-    if "f_000b_ratio_score" in raw and raw.get("f_000b_ratio_score", 0) == raw.get(
-        "max_score", 0
+    if (
+        "f_full_name_ratio_score" in raw
+        and raw.get("f_full_name_ratio_score", 0) == max_score
     ):
-        parts.append("barangay")
-    if "f_0pmb_ratio_score" in raw and raw.get("f_0pmb_ratio_score", 0) == raw.get(
-        "max_score", 0
-    ):
-        parts.append("province+municipality+barangay")
+        parts.append("full")
+
     return "+".join(parts) if parts else "unknown"

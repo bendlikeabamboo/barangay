@@ -106,7 +106,7 @@ def search_cmd(query, limit, threshold, as_of, output_format, plugins):
                     r["barangay"],
                     r["municipality_or_city"],
                     r["province_or_huc"],
-                    r["psgc_id"],
+                    str(int(r["psgc_id"])),
                     f"{max_score:.1f}",
                 ]
                 for col in plugin_columns:
@@ -499,7 +499,7 @@ def search_history(query, as_of, limit, threshold, output_format):
                     r["barangay"],
                     r["municipality_or_city"],
                     r["province_or_huc"],
-                    r["psgc_id"],
+                    str(int(r["psgc_id"])),
                     f"{max_score:.1f}",
                 )
             console.print(table)

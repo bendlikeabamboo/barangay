@@ -98,6 +98,10 @@ class TestBasicSanitizer:
         assert _basic_sanitizer("Test&String") == "teststring"
         assert _basic_sanitizer("A&B&C") == "abc"
 
+    def test_basic_sanitizer_removes_cluster(self):
+        assert _basic_sanitizer("Pikit Cluster III") == "pikit 3"
+        assert _basic_sanitizer("Cluster Pikit") == "pikit"
+
     def test_basic_sanitizer_complex(self):
         assert _basic_sanitizer("City of Manila (pob.)") == "manila "
         assert _basic_sanitizer("Manila City, Philippines") == "manila philippines"

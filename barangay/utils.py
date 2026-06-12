@@ -34,6 +34,8 @@ _BASIC_EXCLUDE: list[str] = [
     "pob.",
     "city of ",
     " city",
+    "cluster ",
+    " cluster",
     ".",
     "-",
     "(",
