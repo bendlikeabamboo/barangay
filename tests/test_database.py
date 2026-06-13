@@ -151,9 +151,21 @@ class TestEnrichedRecord:
         brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.province is None
 
-    def test_city_for_barangay_under_huc(self, index):
+    def test_huc_property(self, index):
         brgy = EnrichedRecord(index.get("1380100001"), index)
-        assert brgy.city == "City of Caloocan"
+        assert brgy.highly_urbanized_city == "City of Caloocan"
+
+    def test_icc_property_none_for_huc_barangay(self, index):
+        brgy = EnrichedRecord(index.get("1380100001"), index)
+        assert brgy.independent_component_city is None
+
+    def test_component_city_property_none(self, index):
+        brgy = EnrichedRecord(index.get("1380100001"), index)
+        assert brgy.component_city is None
+
+    def test_submunicipality_property_none(self, index):
+        brgy = EnrichedRecord(index.get("1380100001"), index)
+        assert brgy.submunicipality is None
 
     def test_municipality_none_for_huc(self, index):
         brgy = EnrichedRecord(index.get("1380100001"), index)
@@ -194,7 +206,10 @@ class TestEnrichedRecord:
         assert d["region"] == "National Capital Region (NCR)"
         assert d["province"] is None
         assert d["highly_urbanized_city"] == "City of Caloocan"
-        assert d["city"] == "City of Caloocan"
+        assert d["independent_component_city"] is None
+        assert d["component_city"] is None
+        assert d["submunicipality"] is None
+        assert d["special_geographic_area"] is None
 
     def test_repr(self, index):
         brgy = EnrichedRecord(index.get("1380100001"), index)
@@ -218,6 +233,48 @@ class TestEnrichedRecord:
         d = brgy.model_dump()
         assert d["name"] == "Barangay 1"
         assert d["psgc_id"] == "1380100001"
+
+    def test_sga_property(self, index):
+        sga = EnrichedRecord(index.get("1999900000"), index)
+        assert sga.special_geographic_area == "Special Geographic Area"
+
+    def test_sga_other_levels_none(self, index):
+        sga = EnrichedRecord(index.get("1999900000"), index)
+        assert sga.region is None
+        assert sga.province is None
+        assert sga.municipality is None
+        assert sga.barangay is None
+
+    def test_available_attributes_barangay(self, index):
+        brgy = EnrichedRecord(index.get("1380100001"), index)
+        attrs = brgy.available_attributes
+        assert "region" in attrs
+        assert "highly_urbanized_city" in attrs
+        assert "barangay" in attrs
+        assert "province" not in attrs
+        assert "municipality" not in attrs
+        assert "submunicipality" not in attrs
+
+    def test_available_attributes_sga(self, index):
+        sga = EnrichedRecord(index.get("1999900000"), index)
+        attrs = sga.available_attributes
+        assert "special_geographic_area" in attrs
+        assert "region" not in attrs
+        assert "province" not in attrs
+
+    def test_available_attributes_huc(self, index):
+        huc = EnrichedRecord(index.get("1380100000"), index)
+        attrs = huc.available_attributes
+        assert "region" in attrs
+        assert "highly_urbanized_city" in attrs
+        assert "barangay" not in attrs
+
+    def test_to_dict_sga(self, index):
+        sga = EnrichedRecord(index.get("1999900000"), index)
+        d = sga.to_dict()
+        assert d["special_geographic_area"] == "Special Geographic Area"
+        assert d["region"] is None
+        assert d["province"] is None
 
 
 class TestDatabaseView:

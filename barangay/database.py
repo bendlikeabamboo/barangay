@@ -113,38 +113,35 @@ class HierarchyIndex:
             current = self.parent(current)
         return chain
 
-    def resolve_region(self, record: AdminDivRecord) -> AdminDivRecord | None:
+    def resolve_level(
+        self, record: AdminDivRecord, level: AdminLevel
+    ) -> AdminDivRecord | None:
+        if record.type == level:
+            return record
         for ancestor in self.ancestors(record):
-            if ancestor.type == AdminLevel.REGION:
+            if ancestor.type == level:
                 return ancestor
-        return record if record.type == AdminLevel.REGION else None
+        return None
+
+    def resolve_region(self, record: AdminDivRecord) -> AdminDivRecord | None:
+        return self.resolve_level(record, AdminLevel.REGION)
 
     def resolve_province(self, record: AdminDivRecord) -> AdminDivRecord | None:
-        for ancestor in self.ancestors(record):
-            if ancestor.type == AdminLevel.PROVINCE:
-                return ancestor
-        return record if record.type == AdminLevel.PROVINCE else None
+        return self.resolve_level(record, AdminLevel.PROVINCE)
 
     def resolve_municipality(self, record: AdminDivRecord) -> AdminDivRecord | None:
-        for ancestor in self.ancestors(record):
-            if ancestor.type in (AdminLevel.MUNICIPALITY, AdminLevel.SUBMUNICIPALITY):
-                return ancestor
+        r = self.resolve_level(record, AdminLevel.MUNICIPALITY)
         return (
-            record
-            if record.type
-            in (
-                AdminLevel.MUNICIPALITY,
-                AdminLevel.SUBMUNICIPALITY,
-            )
-            else None
+            r
+            if r is not None
+            else self.resolve_level(record, AdminLevel.SUBMUNICIPALITY)
         )
 
     def resolve_city(self, record: AdminDivRecord) -> AdminDivRecord | None:
-        for ancestor in self.ancestors(record):
-            if ancestor.type in _CITY_ADMIN_LEVELS:
-                return ancestor
-        if record.type in _CITY_ADMIN_LEVELS:
-            return record
+        for city_level in _CITY_ADMIN_LEVELS:
+            r = self.resolve_level(record, city_level)
+            if r is not None:
+                return r
         return None
 
     def records_of_type(self, level: AdminLevel) -> list[AdminDivRecord]:
@@ -192,9 +189,56 @@ class EnrichedRecord:
         return r.name if r else None
 
     @property
-    def city(self) -> str | None:
-        r = self._index.resolve_city(self._record)
+    def highly_urbanized_city(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.HIGHLY_URBANIZED_CITY)
         return r.name if r else None
+
+    @property
+    def independent_component_city(self) -> str | None:
+        r = self._index.resolve_level(
+            self._record, AdminLevel.INDEPENDENT_COMPONENT_CITY
+        )
+        return r.name if r else None
+
+    @property
+    def component_city(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.COMPONENT_CITY)
+        return r.name if r else None
+
+    @property
+    def submunicipality(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.SUBMUNICIPALITY)
+        return r.name if r else None
+
+    @property
+    def special_geographic_area(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.SPECIAL_GEOGRAPHIC_AREA)
+        return r.name if r else None
+
+    @property
+    def barangay(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.BARANGAY)
+        return r.name if r else None
+
+    @property
+    def available_attributes(self) -> list[str]:
+        _LEVEL_PROPS: list[tuple[str, AdminLevel]] = [
+            ("region", AdminLevel.REGION),
+            ("province", AdminLevel.PROVINCE),
+            ("highly_urbanized_city", AdminLevel.HIGHLY_URBANIZED_CITY),
+            ("independent_component_city", AdminLevel.INDEPENDENT_COMPONENT_CITY),
+            ("component_city", AdminLevel.COMPONENT_CITY),
+            ("municipality", AdminLevel.MUNICIPALITY),
+            ("submunicipality", AdminLevel.SUBMUNICIPALITY),
+            ("special_geographic_area", AdminLevel.SPECIAL_GEOGRAPHIC_AREA),
+            ("barangay", AdminLevel.BARANGAY),
+        ]
+        attrs = []
+        for prop_name, level in _LEVEL_PROPS:
+            r = self._index.resolve_level(self._record, level)
+            if r is not None:
+                attrs.append(prop_name)
+        return attrs
 
     @property
     def parent(self) -> "EnrichedRecord | None":
@@ -233,30 +277,18 @@ class EnrichedRecord:
 
     def to_dict(self) -> dict:
         d = self._record.model_dump()
-        d["region"] = self.region
-        d["province"] = self.province
-        d["municipality"] = self.municipality
-        city_rec = self._index.resolve_city(self._record)
-        if city_rec is not None:
-            d["highly_urbanized_city"] = (
-                city_rec.name
-                if city_rec.type == AdminLevel.HIGHLY_URBANIZED_CITY
-                else None
-            )
-            d["independent_component_city"] = (
-                city_rec.name
-                if city_rec.type == AdminLevel.INDEPENDENT_COMPONENT_CITY
-                else None
-            )
-            d["component_city"] = (
-                city_rec.name if city_rec.type == AdminLevel.COMPONENT_CITY else None
-            )
-            d["city"] = city_rec.name
-        else:
-            d["highly_urbanized_city"] = None
-            d["independent_component_city"] = None
-            d["component_city"] = None
-            d["city"] = None
+        for attr in (
+            "region",
+            "province",
+            "highly_urbanized_city",
+            "independent_component_city",
+            "component_city",
+            "municipality",
+            "submunicipality",
+            "special_geographic_area",
+            "barangay",
+        ):
+            d[attr] = getattr(self, attr)
         return d
 
 
