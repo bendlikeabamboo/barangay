@@ -51,6 +51,9 @@ regions: DatabaseView
 provinces: DatabaseView
 municipalities: DatabaseView
 cities: DatabaseView
+hucs: DatabaseView
+iccs: DatabaseView
+component_cities: DatabaseView
 submunicipalities: DatabaseView
 barangays: DatabaseView
 special_geographic_areas: DatabaseView
@@ -88,6 +91,9 @@ __all__ = [
     "provinces",
     "municipalities",
     "cities",
+    "hucs",
+    "iccs",
+    "component_cities",
     "submunicipalities",
     "barangays",
     "special_geographic_areas",

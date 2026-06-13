@@ -17,6 +17,15 @@ else:
     from barangay.models import AdminDivRecord, AdminLevel, PluginExtensionMetadata
 
 
+_CITY_ADMIN_LEVELS: frozenset[AdminLevel] = frozenset(
+    {
+        AdminLevel.HIGHLY_URBANIZED_CITY,
+        AdminLevel.INDEPENDENT_COMPONENT_CITY,
+        AdminLevel.COMPONENT_CITY,
+    }
+)
+
+
 class MultipleResultsError(Exception):
     """Raised when a name lookup matches multiple records."""
 
@@ -132,12 +141,17 @@ class HierarchyIndex:
 
     def resolve_city(self, record: AdminDivRecord) -> AdminDivRecord | None:
         for ancestor in self.ancestors(record):
-            if ancestor.type == AdminLevel.CITY:
+            if ancestor.type in _CITY_ADMIN_LEVELS:
                 return ancestor
-        return record if record.type == AdminLevel.CITY else None
+        if record.type in _CITY_ADMIN_LEVELS:
+            return record
+        return None
 
     def records_of_type(self, level: AdminLevel) -> list[AdminDivRecord]:
         return [r for r in self._by_id.values() if r.type == level]
+
+    def records_of_types(self, levels: frozenset[AdminLevel]) -> list[AdminDivRecord]:
+        return [r for r in self._by_id.values() if r.type in levels]
 
 
 class EnrichedRecord:
@@ -222,7 +236,27 @@ class EnrichedRecord:
         d["region"] = self.region
         d["province"] = self.province
         d["municipality"] = self.municipality
-        d["city"] = self.city
+        city_rec = self._index.resolve_city(self._record)
+        if city_rec is not None:
+            d["highly_urbanized_city"] = (
+                city_rec.name
+                if city_rec.type == AdminLevel.HIGHLY_URBANIZED_CITY
+                else None
+            )
+            d["independent_component_city"] = (
+                city_rec.name
+                if city_rec.type == AdminLevel.INDEPENDENT_COMPONENT_CITY
+                else None
+            )
+            d["component_city"] = (
+                city_rec.name if city_rec.type == AdminLevel.COMPONENT_CITY else None
+            )
+            d["city"] = city_rec.name
+        else:
+            d["highly_urbanized_city"] = None
+            d["independent_component_city"] = None
+            d["component_city"] = None
+            d["city"] = None
         return d
 
 
@@ -237,20 +271,24 @@ class DatabaseView:
         *,
         records: list[AdminDivRecord],
         index: HierarchyIndex,
-        level: AdminLevel | None,
-        plugin_index: dict[str, dict[str, dict[str, Any]]] | None,
+        level: AdminLevel | None = None,
+        levels: frozenset[AdminLevel] | None = None,
+        plugin_index: dict[str, dict[str, dict[str, Any]]] | None = None,
         version_state: "_VersionState",
     ) -> None:
         self._all_records = records
         self._index = index
         self._level = level
+        self._levels = levels
         self._plugin_index = plugin_index
         self._version_state = version_state
 
     def _filtered(self) -> list[AdminDivRecord]:
-        if self._level is None:
-            return self._all_records
-        return [r for r in self._all_records if r.type == self._level]
+        if self._level is not None:
+            return [r for r in self._all_records if r.type == self._level]
+        if self._levels is not None:
+            return [r for r in self._all_records if r.type in self._levels]
+        return self._all_records
 
     def get(
         self, *, psgc_id: str | None = None, name: str | None = None
@@ -270,6 +308,11 @@ class DatabaseView:
             if self._level is not None and record.type != self._level:
                 raise RecordNotFoundError(
                     f"PSGC ID {psgc_id!r} exists but is not a {self._level.value}.\n"
+                    f"See {_DOCS_BASE}.html#look-up-a-record"
+                )
+            if self._levels is not None and record.type not in self._levels:
+                raise RecordNotFoundError(
+                    f"PSGC ID {psgc_id!r} exists but is not in the requested set.\n"
                     f"See {_DOCS_BASE}.html#look-up-a-record"
                 )
             return EnrichedRecord(record, self._index)
@@ -336,10 +379,17 @@ class DatabaseView:
             return False
         if self._level is not None and record.type != self._level:
             return False
+        if self._levels is not None and record.type not in self._levels:
+            return False
         return True
 
     def __repr__(self) -> str:
-        level_name = self._level.value if self._level else "all"
+        if self._level is not None:
+            level_name = self._level.value
+        elif self._levels is not None:
+            level_name = "+".join(sorted(l.value for l in self._levels))
+        else:
+            level_name = "all"
         return f"<PSGC {level_name} database: {len(self)} records>"
 
     def _should_explode(self) -> bool:
@@ -451,7 +501,19 @@ class Database:
 
     @property
     def cities(self) -> DatabaseView:
-        return self._view(AdminLevel.CITY)
+        return self._view(levels=_CITY_ADMIN_LEVELS)
+
+    @property
+    def hucs(self) -> DatabaseView:
+        return self._view(AdminLevel.HIGHLY_URBANIZED_CITY)
+
+    @property
+    def iccs(self) -> DatabaseView:
+        return self._view(AdminLevel.INDEPENDENT_COMPONENT_CITY)
+
+    @property
+    def component_cities(self) -> DatabaseView:
+        return self._view(AdminLevel.COMPONENT_CITY)
 
     @property
     def submunicipalities(self) -> DatabaseView:
@@ -518,7 +580,12 @@ class Database:
         else:
             object.__setattr__(self, "_plugin_index", None)
 
-    def _view(self, level: AdminLevel | None) -> DatabaseView:
+    def _view(
+        self,
+        level: AdminLevel | None = None,
+        *,
+        levels: frozenset[AdminLevel] | None = None,
+    ) -> DatabaseView:
         self._ensure_loaded()
         assert self._raw_records is not None
         assert self._index is not None
@@ -526,6 +593,7 @@ class Database:
             records=self._raw_records,
             index=self._index,
             level=level,
+            levels=levels,
             plugin_index=self._plugin_index,
             version_state=self._version_state,
         )

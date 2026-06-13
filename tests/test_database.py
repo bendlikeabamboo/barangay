@@ -29,9 +29,9 @@ def sample_records():
         psgc_id="0136000000",
         parent_psgc_id="0133000000",
     )
-    city = AdminDivRecord(
+    huc = AdminDivRecord(
         name="City of Caloocan",
-        type=AdminLevel.CITY,
+        type=AdminLevel.HIGHLY_URBANIZED_CITY,
         psgc_id="1380100000",
         parent_psgc_id="0133000000",
     )
@@ -53,7 +53,7 @@ def sample_records():
         psgc_id="1999900000",
         parent_psgc_id="0126000000",
     )
-    return [country, region, province, city, municipality, barangay, sga]
+    return [country, region, province, huc, municipality, barangay, sga]
 
 
 @pytest.fixture
@@ -110,6 +110,13 @@ class TestHierarchyIndex:
         province = index.resolve_province(brgy)
         assert province is None
 
+    def test_resolve_city_for_barangay_under_huc(self, index):
+        brgy = index.get("1380100001")
+        city = index.resolve_city(brgy)
+        assert city is not None
+        assert city.name == "City of Caloocan"
+        assert city.type == AdminLevel.HIGHLY_URBANIZED_CITY
+
     def test_resolve_municipality_for_barangay(self, index):
         municipality = index.get("043421000")
         resolved = index.resolve_municipality(municipality)
@@ -120,6 +127,13 @@ class TestHierarchyIndex:
         barangays = index.records_of_type(AdminLevel.BARANGAY)
         assert len(barangays) == 1
         assert barangays[0].name == "Barangay 1"
+
+    def test_records_of_types(self, index):
+        from barangay.database import _CITY_ADMIN_LEVELS
+
+        cities = index.records_of_types(_CITY_ADMIN_LEVELS)
+        assert len(cities) == 1
+        assert cities[0].name == "City of Caloocan"
 
 
 class TestEnrichedRecord:
@@ -136,6 +150,10 @@ class TestEnrichedRecord:
     def test_province_none_for_huc(self, index):
         brgy = EnrichedRecord(index.get("1380100001"), index)
         assert brgy.province is None
+
+    def test_city_for_barangay_under_huc(self, index):
+        brgy = EnrichedRecord(index.get("1380100001"), index)
+        assert brgy.city == "City of Caloocan"
 
     def test_municipality_none_for_huc(self, index):
         brgy = EnrichedRecord(index.get("1380100001"), index)
@@ -175,6 +193,8 @@ class TestEnrichedRecord:
         assert d["name"] == "Barangay 1"
         assert d["region"] == "National Capital Region (NCR)"
         assert d["province"] is None
+        assert d["highly_urbanized_city"] == "City of Caloocan"
+        assert d["city"] == "City of Caloocan"
 
     def test_repr(self, index):
         brgy = EnrichedRecord(index.get("1380100001"), index)
@@ -208,6 +228,18 @@ class TestDatabaseView:
             records=sample_records,
             index=index,
             level=AdminLevel.BARANGAY,
+            plugin_index=None,
+            version_state=_VersionState(),
+        )
+        assert len(view) == 1
+
+    def test_len_with_levels(self, sample_records, index):
+        from barangay.database import _VersionState, _CITY_ADMIN_LEVELS
+
+        view = DatabaseView(
+            records=sample_records,
+            index=index,
+            levels=_CITY_ADMIN_LEVELS,
             plugin_index=None,
             version_state=_VersionState(),
         )
@@ -361,6 +393,9 @@ class TestDatabase:
         assert isinstance(db.regions, DatabaseView)
         assert isinstance(db.provinces, DatabaseView)
         assert isinstance(db.cities, DatabaseView)
+        assert isinstance(db.hucs, DatabaseView)
+        assert isinstance(db.iccs, DatabaseView)
+        assert isinstance(db.component_cities, DatabaseView)
         assert isinstance(db.municipalities, DatabaseView)
         assert isinstance(db.barangays, DatabaseView)
         assert isinstance(db.submunicipalities, DatabaseView)
@@ -383,6 +418,10 @@ class TestDatabase:
             + len(db.special_geographic_areas)
         )
         assert total == len(db.all_records)
+
+    def test_cities_equals_sum_of_subtypes(self):
+        db = Database()
+        assert len(db.cities) == len(db.hucs) + len(db.iccs) + len(db.component_cities)
 
     def test_invalidate_cache(self):
         db = Database()
@@ -425,3 +464,15 @@ class TestDatabaseIntegration:
                 if parent:
                     assert parent.psgc_id == brgy.parent_psgc_id
                 break
+
+    def test_hucs_have_no_province(self):
+        db = Database()
+        for huc in db.hucs:
+            assert huc.province is None
+
+    def test_component_cities_have_province(self):
+        db = Database()
+        for cc in db.component_cities:
+            if cc.name == "City of Isabela":
+                continue
+            assert cc.province is not None

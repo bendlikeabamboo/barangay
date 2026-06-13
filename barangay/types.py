@@ -5,13 +5,25 @@ AdminDivType = Literal[
     "country",
     "region",
     "province",
-    "city",
+    "highly_urbanized_city",
+    "independent_component_city",
+    "component_city",
     "municipality",
     "barangay",
     "special_geographic_area",
     "submunicipality",
 ]
-MatchHook = Literal["region", "province", "municipality", "barangay"]
+MatchHook = Literal[
+    "region",
+    "province",
+    "highly_urbanized_city",
+    "independent_component_city",
+    "component_city",
+    "municipality",
+    "submunicipality",
+    "special_geographic_area",
+    "barangay",
+]
 PluginFormat = Literal["csv", "json", "parquet"]
 
 __all__ = [

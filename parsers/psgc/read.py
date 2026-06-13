@@ -42,4 +42,10 @@ def read(fp: Path) -> pd.DataFrame:
         df["psgc_id"].astype(dtype="int32").astype(dtype=str).str.zfill(width=10)
     )
     df: pd.DataFrame = df.map(func=lambda x: x.strip() if isinstance(x, str) else x)
+
+    if "City Class" in df.columns:
+        df = df.rename(columns={"City Class": "city_class"})
+    elif "city_class" in df.columns:
+        pass
+
     return df

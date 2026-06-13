@@ -36,14 +36,15 @@ def mock_flat_data():
 def mock_search_results():
     return [
         {
-            "barangay": "Barangay 1",
-            "municipality_or_city": "Municipality A",
-            "province_or_huc": "Province X",
             "psgc_id": "000000001",
-            "f_000b_ratio_score": 85.5,
-            "f_0p0b_ratio_score": 90.2,
-            "f_00mb_ratio_score": 88.7,
-            "f_0pmb_ratio_score": 92.1,
+            "province": "",
+            "highly_urbanized_city": "",
+            "independent_component_city": "",
+            "component_city": "",
+            "municipality": "Municipality A",
+            "submunicipality": "",
+            "special_geographic_area": "",
+            "barangay": "Barangay 1",
             "max_score": 92.1,
         },
     ]

@@ -9,3 +9,9 @@ GEOGRAPHIC_LEVEL_MAP: Dict[str, str] = {
     "Bgy": "barangay",
     "SGU": "special_geographic_area",
 }
+
+CITY_CLASS_MAP: Dict[str, str] = {
+    "HUC": "highly_urbanized_city",
+    "ICC": "independent_component_city",
+    "CC": "component_city",
+}

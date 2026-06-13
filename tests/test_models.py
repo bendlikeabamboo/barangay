@@ -106,7 +106,7 @@ class TestAdminDivExtended:
     def test_admin_div_extended_with_nicknames(self):
         data = {
             "name": "Manila",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
             "nicknames": ["Pearl of the Orient", "Paris of Asia"],
@@ -117,7 +117,7 @@ class TestAdminDivExtended:
     def test_admin_div_extended_with_components(self):
         data = {
             "name": "Manila",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
             "components": [
@@ -136,7 +136,7 @@ class TestAdminDivExtended:
     def test_admin_div_extended_default_nicknames(self):
         data = {
             "name": "Manila",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
         }
@@ -146,7 +146,7 @@ class TestAdminDivExtended:
     def test_admin_div_extended_default_components(self):
         data = {
             "name": "Manila",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
         }
@@ -205,7 +205,9 @@ class TestAdminDivExtended:
             "country",
             "region",
             "province",
-            "city",
+            "highly_urbanized_city",
+            "independent_component_city",
+            "component_city",
             "municipality",
             "barangay",
             "special_geographic_area",
@@ -236,13 +238,23 @@ class TestAdminDivExtended:
     def test_admin_div_extended_empty_nicknames(self):
         data = {
             "name": "Test",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
             "nicknames": [],
         }
         model = AdminDivExtended(**data)
         assert model.nicknames == []
+
+    def test_admin_div_extended_rejects_old_city_type(self):
+        data = {
+            "name": "Test",
+            "type": "city",
+            "psgc_id": "013754000",
+            "parent_psgc_id": "130000000",
+        }
+        with pytest.raises(ValidationError):
+            AdminDivExtended(**data)
 
 
 class TestAdminDiv:
@@ -279,7 +291,7 @@ class TestAdminDivFlat:
     def test_admin_div_flat_with_nicknames(self):
         data = {
             "name": "Manila",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
             "nicknames": ["Pearl of the Orient", "Paris of Asia"],
@@ -290,7 +302,7 @@ class TestAdminDivFlat:
     def test_admin_div_flat_default_nicknames(self):
         data = {
             "name": "Manila",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
         }
@@ -349,7 +361,9 @@ class TestAdminDivFlat:
             "country",
             "region",
             "province",
-            "city",
+            "highly_urbanized_city",
+            "independent_component_city",
+            "component_city",
             "municipality",
             "barangay",
             "special_geographic_area",
@@ -380,7 +394,7 @@ class TestAdminDivFlat:
     def test_admin_div_flat_empty_nicknames(self):
         data = {
             "name": "Test",
-            "type": "city",
+            "type": "highly_urbanized_city",
             "psgc_id": "013754000",
             "parent_psgc_id": "130000000",
             "nicknames": [],
@@ -399,6 +413,16 @@ class TestAdminDivFlat:
         model = AdminDivFlat(**data)
         assert model.model_dump(exclude={"extensions"}) == data
 
+    def test_admin_div_flat_rejects_old_city_type(self):
+        data = {
+            "name": "Test",
+            "type": "city",
+            "psgc_id": "013754000",
+            "parent_psgc_id": "130000000",
+        }
+        with pytest.raises(ValidationError):
+            AdminDivFlat(**data)
+
 
 class TestAdminLevel:
     def test_str_comparison(self):
@@ -410,15 +434,24 @@ class TestAdminLevel:
     def test_all_types_covered(self):
         from barangay.models import AdminLevel
 
-        assert len(AdminLevel) == 8
+        assert len(AdminLevel) == 10
         assert AdminLevel.COUNTRY.value == "country"
         assert AdminLevel.REGION.value == "region"
         assert AdminLevel.PROVINCE.value == "province"
-        assert AdminLevel.CITY.value == "city"
+        assert AdminLevel.HIGHLY_URBANIZED_CITY.value == "highly_urbanized_city"
+        assert (
+            AdminLevel.INDEPENDENT_COMPONENT_CITY.value == "independent_component_city"
+        )
+        assert AdminLevel.COMPONENT_CITY.value == "component_city"
         assert AdminLevel.MUNICIPALITY.value == "municipality"
         assert AdminLevel.SUBMUNICIPALITY.value == "submunicipality"
         assert AdminLevel.BARANGAY.value == "barangay"
         assert AdminLevel.SPECIAL_GEOGRAPHIC_AREA.value == "special_geographic_area"
+
+    def test_no_old_city_enum(self):
+        from barangay.models import AdminLevel
+
+        assert not hasattr(AdminLevel, "CITY")
 
     def test_invalid_type_raises(self):
         from barangay.models import AdminLevel
