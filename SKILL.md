@@ -80,21 +80,41 @@ barangay batch validate barangay_names.txt
 ## Python API
 
 ```python
+from barangay import barangays, search_fuzzy, validate
+
+# Lookup by name
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)    # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)  # Tawi-Tawi
+print(brgy.psgc_id)   # 1907005010
+
+# Lookup by PSGC ID (returns None if not found)
+brgy = barangays.lookup("1907005010")
+
+# Fuzzy search with typed results
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+
+# Address validation
+v = validate("Tongmageng, Tawi-Tawi")
+print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
+
+# Export to pandas
+df = barangays.to_frame()
+data = barangays.to_dicts()
+
+# Hierarchy traversal
+print(brgy.parent)      # <municipality: Sitangkai (1907005000)>
+print(brgy.ancestors)   # [municipality, province, region]
+```
+
+### Deprecated (removal in 2027.X.X.X)
+
+```python
 from barangay import search, barangay, barangay_flat, barangay_extended
 
-# Fuzzy search
 results = search("Tongmageng, Tawi-Tawi")
-
-# Custom search with hooks and threshold
-results = search("Tongmagen", n=4, match_hooks=["municipality", "barangay"], threshold=70.0)
-
-# Historical search
-results = search("Tongmageng", as_of="2025-07-08")
-
-# Nested model — region lookups
 ncr_cities = list(barangay["National Capital Region (NCR)"].keys())
-
-# Flat model — filtering
 matches = [loc for loc in barangay_flat if loc.name == "Marayos"]
 ```
 

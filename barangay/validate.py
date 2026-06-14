@@ -20,7 +20,13 @@ def validate(
     Returns:
         ValidationResult with valid flag and matched record if found.
     """
-    results = search_fuzzy(address, threshold=threshold, limit=1, as_of=as_of)
+    results = search_fuzzy(
+        address,
+        threshold=threshold,
+        limit=1,
+        as_of=as_of,
+        match_hooks=["province", "municipality", "barangay"],
+    )
     if results and results[0].score >= threshold:
         return ValidationResult(
             input=address,

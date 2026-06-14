@@ -48,7 +48,7 @@ A fully hierarchical tree structure that preserves the complete administrative l
                     "components": [
                         {
                             "name": "City of Lamitan",
-                            "type": "city",
+                            "type": "highly_urbanized_city",
                             "psgc_id": "1900702000",
                             "parent_psgc_id": "1900700000",
                             "nicknames": null,
@@ -93,7 +93,7 @@ A denormalized array format optimized for database storage and bulk operations. 
     },
     {
         "name": "City of Lamitan",
-        "type": "city",
+        "type": "highly_urbanized_city",
         "psgc_id": "1900702000",
         "parent_psgc_id": "1900700000",
         "nicknames": null

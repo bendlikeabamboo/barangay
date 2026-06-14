@@ -82,7 +82,7 @@ d = brgy.to_dict()
 ### Export
 
 ```python
-df = barangays.to_frame()     # pd.DataFrame with region, province, municipality, city columns
+df = barangays.to_frame()     # pd.DataFrame with region, province, highly_urbanized_city, independent_component_city, component_city, municipality, submunicipality, special_geographic_area, barangay columns
 data = barangays.to_dicts()   # List[dict]
 ```
 
@@ -122,7 +122,7 @@ barangay.use_version(None)  # back to latest
 ```python
 import barangay
 
-barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
+barangay.use_plugins(["population"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
 ```
 
 ## Legacy API (Deprecated — removal in 2027.X.X.X)
@@ -132,7 +132,7 @@ barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
 ```python
 from barangay import search
 
-results = search("query", n=5, threshold=60.0, match_hooks=["province", "municipality", "barangay"], as_of=None)
+results = search("query", n=5, threshold=60.0, match_hooks=["barangay"], as_of=None)
 # Returns List[dict] with keys: barangay, province_or_huc, municipality_or_city, psgc_id, ...
 ```
 

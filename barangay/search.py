@@ -94,8 +94,8 @@ def search_fuzzy(
     Args:
         query: Search string (e.g. "Tongmageng, Tawi-Tawi").
         level: Filter to a specific admin level, or None for all.
-        match_hooks: Which fuzzy scoring columns to compute. Defaults to all four
-            (region, province, municipality, barangay). Controls which name-levels
+        match_hooks: Which fuzzy scoring columns to compute. Defaults to
+            ``["barangay"]``. Controls which name-levels
             participate in matching, unlike ``level`` which is a post-filter on
             result record types. The most granular level determines the record set
             searched — e.g. ``["province"]`` searches provinces directly, while
@@ -159,7 +159,7 @@ def _pick_base_and_score(
     as_of: str | None,
 ) -> List[dict]:
     if match_hooks is None:
-        match_hooks = ["province", "municipality", "barangay"]
+        match_hooks = ["barangay"]
 
     base_level = max(match_hooks, key=lambda h: _HOOK_GRANULARITY.get(h, -1))
 
@@ -178,7 +178,7 @@ def _run_scoring(
     match_hooks: list[MatchHook] | None = None,
 ) -> List[dict]:
     if match_hooks is None:
-        match_hooks = ["province", "municipality", "barangay"]
+        match_hooks = ["barangay"]
 
     cleaned = _basic_sanitizer(query)
     fb = fuzz_base.fuzzer_base

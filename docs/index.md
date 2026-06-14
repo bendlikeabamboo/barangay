@@ -97,8 +97,10 @@ from barangay import barangays
 df = barangays.to_frame()
 print(df.columns.tolist())
 # ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
-#  'region', 'province', 'municipality', 'city']
-print(df.shape)  # (42010, 10)
+#  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
+#  'component_city', 'municipality', 'submunicipality',
+#  'special_geographic_area', 'barangay']
+print(df.shape)  # (42010, 16)
 ```
 
 ### Hierarchy Traversal
