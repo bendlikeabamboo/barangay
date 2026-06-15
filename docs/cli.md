@@ -262,6 +262,30 @@ barangay batch validate barangay_names.txt
 barangay batch validate barangay_names.txt
 ```
 
+## Plugins
+
+### `barangay plugins list`
+
+List available plugins with their status.
+
+```bash
+barangay plugins list
+```
+
+**Output:** Table with columns: Name, Status (enabled/disabled), Description.
+
+### `barangay plugins info`
+
+Show details for a specific plugin.
+
+```bash
+barangay plugins info psgc-aux-data
+```
+
+**Output:** Table with columns: Property, Value (name, enabled, description, version, format, repository).
+
+Raises an error if the plugin name is not found.
+
 ## Help
 
 ```bash
@@ -272,4 +296,5 @@ barangay info --help
 barangay history --help
 barangay cache --help
 barangay batch --help
+barangay plugins --help
 ```

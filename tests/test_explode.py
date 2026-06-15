@@ -358,7 +358,7 @@ class TestExplodeFlat:
         flat_data = [
             {
                 "name": "City of Caloocan",
-                "type": "city",
+                "type": "highly_urbanized_city",
                 "psgc_id": "1380100000",
                 "parent_psgc_id": "1380100000",
             },

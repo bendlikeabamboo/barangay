@@ -99,7 +99,9 @@ class AdminDivExtended(BaseModel):
         "country",
         "region",
         "province",
-        "city",
+        "highly_urbanized_city",
+        "independent_component_city",
+        "component_city",
         "municipality",
         "barangay",
         "special_geographic_area",
@@ -162,7 +164,9 @@ class AdminDivFlat(BaseModel):
         "country",
         "region",
         "province",
-        "city",
+        "highly_urbanized_city",
+        "independent_component_city",
+        "component_city",
         "municipality",
         "barangay",
         "special_geographic_area",
@@ -174,15 +178,27 @@ class AdminDivFlat(BaseModel):
     extensions: List["PluginExtension"] = Field(default_factory=list)
 
 
+_CITY_ADMIN_LEVELS: set["AdminLevel"] = set()
+
+
 class AdminLevel(str, Enum):
     COUNTRY = "country"
     REGION = "region"
     PROVINCE = "province"
-    CITY = "city"
+    HIGHLY_URBANIZED_CITY = "highly_urbanized_city"
+    INDEPENDENT_COMPONENT_CITY = "independent_component_city"
+    COMPONENT_CITY = "component_city"
     MUNICIPALITY = "municipality"
     SUBMUNICIPALITY = "submunicipality"
     BARANGAY = "barangay"
     SPECIAL_GEOGRAPHIC_AREA = "special_geographic_area"
+
+
+_CITY_ADMIN_LEVELS = {
+    AdminLevel.HIGHLY_URBANIZED_CITY,
+    AdminLevel.INDEPENDENT_COMPONENT_CITY,
+    AdminLevel.COMPONENT_CITY,
+}
 
 
 class AdminDivRecord(BaseModel):
@@ -337,7 +353,7 @@ class PluginInfo(BaseModel):
         enabled: Whether the plugin is enabled.
         description: Optional description of the plugin.
         version: Optional version string of the plugin.
-        format: Optional format identifier for the plugin data.
+        format: Optional format identifier for the plugin.
         repository: Optional repository URL for the plugin.
         error: Optional error message if the plugin failed to load.
     """

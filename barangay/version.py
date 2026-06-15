@@ -36,7 +36,7 @@ def use_plugins(
         levels: Restrict to specific admin levels.
 
     Example:
-        barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
+        barangay.use_plugins(["population"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
     """
     from barangay.database import Database
 

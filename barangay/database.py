@@ -17,6 +17,15 @@ else:
     from barangay.models import AdminDivRecord, AdminLevel, PluginExtensionMetadata
 
 
+_CITY_ADMIN_LEVELS: frozenset[AdminLevel] = frozenset(
+    {
+        AdminLevel.HIGHLY_URBANIZED_CITY,
+        AdminLevel.INDEPENDENT_COMPONENT_CITY,
+        AdminLevel.COMPONENT_CITY,
+    }
+)
+
+
 class MultipleResultsError(Exception):
     """Raised when a name lookup matches multiple records."""
 
@@ -104,40 +113,42 @@ class HierarchyIndex:
             current = self.parent(current)
         return chain
 
-    def resolve_region(self, record: AdminDivRecord) -> AdminDivRecord | None:
+    def resolve_level(
+        self, record: AdminDivRecord, level: AdminLevel
+    ) -> AdminDivRecord | None:
+        if record.type == level:
+            return record
         for ancestor in self.ancestors(record):
-            if ancestor.type == AdminLevel.REGION:
+            if ancestor.type == level:
                 return ancestor
-        return record if record.type == AdminLevel.REGION else None
+        return None
+
+    def resolve_region(self, record: AdminDivRecord) -> AdminDivRecord | None:
+        return self.resolve_level(record, AdminLevel.REGION)
 
     def resolve_province(self, record: AdminDivRecord) -> AdminDivRecord | None:
-        for ancestor in self.ancestors(record):
-            if ancestor.type == AdminLevel.PROVINCE:
-                return ancestor
-        return record if record.type == AdminLevel.PROVINCE else None
+        return self.resolve_level(record, AdminLevel.PROVINCE)
 
     def resolve_municipality(self, record: AdminDivRecord) -> AdminDivRecord | None:
-        for ancestor in self.ancestors(record):
-            if ancestor.type in (AdminLevel.MUNICIPALITY, AdminLevel.SUBMUNICIPALITY):
-                return ancestor
+        r = self.resolve_level(record, AdminLevel.MUNICIPALITY)
         return (
-            record
-            if record.type
-            in (
-                AdminLevel.MUNICIPALITY,
-                AdminLevel.SUBMUNICIPALITY,
-            )
-            else None
+            r
+            if r is not None
+            else self.resolve_level(record, AdminLevel.SUBMUNICIPALITY)
         )
 
     def resolve_city(self, record: AdminDivRecord) -> AdminDivRecord | None:
-        for ancestor in self.ancestors(record):
-            if ancestor.type == AdminLevel.CITY:
-                return ancestor
-        return record if record.type == AdminLevel.CITY else None
+        for city_level in _CITY_ADMIN_LEVELS:
+            r = self.resolve_level(record, city_level)
+            if r is not None:
+                return r
+        return None
 
     def records_of_type(self, level: AdminLevel) -> list[AdminDivRecord]:
         return [r for r in self._by_id.values() if r.type == level]
+
+    def records_of_types(self, levels: frozenset[AdminLevel]) -> list[AdminDivRecord]:
+        return [r for r in self._by_id.values() if r.type in levels]
 
 
 class EnrichedRecord:
@@ -178,9 +189,56 @@ class EnrichedRecord:
         return r.name if r else None
 
     @property
-    def city(self) -> str | None:
-        r = self._index.resolve_city(self._record)
+    def highly_urbanized_city(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.HIGHLY_URBANIZED_CITY)
         return r.name if r else None
+
+    @property
+    def independent_component_city(self) -> str | None:
+        r = self._index.resolve_level(
+            self._record, AdminLevel.INDEPENDENT_COMPONENT_CITY
+        )
+        return r.name if r else None
+
+    @property
+    def component_city(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.COMPONENT_CITY)
+        return r.name if r else None
+
+    @property
+    def submunicipality(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.SUBMUNICIPALITY)
+        return r.name if r else None
+
+    @property
+    def special_geographic_area(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.SPECIAL_GEOGRAPHIC_AREA)
+        return r.name if r else None
+
+    @property
+    def barangay(self) -> str | None:
+        r = self._index.resolve_level(self._record, AdminLevel.BARANGAY)
+        return r.name if r else None
+
+    @property
+    def available_attributes(self) -> list[str]:
+        _LEVEL_PROPS: list[tuple[str, AdminLevel]] = [
+            ("region", AdminLevel.REGION),
+            ("province", AdminLevel.PROVINCE),
+            ("highly_urbanized_city", AdminLevel.HIGHLY_URBANIZED_CITY),
+            ("independent_component_city", AdminLevel.INDEPENDENT_COMPONENT_CITY),
+            ("component_city", AdminLevel.COMPONENT_CITY),
+            ("municipality", AdminLevel.MUNICIPALITY),
+            ("submunicipality", AdminLevel.SUBMUNICIPALITY),
+            ("special_geographic_area", AdminLevel.SPECIAL_GEOGRAPHIC_AREA),
+            ("barangay", AdminLevel.BARANGAY),
+        ]
+        attrs = []
+        for prop_name, level in _LEVEL_PROPS:
+            r = self._index.resolve_level(self._record, level)
+            if r is not None:
+                attrs.append(prop_name)
+        return attrs
 
     @property
     def parent(self) -> "EnrichedRecord | None":
@@ -219,10 +277,18 @@ class EnrichedRecord:
 
     def to_dict(self) -> dict:
         d = self._record.model_dump()
-        d["region"] = self.region
-        d["province"] = self.province
-        d["municipality"] = self.municipality
-        d["city"] = self.city
+        for attr in (
+            "region",
+            "province",
+            "highly_urbanized_city",
+            "independent_component_city",
+            "component_city",
+            "municipality",
+            "submunicipality",
+            "special_geographic_area",
+            "barangay",
+        ):
+            d[attr] = getattr(self, attr)
         return d
 
 
@@ -237,20 +303,24 @@ class DatabaseView:
         *,
         records: list[AdminDivRecord],
         index: HierarchyIndex,
-        level: AdminLevel | None,
-        plugin_index: dict[str, dict[str, dict[str, Any]]] | None,
+        level: AdminLevel | None = None,
+        levels: frozenset[AdminLevel] | None = None,
+        plugin_index: dict[str, dict[str, dict[str, Any]]] | None = None,
         version_state: "_VersionState",
     ) -> None:
         self._all_records = records
         self._index = index
         self._level = level
+        self._levels = levels
         self._plugin_index = plugin_index
         self._version_state = version_state
 
     def _filtered(self) -> list[AdminDivRecord]:
-        if self._level is None:
-            return self._all_records
-        return [r for r in self._all_records if r.type == self._level]
+        if self._level is not None:
+            return [r for r in self._all_records if r.type == self._level]
+        if self._levels is not None:
+            return [r for r in self._all_records if r.type in self._levels]
+        return self._all_records
 
     def get(
         self, *, psgc_id: str | None = None, name: str | None = None
@@ -270,6 +340,11 @@ class DatabaseView:
             if self._level is not None and record.type != self._level:
                 raise RecordNotFoundError(
                     f"PSGC ID {psgc_id!r} exists but is not a {self._level.value}.\n"
+                    f"See {_DOCS_BASE}.html#look-up-a-record"
+                )
+            if self._levels is not None and record.type not in self._levels:
+                raise RecordNotFoundError(
+                    f"PSGC ID {psgc_id!r} exists but is not in the requested set.\n"
                     f"See {_DOCS_BASE}.html#look-up-a-record"
                 )
             return EnrichedRecord(record, self._index)
@@ -336,10 +411,17 @@ class DatabaseView:
             return False
         if self._level is not None and record.type != self._level:
             return False
+        if self._levels is not None and record.type not in self._levels:
+            return False
         return True
 
     def __repr__(self) -> str:
-        level_name = self._level.value if self._level else "all"
+        if self._level is not None:
+            level_name = self._level.value
+        elif self._levels is not None:
+            level_name = "+".join(sorted(l.value for l in self._levels))
+        else:
+            level_name = "all"
         return f"<PSGC {level_name} database: {len(self)} records>"
 
     def _should_explode(self) -> bool:
@@ -451,7 +533,19 @@ class Database:
 
     @property
     def cities(self) -> DatabaseView:
-        return self._view(AdminLevel.CITY)
+        return self._view(levels=_CITY_ADMIN_LEVELS)
+
+    @property
+    def hucs(self) -> DatabaseView:
+        return self._view(AdminLevel.HIGHLY_URBANIZED_CITY)
+
+    @property
+    def iccs(self) -> DatabaseView:
+        return self._view(AdminLevel.INDEPENDENT_COMPONENT_CITY)
+
+    @property
+    def component_cities(self) -> DatabaseView:
+        return self._view(AdminLevel.COMPONENT_CITY)
 
     @property
     def submunicipalities(self) -> DatabaseView:
@@ -518,7 +612,12 @@ class Database:
         else:
             object.__setattr__(self, "_plugin_index", None)
 
-    def _view(self, level: AdminLevel | None) -> DatabaseView:
+    def _view(
+        self,
+        level: AdminLevel | None = None,
+        *,
+        levels: frozenset[AdminLevel] | None = None,
+    ) -> DatabaseView:
         self._ensure_loaded()
         assert self._raw_records is not None
         assert self._index is not None
@@ -526,6 +625,7 @@ class Database:
             records=self._raw_records,
             index=self._index,
             level=level,
+            levels=levels,
             plugin_index=self._plugin_index,
             version_state=self._version_state,
         )

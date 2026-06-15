@@ -9,7 +9,7 @@ def test_search_rosario():
     assert isinstance(results, list)
     assert len(results) > 0
     # Optionally check if 'rosario' is in the results (case-insensitive)
-    found = any("rosario" in r["barangay"].lower() for r in results)
+    found = any("rosario" in r.get("barangay", "").lower() for r in results)
     assert found
 
 
@@ -56,9 +56,6 @@ class TestSearchFuzzy:
         results = search("rosario")
         if results:
             keys = results[0].keys()
-            assert "barangay" in keys
-            assert "province_or_huc" in keys
-            assert "municipality_or_city" in keys
             assert "psgc_id" in keys
 
     def test_enriched_property(self):
@@ -119,4 +116,96 @@ class TestSearchFuzzy:
         db = Database()
         view = db._view(None)
         results = view.search_fuzzy("Manila", limit=1, match_hooks=["barangay"])
+        assert isinstance(results, list)
+
+    def test_search_fuzzy_province_only(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Laguna", match_hooks=["province"])
+        assert isinstance(results, list)
+        assert len(results) > 0
+        assert any(r.record.type.value == "province" for r in results)
+
+    def test_search_fuzzy_municipality_only(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Pateros", match_hooks=["municipality"])
+        assert isinstance(results, list)
+        assert len(results) > 0
+        assert any(r.record.type.value == "municipality" for r in results)
+
+    def test_search_fuzzy_region_only(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("CALABARZON", match_hooks=["region"])
+        assert isinstance(results, list)
+        assert len(results) > 0
+        assert any(r.record.type.value == "region" for r in results)
+
+    def test_search_fuzzy_region_province(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("CALABARZON Laguna", match_hooks=["region", "province"])
+        assert isinstance(results, list)
+        assert len(results) > 0
+
+    def test_search_fuzzy_backward_compat(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Manila")
+        assert isinstance(results, list)
+        assert len(results) > 0
+        assert all(r.record.type.value == "barangay" for r in results)
+
+    def test_search_fuzzy_no_barangay_hook_no_barangay_results(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy("Laguna", match_hooks=["province"])
+        for r in results:
+            assert r.record.type.value != "barangay"
+
+    def test_search_fuzzy_component_city_hook(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy(
+            "Dagupan", match_hooks=["independent_component_city", "barangay"]
+        )
+        assert isinstance(results, list)
+
+    def test_search_fuzzy_huc_hook(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy(
+            "Quezon City", match_hooks=["highly_urbanized_city", "barangay"]
+        )
+        assert isinstance(results, list)
+
+    def test_match_hooks_huc_barangay(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy(
+            "Quezon City", match_hooks=["highly_urbanized_city", "barangay"]
+        )
+        assert isinstance(results, list)
+        for r in results:
+            assert "highly_urbanized_city" in r.match_type
+
+    def test_match_hooks_province_municipality_barangay(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy(
+            "Los Baños, Laguna",
+            match_hooks=["province", "municipality", "barangay"],
+        )
+        assert isinstance(results, list)
+        for r in results:
+            assert "province" in r.match_type
+
+    def test_match_hooks_submun_huc(self):
+        from barangay.search import search_fuzzy
+
+        results = search_fuzzy(
+            "Pateros",
+            match_hooks=["highly_urbanized_city", "submunicipality", "barangay"],
+        )
         assert isinstance(results, list)

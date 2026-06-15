@@ -7,7 +7,7 @@
 Pre-built views provide direct access to every admin level in the PSGC database. Each view is iterable, supports containment checks, and exposes search, lookup, and export methods.
 
 ```python
-from barangay import regions, provinces, municipalities, cities, submunicipalities, barangays, special_geographic_areas
+from barangay import regions, provinces, municipalities, cities, hucs, iccs, component_cities, submunicipalities, barangays, special_geographic_areas
 
 print(regions)     # <PSGC region database: 18 records>
 print(provinces)   # <PSGC province database: 82 records>
@@ -21,7 +21,10 @@ print(barangays)   # <PSGC barangay database: 42010 records>
 | `regions` | Region |
 | `provinces` | Province |
 | `municipalities` | Municipality |
-| `cities` | City |
+| `cities` | City (aggregate) |
+| `hucs` | Highly Urbanized City |
+| `iccs` | Independent Component City |
+| `component_cities` | Component City |
 | `submunicipalities` | Submunicipality |
 | `barangays` | Barangay |
 | `special_geographic_areas` | Special Geographic Area |
@@ -65,14 +68,16 @@ for r in results:
 
 #### `.to_frame()` / `.to_dicts()`
 
-Export records to a pandas DataFrame or list of dicts. Each dict includes resolved hierarchy fields (`region`, `province`, `municipality`, `city`).
+Export records to a pandas DataFrame or list of dicts. Each dict includes resolved hierarchy fields (`region`, `province`, `highly_urbanized_city`, `independent_component_city`, `component_city`, `municipality`, `submunicipality`, `special_geographic_area`, `barangay`).
 
 ```python
 df = barangays.to_frame()
 print(df.columns.tolist())
 # ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
-#  'region', 'province', 'municipality', 'city']
-print(df.shape)  # (42010, 10)
+#  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
+#  'component_city', 'municipality', 'submunicipality',
+#  'special_geographic_area', 'barangay']
+print(df.shape)  # (42010, 16)
 
 data = barangays.to_dicts()
 print(len(data))  # 42010
@@ -101,7 +106,7 @@ Every record returned by the Database API is an `EnrichedRecord` with computed h
 | Property | Type | Description |
 |-----------|------|-------------|
 | `.name` | `str` | Name of the administrative division |
-| `.type` | `AdminLevel` | Admin level enum (`"region"`, `"province"`, `"city"`, `"municipality"`, `"barangay"`, etc.) |
+| `.type` | `AdminLevel` | Admin level enum (`"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"barangay"`, etc.) |
 | `.psgc_id` | `str` | PSGC identifier |
 | `.parent_psgc_id` | `str` | Parent PSGC identifier |
 
@@ -112,7 +117,12 @@ Every record returned by the Database API is an `EnrichedRecord` with computed h
 | `.region` | `str \| None` | Name of the containing region |
 | `.province` | `str \| None` | Name of the containing province |
 | `.municipality` | `str \| None` | Name of the containing municipality |
-| `.city` | `str \| None` | Name of the containing city |
+| `.highly_urbanized_city` | `str \| None` | Name of the containing highly urbanized city |
+| `.independent_component_city` | `str \| None` | Name of the containing independent component city |
+| `.component_city` | `str \| None` | Name of the containing component city |
+| `.submunicipality` | `str \| None` | Name of the containing sub-municipality |
+| `.special_geographic_area` | `str \| None` | Name of the containing special geographic area |
+| `.barangay` | `str \| None` | Name of the containing barangay |
 | `.parent` | `EnrichedRecord \| None` | Direct parent record |
 | `.children` | `list[EnrichedRecord]` | Direct child records |
 | `.ancestors` | `list[EnrichedRecord]` | All ancestors from parent to root |
@@ -142,7 +152,10 @@ d = brgy.to_dict()
 # {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010',
 #  'parent_psgc_id': '1907005000', 'nicknames': None, 'extensions': [],
 #  'region': 'Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)',
-#  'province': 'Tawi-Tawi', 'municipality': 'Sitangkai', 'city': None}
+#  'province': 'Tawi-Tawi', 'municipality': 'Sitangkai',
+#  'highly_urbanized_city': None, 'independent_component_city': None,
+#  'component_city': None, 'submunicipality': None,
+#  'special_geographic_area': None, 'barangay': 'Tongmageng'}
 ```
 
 ### `search_fuzzy()`
@@ -163,6 +176,7 @@ for r in results:
 |-----------|------|---------|-------------|
 | `query` | `str` | — | Search string |
 | `level` | `AdminLevel \| None` | `None` | Filter to a specific admin level |
+| `match_hooks` | `list[MatchHook] \| None` | `None` | Scoring levels: any of `"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"submunicipality"`, `"special_geographic_area"`, `"barangay"`. Defaults to `["barangay"]` only. The most granular hook determines the record set searched. |
 | `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
 | `limit` | `int` | `5` | Maximum number of results |
 | `as_of` | `str \| None` | `None` | Historical date (YYYY-MM-DD) |
@@ -241,7 +255,7 @@ brgy = barangay.barangays.lookup("1907005010")
 barangay.use_version(None)  # back to latest
 
 # Enable plugins
-barangay.use_plugins(["population"], levels=[barangay.AdminLevel.CITY])
+barangay.use_plugins(["population"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
 ```
 
 **`use_version()`** invalidates the cache and triggers a reload on next access.
@@ -260,7 +274,7 @@ print(db.barangays)  # <PSGC barangay database: 42010 records>
 print(db.all_records)  # <PSGC all database: 43363 records>
 ```
 
-**Properties:** `.regions`, `.provinces`, `.municipalities`, `.cities`, `.submunicipalities`, `.barangays`, `.special_geographic_areas`, `.all_records`
+**Properties:** `.regions`, `.provinces`, `.municipalities`, `.cities`, `.hucs`, `.iccs`, `.component_cities`, `.submunicipalities`, `.barangays`, `.special_geographic_areas`, `.all_records`
 
 **Methods:** `.use_plugins()`, `.available_plugins()`, `.active_plugins()`
 
@@ -274,7 +288,7 @@ from barangay import AdminLevel
 print(AdminLevel.REGION)     # AdminLevel.REGION
 print(AdminLevel.REGION.value)  # 'region'
 
-# All values: country, region, province, city, municipality, submunicipality, barangay, special_geographic_area
+# All values: country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, submunicipality, barangay, special_geographic_area
 ```
 
 ### `RecordNotFoundError`
@@ -329,7 +343,7 @@ results = search("Tongmageng, Tawi-Tawi")
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `search_string` | `str` | - | The string to search for |
-| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["province", "municipality", "barangay"]` | Administrative levels to match against. Valid options: `"province"`, `"municipality"`, `"barangay"` |
+| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["barangay"]` | Administrative levels to match against. Valid options: `"province"`, `"municipality"`, `"barangay"` (requires `"barangay"` to always be present) |
 | `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
 | `n` | `int` | `5` | Maximum number of results |
 | `search_sanitizer` | `Callable` | - | Function to sanitize search string |
@@ -416,7 +430,7 @@ for region in country.components:
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | - | Name of the administrative division |
-| `type` | `str` | - | Type of division (country, region, province, city, municipality, barangay, special_geographic_area, submunicipality) |
+| `type` | `str` | - | Type of division (country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, barangay, special_geographic_area, submunicipality) |
 | `psgc_id` | `str` | - | PSGC identifier or "n/a" |
 | `parent_psgc_id` | `str` | - | Parent PSGC identifier or "n/a" |
 | `nicknames` | `Optional[List[str]]` | - | Optional list of alternative names |
@@ -446,7 +460,7 @@ if brgy:
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | - | Name of the administrative division |
-| `type` | `str` | - | Type of division (country, region, province, city, municipality, barangay, special_geographic_area, submunicipality) |
+| `type` | `str` | - | Type of division (country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, barangay, special_geographic_area, submunicipality) |
 | `psgc_id` | `str` | - | PSGC identifier or "n/a" |
 | `parent_psgc_id` | `str` | - | Parent PSGC identifier or "n/a" |
 | `nicknames` | `Optional[List[str]]` | - | Optional list of alternative names |
@@ -510,7 +524,7 @@ data = dm.get_data(as_of="2025-07-08", data_type="flat")
 **Returns:** Depending on `data_type`:
 
 - `"basic"`: dict
-- `"flat"`: dict
+- `"flat"`: list[dict]
 - `"extended"`: dict
 
 **Data Loading Priority:**
@@ -819,7 +833,7 @@ model_json = model.model_dump_json()
 Root model for administrative division mapping. Can be either a nested dict structure or a flat list of identifiers.
 
 ```python
-from barangay import AdminDiv, barangay
+from barangay.models import AdminDiv
 
 # Used by the barangay module-level attribute
 # Acts as a dict-like container
@@ -846,7 +860,7 @@ for region, municipalities in barangay.items():
 Extended model for administrative division data with complete hierarchical structure. Each division can have nested components.
 
 ```python
-from barangay import AdminDivExtended
+from barangay.models import AdminDivExtended
 
 # Example structure
 region = AdminDivExtended(
@@ -868,7 +882,7 @@ for component in region.components:
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | - | Name of the administrative division |
-| `type` | `Literal` | - | Type of division. Valid values: `"country"`, `"region"`, `"province"`, `"city"`, `"municipality"`, `"barangay"`, `"special_geographic_area"`, `"submunicipality"` |
+| `type` | `Literal` | - | Type of division. Valid values: `"country"`, `"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"barangay"`, `"special_geographic_area"`, `"submunicipality"` |
 | `psgc_id` | `str | Literal["n/a"]` | - | PSGC identifier |
 | `parent_psgc_id` | `str | Literal["n/a"]` | - | Parent PSGC identifier |
 | `nicknames` | `Optional[List[str]]` | - | List of alternative names |
@@ -881,7 +895,7 @@ for component in region.components:
 Flat model for administrative division data without nesting. Each record is self-contained with all necessary information.
 
 ```python
-from barangay import AdminDivFlat, barangay_flat
+from barangay.models import AdminDivFlat, barangay_flat
 
 # Find barangays by type
 barangays = [item for item in barangay_flat if item.type == "barangay"]

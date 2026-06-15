@@ -93,6 +93,24 @@ mkdocs serve                     # Local docs preview
 | `publish.yaml` | Tag push (`*.*.*.*`) | Build and publish to PyPI |
 | `docs.yaml` | Push to `docs/**` or `mkdocs.yml` | Build and deploy docs to GitHub Pages (deploy only from `main`) |
 
+## Hierarchy Level Indicator (`rphicmsgb`)
+
+A 9-character string pattern used to indicate which PSGC hierarchy levels are active/included in a query or match result. Each position corresponds to a level; replace the placeholder `0` with the level's letter when active.
+
+| Position | Letter | Level |
+|----------|--------|-------|
+| 1 | `r` | Region |
+| 2 | `p` | Province |
+| 3 | `h` | Highly urbanized city |
+| 4 | `i` | Independent component city |
+| 5 | `c` | Component city |
+| 6 | `m` | Municipality |
+| 7 | `s` | Sub-municipality |
+| 8 | `g` | Special geographic area / unit |
+| 9 | `b` | Barangay |
+
+Example: `r0h000s0b` means the result spans region, highly urbanized city, sub-municipality, and barangay levels.
+
 ## Notes / Gotchas
 
 - `parsers/` and `tests/` are excluded from `ty` type checking (`pyproject.toml` `[tool.ty.src]`)

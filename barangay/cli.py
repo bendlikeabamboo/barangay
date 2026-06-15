@@ -26,6 +26,29 @@ from barangay.plugin_loader import (
 console = Console()
 
 
+def _city_or_municipality(r: dict) -> str:
+    for key in (
+        "municipality",
+        "component_city",
+        "independent_component_city",
+        "highly_urbanized_city",
+        "submunicipality",
+        "special_geographic_area",
+    ):
+        if r.get(key):
+            return r[key]
+    return ""
+
+
+def _province_or_huc(r: dict) -> str:
+    if r.get("province"):
+        return r["province"]
+    for key in ("highly_urbanized_city", "independent_component_city"):
+        if r.get(key):
+            return r[key]
+    return ""
+
+
 @click.group()
 @click.version_option(version=current)
 def app():
@@ -101,12 +124,12 @@ def search_cmd(query, limit, threshold, as_of, output_format, plugins):
                 table.add_column(col, style="dim")
 
             for r in results:
-                max_score = max(v for k, v in r.items() if k.endswith("_score"))
+                max_score = r["max_score"]
                 values = [
                     r["barangay"],
-                    r["municipality_or_city"],
-                    r["province_or_huc"],
-                    r["psgc_id"],
+                    _city_or_municipality(r),
+                    _province_or_huc(r),
+                    str(int(r["psgc_id"])),
                     f"{max_score:.1f}",
                 ]
                 for col in plugin_columns:
@@ -494,12 +517,12 @@ def search_history(query, as_of, limit, threshold, output_format):
             table.add_column("Score", style="yellow")
 
             for r in results:
-                max_score = max(v for k, v in r.items() if k.endswith("_score"))
+                max_score = r["max_score"]
                 table.add_row(
                     r["barangay"],
-                    r["municipality_or_city"],
-                    r["province_or_huc"],
-                    r["psgc_id"],
+                    _city_or_municipality(r),
+                    _province_or_huc(r),
+                    str(int(r["psgc_id"])),
                     f"{max_score:.1f}",
                 )
             console.print(table)

@@ -103,7 +103,7 @@ Each record includes plugin fields directly:
 ```json
 {
   "name": "City of Lapu-Lapu",
-  "type": "city",
+  "type": "highly_urbanized_city",
   "psgc_id": "0731100000",
   "parent_psgc_id": "0700000000",
   "nicknames": null,

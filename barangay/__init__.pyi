@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 from barangay.config import (
     get_cache_dir,
@@ -33,8 +33,7 @@ from barangay.utils import sanitize_input, to_python_identifier
 from barangay.validate import validate, validate_many
 from barangay.version import use_plugins, use_version
 
-if TYPE_CHECKING:
-    pass
+def __getattr__(name: str) -> Any: ...
 
 # Module-level attributes
 current: str
@@ -51,6 +50,9 @@ regions: DatabaseView
 provinces: DatabaseView
 municipalities: DatabaseView
 cities: DatabaseView
+hucs: DatabaseView
+iccs: DatabaseView
+component_cities: DatabaseView
 submunicipalities: DatabaseView
 barangays: DatabaseView
 special_geographic_areas: DatabaseView
@@ -88,6 +90,9 @@ __all__ = [
     "provinces",
     "municipalities",
     "cities",
+    "hucs",
+    "iccs",
+    "component_cities",
     "submunicipalities",
     "barangays",
     "special_geographic_areas",
