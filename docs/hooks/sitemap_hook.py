@@ -26,6 +26,28 @@ def on_post_build(config, **kwargs):
         priority = ET.SubElement(url, "priority")
         priority.text = "1.0" if page_url == "index.md" else "0.8"
 
+    # Include any built HTML pages not represented in nav (generated LGU pages,
+    # blog posts, etc.) by globbing the site directory.
+    seen_locs: set[str] = {
+        loc.text
+        for url in urlset.findall("url")
+        if (loc := url.find("loc")) is not None and loc.text
+    }
+    for html_file in sorted(output_dir.rglob("*.html")):
+        rel = html_file.relative_to(output_dir).as_posix()
+        if rel == "index.html":
+            continue
+        loc_text = (
+            f"{site_url}/{rel[:-5]}/" if rel.endswith(".html") else f"{site_url}/{rel}"
+        )
+        if loc_text in seen_locs:
+            continue
+        seen_locs.add(loc_text)
+        url = ET.SubElement(urlset, "url")
+        loc = ET.SubElement(url, "loc")
+        loc.text = loc_text
+        ET.SubElement(url, "priority").text = "0.6"
+
     tree = ET.ElementTree(urlset)
     ET.indent(tree, space="  ")
     tree.write(output_dir / "sitemap.xml", xml_declaration=True, encoding="utf-8")

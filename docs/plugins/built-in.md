@@ -1,3 +1,10 @@
+---
+title: "Built-in Plugins — barangay"
+description: "Reference for bundled barangay plugins: psgc-aux-data (population, income class, old names, city class) and sample plugins demonstrating CSV, JSON, and time-aware data formats."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Built-in Plugins
 
 ## psgc-aux-data (enabled by default)

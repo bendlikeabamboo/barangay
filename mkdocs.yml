@@ -27,13 +27,14 @@ extra:
     - property: og:url
       content: "https://bendlikeabamboo.github.io/barangay/"
     - property: og:image
-      content: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+      content: "https://bendlikeabamboo.github.io/barangay/og-card.png"
 
 nav:
   - barangay: index.md
   - API Reference: api.md
   - CLI Reference: cli.md
   - Configuration: configuration.md
+  - Comparisons: comparisons.md
   - Data Model Reference:
       - Overview: data_models/overview.md
       - Python: data_models/python.md
@@ -48,6 +49,12 @@ nav:
       - Configuration: plugins/configuration.md
       - Creating a Plugin: plugins/creating.md
       - Built-in Plugins: plugins/built-in.md
+  - Locations: lgus/index.md
+  - Blog:
+      - Validate Philippine Addresses: blog/validate-philippine-addresses.md
+      - Fuzzy Search 42k Barangays: blog/fuzzy-search-barangays.md
+      - PSGC Data Models Explained: blog/psgc-data-models.md
+      - Address Autocomplete with barangay: blog/address-autocomplete.md
   - Contributing:
       - Overview: contributing/index.md
       - Data Update: contributing/data_update.md

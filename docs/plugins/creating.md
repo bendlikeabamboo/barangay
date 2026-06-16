@@ -1,3 +1,10 @@
+---
+title: "Creating a Plugin — barangay"
+description: "Step-by-step guide to creating a custom barangay plugin: directory layout, manifest.yaml, CSV/JSON/Parquet data formats, time-aware versions, and remote repositories."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Creating a Plugin
 
 ## Step 1: Create the Plugin Directory

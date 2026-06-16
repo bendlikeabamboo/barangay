@@ -1,3 +1,10 @@
+---
+title: "Getting Started with the Database API — barangay"
+description: "Tutorial: browse, look up, traverse hierarchy, fuzzy search, validate, and export Philippine PSGC data (42,011 barangays) using the typed barangay Database API."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Getting Started with the Database API
 
 A quick walkthrough of the `barangay` Database API for browsing, searching, validating, and exporting Philippine geographic data.

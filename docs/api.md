@@ -1,3 +1,10 @@
+---
+title: "API Reference — barangay"
+description: "Complete Python API reference for the barangay PSGC package: Database views, lookup, hierarchy traversal, fuzzy search, validation, export, version switching, and plugins."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # API Reference
 
 ## Database API

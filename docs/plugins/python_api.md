@@ -1,3 +1,10 @@
+---
+title: "Plugin Python API — barangay"
+description: "Programmatic plugin API: PluginLoader, use_plugins(), enable_plugin(), and low-level functions for enriching PSGC records with custom data extensions."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Python API
 
 The plugin system exposes both a high-level `PluginLoader` class and low-level functions for programmatic use.

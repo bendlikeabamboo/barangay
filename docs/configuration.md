@@ -1,3 +1,10 @@
+---
+title: "Configuration — barangay"
+description: "Configure the barangay PSGC package via environment variables: cache directory, data versions, plugins, and verbose logging options."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Configuration
 
 ## Environment Variables

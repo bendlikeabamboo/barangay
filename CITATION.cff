@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software or the bundled PSGC dataset, please cite it as below."
+title: "barangay: Offline Python package for the Philippine Standard Geographic Code (PSGC)"
+authors:
+  - family-names: "balmeo"
+    given-names: "bendlikeabamboo"
+type: software
+version: "2026.4.13.4"
+date-released: "2026-04-13"
+license: MIT
+repository-code: "https://github.com/bendlikeabamboo/barangay"
+url: "https://bendlikeabamboo.github.io/barangay/"
+abstract: >-
+  barangay provides offline, in-process access to the Philippine Standard
+  Geographic Code (PSGC): all 42,011 barangays, 1,488 municipalities, 146
+  cities, 82 provinces, and 17 regions, with fuzzy search, address validation,
+  hierarchy traversal, pandas export, and historical PSGC snapshots. Based on
+  the official PSA PSGC masterlist.
+keywords:
+  - Philippines
+  - PSGC
+  - barangay
+  - geocoding
+  - fuzzy search
+  - address validation
+  - open data
+preferred-citation:
+  type: software
+  title: "barangay: Offline Python package for the Philippine Standard Geographic Code (PSGC)"
+  authors:
+    - family-names: "balmeo"
+      given-names: "bendlikeabamboo"
+  version: "2026.4.13.4"
+  date-released: "2026-04-13"
+  license: MIT
+  repository-code: "https://github.com/bendlikeabamboo/barangay"
+  url: "https://bendlikeabamboo.github.io/barangay/"

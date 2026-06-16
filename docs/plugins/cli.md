@@ -1,3 +1,10 @@
+---
+title: "Plugin CLI Reference — barangay"
+description: "Use plugins from the barangay command line: the --plugin flag enriches search and export output with supplementary PSGC data fields."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # CLI Reference
 
 Plugins integrate directly into the `barangay search` and `barangay export` CLI commands via the `--plugin` flag.

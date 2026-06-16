@@ -1,3 +1,10 @@
+---
+title: "Plugin Configuration — barangay"
+description: "Configure barangay plugins: plugin discovery, plugins.yaml, enabling built-in and remote plugins, and resolving plugin source directories."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Configuration
 
 ## Plugin Discovery

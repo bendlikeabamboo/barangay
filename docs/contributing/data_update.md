@@ -1,3 +1,10 @@
+---
+title: "Updating PSGC Data — barangay"
+description: "Guide to updating the barangay package with the latest Philippine Standard Geographic Code (PSGC) masterlist: parsing, historical snapshots, and releasing a new data version."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Updating Data
 
 Want to help keep `barangay` up to date with the latest PSGC masterlist? This guide walks you through the entire data update process from start to finish.
