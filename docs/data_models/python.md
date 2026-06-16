@@ -1,3 +1,10 @@
+---
+title: "Python Data Models (Legacy) — barangay"
+description: "Reference for the deprecated dict-based PSGC data models (BARANGAY, BARANGAY_EXTENDED, BARANGAY_FLAT). Migrate to the typed Database API before removal in 2027."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Python Data Models
 
 !!! warning "Deprecated"

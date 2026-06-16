@@ -1,7 +1,7 @@
 [project]
 name = "barangay"
 version = "2026.4.13.4"
-description = "Philippines Standard Geographic Code (PSGC) 2026 Python package, Fuzzy Search, JSON, and YAML."
+description = "Offline PSGC (Philippine Standard Geographic Code) Python package with fuzzy search and address validation over all 42,011 barangays."
 authors = [{ name = "bendlikeabamboo", email = "mbalmeo32@gmail.com" }]
 requires-python = ">=3.13"
 readme = "README.md"
@@ -22,12 +22,25 @@ keywords = [
     "geographic-data",
     "philippine-data",
     "address-matching",
+    "open-data",
+    "phl",
+    "geocoding",
+    "data-science",
+    "local-government",
 ]
 classifiers = [
+    "Development Status :: 5 - Production/Stable",
     "Topic :: Scientific/Engineering :: GIS",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
     "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Indexing",
+    "Framework :: Pydantic",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: MIT License",
 ]
@@ -57,6 +70,9 @@ homepage = "https://github.com/bendlikeabamboo/barangay"
 repository = "https://github.com/bendlikeabamboo/barangay"
 documentation = "https://bendlikeabamboo.github.io/barangay/"
 "Bug Tracker" = "https://github.com/bendlikeabamboo/barangay/issues"
+Changelog = "https://github.com/bendlikeabamboo/barangay/releases"
+Discussions = "https://github.com/bendlikeabamboo/barangay/discussions"
+"PSGC Source" = "https://psa.gov.ph/classification/psgc/"
 
 [project.scripts]
 barangay = "barangay.cli:app"
@@ -99,3 +115,5 @@ exclude = [
 
 [tool.poe.tasks]
 barpar = "python parsers/psgc/cli.py"
+gen-lgus = "python docs/hooks/generate_lgu_pages.py"
+gen-llms = "python docs/hooks/generate_llms.py"

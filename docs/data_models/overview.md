@@ -1,3 +1,10 @@
+---
+title: "Data Models — barangay"
+description: "Overview of the three barangay PSGC data models: nested (basic), flat (list), and extended (recursive tree). Choose the right model for your use case."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Data Models
 
 The barangay package provides three distinct data model formats, each optimized for specific use cases.

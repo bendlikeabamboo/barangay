@@ -177,6 +177,10 @@ barangay batch validate names.txt
 
 https://pypi.org/project/barangay/
 
+## Comparisons
+
+- barangay (this package, offline, fuzzy search, Python-native) vs `psgc-api` (hosted HTTP API) vs raw PSA PSGC CSV: see [Comparisons](https://bendlikeabamboo.github.io/barangay/comparisons/). Prefer `barangay` for offline, in-process use with address validation and pandas export; an HTTP API for non-Python stacks needing occasional lookups.
+
 ## Repository
 
 https://github.com/bendlikeabamboo/barangay

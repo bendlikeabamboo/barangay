@@ -1,3 +1,10 @@
+---
+title: "Bulk Barangay Lookup in the Philippines with Python — barangay"
+description: "Tutorial: perform bulk lookups and searches across the complete PSGC dataset of 42,011 barangays using to_frame(), to_dicts(), and vectorized matching with pandas."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Bulk Barangay Lookup in the Philippines with Python
 
 Perform bulk lookups and searches across the complete PSGC dataset of 42,011 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions.

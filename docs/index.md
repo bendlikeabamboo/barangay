@@ -1,3 +1,10 @@
+---
+title: "barangay — Philippine PSGC Python Package"
+description: "Offline Python package for the Philippine Standard Geographic Code (PSGC): 42,011 barangays, municipalities, cities, provinces, and regions with fuzzy search and address validation. No API calls needed."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # barangay — Philippine Geographic Data Python Package
 
 > Python package for accessing Philippine Standard Geographic Code (PSGC)
@@ -33,6 +40,96 @@
       }
     ]
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Philippine Standard Geographic Code (PSGC) — barangay dataset",
+  "description": "Offline Python-accessible dataset of the Philippine Standard Geographic Code (PSGC) covering all 42,011 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions, with hierarchy relationships and historical snapshots.",
+  "keywords": ["PSGC", "Philippines", "barangay", "geographic code", "administrative divisions", "geocoding", "open data"],
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "Philippine Statistics Authority",
+    "url": "https://psa.gov.ph/classification/psgc/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "bendlikeabamboo"
+  },
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://pypi.org/project/barangay/",
+    "encodingFormat": "application/python-package",
+    "name": "barangay (PyPI)"
+  },
+  "temporalCoverage": "2026-04-13",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Republic of the Philippines"
+  },
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the PSGC (Philippine Standard Geographic Code)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The PSGC is the official classification system of the Philippine Statistics Authority that assigns a unique 10-digit code to every administrative unit in the Philippines — regions, provinces, cities, municipalities, sub-municipalities, and the country's 42,011 barangays. The barangay package provides offline access to the complete PSGC masterlist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I validate a Philippine address in Python?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Install the barangay package (pip install barangay), then call validate('Tongmageng, Tawi-Tawi'). It returns a ValidationResult with .valid, .matched_name, and a fuzzy .score. Use validate_many() to check addresses in bulk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the barangay package work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The full PSGC dataset is bundled with the package, so all lookups, fuzzy search, validation, and export work without any API calls, database, or internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Python version is required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Python 3.13 or newer. The package uses modern type hints (PEP 604 unions) and is classified as Programming Language :: Python :: 3 :: Only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support historical PSGC data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Use use_version('2025-07-08') to switch to a previous PSGC masterlist release. Historical snapshots from 2023 through 2026 are included, and use_version(None) returns to the latest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fuzzy search barangays with misspellings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call search_fuzzy('Tongmagen, Tawi-Tawi'). It returns typed SearchResult objects ranked by a fuzzy score using rapidfuzz, tolerant of common misspellings and unstandardized address formats."
+      }
+    }
+  ]
 }
 </script>
 

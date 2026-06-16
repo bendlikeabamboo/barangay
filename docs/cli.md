@@ -1,3 +1,10 @@
+---
+title: "CLI Reference — barangay"
+description: "Command-line reference for the barangay PSGC tool: search, export, validate, batch operations, plugin enrichment, and info subcommands with examples."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # CLI Reference
 
 ## Search

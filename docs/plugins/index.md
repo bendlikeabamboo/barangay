@@ -1,3 +1,10 @@
+---
+title: "Plugins — barangay"
+description: "Extend barangay PSGC records with supplementary data (population, income classification, old names) via the plugin system. Plugins join onto flat records keyed by psgc_id."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Plugins
 
 Plugins extend `barangay` by enriching PSGC records with supplementary data. Each plugin is a data package keyed by `psgc_id` that is joined onto the flat data model — adding fields like population, income classification, old names, and more.

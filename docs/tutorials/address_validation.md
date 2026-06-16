@@ -1,3 +1,10 @@
+---
+title: "Address Validation in the Philippines with Python — barangay"
+description: "Tutorial: validate Philippine addresses against the official PSGC masterlist. Fuzzy matching handles misspellings, abbreviations, and unstandardized formats with validate() and validate_many()."
+image: "https://bendlikeabamboo.github.io/barangay/favicon.png"
+author: "bendlikeabamboo"
+---
+
 # Address Validation in the Philippines with Python
 
 Validate Philippine addresses against the official PSGC masterlist using the `barangay` package. Fuzzy matching handles common misspellings, abbreviations, and unstandardized address formats.
