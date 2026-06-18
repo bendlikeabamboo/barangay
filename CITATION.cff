@@ -2,11 +2,11 @@ cff-version: 1.2.0
 message: "If you use this software or the bundled PSGC dataset, please cite it as below."
 title: "barangay: Offline Python package for the Philippine Standard Geographic Code (PSGC)"
 authors:
-  - family-names: "balmeo"
-    given-names: "bendlikeabamboo"
+  - family-names: "Balmeo"
+    given-names: "Manuel"
 type: software
 version: "2026.4.13.4"
-date-released: "2026-04-13"
+date-released: "2026-06-16"
 license: MIT
 repository-code: "https://github.com/bendlikeabamboo/barangay"
 url: "https://bendlikeabamboo.github.io/barangay/"
@@ -28,10 +28,10 @@ preferred-citation:
   type: software
   title: "barangay: Offline Python package for the Philippine Standard Geographic Code (PSGC)"
   authors:
-    - family-names: "balmeo"
-      given-names: "bendlikeabamboo"
+    - family-names: "Balmeo"
+      given-names: "Manuel"
   version: "2026.4.13.4"
-  date-released: "2026-04-13"
+  date-released: "2026-06-16"
   license: MIT
   repository-code: "https://github.com/bendlikeabamboo/barangay"
   url: "https://bendlikeabamboo.github.io/barangay/"
