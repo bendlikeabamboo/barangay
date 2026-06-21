@@ -1,0 +1,70 @@
+---
+title: "Export to CSV / pandas"
+description: "Recipe: export PSGC records to a pandas DataFrame, list of dicts, or CSV/JSON via to_frame(), to_dicts(), and the CLI export command."
+author: "bendlikeabamboo"
+---
+
+How to export PSGC records to pandas, dicts, or a file.
+
+::: {.panel-tabset}
+## Python
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()         # pandas DataFrame
+data = barangays.to_dicts()       # list[dict]
+df.to_csv("barangays.csv", index=False)
+```
+
+## CLI
+
+```sh
+barangay export --model flat --format csv --output barangays.csv
+```
+:::
+
+## Models
+
+The CLI `export` command and the Python views both expose the same three shapes; they differ in how much of the hierarchy is resolved.
+
+| Model | Shape | Equivalent in Python |
+|-------|-------|----------------------|
+| `basic` | 6 base fields only (`name`, `type`, `psgc_id`, `parent_psgc_id`, `nicknames`, `extensions`) | `[r.to_dict() for r in barangays]` (base keys) |
+| `extended` | base fields plus resolved-hierarchy fields per record | `EnrichedRecord` objects via the level views |
+| `flat` | one row per record with all hierarchy levels flattened to columns | `barangays.to_frame()` / `barangays.to_dicts()` |
+
+### The 15-column flat layout
+
+`to_frame()` (and `to_dicts()`) on a **level view** — e.g. `db.barangays.to_frame()`, not `db.to_frame()` — returns the flat model: 6 base fields + 9 resolved-hierarchy columns, one row per record:
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()
+print(df.columns.tolist())
+# ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
+#  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
+#  'component_city', 'municipality', 'submunicipality', 'special_geographic_area',
+#  'barangay']
+print(len(df))   # 42010
+```
+
+Each of the 9 hierarchy columns holds the **name** of that ancestor, or `None` when the record isn't nested under one (e.g. a Tawi-Tawi barangay has `highly_urbanized_city = None`).
+
+### Writing out
+
+```python
+df.to_csv("barangays_flat.csv", index=False)        # CSV
+df.to_parquet("barangays_flat.parquet")             # Parquet (compact, typed)
+```
+
+::: {.callout-note title="CLI `--model` vs Python views"}
+The CLI `--model` flag (`basic`/`extended`/`flat`) maps to the data shapes above. In Python, prefer the Database views: `barangays.to_frame()` / `barangays.to_dicts()` produce the flat 15-column layout. See the [Database reference](../reference/python-api/database.qmd).
+:::
+
+## See also
+
+- [Data models reference](../reference/python-api/data-models.qmd)
+- [Data models explained](../concepts/data-models-explained.qmd)
+- [CLI reference](../reference/cli.qmd)

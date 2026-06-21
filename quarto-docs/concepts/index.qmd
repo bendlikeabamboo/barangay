@@ -1,0 +1,23 @@
+---
+title: "Concepts"
+description: "Foundations of the Philippine Standard Geographic Code (PSGC): what it is, the administrative hierarchy, the rphicmsgb hierarchy indicator, data models, and package architecture."
+author: "bendlikeabamboo"
+---
+
+Explanations that deepen your understanding of the data and how the package works. Read these when you want the "why", not just the "how".
+
+## Foundations
+
+- [PSGC overview](psgc-overview.qmd) — what the PSGC is, the PSA source, the 10-digit code.
+- [Administrative hierarchy](administrative-hierarchy.qmd) — region → barangay, HUC / ICC / component city distinctions.
+- [Hierarchy indicator (`rphicmsgb`)](hierarchy-indicator.qmd) — the 9-char level indicator explained.
+
+## Data & internals
+
+- [Data models explained](data-models-explained.qmd) — the three JSON shapes (nested / extended / flat) compared.
+- [Architecture](architecture.qmd) — how the package works (DataManager, cache, plugin join).
+
+## See also
+
+- [Reference](../reference/index.qmd) — exact API and field details
+- [How-To](../how-to/index.qmd) — task recipes

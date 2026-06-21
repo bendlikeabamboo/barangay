@@ -1,0 +1,173 @@
+---
+title: "First Lookup"
+description: "A 5-minute end-to-end tour of the barangay package: browse views, look up records, traverse hierarchy, fuzzy search, validate addresses, export to pandas, and switch historical versions (Python + CLI)."
+author: "bendlikeabamboo"
+---
+
+A 5-minute end-to-end tour of what `barangay` can do. Assumes you have already [installed](installation.qmd) the package.
+
+## Browse admin levels
+
+Pre-built views give direct access to every PSGC administrative level.
+
+::: {.panel-tabset}
+## Python
+
+```python
+from barangay import regions, provinces, municipalities, cities, barangays
+
+print(regions)     # <PSGC region database: 18 records>
+print(provinces)   # <PSGC province database: 82 records>
+print(barangays)   # <PSGC barangay database: 42010 records>
+```
+
+## CLI
+
+```sh
+barangay info stats
+```
+
+| Model | Barangay Count |
+|-------|----------------|
+| Basic (nested) | 42010 |
+| Flat (list) | 42010 |
+| Extended (recursive) | 42010 |
+:::
+
+## Look up a record
+
+::: {.panel-tabset}
+## Python
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)    # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)  # Tawi-Tawi
+print(brgy.psgc_id)   # 1907005010
+```
+
+## CLI
+
+```sh
+barangay lookup 1907005010
+```
+:::
+
+## Pandas export
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()
+print(df.columns.tolist())
+# ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
+#  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
+#  'component_city', 'municipality', 'submunicipality',
+#  'special_geographic_area', 'barangay']
+print(df.shape)  # (42010, 15)
+```
+
+::: {.panel-tabset}
+## CLI
+
+```sh
+barangay export --model flat --format json --output data.json
+```
+:::
+
+## Hierarchy traversal
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.parent)     # <municipality: Sitangkai (1907005000)>
+print(brgy.ancestors)  # [municipality, province, region]
+
+manila = cities.get(name="City of Manila")
+for child in manila.children[:3]:
+    print(child)  # <submunicipality: Tondo I/II ...>, <submunicipality: Binondo ...>, ...
+```
+
+## Address validation
+
+::: {.panel-tabset}
+## Python
+
+```python
+from barangay import validate, validate_many
+
+v = validate("Tongmageng, Tawi-Tawi")
+print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
+
+results = validate_many(["Tongmageng, Tawi-Tawi", "Nonexistent Place"])
+for r in results:
+    print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
+```
+
+## CLI
+
+```sh
+barangay batch validate addresses.txt
+```
+:::
+
+## Fuzzy search
+
+::: {.panel-tabset}
+## Python
+
+```python
+from barangay import search_fuzzy
+
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+## CLI
+
+```sh
+barangay search "Tongmageng, Tawi-Tawi"
+```
+
+Output:
+
+| Barangay | Municipality/City | Province/HUC | PSGC ID | Score |
+|----------|-------------------|--------------|---------|-------|
+| Tongmageng | Sitangkai | Tawi-Tawi | 1907005010 | 100.0 |
+| Tonggosong | Simunul | Tawi-Tawi | 1907004005 | 84.2 |
+| Tongbangkaw | Tandubas | Tawi-Tawi | 1907007042 | 82.1 |
+| Tongusong | Sitangkai | Tawi-Tawi | 1907005012 | 81.1 |
+| Tongehat | Sibutu | Tawi-Tawi | 1907011014 | 77.8 |
+:::
+
+## Version
+
+::: {.panel-tabset}
+## Python
+
+```python
+import barangay
+
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+```
+
+## CLI
+
+```sh
+barangay info version
+```
+
+Output:
+
+```txt
+Current version: 2026-04-13
+Available dates: 2023-01-25, 2023-04-18, 2023-08-15, 2023-10-24, 2024-01-23, 2024-04-23, 2024-05-08, 2024-07-12, 2024-10-18, 2025-01-30, 2025-04-23, 2025-07-08, 2025-08-29, 2025-10-13, 2026-01-13, 2026-04-13
+```
+:::
+
+## Next steps
+
+- [Learn](../learn/index.qmd) — guided tutorials
+- [How-To](../how-to/index.qmd) — task recipes
+- [Reference](../reference/index.qmd) — API, CLI, data dictionary

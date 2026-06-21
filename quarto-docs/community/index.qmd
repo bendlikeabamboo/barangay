@@ -1,0 +1,19 @@
+---
+title: "Community"
+description: "Contribute to the barangay PSGC package: data updates, local development, code style, and the release process."
+author: "bendlikeabamboo"
+---
+
+Thank you for your interest in contributing to `barangay`! These guides cover how to update the data, set up a local dev environment, follow the code style, and cut a release.
+
+## Guides
+
+- **[Data Update Guide](data-update.qmd)** — step-by-step instructions for updating the package with the latest PSGC masterlist.
+- **[Development](development.qmd)** — local setup, `uv sync`, `ruff` / `ty` / `pytest`, pre-commit.
+- **[Code Style](code-style.qmd)** — conventions and an `AGENTS.md` summary.
+- **[Release Process](release-process.qmd)** — calver, tagging, and the PyPI publish workflow.
+
+## See also
+
+- [Plugins — creating a plugin](../plugins/creating.qmd)
+- [Troubleshooting](../troubleshooting.qmd)

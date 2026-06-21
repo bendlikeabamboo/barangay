@@ -1,0 +1,13 @@
+---
+title: "Blog"
+description: "Articles on Philippine geographic data, PSGC, fuzzy search, address validation, and using the barangay Python package."
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+---

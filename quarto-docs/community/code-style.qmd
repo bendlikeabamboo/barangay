@@ -1,0 +1,46 @@
+---
+title: "Code Style"
+description: "Code conventions for the barangay package: ruff formatting, type hints, testing, and an AGENTS.md summary."
+author: "bendlikeabamboo"
+---
+
+`barangay` keeps its style rules minimal and machine-enforced — `ruff` handles formatting and linting, `ty` handles types, and pre-commit runs both before every commit. This page is a quick reference to the conventions summarized in `AGENTS.md`.
+
+## Formatting and linting
+
+- **`ruff` default formatting** — there is no custom config; whatever `uv run ruff format` produces is canonical.
+- **Lint with `uv run ruff check --fix --exit-non-zero-on-fix --ignore E741`** — `E741` (ambiguous variable name like `l`) is the only standing ignore, to keep the `0`/`1` placeholders used by the `rphicmsgb` convention readable.
+- **Follow existing import ordering** in neighboring files; do not introduce a new ordering style.
+
+## Type hints
+
+- **Type hints are required** on all public code in `barangay/`.
+- **`ty` is the type checker** (`uv run ty check`) — **not** mypy. There is no mypy config in this project.
+- **`parsers/` and `tests/` are excluded** from `ty` (`pyproject.toml` `[tool.ty.src]`), so exploratory parsing scripts and tests don't need to be fully typed.
+- **Python 3.13+ syntax is allowed and preferred** — use `X | Y` unions (`str | None`, not `Optional[str]`), and modern typing throughout.
+
+## Tests
+
+- **Location:** `tests/`, named `test_*.py`.
+- **Local dev:** `uv run pytest` (sequential).
+- **Pre-commit / CI:** `uv run pytest -n auto` (parallel via pytest-xdist).
+- **Coverage:** `uv run pytest --cov`.
+
+## Comments
+
+- **No comments unless explicitly requested.** The codebase deliberately stays comment-light; structure and naming carry intent, and narrative lives in the docs. If you feel a comment is necessary, prefer a docstring or a docs-page update.
+
+## Conventions worth knowing
+
+- **`rphicmsgb` indicator** — a 9-character documentation convention for which PSGC levels a record touches (`r`egion · `p`rovince · `h`UC · `i`CC · `c`omponent city · `m`unicipality · `s`ub-municipality · `g` SGA · `b`arangay). See [Hierarchy indicator](../concepts/hierarchy-indicator.qmd).
+- **Deprecated APIs stay importable but are not used in new code.** The dict-based `search()` / `BARANGAY` / `BARANGAY_FLAT` aliases and `create_fuzz_base` / `FuzzBase` are present for compatibility — new work uses [`search_fuzzy`](../reference/python-api/search.qmd) and the [`Database`](../reference/python-api/records.qmd) views.
+- **Data version comes from `barangay/data/CURRENT_VERSION`**, never hardcoded. Module-level attributes `barangay.current`, `barangay.as_of`, and `barangay.available_dates` expose it at runtime.
+
+## Full reference
+
+The canonical, always-current source for these conventions is [`AGENTS.md`](https://github.com/bendlikeabamboo/barangay/blob/main/AGENTS.md) at the repo root — repository structure, tech stack, commands, branching strategy, and gotchas. When this page and `AGENTS.md` disagree, `AGENTS.md` wins.
+
+## See also
+
+- [Development](development.qmd)
+- [Release process](release-process.qmd)

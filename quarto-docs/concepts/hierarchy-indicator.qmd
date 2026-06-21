@@ -1,0 +1,90 @@
+---
+title: "Hierarchy Indicator (`rphicmsgb`)"
+description: "The 9-character rphicmsgb indicator used to show which PSGC administrative levels are active in a query or match result."
+author: "bendlikeabamboo"
+---
+
+`rphicmsgb` is a compact 9-character convention for showing which PSGC administrative levels a record or query touches. It is a documentation/readability convention — not something the API returns directly — but it is the easiest way to summarize "what kind of place did this match resolve to" in a single glance.
+
+## Positions
+
+| Position | Letter | Level |
+|----------|--------|-------|
+| 1 | `r` | Region |
+| 2 | `p` | Province |
+| 3 | `h` | Highly urbanized city |
+| 4 | `i` | Independent component city |
+| 5 | `c` | Component city |
+| 6 | `m` | Municipality |
+| 7 | `s` | Sub-municipality |
+| 8 | `g` | Special geographic area / unit |
+| 9 | `b` | Barangay |
+
+## How to read a strip
+
+Scan left to right: positions holding their letter are **active**, positions holding `0` are inactive. The active letters are exactly the levels a record's resolved hierarchy touches — derived from which of the nine resolved-hierarchy fields (`region`, `province`, `highly_urbanized_city`, ... `barangay`) are non-`None` on that record. Drop the inactive positions and you get a quick label like `rp00m00b` ("region + province + municipality + barangay").
+
+## Worked examples
+
+Each strip below is built from the record's actual resolved-hierarchy fields — the level is active in the strip if and only if that field is set on the record.
+
+| Query / record | `rphicmsgb` | Active levels | Why |
+|----------------|-------------|---------------|-----|
+| **Tongmageng**, Tawi-Tawi (`1907005010`) | `rp00m00b` | region, province, municipality, barangay | Tongmageng is a barangay nested under Sitangkai (municipality) → Tawi-Tawi (province) → BARMM. |
+| **Barangay 291**, City of Manila (`1380602005`) | `r0h000s0b` | region, HUC, sub-municipality, barangay | Manila barangays sit under the City of Manila (HUC) → a district sub-municipality (Binondo). |
+| **Tawi-Tawi** province (`1907000000`) | `r0p000000` | region, province | A province record resolves only its region and province. |
+| **City of Manila** HUC (`1380600000`) | `r0h000000` | region, HUC | A highly urbanized city outside the province/municipality chain resolves region + HUC. |
+
+````{mermaid}
+flowchart LR
+  R["r<br/>Region ✓"]
+  P["0<br/>Province"]
+  H["h<br/>HUC ✓"]
+  I["0<br/>ICC"]
+  C["0<br/>Comp city"]
+  M["0<br/>Municipality"]
+  S["s<br/>Sub-muni ✓"]
+  G["0<br/>SGA"]
+  B["b<br/>Barangay ✓"]
+````
+
+::: {.callout-note title="Reading the strip"}
+`r0h000s0b` (Barangay 291, Manila) is exactly the levels a City-of-Manila barangay touches: region → HUC → sub-municipality → barangay. Province, ICC, component city, municipality, and SGA are all `0` because none of those are in the Manila barangay's resolved chain.
+:::
+
+### Deriving a strip yourself
+
+The strip is mechanical to produce from any record. For Tongmageng, the resolved fields set to non-`None` are `region`, `province`, `municipality`, and `barangay`, so those four positions keep their letters and the rest become `0`:
+
+```python
+#| eval: false
+from barangay import Database
+
+db = Database()
+rec = db.barangays.lookup("1907005010")   # Tongmageng
+print(rec.to_dict())
+# region                       = 'Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)'
+# province                     = 'Tawi-Tawi'
+# highly_urbanized_city        = None
+# independent_component_city   = None
+# component_city               = None
+# municipality                 = 'Sitangkai'
+# submunicipality              = None
+# special_geographic_area      = None
+# barangay                     = 'Tongmageng'
+# → active set {region, province, municipality, barangay} → rphicmsgb = rp00m00b
+```
+
+::: {.callout-important title="Not the same as match_type"}
+The indicator is **not** the `SearchResult.match_type` string returned by [`search_fuzzy`](../reference/python-api/search.qmd). `match_type` reports which *name-levels* participated in fuzzy scoring (e.g. `'municipality+barangay'`); `rphicmsgb` reports the full resolved hierarchy of the matched record. The two answer different questions.
+:::
+
+::: {.callout-note title="A known data artifact for Manila"}
+For Barangay 291 (`1380602005`), the record's `municipality` field is also populated (with `'Binondo'`) as a duplicate of the sub-municipality value — a known artifact of how Manila's districts are encoded. The canonical `rphicmsgb` reading for Manila barangays uses the HUC + sub-municipality path (`r0h000s0b`), reflecting how the PSGC actually nests these records.
+:::
+
+## See also
+
+- [Administrative hierarchy](administrative-hierarchy.qmd)
+- [Data dictionary](../reference/data-dictionary.qmd)
+- [PSGC overview](psgc-overview.qmd)

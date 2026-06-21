@@ -1,0 +1,70 @@
+---
+title: "Records (`EnrichedRecord`)"
+description: "Reference for EnrichedRecord: core fields, computed hierarchy properties, parent/children/ancestors, and to_dict serialization."
+author: "bendlikeabamboo"
+---
+
+Every record returned by the Database API is an `EnrichedRecord` with computed hierarchy properties. Use these when you need the resolved hierarchy names around a record, or to walk the tree.
+
+## Core Fields
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.name` | `str` | Name of the administrative division |
+| `.type` | `AdminLevel` | Admin level enum (`"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"barangay"`, etc.) |
+| `.psgc_id` | `str` | PSGC identifier |
+| `.parent_psgc_id` | `str` | Parent PSGC identifier |
+
+## Hierarchy Properties
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.region` | `str \| None` | Name of the containing region |
+| `.province` | `str \| None` | Name of the containing province |
+| `.municipality` | `str \| None` | Name of the containing municipality |
+| `.highly_urbanized_city` | `str \| None` | Name of the containing highly urbanized city |
+| `.independent_component_city` | `str \| None` | Name of the containing independent component city |
+| `.component_city` | `str \| None` | Name of the containing component city |
+| `.submunicipality` | `str \| None` | Name of the containing sub-municipality |
+| `.special_geographic_area` | `str \| None` | Name of the containing special geographic area |
+| `.barangay` | `str \| None` | Name of the containing barangay |
+| `.parent` | `EnrichedRecord \| None` | Direct parent record |
+| `.children` | `list[EnrichedRecord]` | Direct child records |
+| `.ancestors` | `list[EnrichedRecord]` | All ancestors from parent to root |
+
+## Example
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)      # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)    # Tawi-Tawi
+print(brgy.municipality)  # Sitangkai
+print(brgy.parent)      # <municipality: Sitangkai (1907005000)>
+
+for a in brgy.ancestors:
+    print(repr(a))
+# <municipality: Sitangkai (1907005000)>
+# <province: Tawi-Tawi (1907000000)>
+# <region: Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) (1900000000)>
+```
+
+## `.to_dict()`
+
+Serialize to a dict including resolved hierarchy fields:
+
+```python
+d = brgy.to_dict()
+# {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010',
+#  'parent_psgc_id': '1907005000', 'nicknames': None, 'extensions': [],
+#  'region': 'Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)',
+#  'province': 'Tawi-Tawi', 'municipality': 'Sitangkai',
+#  'highly_urbanized_city': None, 'independent_component_city': None,
+#  'component_city': None, 'submunicipality': None,
+#  'special_geographic_area': None, 'barangay': 'Tongmageng'}
+```
+
+## See also
+
+- [Database](database.qmd) — views that return `EnrichedRecord`
+- [Data models](data-models.qmd) — pydantic `AdminDiv` family
+- [Traverse the hierarchy how-to](../../how-to/traverse-hierarchy.qmd)

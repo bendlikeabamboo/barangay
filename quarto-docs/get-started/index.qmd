@@ -1,0 +1,29 @@
+---
+title: "Get Started"
+description: "Install the barangay PSGC package and run your first lookup in under five minutes — Python and CLI."
+author: "bendlikeabamboo"
+---
+
+New to `barangay`? This onboarding funnel takes you from install to your first working lookup in minutes.
+
+## Steps
+
+::: {layout-ncol="3"}
+### [1. Install ›](installation.qmd)
+
+Install with `pip` or `uv`, verify the install, and troubleshoot common setup issues.
+
+### [2. First Lookup ›](first-lookup.qmd)
+
+A 5-minute end-to-end tour (Python + CLI): browse, look up, traverse hierarchy, fuzzy search, validate, export, and switch versions.
+
+### [3. Next steps ›](../learn/index.qmd)
+
+Dive into the [tutorials](../learn/index.qmd), [task recipes](../how-to/index.qmd), and the [API reference](../reference/index.qmd).
+:::
+
+## See also
+
+- [Learn](../learn/index.qmd) — guided tutorials
+- [How-To](../how-to/index.qmd) — task recipes
+- [Reference](../reference/index.qmd) — API, CLI, and data dictionary

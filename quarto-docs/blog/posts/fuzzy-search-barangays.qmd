@@ -1,0 +1,68 @@
+---
+title: "Fuzzy Search Over 42,010 Philippine Barangays"
+description: "Fuzzy search the complete Philippine PSGC dataset of 42,010 barangays with the barangay package. Tolerant of misspellings, abbreviations, and unstandardized addresses using rapidfuzz."
+author: "bendlikeabamboo"
+date: "2025-11-17"
+---
+
+Exact matching fails the moment a user types "Tongmagen" instead of
+"Tongmageng", or omits the municipality. **Fuzzy search** over the full PSGC
+dataset fixes this. The `barangay` package ships fuzzy search built on
+[rapidfuzz](https://github.com/maxbachmann/RapidFuzz), running entirely offline.
+
+## Install
+
+```bash
+pip install barangay
+```
+
+## Basic fuzzy search
+
+```python
+from barangay import search_fuzzy
+
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(r.name, r.psgc_id, r.score, r.match_type)
+```
+
+Each result is a typed `SearchResult` with `name`, `psgc_id`, `score`
+(0–100), and `match_type`. Results are ranked by score.
+
+## How scoring works
+
+`search_fuzzy()` scores a query against several patterns — barangay only,
+province+barangay, municipality+barangay, and province+municipality+barangay —
+and reports the maximum score. Adding province or municipality context raises
+the score for the intended match.
+
+## Tune it
+
+```python
+search_fuzzy("San Jose", level=None, threshold=70.0, limit=10)
+```
+
+- `threshold` — minimum score to keep (default 60.0).
+- `limit` — max results (default 5).
+- `level` — restrict to a specific admin level.
+
+## From the command line
+
+```bash
+barangay search "Tongmageng, Tawi-Tawi"
+```
+
+The CLI prints a ranked table including the maximum score across all
+matching patterns.
+
+## Use cases
+
+- **Address autocomplete** — return the top-N barangays for a partial query.
+- **Data cleaning** — match messy spreadsheet entries to canonical PSGC names.
+- **Deduplication** — group near-duplicate addresses to a single PSGC code.
+
+Because everything is bundled and in-process, you can fuzzy-search the entire
+country instantly without rate limits.
+
+---
+
+See the [fuzzy search reference](../../reference/python-api/search.qmd) and [bulk lookup tutorial](../../learn/bulk-barangay-lookup.qmd).

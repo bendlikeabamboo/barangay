@@ -1,0 +1,21 @@
+---
+title: "Learn"
+description: "Guided learning path for the barangay PSGC package: Database API, address validation, and bulk lookup tutorials."
+author: "bendlikeabamboo"
+---
+
+Hands-on tutorials that teach the `barangay` package by example. Work through them in order if you are new to the library.
+
+## Learning path
+
+1. **[Database API](database-api.qmd)** — browse, look up, traverse hierarchy, fuzzy search, validate, and export. The foundation tutorial.
+2. **[Address Validation](address-validation.qmd)** — validate Philippine addresses against the PSGC masterlist with fuzzy matching.
+3. **[Bulk Barangay Lookup](bulk-barangay-lookup.qmd)** — batch processing and vectorized matching at scale.
+
+If you have not installed the package yet, start with [Get Started](../get-started/index.qmd).
+
+## See also
+
+- [How-To](../how-to/index.qmd) — task recipes for returning users
+- [Reference](../reference/index.qmd) — API, CLI, data dictionary
+- [Concepts](../concepts/index.qmd) — the ideas behind the data

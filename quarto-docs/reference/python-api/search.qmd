@@ -1,0 +1,45 @@
+---
+title: "Search (`search_fuzzy`)"
+description: "Reference for search_fuzzy(): typed fuzzy search returning SearchResult objects, with level, match_hooks, threshold, limit, and as_of parameters."
+author: "bendlikeabamboo"
+---
+
+Typed fuzzy search returning `SearchResult` objects with rich attributes. Use this for misspelling-tolerant lookups across the PSGC masterlist.
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("Tongmageng, Tawi-Tawi", threshold=60.0, limit=5)
+for r in results:
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+## Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `query` | `str` | — | Search string |
+| `level` | `AdminLevel \| None` | `None` | Filter to a specific admin level |
+| `match_hooks` | `list[MatchHook] \| None` | `None` | Scoring levels: any of `"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"submunicipality"`, `"special_geographic_area"`, `"barangay"`. Defaults to `["barangay"]` only. The most granular hook determines the record set searched. |
+| `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
+| `limit` | `int` | `5` | Maximum number of results |
+| `as_of` | `str \| None` | `None` | Historical date (YYYY-MM-DD) |
+
+**Returns:** `List[SearchResult]`
+
+## SearchResult properties
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.name` | `str` | Matched record name |
+| `.psgc_id` | `str` | Matched record PSGC ID |
+| `.score` | `float` | Similarity score (0-100) |
+| `.match_type` | `str` | Match pattern (e.g. `"province+municipality+barangay"`) |
+| `.record` | `AdminDivRecord` | Underlying record |
+| `.enriched` | `EnrichedRecord` | Enriched view (requires hierarchy index) |
+
+## See also
+
+- [Validation](validation.qmd) — `validate()` / `validate_many()`
+- [Search with misspellings how-to](../../how-to/search-misspellings.qmd)
+- [FuzzBase](fuzzbase.qmd) — pre-computed matching for performance

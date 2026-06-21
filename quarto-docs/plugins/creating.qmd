@@ -1,0 +1,245 @@
+---
+title: "Creating a Plugin"
+description: "Step-by-step guide to creating a custom barangay plugin: directory layout, manifest.yaml, CSV/JSON/Parquet data formats, time-aware versions, and remote repositories."
+author: "bendlikeabamboo"
+---
+
+## Step 1: Create the Plugin Directory
+
+Choose a plugin source directory (see [Configuration](configuration.qmd)). Create a subdirectory for your plugin:
+
+```
+plugins/
+└── my_plugin/
+    ├── manifest.yaml
+    └── data/
+        └── my_plugin.json
+```
+
+## Step 2: Write the Manifest
+
+Create a `manifest.yaml` with the required fields:
+
+```yaml
+name: my_plugin
+description: My custom enrichment data
+version: 1.0.0
+format: json
+key: psgc_id
+```
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | Yes | Unique plugin identifier |
+| `description` | No | Human-readable description |
+| `version` | No | Plugin version |
+| `format` | Yes | Data format: `csv`, `json`, or `parquet` |
+| `key` | Yes | Join key column (typically `psgc_id`) |
+| `repository` | No | GitHub URL for remote plugins |
+| `ref` | No | Git ref (default: `main`) |
+| `current` | No | Current version date for time-aware plugins |
+| `dates` | No | List of available snapshot dates |
+
+## Step 3: Add the Data File
+
+### JSON format
+
+```json
+[
+  { "psgc_id": "0731100000", "my_field": "my_value" },
+  { "psgc_id": "1300000000", "my_field": "another_value" }
+]
+```
+
+### CSV format
+
+```csv
+psgc_id,my_field
+0731100000,my_value
+1300000000,another_value
+```
+
+### Parquet format
+
+A Parquet file with the same column layout.
+
+The `key` column (`psgc_id`) is used for joining and is excluded from the output fields.
+
+## Step 4: Enable the Plugin
+
+Add it to `plugins.yaml`:
+
+```yaml
+plugins:
+  - name: my_plugin
+    enabled: true
+```
+
+Or enable it on the CLI with `--plugin my_plugin`.
+
+## Time-Aware Plugins
+
+For versioned data, use `YYYY-MM-DD/` subdirectories:
+
+```
+my_plugin/
+├── manifest.yaml
+└── data/
+    ├── 2025-01-01/
+    │   └── my_plugin.json
+    └── 2025-07-01/
+        └── my_plugin.json
+```
+
+Include `current` and `dates` in the manifest:
+
+```yaml
+name: my_plugin
+format: json
+key: psgc_id
+current: "2025-07-01"
+dates:
+  - "2025-01-01"
+  - "2025-07-01"
+```
+
+When querying with `--as-of`, the loader resolves to the closest available date that is `<=` the requested date. When `--as-of` is not specified, the `current` date is used.
+
+## Remote Plugins
+
+For plugins hosted on GitHub, add the `repository` field:
+
+```yaml
+name: my_remote_plugin
+format: json
+key: psgc_id
+repository: https://github.com/username/my-plugin-data
+ref: main
+current: "2026-04-13"
+dates:
+  - "2025-01-01"
+  - "2026-04-13"
+```
+
+The plugin loader will:
+1. Download data files from the GitHub repository
+2. Cache them locally in the cache directory
+3. Use the GitHub API to list available date directories for time-aware plugins
+
+## Array Plugins
+
+Array plugins map each `psgc_id` to a **list** of objects. Each element is cross-joined with the base record during export, producing multiple rows per `psgc_id`.
+
+```json
+[
+  {
+    "psgc_id": "1380100001",
+    "data": [
+      { "school_name": "Caloocan North Elementary School", "students": 1200 },
+      { "school_name": "North City National High School", "students": 850 }
+    ]
+  }
+]
+```
+
+::: {.callout-warning}
+Only one array plugin can be active at a time. Mixing two array plugins will raise an error.
+:::
+
+## Complete Example: Sample Elevation Plugin
+
+This is the actual built-in `sample_elevation` plugin, showing a minimal CSV-based scalar plugin.
+
+**`sample_elevation/manifest.yaml`:**
+
+```yaml
+name: sample_elevation
+description: SAMPLE — Average elevation above sea level (meters) by province. Not real data.
+version: 0.1.0
+format: csv
+key: psgc_id
+```
+
+**`sample_elevation/data/sample_elevation.csv`:**
+
+```csv
+psgc_id,elevation_m,terrain
+1300000000,16,lowland
+0800000000,52,lowland
+0400000000,322,upland
+1400000000,1500,highland
+1900000000,88,lowland
+```
+
+**Usage:**
+
+```bash
+barangay export --model flat --plugin sample_elevation --format json
+```
+
+Output for NCR (`psgc_id: 1300000000`):
+
+```json
+{
+  "name": "National Capital Region (NCR)",
+  "type": "region",
+  "psgc_id": "1300000000",
+  "parent_psgc_id": "0000000000",
+  "nicknames": null,
+  "sample_elevation.elevation_m": "16",
+  "sample_elevation.terrain": "lowland"
+}
+```
+
+## Complete Example: Sample Schools Plugin
+
+This is the actual built-in `sample_schools` plugin, demonstrating an array plugin with time-aware data.
+
+**`sample_schools/manifest.yaml`:**
+
+```yaml
+name: sample_schools
+description: SAMPLE — BEISS school records per barangay. Not real data.
+version: 0.1.0
+format: json
+key: psgc_id
+current: 2024-07-13
+dates:
+  - 2024-04-13
+  - 2024-07-13
+```
+
+**`sample_schools/data/2024-07-13/sample_schools.json` (excerpt):**
+
+```json
+[
+  {
+    "psgc_id": "1380100001",
+    "data": [
+      { "beiss_id": 10001, "name": "Caloocan North Elementary School", "classification": "Elementary", "students": 1200 },
+      { "beiss_id": 10002, "name": "North City National High School", "classification": "Junior", "students": 850 },
+      { "beiss_id": 10003, "name": "Caloocan City Science High School", "classification": "Senior", "students": 420 }
+    ]
+  }
+]
+```
+
+**Raw plugin data structure** (as returned by `load_plugin_data`):
+
+```python
+{
+    "1380100001": {
+        "data": [
+            {"beiss_id": 10001, "name": "Caloocan North Elementary School", "classification": "Elementary", "students": 1200},
+            {"beiss_id": 10002, "name": "North City National High School", "classification": "Junior", "students": 850},
+            {"beiss_id": 10003, "name": "Caloocan City Science High School", "classification": "Senior", "students": 420}
+        ]
+    }
+}
+```
+
+## See also
+
+- [Plugins overview](index.qmd) — scalar vs array shapes, manifest fields
+- [Built-in plugins](built-in.qmd) — reference plugins to model yours on
+- [Plugin configuration](configuration.qmd) — discovery and activation

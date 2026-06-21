@@ -1,0 +1,66 @@
+---
+title: "Changelog"
+description: "Release history for the barangay PSGC package."
+author: "bendlikeabamboo"
+---
+
+Release history for the `barangay` package. The package uses calendar versioning (`YYYY.M.D.PATCH`), where the base date is the bundled PSGC masterlist date and the patch counter tracks successive code releases on top of it. Pre-calendar tags (`0.1.x`–`v0.3.3`) are listed at the end as legacy entries with minimal detail.
+
+::: {.callout-tip title="How to read these entries"}
+Each `## YYYY.M.D` heading groups every patch shipped against that bundled data date (`.0`, `.1`, ...). Sub-bullets summarize the human-readable highlights mined from `git log` between tags. Dates are the tag's commit date.
+:::
+
+## 2026.4.13
+
+- **v2026.4.13.4** — 2026-06-15. Roman-numeral standardization for barangay names; match hooks no longer require a barangay level (can match on other levels); PSGC-hierarchy-respecting database view; improved fuzzer; docs and type-hint polish.
+- **v2026.4.13.3** — 2026-06-09. Performance work (optimized caching and lazy-loading, added `as_of` cache test); better typing and error handling; `match_hooks` support; added `AGENTS.md` and updated `CONTRIBUTING.md` and the PR template; dependency upgrades.
+- **v2026.4.13.2** — 2026-06-06. Database API redesign with type hints; updated all documentation for the redesigned Database API; added deprecation warnings and docs for legacy APIs (removal scheduled for `2027.x.x.x`).
+- **v2026.4.13.1** — 2026-05-31. Plugin system with the `psgc-aux-data` remote plugin; explode pipeline and `--plugin` flag on `export` and `search` CLI commands; restructured plugin docs with verified examples; resolved CVEs in dependencies; SEO/AIO improvements; community-standard files.
+- **v2026.4.13.0** — 2026-04-22. Updated the bundled PSGC resource to the 2026-04-13 masterlist; updated references and pyproject; removed notebooks; added an automated skill-review GitHub Action; updated contributing guide.
+
+## 2026.1.13
+
+- **v2026.1.13.3** — 2026-03-20. Added official PSGC parsers; docs deployment trigger fixes; added `site_url`.
+- **v2026.1.13.2** — 2026-02-28. Documentation build/deploy fixes; continued documentation work (shadcn theme).
+- **v2026.1.13.1** — 2026-02-22. Historical-data support (`as_of`) and accompanying docs; GitHub Pages docs deploy; CLI operations verified; Python-version and pyproject fixes; README updates.
+- **v2026.1.13.0** — 2026-01-30. PSGC 2026-01-13 masterlist update.
+
+## 2025.10.13
+
+- **v2025.10.13.2** — 2026-01-12. Migration to `uv`; pre-commit hooks; community notes; README updates.
+- **v2025.10.13.1** — 2026-01-09. Lighter install; migration to `uv`.
+- **v2025.10.13.0** — 2025-10-15. Bundled data for the 2025-10-13 masterlist; added the 2025-08-29 data archive; renamed and reorganized resources; updated notebooks, sample usage, pyproject, and README.
+
+## 2025.8.29
+
+- **v2025.8.29.1** — 2025-10-04. Version bump following the search-API enhancement.
+- **v2025.8.29.0** — 2025-10-04. Better search API: consistent naming and a barangay-only match hook.
+
+## 2025.7.31
+
+- **v2025.7.31.0** — 2025-09-04. Bundled the PSGC 2025-07-31 masterlist; added previous releases.
+
+## 2025.7.8
+
+- **v2025.7.8.5** — 2025-09-02. Version bump following the unreadable-data fix.
+- **v2025.7.8.4post1** — 2025-09-02. Fixed unreadable bundled data.
+- **v2025.7.8.4** — 2025-09-01. Version-only tag (no additional commits between this and `v2025.7.8.0`).
+- **v2025.7.8.0** — 2025-09-01. First calendar-versioned release; added `search`; improved sample usage; publish-workflow and cleanup fixes. First version to ship the searchable, bundled-data model that the current API descends from.
+
+## Early / legacy (pre-calendar)
+
+These pre-`v2025.7.8.0` tags use the old four-component version scheme and predate the bundled-data + fuzzy-search architecture. They are listed for completeness; details are minimal.
+
+- **v0.3.3** — 2025-08-19. Version and lock-file cleanup.
+- **v0.3.2** — 2025-08-19. Made development dependencies optional.
+- **0.3.1** — 2025-08-14. Added PyPI classifiers (SEO/metadata).
+- **0.3.0** — 2025-08-13. Added the flat model.
+- **0.2.1** — 2025-08-12. Sample usage and description fixes; bugfixes for JSON/YAML.
+- **0.2.0** — 2025-08-11. Added the extended barangay model.
+- **0.1.1** — 2025-08-09. Readme updates; version change.
+- **0.1.0** — 2025-08-09. Initial publish.
+
+## See also
+
+- [Release process](community/release-process.qmd)
+- [Data update guide](community/data-update.qmd)

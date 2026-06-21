@@ -1,0 +1,533 @@
+# barangay — Full Documentation
+
+> Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions. Offline access to all 42,010 barangays — no API calls or database needed. Based on the official April 2026 PSGC masterlist from the Philippine Statistics Authority.
+
+## Installation
+
+```bash
+pip install barangay
+```
+
+Requires Python 3.13+.
+
+## Quick Start
+
+```python
+from barangay import barangays, search_fuzzy
+
+print(barangays)  # <PSGC barangay database: 42010 records>
+
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)    # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)  # Tawi-Tawi
+print(brgy.psgc_id)   # 1907005010
+
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+## Features
+
+- **Bundled PSGC Dataset**: Native access to PSGC data, no database or API calls needed
+- **Hierarchy Traversal**: Navigate parent, children, and ancestors of any admin division
+- **Direct Pandas Export**: `to_frame()` and `to_dicts()` for immediate DataFrame access
+- **Address Validation**: `validate()` and `validate_many()` for automated address checking
+- **Fuzzy Search**: Fast, customizable fuzzy matching with typed `SearchResult` objects
+- **Historical PSGC Data**: On-demand access to previous PSGC releases by date
+- **Multiple Data Models**: Basic (nested), Extended (recursive), and Flat (list)
+- **Command Line Interface**: Full CLI for search, export, validation, batch operations
+- **Smart Caching**: Automatic local caching for faster subsequent loads
+- **Plug-in System**: Enrich PSGC data with custom extensions (CSV, JSON, Parquet), built-in and remote plugins with time-aware support
+
+---
+
+## Database API
+
+### Database Views
+
+Pre-built views for each admin level:
+
+```python
+from barangay import regions, provinces, municipalities, cities, submunicipalities, barangays, special_geographic_areas
+
+print(regions)     # <PSGC region database: 18 records>
+print(provinces)   # <PSGC province database: 82 records>
+print(barangays)   # <PSGC barangay database: 42010 records>
+```
+
+Each view supports `.get(name=...)`, `.get(psgc_id=...)`, `.lookup(psgc_id)`, `.search_fuzzy(query)`, `.to_frame()`, `.to_dicts()`, iteration, `len()`, and `in` (by PSGC ID).
+
+### Lookup
+
+```python
+brgy = barangays.get(name="Tongmageng")      # by name (raises MultipleResultsError if ambiguous)
+brgy = barangays.lookup("1907005010")        # by PSGC ID (always unique)
+```
+
+### Hierarchy Traversal
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)       # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)     # Tawi-Tawi
+print(brgy.municipality)  # Sitangkai
+print(brgy.parent)       # <municipality: Sitangkai (1907005000)>
+print(brgy.ancestors)    # [municipality, province, region]
+print(brgy.children)      # direct children
+
+d = brgy.to_dict()  # includes region, province, highly_urbanized_city, independent_component_city, component_city, municipality, submunicipality, special_geographic_area, barangay fields
+```
+
+### Fuzzy Search
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("query", level=None, threshold=60.0, limit=5, as_of=None, match_hooks=None)
+# match_hooks: list of "region", "province", "highly_urbanized_city", "independent_component_city", "component_city", "municipality", "submunicipality", "special_geographic_area", "barangay" or None (default: ["barangay"])
+# The most granular hook determines the record set searched.
+for r in results:
+    print(r.name, r.psgc_id, r.score, r.match_type)
+```
+
+Returns `List[SearchResult]` with properties: `.name`, `.psgc_id`, `.score`, `.match_type`, `.record`, `.enriched`.
+
+### Validation
+
+```python
+from barangay import validate, validate_many
+
+v = validate("Tongmageng, Tawi-Tawi")  # default threshold 95.0
+print(v.valid, v.matched_name, v.matched_psgc_id, v.score)
+# True Tongmageng 1907005010 100.0
+
+results = validate_many(["addr1", "addr2"])
+for r in results:
+    print(r.valid, r.matched_name, r.score)
+```
+
+### Version Switching
+
+```python
+import barangay
+
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+```
+
+### Plugins
+
+```python
+import barangay
+
+barangay.use_plugins(["population"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
+```
+
+### AdminLevel Enum
+
+Values: `country`, `region`, `province`, `highly_urbanized_city`, `independent_component_city`, `component_city`, `municipality`, `submunicipality`, `barangay`, `special_geographic_area`.
+
+### MultipleResultsError
+
+Raised by `.get(name=...)` when the name matches multiple records. Use `.lookup(psgc_id)` for unique lookups.
+
+---
+
+## Legacy API (Deprecated — removal in 2027.X.X.X)
+
+### search()
+
+Search for barangays using fuzzy string matching.
+
+```python
+from barangay import search
+
+results = search("Tongmageng, Tawi-Tawi")
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `search_string` | `str` | - | The string to search for |
+| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["barangay"]` | Administrative levels to match against (requires `"barangay"` to always be present) |
+| `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
+| `n` | `int` | `5` | Maximum number of results |
+| `search_sanitizer` | `Callable` | - | Function to sanitize search string |
+| `fuzz_base` | `FuzzBase \| None` | - | Pre-computed fuzzy matching instance for performance |
+| `as_of` | `str \| None` | - | Historical date (YYYY-MM-DD) or None for latest |
+
+**Returns:** List[dict] with matching results
+
+**Matching patterns:**
+- `B` (barangay only): Matches against barangay name only
+- `PB` (province + barangay): Matches against province and barangay combined
+- `MB` (municipality + barangay): Matches against municipality and barangay combined
+- `PMB` (province + municipality + barangay): Matches against all three levels combined
+
+**Example with custom parameters:**
+
+```python
+results = search(
+    "Tongmagen, Tawi-Tawi",
+    n=4,
+    match_hooks=["municipality", "barangay"],
+    threshold=70.0,
+    as_of="2025-07-08"
+)
+
+for result in results:
+    print(f"{result['barangay']} (score: {result['f_00mb_ratio_score']})")
+```
+
+### Data Models
+
+#### barangay (AdminDiv)
+
+Nested administrative division data model. Organizes data hierarchically by region → municipality/city → barangay.
+
+```python
+from barangay import barangay
+
+ncr_cities = list(barangay["National Capital Region (NCR)"].keys())
+manila_brgys = barangay["National Capital Region (NCR)"]["City of Manila"]
+
+for region, municipalities in barangay.items():
+    print(f"Region: {region}")
+```
+
+**Type:** `AdminDiv` (RootModel[dict[str, AdminDiv] | List[str]])
+
+**Note:** This is a Pydantic model. Use `.model_dump()` to convert to dict if needed.
+
+#### barangay_extended (AdminDivExtended)
+
+Extended recursive model with complete administrative hierarchy. Each division includes its PSGC ID, parent PSGC ID, type, and nested components.
+
+```python
+from barangay import barangay_extended
+
+country = barangay_extended
+for region in country.components:
+    print(f"Region: {region.name} (PSGC: {region.psgc_id})")
+    for province in region.components:
+        print(f"  Province: {province.name}")
+```
+
+**Fields:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `name` | `str` | Name of the administrative division |
+| `type` | `str` | Type: country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, barangay, special_geographic_area, submunicipality |
+| `psgc_id` | `str` | PSGC identifier or "n/a" |
+| `parent_psgc_id` | `str` | Parent PSGC identifier or "n/a" |
+| `nicknames` | `Optional[List[str]]` | Optional list of alternative names |
+| `components` | `List[AdminDivExtended]` | List of nested administrative divisions |
+
+#### barangay_flat (List[AdminDivFlat])
+
+Flat list of all administrative divisions without nesting. Each entry is a standalone record.
+
+```python
+from barangay import barangay_flat
+
+all_barangays = [item for item in barangay_flat if item.type == "barangay"]
+municipalities = [item for item in barangay_flat if item.type == "municipality"]
+
+brgy = [loc for loc in barangay_flat if loc.name == "Marayos"]
+if brgy:
+    print(f"Found: {brgy[0].name} — PSGC: {brgy[0].psgc_id}")
+```
+
+**Fields:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `name` | `str` | Name of the administrative division |
+| `type` | `str` | Type of division |
+| `psgc_id` | `str` | PSGC identifier |
+| `parent_psgc_id` | `str` | Parent PSGC identifier |
+| `nicknames` | `Optional[List[str]]` | Optional list of alternative names |
+
+### Backward Compatibility Dictionaries
+
+> **Deprecated:** `BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT` will be removed in 2027.X.X.X. Use the Database API instead (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`).
+
+```python
+from barangay import BARANGAY, BARANGAY_EXTENDED, BARANGAY_FLAT
+
+BARANGAY          # dict: nested structure
+BARANGAY_EXTENDED # dict: extended nested structure
+BARANGAY_FLAT     # List[dict]: list of dicts
+```
+
+### create_fuzz_base()
+
+Factory function to create FuzzBase instances for performance optimization. Reusing a FuzzBase instance across multiple searches improves performance.
+
+```python
+from barangay import create_fuzz_base, search
+
+fuzz_base = create_fuzz_base(as_of="2025-08-29")
+
+results1 = search("Tongmageng", fuzz_base=fuzz_base)
+results2 = search("Marayos", fuzz_base=fuzz_base)
+results3 = search("San Jose", fuzz_base=fuzz_base)
+```
+
+### sanitize_input()
+
+Utility function for string sanitization. Converts strings to lowercase and removes specified items.
+
+```python
+from barangay import sanitize_input
+
+cleaned = sanitize_input("City of San Jose", exclude=["city of ", " city"])
+# Result: "san jose"
+
+cleaned = sanitize_input("(pob.) San Jose City", exclude=["(pob.)", " city"])
+# Result: "san jose"
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `input_str` | `str \| None` | - | String to sanitize |
+| `exclude` | `List[str] \| str \| None` | - | Items to remove |
+
+### resolve_date()
+
+Resolve approximate dates to the closest available dataset.
+
+```python
+from barangay import resolve_date, get_available_dates
+
+resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
+print(resolved_date)  # '2025-07-08'
+```
+
+### get_available_dates()
+
+Get list of available historical dataset dates.
+
+```python
+from barangay import get_available_dates
+
+dates = get_available_dates()
+# ['2023-01-25', '2023-04-18', ..., '2026-04-13']
+```
+
+### DataManager
+
+Manage data loading, caching, and downloading.
+
+```python
+from barangay import DataManager
+
+dm = DataManager()
+data = dm.get_data(data_type="basic")
+data = dm.get_data(as_of="2025-07-08", data_type="flat")
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `as_of` | `str \| None` | Historical date (YYYY-MM-DD) or None for latest |
+| `data_type` | `str` | `"basic"`, `"flat"`, or `"extended"` |
+
+### Module-Level Attributes
+
+```python
+import barangay
+
+print(barangay.current)           # '2026-04-13'
+print(barangay.available_dates)   # List of available dates
+barangay.as_of = "2025-07-08"     # Set default date for session
+```
+
+---
+
+## CLI Reference
+
+### Search
+
+```bash
+barangay search "Tongmageng, Tawi-Tawi"
+barangay search "Tongmageng" --limit 5 --threshold 70.0
+barangay search "Tongmageng" --format json
+barangay search "Tongmageng" --as-of "2025-07-08"
+barangay search "Tongmageng" --plugin psgc-aux-data --format json
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `--limit`, `-l` | `int` | `5` | Maximum number of results |
+| `--threshold`, `-t` | `float` | `60.0` | Minimum similarity score 0-100 |
+| `--as-of` | `str` | - | Historical date (YYYY-MM-DD) |
+| `--format`, `-f` | `str` | `table` | Output format: `json` or `table` |
+
+### Export
+
+```bash
+barangay export --model flat --format json --output data.json
+barangay export --model basic --format csv --output data.csv
+barangay export --model flat --format json --as-of "2025-07-08" --output historical.json
+barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `--model` | `str` | `flat` | Data model: `flat`, `extended`, or `basic` |
+| `--format`, `-f` | `str` | `json` | Output format: `json` or `csv` |
+| `--output`, `-o` | `str` | `stdout` | Output file |
+| `--as-of` | `str` | - | Historical date (YYYY-MM-DD) |
+
+### Info
+
+```bash
+barangay info version
+barangay info stats
+barangay info list-regions
+barangay info list-municipalities "National Capital Region (NCR)"
+barangay info list-barangays "City of Manila"
+```
+
+### History
+
+```bash
+barangay history list-dates
+barangay history search-history "Tongmageng" --as-of "2025-07-08"
+barangay history export-history --as-of "2025-07-08" --model flat --format json --output 2025-07-08.json
+```
+
+### Cache
+
+```bash
+barangay cache info
+barangay cache clear
+barangay cache download
+barangay cache download --date "2025-07-08"
+```
+
+### Batch
+
+```bash
+barangay batch batch-search queries.txt --limit 5 --output results.json
+barangay batch validate barangay_names.txt
+```
+
+---
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `BARANGAY_AS_OF` | - | Default dataset date (YYYY-MM-DD) |
+| `BARANGAY_VERBOSE` | `"true"` | Enable verbose logging |
+| `BARANGAY_CACHE_DIR` | - | Custom cache directory path |
+
+### Priority Order (as_of resolution)
+
+1. Function parameter
+2. Module attribute (`barangay.as_of`)
+3. Environment variable (`BARANGAY_AS_OF`)
+4. Default: None (use latest bundled data)
+
+### Cache Directory Locations
+
+- **Windows:** `%LOCALAPPDATA%\barangay\cache`
+- **Linux/Mac with XDG_CACHE_HOME:** `$XDG_CACHE_HOME/barangay`
+- **Linux/Mac fallback:** `~/.cache/barangay`
+
+---
+
+## Data Models Overview
+
+> **Note:** The sections below describe legacy dict-based data structures (`BARANGAY`, `BARANGAY_EXTENDED`, `BARANGAY_FLAT`). These are **deprecated** and will be removed in 2027.X.X.X. Use the Database API instead (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`).
+
+### BARANGAY (Nested)
+
+Compact nested structure: region → province/HUC → municipality/city → barangay list.
+
+```json
+{
+    "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)": {
+        "Basilan": {
+            "City of Lamitan": ["Arco", "Ba-as", "Baimbing"]
+        }
+    }
+}
+```
+
+### BARANGAY_EXTENDED (Recursive)
+
+Fully hierarchical tree with metadata at every level (PSGC ID, parent reference, type, nicknames).
+
+```json
+{
+    "name": "Philippines",
+    "type": "country",
+    "psgc_id": "0000000000",
+    "parent_psgc_id": "n/a",
+    "components": [
+        {
+            "name": "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)",
+            "type": "region",
+            "psgc_id": "1900000000",
+            "components": [...]
+        }
+    ]
+}
+```
+
+### BARANGAY_FLAT (Denormalized)
+
+Flat array with parent references via `parent_psgc_id`. Best for database storage and bulk operations.
+
+```json
+[
+    {"name": "BARMM", "type": "region", "psgc_id": "1900000000", "parent_psgc_id": "0000000000"},
+    {"name": "Basilan", "type": "province", "psgc_id": "1900700000", "parent_psgc_id": "1900000000"},
+    {"name": "Arco", "type": "barangay", "psgc_id": "1900702001", "parent_psgc_id": "1900702000"}
+]
+```
+
+---
+
+## Historical Data
+
+Access previous PSGC releases by date. Data is automatically cached after first download.
+
+**Current Data Version:** `2026-04-13` (April 13 2026 PSGC masterlist)
+
+**Available Dates:** 2023-01-25 through 2026-04-13 (16 releases)
+
+```python
+import barangay
+print(barangay.current)           # '2026-04-13'
+print(barangay.available_dates)   # ['2023-01-25', ..., '2026-04-13']
+```
+
+---
+
+## Performance
+
+| Configuration | Performance |
+|---------------|-------------|
+| Default (1 hook) | ~80ms per search |
+| Optimized (multi-hook) | ~10–25ms per search |
+
+Use fewer `match_hooks` for better performance when appropriate. Reuse `FuzzBase` instances for batch operations.
+
+---
+
+## Resources
+
+- Documentation: https://bendlikeabamboo.github.io/barangay/
+- PyPI: https://pypi.org/project/barangay/
+- GitHub: https://github.com/bendlikeabamboo/barangay
+- Data Repository: https://github.com/bendlikeabamboo/barangay-data-repository
+- PSGC Source: https://psa.gov.ph/classification/psgc/node/1684083211
+- Docker API: https://hub.docker.com/r/bendlikeabamboo/barangay-api

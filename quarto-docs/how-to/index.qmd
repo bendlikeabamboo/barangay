@@ -1,0 +1,40 @@
+---
+title: "How-To"
+description: "Task-oriented recipes for the barangay PSGC package: search misspellings, validate addresses, export to pandas/CSV, traverse hierarchy, historical data, plugins, batch files, and legacy migration."
+author: "bendlikeabamboo"
+---
+
+Recipes for solving a specific task. Each page assumes you already know the basics — see [Learn](../learn/index.qmd) if you are just starting.
+
+## Recipes
+
+### Searching & validating
+
+- [Search with misspellings](search-misspellings.qmd) — fuzzy search tuning, thresholds, `match_hooks`, admin-level scoping.
+- [Validate addresses](validate-addresses.qmd) — `validate()` / `validate_many()`, thresholds, batch validation.
+
+### Exporting & transforming
+
+- [Export to CSV / pandas](export-to-csv-pandas.qmd) — `to_frame()` / `to_dicts()`, CLI export, model selection.
+
+### Navigating the hierarchy
+
+- [Traverse the hierarchy](traverse-hierarchy.qmd) — parent / children / ancestors, get-by-region / province.
+
+### Time & enrichment
+
+- [Work with historical data](work-with-historical-data.qmd) — `use_version`, `as_of`, `resolve_date`.
+- [Enrich with plugins](enrich-with-plugins.qmd) — `psgc-aux-data`, `--plugin`, `PluginLoader`.
+
+### Automation
+
+- [Geocode batch files](geocode-batch-files.qmd) — CLI `batch-search` / `batch validate` from files.
+
+### Migration
+
+- [Migrate from the legacy API](migrate-from-legacy-api.qmd) — consolidate `search()` / `BARANGAY` dict usage onto the Database API.
+
+## See also
+
+- [Reference](../reference/index.qmd)
+- [Troubleshooting](../troubleshooting.qmd)

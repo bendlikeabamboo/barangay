@@ -1,0 +1,83 @@
+---
+title: "Versioning (`use_version`, `Database`, `AdminLevel`)"
+description: "Reference for use_version/use_plugins, the Database class, the AdminLevel enum, and module-level attributes (current, as_of, available_dates)."
+author: "bendlikeabamboo"
+---
+
+Switch the global Database to a different data version or enable plugins, and inspect module-level attributes.
+
+## `use_version()` / `use_plugins()`
+
+```python
+import barangay
+
+# Switch to historical data
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+
+# Enable plugins
+barangay.use_plugins(["population"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
+```
+
+`use_version()` invalidates the cache and triggers a reload on next access.
+
+`use_plugins()` enables plugins on the global Database singleton.
+
+## `Database` Class
+
+The central data access point, implemented as a singleton. You typically use the module-level views instead of instantiating directly.
+
+```python
+from barangay import Database
+
+db = Database()  # returns the singleton
+print(db.barangays)  # <PSGC barangay database: 42010 records>
+print(db.all_records)  # <PSGC all database: 43363 records>
+```
+
+**Properties:** `.regions`, `.provinces`, `.municipalities`, `.cities`, `.hucs`, `.iccs`, `.component_cities`, `.submunicipalities`, `.barangays`, `.special_geographic_areas`, `.all_records`
+
+**Methods:** `.use_plugins()`, `.available_plugins()`, `.active_plugins()`
+
+## `AdminLevel`
+
+Enum of administrative division types.
+
+```python
+from barangay import AdminLevel
+
+print(AdminLevel.REGION)     # AdminLevel.REGION
+print(AdminLevel.REGION.value)  # 'region'
+
+# All values: country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, submunicipality, barangay, special_geographic_area
+```
+
+## Module-Level Attributes
+
+```python
+import barangay
+
+# Current dataset date (from bundled package)
+print(barangay.current)           # '2026-04-13'
+
+# Available dataset dates (historical + current)
+print(barangay.available_dates)    # List of available dates
+
+# Set default date for session (affects search_fuzzy()/validate() if no as_of parameter)
+barangay.as_of = "2025-07-08"
+```
+
+**Attributes:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `current` | `str` | - | Current bundled dataset date (YYYY-MM-DD format). Read from `barangay/data/CURRENT_VERSION` |
+| `as_of` | `str | None` | - | Default historical date to use for data queries. Can be set at runtime. Defaults to None (use latest data) |
+| `available_dates` | `List[str]` | - | List of all available dataset dates including historical releases and current version. Populated at module import |
+
+## See also
+
+- [Utilities](utilities.qmd) — `get_available_dates()`, `resolve_as_of()`
+- [Work with historical data how-to](../../how-to/work-with-historical-data.qmd)
+- [Plugins](../../plugins/index.qmd)

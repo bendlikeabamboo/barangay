@@ -1,0 +1,62 @@
+---
+title: "Work with Historical Data"
+description: "Recipe: switch between PSGC masterlist snapshots with use_version, as_of, and resolve_date for historical queries."
+author: "bendlikeabamboo"
+---
+
+## Overview
+
+The package ships 18 bundled PSGC snapshots (2022-04-29 … 2026-04-13). You can switch the whole process to an older masterlist with `use_version()`, or query a single snapshot per call with `as_of=` — the per-call form is the thread-safe choice.
+
+## Switch the global version
+
+```python
+import barangay
+
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+```
+
+## Per-query historical
+
+### `as_of=` on a single call
+
+`as_of` queries one snapshot without mutating global state — safe inside web servers and concurrent code, where `use_version()` would race:
+
+```python
+from barangay import search_fuzzy, validate
+
+results = search_fuzzy("Tongmageng", as_of="2025-07-08")   # queries that snapshot only
+v = validate("Tongmageng, Sitangkai, Tawi-Tawi", as_of="2025-07-08")
+```
+
+::: {.callout-important title="Per-query beats global in shared processes"}
+`Database()` is a process-wide singleton and `use_version()` mutates its active snapshot globally. In a web server or any multi-threaded context, prefer `as_of=` per call. `use_version(None)` restores the latest snapshot.
+:::
+
+### `resolve_date()` — closest snapshot
+
+You usually have an arbitrary business date ("what was valid on 2024-06-01?"), not a published PSGC date. [`resolve_date()`](../reference/python-api/utilities.qmd) maps any date to the nearest available snapshot using **backward fill** — the most recent snapshot **at or before** the requested date; if none exists, it falls back to the earliest snapshot:
+
+```python
+from barangay import resolve_date, available_dates, current
+
+resolved, message = resolve_date("2024-06-01", available_dates, current)
+print(resolved)   # 2024-05-08
+print(message)    # Using 2024-05-08 dataset (closest to 2024-06-01)
+```
+
+`2024-06-01` sits between the `2024-05-08` and `2024-07-12` snapshots; backward fill picks `2024-05-08`. Feed the resolved date straight into `as_of=`:
+
+```python
+results = search_fuzzy("Tongmageng", as_of=resolved)
+```
+
+See [`available_dates`](../reference/python-api/utilities.qmd) for the full list of snapshot dates.
+
+## See also
+
+- [Versioning reference](../reference/python-api/versioning.qmd)
+- [Available dates](../reference/python-api/utilities.qmd)
+- [Concepts: PSGC overview](../concepts/psgc-overview.qmd)

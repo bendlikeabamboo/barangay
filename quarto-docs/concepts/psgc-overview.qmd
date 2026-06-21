@@ -1,0 +1,81 @@
+---
+title: "PSGC Overview"
+description: "What the Philippine Standard Geographic Code (PSGC) is, its PSA source, the 10-digit code structure, and how the barangay package exposes it offline."
+author: "bendlikeabamboo"
+---
+
+## Overview
+
+The Philippine Standard Geographic Code (PSGC) is the official classification system of the Philippine Statistics Authority (PSA). It assigns a unique 10-digit code to every administrative unit in the Philippines.
+
+## The 10-digit code
+
+Every administrative unit in the PSGC carries a unique 10-digit code. The digits are hierarchical: reading left to right you progressively narrow from region down to the unit itself. As encoded in this package, the code splits into five two-digit segments:
+
+| Digits | Segment | Level | Tongmageng (`1907005010`) |
+|--------|---------|-------|---------------------------|
+| 1–2 | Region | Region | `19` |
+| 3–4 | Province | Province | `07` |
+| 5–6 | District within province | Municipality / city grouping | `00` |
+| 7–8 | Unit within district | Municipality / city | `50` |
+| 9–10 | Unit within municipality | Barangay | `10` |
+
+```{mermaid}
+flowchart LR
+  subgraph Code["1907005010"]
+    direction LR
+    R["19<br/>region"]
+    P["07<br/>province"]
+    D["00<br/>district"]
+    M["50<br/>municipality"]
+    B["10<br/>barangay"]
+  end
+  R --- P --- D --- M --- B
+```
+
+::: {.callout-note title="Segment semantics are encoded, not PSA-canonical"}
+The precise meaning of positions 5–10 varies slightly across PSA publications. The decomposition above reflects how this package reads the bundled masterlist. Don't rely on the raw digits for spec-level reasoning — use the [`psgc_id`](../reference/data-dictionary.qmd) as the canonical identifier.
+:::
+
+Decoding `1907005010` (barangay **Tongmageng**):
+
+```python
+from barangay import Database
+
+brgy = Database().barangays.lookup("1907005010")
+print(brgy.name)         # Tongmageng
+print(brgy.parent.name)  # Sitangkai        (parent_psgc_id 1907005000)
+# Sitangkai's parent is Tawi-Tawi (1907000000),
+# whose parent is BARMM (1900000000).
+```
+
+Codes are zero-padded per level, so every `psgc_id` is exactly 10 characters. The first two digits always identify the region, and the trailing digits never exceed the width of their segment.
+
+## Source & provenance
+
+The package's data is the **PSA PSGC masterlist** — the canonical Philippine administrative classification published by the Philippine Statistics Authority. Nothing in the dataset is invented or user-editable; every record traces back to a PSA release.
+
+The currently bundled masterlist is version **`2026-04-13`**:
+
+```python
+import barangay
+print(barangay.current)  # 2026-04-13
+```
+
+The PSA publishes new masterlists periodically (not on a fixed calendar). This package ships a new bundled masterlist whenever a new PSA release is incorporated — a *data-update* release, versioned under the calendar scheme `YYYY.M.D.PATCH`. Eighteen historical snapshots from `2022-04-29` through `2026-04-13` are also available via [`use_version`](../reference/python-api/versioning.qmd).
+
+To see every snapshot you can switch to:
+
+```python
+from barangay import available_dates
+print(available_dates())
+# ['2022-04-29', '2022-11-08', ..., '2026-01-13', '2026-04-13']
+```
+
+For the full process of bundling a new PSA masterlist into a release, see [How PSGC data updates work](../community/data-update.qmd).
+
+## See also
+
+- [Administrative hierarchy](administrative-hierarchy.qmd)
+- [Data dictionary](../reference/data-dictionary.qmd)
+- [Comparisons](../reference/comparisons.qmd)

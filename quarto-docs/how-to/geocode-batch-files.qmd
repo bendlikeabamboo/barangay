@@ -1,0 +1,107 @@
+---
+title: "Geocode Batch Files"
+description: "Recipe: process batches of addresses or queries from files using the CLI batch-search and batch validate commands."
+author: "bendlikeabamboo"
+---
+
+## Overview
+
+How to process batches of addresses or queries from text/CSV files via the CLI or Python — read in, validate or search, and write the results back with match columns.
+
+## Batch search
+
+::: {.panel-tabset}
+## CLI
+
+```bash
+barangay batch batch-search queries.txt --limit 5 --output results.json
+```
+
+## Python
+
+```python
+from barangay import search_fuzzy
+
+with open("queries.txt") as f:
+    queries = [line.strip() for line in f if line.strip()]
+
+for q in queries:
+    for r in search_fuzzy(q, limit=5):
+        print(q, r.name, r.psgc_id, r.score)
+```
+:::
+
+## Batch validate
+
+::: {.panel-tabset}
+## CLI
+
+```bash
+barangay batch validate addresses.txt
+```
+
+## Python
+
+```python
+from barangay import validate_many
+
+with open("addresses.txt") as f:
+    addresses = [line.strip() for line in f if line.strip()]
+
+for r in validate_many(addresses, threshold=80.0):
+    print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
+```
+:::
+
+## CSV input and output
+
+Most address data lives in a spreadsheet, not a text file. Read it with pandas, validate every row, and write the matches back alongside the originals:
+
+```python
+import pandas as pd
+from barangay import validate_many
+
+df = pd.read_csv("addresses.csv")              # column: address
+
+results = validate_many(df["address"].tolist(), threshold=80.0)
+df["matched_name"] = [r.matched_name for r in results]
+df["matched_psgc_id"] = [r.matched_psgc_id for r in results]
+df["score"] = [r.score for r in results]
+df["valid"] = [r.valid for r in results]
+
+df.to_csv("addresses_validated.csv", index=False)
+```
+
+## Pipeline: normalize → validate → flag
+
+For noisy real-world sources, normalize first with [`sanitize_input()`](validate-addresses.qmd), then validate, then flag low-confidence rows for human review:
+
+```python
+import pandas as pd
+from barangay import sanitize_input, validate_many
+
+df = pd.read_csv("addresses.csv")
+clean = df["address"].map(sanitize_input).tolist()
+
+results = validate_many(clean, threshold=80.0)
+df["valid"] = [r.valid for r in results]
+df["score"] = [r.score for r in results]
+
+needs_review = df[(~df["valid"]) | (df["score"] < 90)]   # invalid or shaky
+needs_review.to_csv("addresses_for_review.csv", index=False)
+```
+
+### CLI CSV round-trip
+
+The CLI can read a file of newline-separated queries and write results to JSON or CSV:
+
+```bash
+barangay batch batch-search queries.txt --limit 5 --output results.json
+barangay export --model flat --format csv --output masterlist.csv
+```
+
+## See also
+
+- [Validate addresses](validate-addresses.qmd)
+- [CLI reference](../reference/cli.qmd)
+- [Export to CSV / pandas](export-to-csv-pandas.qmd)

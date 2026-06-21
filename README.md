@@ -94,8 +94,8 @@ barangay batch batch-search queries.txt --limit 5 --output results.json
 barangay batch validate barangay_names.txt
 ```
 
-📖 **Full CLI Reference:** [docs/cli.md](https://bendlikeabamboo.github.io/barangay/cli/)
-📖 **Plugin Guide:** [docs/plugins/index.md](https://bendlikeabamboo.github.io/barangay/plugins/)
+📖 **Full CLI Reference:** [quarto-docs/reference/cli.qmd](https://bendlikeabamboo.github.io/barangay/reference/cli.html)
+📖 **Plugin Guide:** [quarto-docs/plugins/index.qmd](https://bendlikeabamboo.github.io/barangay/plugins/)
 
 ---
 
@@ -225,7 +225,7 @@ brgy = barangays.lookup("1907005010")
 use_version(None)  # back to latest
 ```
 
-📖 **Full API Reference:** [docs/api.md](https://bendlikeabamboo.github.io/barangay/api/)
+📖 **Full API Reference:** [quarto-docs/reference/index.qmd](https://bendlikeabamboo.github.io/barangay/reference/)
 
 ---
 
@@ -248,7 +248,7 @@ barangay.as_of = "2025-07-08"
 
 **Priority:** Function parameter → Module attribute → Environment variable → Default (latest)
 
-📖 **Full Configuration Guide:** [docs/configuration.md](https://bendlikeabamboo.github.io/barangay/configuration/)
+📖 **Full Configuration Guide:** [quarto-docs/reference/configuration.qmd](https://bendlikeabamboo.github.io/barangay/reference/configuration.html)
 
 ---
 
