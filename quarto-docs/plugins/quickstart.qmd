@@ -1,0 +1,34 @@
+---
+title: "Plugin Quickstart — barangay"
+description: "Get the psgc-aux-data plugin running in two minutes — from the CLI and from Python with PluginLoader."
+author: "bendlikeabamboo"
+---
+
+# Plugin Quickstart
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+Enable the `psgc-aux-data` plugin (supplementary PSGC metadata) in under two minutes, from both the CLI and Python.
+
+## CLI
+
+```bash
+barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit 1
+```
+
+## Python
+
+```python
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(env=True)
+loader.enable_plugin("psgc-aux-data")
+```
+
+## See also
+
+- [Plugins overview](index.qmd)
+- [Plugin Python API](python-api.qmd)
+- [Plugin configuration](configuration.qmd)

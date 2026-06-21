@@ -1,0 +1,31 @@
+---
+title: "Data Dictionary — barangay"
+description: "Field-by-field reference for every column in to_frame()/to_dicts() and every property on EnrichedRecord, with PSGC provenance and types."
+author: "bendlikeabamboo"
+---
+
+# Data Dictionary
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+A field-by-field reference for every column produced by `to_frame()` / `to_dicts()` and every property on `EnrichedRecord`, including type, source, and provenance from the official PSA PSGC masterlist.
+
+## Base fields
+
+<!-- TODO: name, type, psgc_id, parent_psgc_id, nicknames, extensions -->
+
+## Hierarchy fields
+
+<!-- TODO: region, province, highly_urbanized_city, independent_component_city, component_city, municipality, submunicipality, special_geographic_area, barangay -->
+
+## Plugin fields
+
+<!-- TODO: psgc-aux-data.* (population, income_classification, urban_rural, old_names, ...) -->
+
+## See also
+
+- [Records reference](python-api/records.qmd)
+- [Data models reference](python-api/data-models.qmd)
+- [Concepts: PSGC overview](../concepts/psgc-overview.qmd)

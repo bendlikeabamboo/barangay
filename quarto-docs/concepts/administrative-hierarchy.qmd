@@ -1,0 +1,27 @@
+---
+title: "Administrative Hierarchy — barangay"
+description: "The Philippine administrative hierarchy from region to barangay, including highly urbanized cities, independent component cities, and component cities."
+author: "bendlikeabamboo"
+---
+
+# Administrative Hierarchy
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+The Philippine administrative structure, from region down to barangay, and how the different city classes (HUC, ICC, component city) fit in.
+
+## Levels
+
+<!-- TODO: region, province, HUC, ICC, component city, municipality, sub-municipality, barangay, special geographic area -->
+
+## City distinctions
+
+<!-- TODO: highly urbanized city vs independent component city vs component city -->
+
+## See also
+
+- [Hierarchy indicator (`rphicmsgb`)](hierarchy-indicator.qmd)
+- [PSGC overview](psgc-overview.qmd)
+- [Traverse the hierarchy how-to](../how-to/traverse-hierarchy.qmd)

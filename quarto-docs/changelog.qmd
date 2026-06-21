@@ -1,0 +1,20 @@
+---
+title: "Changelog — barangay"
+description: "Release history for the barangay PSGC package."
+author: "bendlikeabamboo"
+---
+
+# Changelog
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+Release history for the `barangay` package. The package follows calendar versioning (`YYYY.M.D.PATCH`) and ships a new bundled PSGC masterlist with each data update.
+
+<!-- TODO: release entries -->
+
+## See also
+
+- [Release process](community/release-process.qmd)
+- [Data update guide](community/data-update.qmd)

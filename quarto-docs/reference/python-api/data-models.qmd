@@ -1,0 +1,229 @@
+---
+title: "Data Models (pydantic) — barangay"
+description: "Reference for the pydantic data models: barangay/AdminDiv, barangay_extended/AdminDivExtended, barangay_flat/AdminDivFlat, and the DataManager that loads/caches data."
+author: "bendlikeabamboo"
+---
+
+# Data Models (pydantic)
+
+The package's pydantic data models for raw PSGC data. The Database API is recommended for most use cases; these models are for direct, low-level access to the nested / extended / flat shapes. See [Data Models Explained](../../concepts/data-models-explained.qmd) for a JSON shape comparison.
+
+## Pydantic Data Models
+
+The package provides three main data models as Pydantic models.
+
+### `barangay` (AdminDiv)
+
+Nested administrative division data model. Organizes data hierarchically by region → municipality/city → barangay.
+
+```python
+from barangay import barangay
+
+# Access nested data using dict-like access
+ncr_cities = list(barangay["National Capital Region (NCR)"].keys())
+manila_brgys = barangay["National Capital Region (NCR)"]["City of Manila"]
+
+# Iterate over regions
+for region, municipalities in barangay.items():
+    print(f"Region: {region}")
+```
+
+**Type:** `AdminDiv` (RootModel[dict[str, AdminDiv] | List[str]])
+
+This is a Pydantic model, not a plain dict. Use `.model_dump()` to convert to dict if needed.
+
+### `barangay_extended` (AdminDivExtended)
+
+Extended recursive model with complete administrative hierarchy. Each division includes its PSGC ID, parent PSGC ID, type, and nested components.
+
+```python
+from barangay import barangay_extended
+
+# Access extended hierarchical data
+country = barangay_extended
+for region in country.components:
+    print(f"Region: {region.name} (PSGC: {region.psgc_id})")
+    for province in region.components:
+        print(f"  Province: {province.name}")
+```
+
+**Type:** `AdminDivExtended`
+
+**Fields:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `name` | `str` | - | Name of the administrative division |
+| `type` | `str` | - | Type of division (country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, barangay, special_geographic_area, submunicipality) |
+| `psgc_id` | `str` | - | PSGC identifier or "n/a" |
+| `parent_psgc_id` | `str` | - | Parent PSGC identifier or "n/a" |
+| `nicknames` | `Optional[List[str]]` | - | Optional list of alternative names |
+| `components` | `List[AdminDivExtended]` | - | List of nested administrative divisions |
+
+### `barangay_flat` (List[AdminDivFlat])
+
+Flat list of all administrative divisions without nesting. Each entry is a standalone record.
+
+```python
+from barangay import barangay_flat
+
+# Access flat data
+all_barangays = [item for item in barangay_flat if item.type == "barangay"]
+municipalities = [item for item in barangay_flat if item.type == "municipality"]
+
+# Example: Find a specific barangay
+brgy = [loc for loc in barangay_flat if loc.name == "Marayos"]
+if brgy:
+    print(f"Found: {brgy[0].name} in {brgy[0].type}")
+```
+
+**Type:** `List[AdminDivFlat]`
+
+**Fields (AdminDivFlat):**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `name` | `str` | - | Name of the administrative division |
+| `type` | `str` | - | Type of division (country, region, province, highly_urbanized_city, independent_component_city, component_city, municipality, barangay, special_geographic_area, submunicipality) |
+| `psgc_id` | `str` | - | PSGC identifier or "n/a" |
+| `parent_psgc_id` | `str` | - | Parent PSGC identifier or "n/a" |
+| `nicknames` | `Optional[List[str]]` | - | Optional list of alternative names |
+
+## Model classes
+
+### `AdminDiv`
+
+Root model for administrative division mapping. Can be either a nested dict structure or a flat list of identifiers.
+
+```python
+from barangay.models import AdminDiv
+
+# Used by the barangay module-level attribute
+# Acts as a dict-like container
+for region, municipalities in barangay.items():
+    print(f"Region: {region}")
+    for municipality, brgys in municipalities.items():
+        print(f"  Municipality: {municipality}")
+```
+
+**Type:** RootModel[dict[str, AdminDiv] | List[str]]
+
+**Methods:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `keys()` | `Callable` | - | Get keys if root is a dict |
+| `values()` | `Callable` | - | Get values if root is a dict |
+| `items()` | `Callable` | - | Get items if root is a dict |
+| `__contains__()` | `Callable` | - | Check membership |
+| `__iter__()` | `Callable` | - | Iterate over the root structure |
+
+### `AdminDivExtended`
+
+Extended model for administrative division data with complete hierarchical structure. Each division can have nested components.
+
+```python
+from barangay.models import AdminDivExtended
+
+# Example structure
+region = AdminDivExtended(
+    name="National Capital Region (NCR)",
+    type="region",
+    psgc_id="130000000",
+    parent_psgc_id="n/a",
+    nicknames=["NCR", "Metro Manila"],
+    components=[...]
+)
+
+# Access nested components
+for component in region.components:
+    print(f"{component.type}: {component.name}")
+```
+
+**Fields:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `name` | `str` | - | Name of the administrative division |
+| `type` | `Literal` | - | Type of division. Valid values: `"country"`, `"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"barangay"`, `"special_geographic_area"`, `"submunicipality"` |
+| `psgc_id` | `str | Literal["n/a"]` | - | PSGC identifier |
+| `parent_psgc_id` | `str | Literal["n/a"]` | - | Parent PSGC identifier |
+| `nicknames` | `Optional[List[str]]` | - | List of alternative names |
+| `components` | `List[AdminDivExtended]` | - | List of nested administrative divisions |
+
+This is a recursive model where each division can contain nested child divisions, allowing for complete hierarchical representation of the Philippine administrative structure.
+
+### `AdminDivFlat`
+
+Flat model for administrative division data without nesting. Each record is self-contained with all necessary information.
+
+```python
+from barangay.models import AdminDivFlat, barangay_flat
+
+# Find barangays by type
+barangays = [item for item in barangay_flat if item.type == "barangay"]
+
+# Find by name
+for item in barangay_flat:
+    if item.name == "Marayos":
+        print(f"Found: {item.name}")
+        print(f"Type: {item.type}")
+        print(f"PSGC ID: {item.psgc_id}")
+        print(f"Parent: {item.parent_psgc_id}")
+        break
+```
+
+**Fields:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `name` | `str` | - | Name of the administrative division |
+| `type` | `Literal` | - | Type of division (same as AdminDivExtended) |
+| `psgc_id` | `str | Literal["n/a"]` | - | PSGC identifier |
+| `parent_psgc_id` | `str | Literal["n/a"]` | - | Parent PSGC identifier |
+| `nicknames` | `Optional[List[str]]` | - | List of alternative names |
+
+Unlike `AdminDivExtended`, this model has no nested components, making it ideal for flat list representations and simple lookups.
+
+## DataManager
+
+Manage data loading, caching, and downloading. Provides access to data from bundled package, local cache, or GitHub.
+
+```python
+from barangay import DataManager
+
+dm = DataManager()
+
+# Load latest data
+data = dm.get_data(data_type="basic")
+
+# Load historical data
+data = dm.get_data(as_of="2025-07-08", data_type="flat")
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `as_of` | `str | None` | - | Historical date (YYYY-MM-DD) or None for latest bundled data |
+| `data_type` | `str` | - | Data model type. Valid options: `"basic"` (nested structure), `"flat"` (flat list), `"extended"` (extended recursive structure) |
+
+**Returns:** Depending on `data_type`:
+
+- `"basic"`: dict
+- `"flat"`: list[dict]
+- `"extended"`: dict
+
+**Data Loading Priority:**
+
+1. Bundled package data (for current version or latest)
+2. Local cache (for historical dates)
+3. Download from GitHub (if not cached)
+
+The DataManager automatically handles date resolution, caching, and downloads based on the `as_of` parameter and configuration.
+
+## See also
+
+- [Data Models Explained](../../concepts/data-models-explained.qmd) — JSON shape comparison
+- [Data dictionary](../data-dictionary.qmd) — field-by-field reference
+- [Legacy](legacy.qmd) — deprecated `BARANGAY` dict aliases

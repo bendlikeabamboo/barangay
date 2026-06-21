@@ -1,0 +1,27 @@
+---
+title: "Migrate from the Legacy API — barangay"
+description: "Recipe: migrate deprecated search(), BARANGAY/BARANGAY_EXTENDED/BARANGAY_FLAT dict aliases, and BarangayModel onto the typed Database API before removal in 2027."
+author: "bendlikeabamboo"
+---
+
+# Migrate from the Legacy API
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+The dict-based API (`search()`, `BARANGAY` / `BARANGAY_EXTENDED` / `BARANGAY_FLAT`, `BarangayModel`) is **deprecated** and will be removed in `2027.X.X.X`. This page maps each legacy pattern to its typed Database API replacement.
+
+::: {.callout-warning title="Deprecation Notice"}
+`search()` and the `BARANGAY` / `BARANGAY_EXTENDED` / `BARANGAY_FLAT` dict aliases are deprecated. Use the Database API for new code (e.g. `barangays.get(name="Tongmageng")`, `search_fuzzy("query")`).
+:::
+
+## Migration map
+
+<!-- TODO: search() -> search_fuzzy(), BARANGAY dicts -> barangays view / to_frame(), BarangayModel -> EnrichedRecord -->
+
+## See also
+
+- [Legacy API reference](../reference/python-api/legacy.qmd)
+- [Database API tutorial](../learn/database-api.qmd)
+- [Database reference](../reference/python-api/database.qmd)

@@ -1,0 +1,66 @@
+---
+title: "FuzzBase (`create_fuzz_base`, `FuzzBase`) — barangay"
+description: "Reference for create_fuzz_base() and FuzzBase: pre-computed fuzzy matching functions for performance when running many searches."
+author: "bendlikeabamboo"
+---
+
+# FuzzBase (`create_fuzz_base`, `FuzzBase`)
+
+Pre-compute fuzzy matching functions to avoid redundant data loading when running many searches. Use this for performance-sensitive batch workloads.
+
+## `create_fuzz_base()`
+
+Factory function to create `FuzzBase` instances for performance optimization. Reusing a `FuzzBase` instance across multiple searches improves performance by avoiding redundant data loading and preprocessing.
+
+```python
+from barangay import create_fuzz_base, search
+
+# Create FuzzBase instance (can be reused for multiple searches)
+fuzz_base = create_fuzz_base(as_of="2025-08-29")
+
+# Use the same fuzz_base for multiple queries
+results1 = search("Tongmageng", fuzz_base=fuzz_base)
+results2 = search("Marayos", fuzz_base=fuzz_base)
+results3 = search("San Jose", fuzz_base=fuzz_base)
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `as_of` | `str | None` | - | Historical date (YYYY-MM-DD) or None for latest bundled data |
+
+**Returns:** `FuzzBase` instance
+
+## FuzzBase
+
+Class for fuzzy matching operations with pre-computed matching functions.
+
+```python
+from barangay import FuzzBase, create_fuzz_base
+
+# Create FuzzBase instance using factory function
+fuzz_base = create_fuzz_base(as_of="2025-08-29")
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `fuzzer_base` | `pd.DataFrame` | - | DataFrame with preprocessed barangay data |
+| `sanitizer` | `Callable` | `_basic_sanitizer` | Function to clean strings (optional) |
+
+`FuzzBase` internally creates four matching patterns:
+
+- `000b`: Barangay name only
+- `0p0b`: Province + Barangay
+- `00mb`: Municipality + Barangay
+- `0pmb`: Province + Municipality + Barangay
+
+Each pattern has a pre-computed fuzzy matching function using `rapidfuzz.token_sort_ratio`.
+
+## See also
+
+- [Search](search.qmd) — typed `search_fuzzy()` (recommended for new code)
+- [Legacy](legacy.qmd) — `search()` that consumes a `FuzzBase`
+- [Bulk barangay lookup tutorial](../../learn/bulk-barangay-lookup.qmd)

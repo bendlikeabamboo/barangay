@@ -1,0 +1,62 @@
+---
+title: "PSGC Data Models Explained: Nested, Flat, and Extended"
+description: "Understand the three barangay PSGC data models — nested (Database API), flat (list/pandas), and extended (recursive tree) — and when to use each in Python."
+author: "bendlikeabamboo"
+date: "2025-11-24"
+---
+
+# PSGC Data Models Explained
+
+The `barangay` package exposes the Philippine Standard Geographic Code (PSGC)
+through a few complementary data models. This post explains what each is for
+and when to reach for it.
+
+## The recommended starting point: the Database API
+
+The modern, typed API centers on **Database views** and **`EnrichedRecord`**
+objects with computed hierarchy properties.
+
+```python
+from barangay import barangays
+
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)       # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)     # Tawi-Tawi
+print(brgy.municipality) # Sitangkai
+print(brgy.parent)       # <municipality: Sitangkai (1907005000)>
+print(brgy.ancestors)    # [municipality, province, region]
+```
+
+Use this for interactive work, lookups, and hierarchy traversal.
+
+## Flat model — for pandas and bulk export
+
+Need a DataFrame or a list of dicts for analysis? Use `to_frame()` /
+`to_dicts()`:
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()
+print(df.shape)  # (42010, 16)
+```
+
+The flat model is ideal for vectorized matching, joins with your own data, and
+CSV/Parquet export.
+
+## Extended model — recursive tree
+
+The extended model represents PSGC as a recursive tree of components, each
+carrying metadata. It's useful when you need the full nested structure
+serialized (e.g. for rendering a hierarchy UI or emitting nested JSON).
+
+## Legacy dict aliases (deprecated)
+
+`BARANGAY`, `BARANGAY_EXTENDED`, and `BARANGAY_FLAT` dict aliases still exist
+but are **deprecated** and scheduled for removal in `2027.X.X.X`. New code
+should use the Database API and `to_frame()` / `to_dicts()` instead.
+
+---
+
+Read the [Data Models reference](../../reference/python-api/data-models.qmd) and
+[Database API tutorial](../../learn/database-api.qmd) for full details.

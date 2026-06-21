@@ -1,0 +1,209 @@
+---
+title: "barangay — Philippine PSGC Python Package"
+description: "Offline Python package for the Philippine Standard Geographic Code (PSGC): 42,011 barangays, municipalities, cities, provinces, and regions with fuzzy search and address validation. No API calls needed."
+author: "bendlikeabamboo"
+---
+
+# barangay — Philippine Geographic Data Python Package
+
+> Python package for accessing Philippine Standard Geographic Code (PSGC)
+> data covering all 42,011 barangays, 1,488 municipalities, 146 cities,
+> 82 provinces, and 17 regions — offline, no API calls needed.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "barangay",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Cross-platform",
+  "programmingLanguage": "Python",
+  "description": "Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions.",
+  "installUrl": "https://pypi.org/project/barangay/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "howTo": {
+    "@type": "HowTo",
+    "name": "Install and search Philippine barangays with Python",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "text": "Install the package: pip install barangay"
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Search for a barangay: from barangay import search_fuzzy; search_fuzzy('Tongmageng, Tawi-Tawi')"
+      }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Philippine Standard Geographic Code (PSGC) — barangay dataset",
+  "description": "Offline Python-accessible dataset of the Philippine Standard Geographic Code (PSGC) covering all 42,011 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions, with hierarchy relationships and historical snapshots.",
+  "keywords": ["PSGC", "Philippines", "barangay", "geographic code", "administrative divisions", "geocoding", "open data"],
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "Philippine Statistics Authority",
+    "url": "https://psa.gov.ph/classification/psgc/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "bendlikeabamboo"
+  },
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://pypi.org/project/barangay/",
+    "encodingFormat": "application/python-package",
+    "name": "barangay (PyPI)"
+  },
+  "temporalCoverage": "2026-04-13",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Republic of the Philippines"
+  },
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the PSGC (Philippine Standard Geographic Code)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The PSGC is the official classification system of the Philippine Statistics Authority that assigns a unique 10-digit code to every administrative unit in the Philippines — regions, provinces, cities, municipalities, sub-municipalities, and the country's 42,011 barangays. The barangay package provides offline access to the complete PSGC masterlist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I validate a Philippine address in Python?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Install the barangay package (pip install barangay), then call validate('Tongmageng, Tawi-Tawi'). It returns a ValidationResult with .valid, .matched_name, and a fuzzy .score. Use validate_many() to check addresses in bulk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the barangay package work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The full PSGC dataset is bundled with the package, so all lookups, fuzzy search, validation, and export work without any API calls, database, or internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Python version is required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Python 3.13 or newer. The package uses modern type hints (PEP 604 unions) and is classified as Programming Language :: Python :: 3 :: Only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support historical PSGC data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Use use_version('2025-07-08') to switch to a previous PSGC masterlist release. Historical snapshots from 2023 through 2026 are included, and use_version(None) returns to the latest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fuzzy search barangays with misspellings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call search_fuzzy('Tongmagen, Tawi-Tawi'). It returns typed SearchResult objects ranked by a fuzzy score using rapidfuzz, tolerant of common misspellings and unstandardized address formats."
+      }
+    }
+  ]
+}
+</script>
+
+<div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+<a href="https://pypi.org/project/barangay/">
+    <img src="https://img.shields.io/pypi/v/barangay.svg" alt="PyPI version">
+</a>
+<a href="https://pepy.tech/projects/barangay">
+    <img src="https://static.pepy.tech/badge/barangay" alt="PyPI Downloads"> 
+</a>
+<a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"> 
+</a>
+<a href="https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml">
+    <img src="https://github.com/bendlikeabamboo/barangay/actions/workflows/publish.yaml/badge.svg" alt="Release Badge"> 
+</a>
+</div>
+
+## Get started in seconds
+
+```bash
+pip install barangay
+```
+
+```python
+from barangay import barangays, search_fuzzy
+
+# Look up a barangay and read its hierarchy
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region, brgy.province, brgy.psgc_id)
+# Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) Tawi-Tawi 1907005010
+
+# Fuzzy search with typed results (tolerant of misspellings)
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+New here? Walk through the [First Lookup](get-started/first-lookup.qmd) tour (Python + CLI) in five minutes.
+
+## Choose your path
+
+| Audience | Start here |
+|----------|------------|
+| **Data analyst / scientist** | [Export to CSV / pandas](how-to/export-to-csv-pandas.qmd) · [Bulk barangay lookup](learn/bulk-barangay-lookup.qmd) |
+| **App / backend developer** | [Address validation](how-to/validate-addresses.qmd) · [Database API tutorial](learn/database-api.qmd) |
+| **CLI / ops / non-Python** | [CLI reference](reference/cli.qmd) · [Geocode batch files](how-to/geocode-batch-files.qmd) |
+| **Researcher / GIS / academic** | [Concepts](concepts/index.qmd) · [Data dictionary](reference/data-dictionary.qmd) |
+| **Migrator (legacy code)** | [Migrate from the legacy API](how-to/migrate-from-legacy-api.qmd) |
+| **Contributor / maintainer** | [Community](community/index.qmd) |
+
+## Features
+
+- **Bundled PSGC Dataset**: Native access to PSGC data, no database or API calls needed
+- **Hierarchy Traversal**: Navigate parent, children, and ancestors of any admin division
+- **Direct Pandas Export**: `to_frame()` and `to_dicts()` for immediate DataFrame access
+- **Address Validation**: `validate()` and `validate_many()` for automated address checking
+- **Fuzzy Search**: Fast, customizable fuzzy matching with typed `SearchResult` objects
+- **Historical PSGC Data**: On-demand access to previous PSGC releases by date
+- **Multiple Data Models**: Basic (nested), Extended (recursive), and Flat (list)
+- **Plug-in System**: Enrich PSGC data with custom extensions via plug-ins (CSV, JSON, Parquet)
+
+## Quick links
+
+- [Get Started](get-started/index.qmd)
+- [Learn](learn/index.qmd) — tutorials
+- [How-To](how-to/index.qmd) — task recipes
+- [Reference](reference/index.qmd) — Python API, CLI, data dictionary
+- [Concepts](concepts/index.qmd) — foundations and explanation
+- [Plugins](plugins/index.qmd)
+- [FAQ](faq.qmd) · [Troubleshooting](troubleshooting.qmd) · [Changelog](changelog.qmd) · [Blog](blog/index.qmd)
+
+## Data Version
+
+Current data version: [**2026-04-13** (April 13 2026 PSGC masterlist)](https://psa.gov.ph/classification/psgc/node/1684083211)
+
+::: {.callout-warning title="Deprecation Notice"}
+`BARANGAY`/`BARANGAY_EXTENDED`/`BARANGAY_FLAT` dict aliases and `search()` are deprecated and will be removed in 2027.X.X.X. Use the Database API for new code (e.g. `barangays.get(name="Tongmageng")`, `search_fuzzy("query")`). See [Migrate from the legacy API](how-to/migrate-from-legacy-api.qmd).
+:::

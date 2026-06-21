@@ -1,0 +1,33 @@
+---
+title: "Work with Historical Data — barangay"
+description: "Recipe: switch between PSGC masterlist snapshots with use_version, as_of, and resolve_date for historical queries."
+author: "bendlikeabamboo"
+---
+
+# Work with Historical Data
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to query previous PSGC masterlist releases (2023–2026) using `use_version()`, the `as_of` parameter, and `resolve_date()`.
+
+## Switch the global version
+
+```python
+import barangay
+
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
+```
+
+## Per-query historical
+
+<!-- TODO: as_of on search_fuzzy / validate, resolve_date for closest match -->
+
+## See also
+
+- [Versioning reference](../reference/python-api/versioning.qmd)
+- [Available dates](../reference/python-api/utilities.qmd)
+- [Concepts: PSGC overview](../concepts/psgc-overview.qmd)

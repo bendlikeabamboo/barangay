@@ -1,0 +1,23 @@
+---
+title: "Release Process — barangay"
+description: "How barangay releases work: calendar versioning, tagging, and the GitHub Actions PyPI publish workflow."
+author: "bendlikeabamboo"
+---
+
+# Release Process
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How `barangay` releases work — calendar versioning (`YYYY.M.D.PATCH`), git tagging, and the PyPI publish workflow.
+
+## Steps
+
+<!-- TODO: bump version, tag *.*.*.*, CI publish.yaml triggers PyPI -->
+
+## See also
+
+- [Development](development.qmd)
+- [Data update guide](data-update.qmd)
+- [Changelog](../changelog.qmd)

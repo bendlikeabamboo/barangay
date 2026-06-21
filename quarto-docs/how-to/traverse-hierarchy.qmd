@@ -1,0 +1,43 @@
+---
+title: "Traverse the Hierarchy — barangay"
+description: "Recipe: navigate the PSGC hierarchy with parent, children, ancestors, and get records by region, province, or municipality."
+author: "bendlikeabamboo"
+---
+
+# Traverse the Hierarchy
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to move up and down the Philippine administrative hierarchy (region → province → city/municipality → barangay) using `EnrichedRecord` properties and the level views.
+
+## Upward traversal
+
+```python
+from barangay import barangays
+
+brgy = barangays.get(name="Tongmageng")
+print(brgy.region)       # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+print(brgy.province)     # Tawi-Tawi
+print([a.name for a in brgy.ancestors])
+```
+
+## Downward traversal
+
+```python
+from barangay import cities
+
+manila = cities.get(name="City of Manila")
+print([c.name for c in manila.children[:3]])
+```
+
+## By level
+
+<!-- TODO: get-by-region / province / municipality patterns -->
+
+## See also
+
+- [Records reference](../reference/python-api/records.qmd)
+- [Concepts: administrative hierarchy](../concepts/administrative-hierarchy.qmd)
+- [Concepts: hierarchy indicator (rphicmsgb)](../concepts/hierarchy-indicator.qmd)

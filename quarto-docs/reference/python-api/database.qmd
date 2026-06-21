@@ -1,0 +1,142 @@
+---
+title: "Database — barangay"
+description: "Reference for the barangay Database API: the 10 admin-level views, get, lookup, view-level search_fuzzy, to_frame/to_dicts, iteration, and the RecordNotFoundError/MultipleResultsError exceptions."
+author: "bendlikeabamboo"
+---
+
+# Database
+
+The Database API is the primary way to access PSGC data. Use the module-level views instead of instantiating `Database` directly.
+
+## Database Views
+
+Pre-built views provide direct access to every admin level in the PSGC database. Each view is iterable, supports containment checks, and exposes search, lookup, and export methods.
+
+```python
+from barangay import regions, provinces, municipalities, cities, hucs, iccs, component_cities, submunicipalities, barangays, special_geographic_areas
+
+print(regions)     # <PSGC region database: 18 records>
+print(provinces)   # <PSGC province database: 82 records>
+print(barangays)   # <PSGC barangay database: 42010 records>
+```
+
+**Available views:**
+
+| View | Admin Level |
+|------|-------------|
+| `regions` | Region |
+| `provinces` | Province |
+| `municipalities` | Municipality |
+| `cities` | City (aggregate) |
+| `hucs` | Highly Urbanized City |
+| `iccs` | Independent Component City |
+| `component_cities` | Component City |
+| `submunicipalities` | Submunicipality |
+| `barangays` | Barangay |
+| `special_geographic_areas` | Special Geographic Area |
+
+### `.get(name=...)` / `.get(psgc_id=...)`
+
+Look up a single record by name or PSGC ID. Returns an `EnrichedRecord`.
+
+```python
+brgy = barangays.get(name="Tongmageng")
+print(brgy)  # <barangay: Tongmageng (1907005010)>
+
+brgy = barangays.get(psgc_id="1907005010")
+print(brgy.region)  # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
+```
+
+Raises `RecordNotFoundError` when no record matches. Raises `MultipleResultsError` when the name matches more than one record. Use `.lookup()` for nullable PSGC ID lookups. See [Handling Errors](../../learn/database-api.qmd#handling-errors) for details.
+
+### `.lookup(psgc_id)`
+
+Exact lookup by PSGC ID across all levels. Returns `EnrichedRecord` or `None`.
+
+```python
+r = barangays.lookup("1907005010")
+print(r)  # <barangay: Tongmageng (1907005010)>
+print(r.to_dict())
+# {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010', ...}
+```
+
+Unlike `.get()`, `.lookup()` does **not** raise when the record is missing — it returns `None`.
+
+### `.search_fuzzy(query)`
+
+Fuzzy search scoped to this admin level. Returns `List[SearchResult]`.
+
+```python
+results = barangays.search_fuzzy("Tongmageng, Tawi-Tawi", threshold=60.0, limit=5)
+for r in results:
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+### `.to_frame()` / `.to_dicts()`
+
+Export records to a pandas DataFrame or list of dicts. Each dict includes resolved hierarchy fields (`region`, `province`, `highly_urbanized_city`, `independent_component_city`, `component_city`, `municipality`, `submunicipality`, `special_geographic_area`, `barangay`).
+
+```python
+df = barangays.to_frame()
+print(df.columns.tolist())
+# ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
+#  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
+#  'component_city', 'municipality', 'submunicipality',
+#  'special_geographic_area', 'barangay']
+print(df.shape)  # (42010, 16)
+
+data = barangays.to_dicts()
+print(len(data))  # 42010
+```
+
+### Iteration and containment
+
+```python
+# Iterate
+for region in regions:
+    print(region.name)
+
+# Check membership by PSGC ID
+print("1907005010" in barangays)  # True
+
+# Count
+print(len(barangays))  # 42010
+```
+
+## Errors
+
+### `RecordNotFoundError`
+
+Raised when `.get()` finds no matching record.
+
+```python
+from barangay import barangays, RecordNotFoundError
+
+try:
+    brgy = barangays.get(name="DoesNotExist")
+except RecordNotFoundError as e:
+    print(e)
+    # No barangay with name 'DoesNotExist'.
+```
+
+### `MultipleResultsError`
+
+Raised when `.get(name=...)` matches multiple records.
+
+```python
+from barangay import barangays, MultipleResultsError
+
+try:
+    result = barangays.get(name="San Roque")  # many barangays named San Roque
+except MultipleResultsError as e:
+    print(e)
+    # Name 'San Roque' matched 42 records. Use psgc_id for exact lookup, or iterate.
+```
+
+See [Handling Errors](../../learn/database-api.qmd#handling-errors) for a full guide on resolving these errors.
+
+## See also
+
+- [Records](records.qmd) — `EnrichedRecord` fields and hierarchy properties
+- [Search](search.qmd) — module-level `search_fuzzy()`
+- [Database API tutorial](../../learn/database-api.qmd)

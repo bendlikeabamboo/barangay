@@ -1,0 +1,206 @@
+---
+title: "Plugin CLI Reference — barangay"
+description: "Use plugins from the barangay command line: the --plugin flag enriches search and export output with supplementary PSGC data fields."
+author: "bendlikeabamboo"
+---
+
+# CLI Reference
+
+Plugins integrate directly into the `barangay search` and `barangay export` CLI commands via the `--plugin` flag.
+
+## `--plugin` Flag
+
+The `--plugin` flag is **repeatable** — pass it once per plugin you want to enable:
+
+```bash
+barangay search "Tondo" --plugin psgc-aux-data --plugin sample_elevation
+```
+
+When `--plugin` is used, the specified plugins are enabled on top of whatever the config files say. You do not need to edit `plugins.yaml` to use a plugin on the CLI.
+
+::: {.callout-warning}
+Only one **array** plugin can be active at a time. Scalar plugins have no limit.
+:::
+
+## `barangay search` with Plugins
+
+### JSON output
+
+```bash
+barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit 1
+```
+
+```json
+[
+  {
+    "barangay": "Ibo",
+    "province_or_huc": "City of Lapu-Lapu",
+    "municipality_or_city": null,
+    "psgc_id": "0731100013",
+    "f_0p0b_ratio_score": 80.0,
+    "f_00mb_ratio_score": 0.0,
+    "f_0pmb_ratio_score": 64.0,
+    "000b": "ibo",
+    "0p0b": "lapulapu ibo",
+    "00mb": "none ibo",
+    "0pmb": "lapulapu none ibo",
+    "psgc-aux-data.correspondence_code": "0072226013",
+    "psgc-aux-data.old_names": null,
+    "psgc-aux-data.city_class": null,
+    "psgc-aux-data.income_classification": null,
+    "psgc-aux-data.urban_rural": "U",
+    "psgc-aux-data.population": 7453,
+    "psgc-aux-data.status": null
+  }
+]
+```
+
+The `psgc-aux-data.*` fields are injected by the plugin. Fields that are not applicable for a given record (e.g., `city_class` on a barangay) appear as `null`.
+
+### Table output
+
+```bash
+barangay search "Tondo" --plugin psgc-aux-data --format table --limit 5 --threshold 50
+```
+
+```
+                           Search Results for 'Tondo'                           
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━┳━━━━━━┓
+┃      ┃      ┃     ┃ PSGC ┃     ┃      ┃     ┃      ┃     ┃      ┃     ┃      ┃
+┃ Bar… ┃ Mun… ┃ Pr… ┃ ID   ┃ Sc… ┃ psg… ┃ ps… ┃ psg… ┃ ps… ┃ psg… ┃ ps… ┃ psg… ┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━┩
+│ Ton… │ Anda │ Pa… │ 010… │ 62… │ 001… │ No… │ None │ No… │ R    │ 35… │ None │
+│ Uni… │ Tago │ Su… │ 160… │ 62… │ 016… │ No… │ None │ No… │ R    │ 13… │ None │
+│      │      │ del │      │     │      │     │      │     │      │     │      │
+│      │      │ Sur │      │     │      │     │      │     │      │     │      │
+│ Pudo │ Nat… │ Mo… │ 140… │ 58… │ 014… │ No… │ None │ No… │ R    │ 572 │ None │
+│      │      │ Pr… │      │     │      │     │      │     │      │     │      │
+│ Ton… │ Tan… │ Ak… │ 060… │ 58… │ 006… │ No… │ None │ No… │ R    │ 21… │ None │
+│ Bato │      │ Ci… │ 113… │ 57… │ 011… │ No… │ None │ No… │ U    │ 12… │ None │
+│      │      │ of  │      │     │      │     │      │     │      │     │      │
+│      │      │ Da… │      │     │      │     │      │     │      │     │      │
+└──────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┘
+```
+
+Plugin columns are automatically appended to the table. The columns shown are: `psgc-aux-data.correspondence_code`, `psgc-aux-data.old_names`, `psgc-aux-data.city_class`, `psgc-aux-data.income_classification`, `psgc-aux-data.urban_rural`, `psgc-aux-data.population`, `psgc-aux-data.status`.
+
+::: {.callout-note}
+Only **scalar** plugins are supported with `barangay search`. Array plugins (like `sample_schools`) are ignored in search results.
+:::
+
+## `barangay export` with Plugins
+
+Plugins are only supported with `--model flat`. Using `--plugin` with `--model extended` or `--model basic` will raise an error:
+
+```bash
+barangay export --model extended --plugin psgc-aux-data
+```
+
+```
+Error: Plugins are only supported with --model flat
+```
+
+### JSON export
+
+```bash
+barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
+```
+
+Each record includes plugin fields directly:
+
+```json
+{
+  "name": "City of Lapu-Lapu",
+  "type": "highly_urbanized_city",
+  "psgc_id": "0731100000",
+  "parent_psgc_id": "0700000000",
+  "nicknames": null,
+  "psgc-aux-data.correspondence_code": "0072226000",
+  "psgc-aux-data.old_names": "Opon",
+  "psgc-aux-data.city_class": "HUC",
+  "psgc-aux-data.income_classification": "1st",
+  "psgc-aux-data.urban_rural": null,
+  "psgc-aux-data.population": 497813,
+  "psgc-aux-data.status": null
+}
+```
+
+### CSV export
+
+```bash
+barangay export --model flat --plugin psgc-aux-data --format csv --output enriched.csv
+```
+
+CSV header:
+
+```csv
+name,type,psgc_id,parent_psgc_id,nicknames,psgc-aux-data.correspondence_code,psgc-aux-data.old_names,psgc-aux-data.city_class,psgc-aux-data.income_classification,psgc-aux-data.urban_rural,psgc-aux-data.population,psgc-aux-data.status
+Bangsamoro Autonomous Region In Muslim Mindanao (BARMM),region,1900000000,0000000000,,0150000000,,,,,4545486,
+```
+
+### Historical plugin data
+
+The `psgc-aux-data` plugin is time-aware — it provides snapshots matching PSGC release dates. Use `--as-of` to fetch the supplementary data that was current at that date:
+
+```bash
+barangay export --model flat --plugin psgc-aux-data --format json --as-of "2025-08-29" --output enriched_2025.json
+```
+
+Output (first record):
+
+```json
+{
+  "name": "Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)",
+  "type": "region",
+  "psgc_id": "1900000000",
+  "parent_psgc_id": "0000000000",
+  "nicknames": null,
+  "psgc-aux-data.correspondence_code": "0150000000",
+  "psgc-aux-data.old_names": null,
+  "psgc-aux-data.city_class": null,
+  "psgc-aux-data.income_classification": null,
+  "psgc-aux-data.urban_rural": null,
+  "psgc-aux-data.population": 4545486,
+  "psgc-aux-data.status": null
+}
+```
+
+### Multiple plugins
+
+Enable multiple plugins by repeating the `--plugin` flag:
+
+```bash
+barangay export --model flat --plugin sample_elevation --plugin psgc-aux-data --format json --output multi.json
+```
+
+Records contain fields from both plugins:
+
+```json
+{
+  "name": "National Capital Region (NCR)",
+  "type": "region",
+  "psgc_id": "1300000000",
+  "parent_psgc_id": "0000000000",
+  "nicknames": null,
+  "sample_elevation.elevation_m": "16",
+  "sample_elevation.terrain": "lowland",
+  "psgc-aux-data.correspondence_code": "0130000000",
+  "psgc-aux-data.old_names": null,
+  "psgc-aux-data.city_class": null,
+  "psgc-aux-data.income_classification": null,
+  "psgc-aux-data.urban_rural": null,
+  "psgc-aux-data.population": 14001751,
+  "psgc-aux-data.status": null
+}
+```
+
+## CLI Options Summary
+
+| Command | `--plugin` Support | Notes |
+|---------|-------------------|-------|
+| `barangay search` | Yes (scalar only) | Enriches search results inline |
+| `barangay export --model flat` | Yes (scalar + array) | Full enrichment, supports cross-join for arrays |
+| `barangay export --model extended` | No | Raises error |
+| `barangay export --model basic` | No | Raises error |
+| `barangay history search-history` | No | Not supported |
+| `barangay history export-history` | No | Not supported |

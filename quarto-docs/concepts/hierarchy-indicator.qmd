@@ -1,0 +1,37 @@
+---
+title: "Hierarchy Indicator (`rphicmsgb`) — barangay"
+description: "The 9-character rphicmsgb indicator used to show which PSGC administrative levels are active in a query or match result."
+author: "bendlikeabamboo"
+---
+
+# Hierarchy Indicator (`rphicmsgb`)
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+`rphicmsgb` is a 9-character string pattern that indicates which PSGC hierarchy levels are active or included in a query or match result. Each position corresponds to a level; the placeholder `0` is replaced by the level's letter when that level is active.
+
+## Positions
+
+| Position | Letter | Level |
+|----------|--------|-------|
+| 1 | `r` | Region |
+| 2 | `p` | Province |
+| 3 | `h` | Highly urbanized city |
+| 4 | `i` | Independent component city |
+| 5 | `c` | Component city |
+| 6 | `m` | Municipality |
+| 7 | `s` | Sub-municipality |
+| 8 | `g` | Special geographic area / unit |
+| 9 | `b` | Barangay |
+
+## Example
+
+`r0h000s0b` means the result spans region, highly urbanized city, sub-municipality, and barangay levels.
+
+## See also
+
+- [Administrative hierarchy](administrative-hierarchy.qmd)
+- [Data dictionary](../reference/data-dictionary.qmd)
+- [PSGC overview](psgc-overview.qmd)

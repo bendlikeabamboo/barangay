@@ -1,0 +1,32 @@
+---
+title: "Search with Misspellings — barangay"
+description: "Recipe: tune fuzzy search for barangay names with typos, abbreviations, and unstandardized formats using search_fuzzy thresholds and match_hooks."
+author: "bendlikeabamboo"
+---
+
+# Search with Misspellings
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to use `search_fuzzy()` to match barangay names tolerant of typos, abbreviations, and non-standard formats.
+
+## Canonical example
+
+```python
+from barangay import search_fuzzy
+
+for r in search_fuzzy("Tongmagen, Tawi-Tawi", threshold=60.0, limit=5):
+    print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+```
+
+## Tuning
+
+<!-- TODO: threshold selection, match_hooks levels, level filter, limit -->
+
+## See also
+
+- [Validate addresses](validate-addresses.qmd)
+- [Search reference](../reference/python-api/search.qmd)
+- [Concepts: administrative hierarchy](../concepts/administrative-hierarchy.qmd)

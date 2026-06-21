@@ -1,0 +1,39 @@
+---
+title: "Export to CSV / pandas — barangay"
+description: "Recipe: export PSGC records to a pandas DataFrame, list of dicts, or CSV/JSON via to_frame(), to_dicts(), and the CLI export command."
+author: "bendlikeabamboo"
+---
+
+# Export to CSV / pandas
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to export PSGC records to pandas, dicts, or a file.
+
+## Python
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()         # pandas DataFrame
+data = barangays.to_dicts()       # list[dict]
+df.to_csv("barangays.csv", index=False)
+```
+
+## CLI
+
+```sh
+barangay export --model flat --format csv --output barangays.csv
+```
+
+## Models
+
+<!-- TODO: basic / extended / flat model differences, resolved hierarchy columns -->
+
+## See also
+
+- [Data models reference](../reference/python-api/data-models.qmd)
+- [Data models explained](../concepts/data-models-explained.qmd)
+- [CLI reference](../reference/cli.qmd)

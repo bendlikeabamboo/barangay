@@ -1,0 +1,27 @@
+---
+title: "PSGC Overview — barangay"
+description: "What the Philippine Standard Geographic Code (PSGC) is, its PSA source, the 10-digit code structure, and how the barangay package exposes it offline."
+author: "bendlikeabamboo"
+---
+
+# PSGC Overview
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+The Philippine Standard Geographic Code (PSGC) is the official classification system of the Philippine Statistics Authority (PSA). It assigns a unique 10-digit code to every administrative unit in the Philippines.
+
+## The 10-digit code
+
+<!-- TODO: breakdown of the code segments by level -->
+
+## Source & provenance
+
+<!-- TODO: PSA masterlist, current version, update cadence -->
+
+## See also
+
+- [Administrative hierarchy](administrative-hierarchy.qmd)
+- [Data dictionary](../reference/data-dictionary.qmd)
+- [Comparisons](../reference/comparisons.qmd)

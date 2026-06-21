@@ -1,0 +1,23 @@
+---
+title: "Architecture — barangay"
+description: "How the barangay package works internally: DataManager, the bundled PSGC cache, the plugin join, and fuzzy matching."
+author: "bendlikeabamboo"
+---
+
+# Architecture
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How the `barangay` package works internally — bundled data, the `DataManager` cache, the plugin join, and fuzzy matching.
+
+## Components
+
+<!-- TODO: DataManager, bundled package data, local cache, GitHub fallback, Database singleton, plugin join -->
+
+## See also
+
+- [PSGC overview](psgc-overview.qmd)
+- [Versioning reference](../reference/python-api/versioning.qmd)
+- [Plugin Python API](../plugins/python-api.qmd)

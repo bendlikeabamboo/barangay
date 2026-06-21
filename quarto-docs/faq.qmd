@@ -1,0 +1,39 @@
+---
+title: "FAQ — barangay"
+description: "Frequently asked questions about the barangay PSGC package: offline use, Python version, historical data, fuzzy search, and address validation."
+author: "bendlikeabamboo"
+---
+
+# FAQ
+
+> **Status:** Stub — content to be expanded (seeded from the homepage JSON-LD FAQ).
+
+## Overview
+
+Frequently asked questions about the `barangay` package.
+
+## What is the PSGC?
+
+The PSGC is the official classification system of the Philippine Statistics Authority that assigns a unique 10-digit code to every administrative unit in the Philippines. The `barangay` package provides offline access to the complete PSGC masterlist.
+
+## How do I validate a Philippine address in Python?
+
+Install the package (`pip install barangay`), then call `validate('Tongmageng, Tawi-Tawi')`. Use `validate_many()` to check addresses in bulk.
+
+## Does it work offline?
+
+Yes. The full PSGC dataset is bundled with the package — all lookups, fuzzy search, validation, and export work without any API calls or internet connection.
+
+## Which Python version is required?
+
+Python 3.13 or newer.
+
+## Does it support historical PSGC data?
+
+Yes. Use `use_version('2025-07-08')` to switch to a previous PSGC masterlist release (2023–2026).
+
+## See also
+
+- [Get Started](get-started/index.qmd)
+- [Troubleshooting](troubleshooting.qmd)
+- [Concepts](concepts/index.qmd)

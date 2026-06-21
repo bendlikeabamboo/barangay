@@ -1,0 +1,35 @@
+---
+title: "Development — barangay"
+description: "Set up a local development environment for the barangay package: uv sync, ruff, ty, pytest, and pre-commit hooks."
+author: "bendlikeabamboo"
+---
+
+# Development
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to set up a local development environment for `barangay` and run the standard verification commands.
+
+## Setup
+
+```bash
+uv sync
+uv run pre-commit install
+```
+
+## Verification
+
+```bash
+uv run ruff check --fix --exit-non-zero-on-fix --ignore E741
+uv run ruff format
+uv run ty check
+uv run pytest
+```
+
+## See also
+
+- [Code style](code-style.qmd)
+- [Release process](release-process.qmd)
+- [Data update guide](data-update.qmd)

@@ -1,0 +1,186 @@
+---
+title: "Legacy API (deprecated) — barangay"
+description: "Reference for the deprecated barangay dict-based API: search(), BARANGAY/BARANGAY_EXTENDED/BARANGAY_FLAT dict aliases, and BarangayModel. Migrate to the Database API before removal in 2027."
+author: "bendlikeabamboo"
+---
+
+# Legacy API (deprecated)
+
+::: {.callout-warning title="Deprecated"}
+Everything on this page is **deprecated** and will be removed in `2027.X.X.X`. Use the [Database API](database.qmd) for new code (e.g. `barangays.get(name="Tongmageng")`, `search_fuzzy("query")`). See [Migrate from the legacy API](../../how-to/migrate-from-legacy-api.qmd) for a full migration map.
+:::
+
+This page collects the legacy dict-based API for reference while migrating.
+
+## `search()`
+
+`search()` returns raw dicts. Use `search_fuzzy()` for typed `SearchResult` objects.
+
+```python
+from barangay import search
+
+results = search("Tongmageng, Tawi-Tawi")
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `search_string` | `str` | - | The string to search for |
+| `match_hooks` | `List[Literal["province", "municipality", "barangay"]]` | `["barangay"]` | Administrative levels to match against. Valid options: `"province"`, `"municipality"`, `"barangay"` (requires `"barangay"` to always be present) |
+| `threshold` | `float` | `60.0` | Minimum similarity score (0-100) |
+| `n` | `int` | `5` | Maximum number of results |
+| `search_sanitizer` | `Callable` | - | Function to sanitize search string |
+| `fuzz_base` | `FuzzBase | None` | - | Pre-computed fuzzy matching instance for performance |
+| `as_of` | `str | None` | - | Historical date (YYYY-MM-DD) or None for latest |
+
+**Returns:** List[dict] with matching results
+
+The function supports multiple matching patterns:
+
+- `B` (barangay only): Matches against barangay name only
+- `PB` (province + barangay): Matches against province and barangay combined
+- `MB` (municipality + barangay): Matches against municipality and barangay combined
+- `PMB` (province + municipality + barangay): Matches against all three levels combined
+
+Each result includes these score fields:
+
+- `f_000b_ratio_score`: Score for barangay-only match
+- `f_0p0b_ratio_score`: Score for province + barangay match
+- `f_00mb_ratio_score`: Score for municipality + barangay match
+- `f_0pmb_ratio_score`: Score for province + municipality + barangay match
+
+Each result also includes base fields (`000b`, `0p0b`, `00mb`, `0pmb`) for the corresponding match patterns.
+
+**Example:**
+
+```python
+results = search(
+    "Tongmagen, Tawi-Tawi",
+    n=4,
+    match_hooks=["municipality", "barangay"],
+    threshold=70.0,
+    as_of="2025-07-08"
+)
+
+for result in results:
+    print(f"{result['barangay']} (score: {result['f_00mb_ratio_score']})")
+```
+
+## `BARANGAY` / `BARANGAY_EXTENDED` / `BARANGAY_FLAT` dicts
+
+Dict versions of the data, converted from the Pydantic models at import time. Use the [Database API](database.qmd) instead (e.g. `barangays.get(name="Tongmageng")`, `barangays.to_frame()`).
+
+```python
+from barangay import BARANGAY, BARANGAY_EXTENDED, BARANGAY_FLAT
+
+# Dict versions (converted from Pydantic models at import time)
+# Use these for legacy code or when you need plain dicts
+BARANGAY  # dict: nested structure like barangay
+BARANGAY_EXTENDED  # dict: extended nested structure
+BARANGAY_FLAT  # List[dict]: list of dicts like barangay_flat
+```
+
+These are converted from Pydantic models at module import time. For better performance, use the Pydantic models (`barangay`, `barangay_extended`, `barangay_flat`) directly when possible.
+
+### `BARANGAY` — nested dict usage
+
+```python
+from barangay import BARANGAY
+
+ncr: dict = BARANGAY["National Capital Region (NCR)"]
+print(f"NCR Components: \n\t{'\n\t'.join(list(ncr.keys()))}")
+
+city_of_manila_municipalities: dict = ncr["City of Manila"]
+print(
+    "City of Manila Municipalities: \n\t"
+    f"{'\n\t'.join(list(city_of_manila_municipalities.keys()))}"
+)
+
+binondo_barangays: list = city_of_manila_municipalities["Binondo"]
+print(f"Binondo Barangays: \n\t{'\n\t'.join(binondo_barangays)}")
+```
+
+### `BARANGAY_EXTENDED` — recursive dict usage
+
+```python
+from barangay import BARANGAY_EXTENDED
+import random
+
+regions = [x for x in BARANGAY_EXTENDED["components"]]
+region_names = [x["name"] for x in BARANGAY_EXTENDED["components"]]
+sampled_regions = random.sample(region_names, k=3)
+print(f"Sample regions in the Philippines: \n\t{'\n\t'.join(sampled_regions)}")
+
+davao_region = [x for x in regions if x["name"] == "Region XI (Davao Region)"][0]
+davao_provinces_and_hucs_names = [x["name"] for x in davao_region["components"]]
+print(
+    "Sample provinces and HUCs in Davao Region: "
+    f"{random.sample(davao_provinces_and_hucs_names, k=3)}"
+)
+```
+
+### `BARANGAY_FLAT` — flat list of dicts
+
+```python
+from barangay import BARANGAY_FLAT
+
+# Filter by type
+barangays = [item for item in BARANGAY_FLAT if item["type"] == "barangay"]
+print(f"Total barangays: {len(barangays)}")
+
+# Find by PSGC ID
+target = next((b for b in barangays if b["psgc_id"] == "1900702001"), None)
+print(f"Found: {target['name']} (PSGC: {target['psgc_id']})")
+```
+
+## `BarangayModel`
+
+::: {.callout-warning title="Deprecated"}
+`BarangayModel` will be removed in 2027.X.X.X. Use `EnrichedRecord` via the Database API instead.
+:::
+
+Pydantic model for single barangay records.
+
+```python
+from barangay import BarangayModel
+
+# Create a new instance
+model = BarangayModel(
+    barangay="Tongmageng",
+    municipality_or_city="Tongmagen",
+    province_or_huc="Tawi-Tawi",
+    psgc_id="123456789"
+)
+
+# Access fields
+print(model.barangay)              # 'Tongmageng'
+print(model.municipality_or_city)  # 'Tongmagen'
+print(model.province_or_huc)       # 'Tawi-Tawi'
+print(model.psgc_id)               # '123456789'
+
+# Convert to dict
+model_dict = model.model_dump()
+# {'barangay': 'Tongmageng', 'municipality_or_city': 'Tongmagen', ...}
+
+# Convert to JSON
+model_json = model.model_dump_json()
+```
+
+**Fields:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `barangay` | `str` | - | Name of the barangay |
+| `province_or_huc` | `str` | - | Province or highly urbanized city name |
+| `municipality_or_city` | `str` | - | Municipality or city name |
+| `psgc_id` | `str` | - | Philippine Standard Geographic Code identifier |
+
+This is a simple model used for single barangay records, distinct from the hierarchical `AdminDiv` models.
+
+## See also
+
+- [Migrate from the legacy API](../../how-to/migrate-from-legacy-api.qmd) — migration map
+- [Database](database.qmd) — replacement API
+- [Data models](data-models.qmd) — current pydantic models
+- [FuzzBase](fuzzbase.qmd) — consumed by legacy `search()`

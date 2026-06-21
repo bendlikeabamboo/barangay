@@ -1,0 +1,23 @@
+---
+title: "Troubleshooting — barangay"
+description: "Solutions to common barangay package problems: RecordNotFoundError, MultipleResultsError, cache issues, and date resolution."
+author: "bendlikeabamboo"
+---
+
+# Troubleshooting
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+Solutions to common problems when using the `barangay` package.
+
+## Common errors
+
+<!-- TODO: RecordNotFoundError, MultipleResultsError, cache dir issues, date resolution, plugin loading -->
+
+## See also
+
+- [Handling errors (Database API tutorial)](learn/database-api.qmd#handling-errors)
+- [FAQ](faq.qmd)
+- [Database reference](reference/python-api/database.qmd)

@@ -1,0 +1,22 @@
+---
+title: "Code Style — barangay"
+description: "Code conventions for the barangay package: ruff formatting, type hints, testing, and an AGENTS.md summary."
+author: "bendlikeabamboo"
+---
+
+# Code Style
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+The code conventions followed by the `barangay` package, summarized from `AGENTS.md`.
+
+## Conventions
+
+<!-- TODO: ruff default formatting, type hints required (ty check), Python 3.13+ syntax, test naming -->
+
+## See also
+
+- [Development](development.qmd)
+- [Release process](release-process.qmd)

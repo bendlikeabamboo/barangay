@@ -1,0 +1,31 @@
+---
+title: "Geocode Batch Files — barangay"
+description: "Recipe: process batches of addresses or queries from files using the CLI batch-search and batch validate commands."
+author: "bendlikeabamboo"
+---
+
+# Geocode Batch Files
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to process batches of addresses or queries from text/CSV files via the CLI.
+
+## Batch search
+
+```bash
+barangay batch batch-search queries.txt --limit 5 --output results.json
+```
+
+## Batch validate
+
+```bash
+barangay batch validate addresses.txt
+```
+
+## See also
+
+- [Validate addresses](validate-addresses.qmd)
+- [CLI reference](../reference/cli.qmd)
+- [Export to CSV / pandas](export-to-csv-pandas.qmd)

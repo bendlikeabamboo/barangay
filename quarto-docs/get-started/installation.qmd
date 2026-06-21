@@ -1,0 +1,43 @@
+---
+title: "Installation — barangay"
+description: "Install the barangay PSGC package with pip or uv, verify Python 3.13+, and troubleshoot common install issues."
+author: "bendlikeabamboo"
+---
+
+# Installation
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to install and verify the `barangay` package. Requires Python 3.13 or newer.
+
+## Install with pip
+
+```bash
+pip install barangay
+```
+
+## Install with uv
+
+```bash
+uv add barangay
+```
+
+## Verify
+
+```python
+import barangay
+print(barangay.current)      # current bundled PSGC date
+print(len(barangay.barangays))  # 42010
+```
+
+## Troubleshooting
+
+<!-- TODO: Python version errors, offline install, cache dir, plugin deps -->
+
+## See also
+
+- [First Lookup](first-lookup.qmd)
+- [FAQ](../faq.qmd)
+- [Troubleshooting](../troubleshooting.qmd)

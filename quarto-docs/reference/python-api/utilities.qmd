@@ -1,0 +1,183 @@
+---
+title: "Utilities & Configuration — barangay"
+description: "Reference for barangay utility and configuration functions: sanitize_input, resolve_date, get_available_dates, resolve_as_of, get_verbose, get_cache_dir, load_env_config."
+author: "bendlikeabamboo"
+---
+
+# Utilities & Configuration
+
+String sanitization, date resolution, available-date inspection, and environment-based configuration.
+
+## `sanitize_input()`
+
+Utility function for string sanitization. Converts strings to lowercase and removes specified items.
+
+```python
+from barangay import sanitize_input
+
+# Basic sanitization (lowercase only)
+cleaned = sanitize_input("City of San Jose")
+# Result: "city of san jose"
+
+# Sanitize with exclusions
+cleaned = sanitize_input("City of San Jose", exclude=["city of ", " city"])
+# Result: "san jose"
+
+# Using a list of exclusions
+cleaned = sanitize_input("(pob.) San Jose City", exclude=["(pob.)", " city"])
+# Result: "san jose"
+
+# Using a single exclusion string
+cleaned = sanitize_input("San Jose & vicinity", exclude="&")
+# Result: "san jose  vicinity"
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `input_str` | `str | None` | - | String to sanitize. None becomes empty string |
+| `exclude` | `List[str] | str | None` | - | Items to remove. Can be a list, string, or None |
+
+**Returns:** Sanitized lowercase string with excluded items removed
+
+**Note:** The function handles `None` input gracefully by converting it to an empty string.
+
+## `resolve_date()`
+
+Resolve approximate dates to the closest available dataset. Useful when working with historical data that may not have exact date matches.
+
+```python
+from barangay import resolve_date
+
+# Resolve to closest available date
+resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
+print(resolved_date)  # '2025-07-08' (closest available)
+print(status)  # Message describing the resolution
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `target_date` | `str` | - | Target date string (YYYY-MM-DD) |
+| `available_dates` | `List[str]` | - | List of available dataset dates |
+| `current_date` | `str` | - | Current dataset date (for reference) |
+
+**Returns:** Tuple of (resolved_date: str | None, status_message: str)
+
+## `get_available_dates()`
+
+Get list of available historical dataset dates. This typically includes all historical releases available on GitHub.
+
+```python
+from barangay import get_available_dates
+
+dates = get_available_dates()
+print(dates)
+# ['2023-01-25', '2023-04-18', '2023-08-15', '2023-10-24', '2024-01-23', '2024-04-23', '2024-05-08', '2024-07-12', '2024-10-18', '2025-01-30', '2025-04-23', '2025-07-08', '2025-08-29', '2025-10-13', '2026-01-13', '2026-04-13']
+```
+
+**Returns:** List[str] of available dates in YYYY-MM-DD format
+
+The current bundled version is also included in this list via the `barangay.available_dates` attribute.
+
+## `resolve_as_of()`
+
+Resolve the "as of" date for data queries from multiple layers with priority.
+
+```python
+from barangay import resolve_as_of
+
+# Resolve with parameter
+date = resolve_as_of(as_of_param="2025-08-29")
+print(date)  # '2025-08-29'
+
+# Resolve without parameter (uses module attribute or env var)
+date = resolve_as_of()
+print(date)  # None (if not set) or value from barangay.as_of or BARANGAY_AS_OF
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `as_of_param` | `str | None` | - | Optional date string from function parameter |
+
+**Returns:** str | None - The resolved date string, or None for latest data
+
+**Priority order:**
+
+1. Function parameter (if provided)
+2. Module attribute (`barangay.as_of`)
+3. Environment variable (`BARANGAY_AS_OF`)
+4. Default: None (use latest bundled data)
+
+## `get_verbose()`
+
+Get verbose logging setting from environment variable.
+
+```python
+from barangay import get_verbose
+
+verbose = get_verbose()
+print(verbose)  # True or False
+```
+
+**Returns:** bool - True if verbose logging is enabled
+
+**Environment Variable:** `BARANGAY_VERBOSE`
+
+- Valid values (case-insensitive): `"true"`, `"1"`, `"yes"`, `"on"`
+- Default: `"true"`
+
+## `get_cache_dir()`
+
+Get the cache directory path for the application.
+
+```python
+from barangay import get_cache_dir
+
+cache_dir = get_cache_dir()
+print(cache_dir)
+# /home/user/.cache/barangay (or custom path)
+```
+
+**Returns:** Path - The cache directory path
+
+**Priority order:**
+
+1. Environment variable `BARANGAY_CACHE_DIR` (if set)
+2. Windows: `%LOCALAPPDATA%\barangay\cache`
+3. Linux/Mac with XDG_CACHE_HOME: `$XDG_CACHE_HOME/barangay`
+4. Linux/Mac fallback: `~/.cache/barangay`
+
+## `load_env_config()`
+
+Load configuration from environment variables.
+
+```python
+from barangay import load_env_config
+
+config = load_env_config()
+print(config)
+# {
+#     'BARANGAY_AS_OF': '2025-07-08' (or None),
+#     'BARANGAY_VERBOSE': 'true',
+#     'BARANGAY_CACHE_DIR': None (or custom path)
+# }
+```
+
+**Returns:** dict with keys:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `BARANGAY_AS_OF` | `str | None` | - | Target dataset date or None |
+| `BARANGAY_VERBOSE` | `str` | `"true"` | Verbose setting string |
+| `BARANGAY_CACHE_DIR` | `str | None` | - | Custom cache directory path or None |
+
+## See also
+
+- [Versioning](versioning.qmd) — module-level attributes
+- [Work with historical data how-to](../../how-to/work-with-historical-data.qmd)
+- [Configuration reference](../configuration.qmd)

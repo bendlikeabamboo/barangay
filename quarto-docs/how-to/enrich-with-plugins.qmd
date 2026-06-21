@@ -1,0 +1,34 @@
+---
+title: "Enrich with Plugins — barangay"
+description: "Recipe: enrich PSGC records with supplementary data (population, income, old names) via psgc-aux-data, the --plugin CLI flag, and PluginLoader."
+author: "bendlikeabamboo"
+---
+
+# Enrich with Plugins
+
+> **Status:** Stub — content to be expanded.
+
+## Overview
+
+How to enrich PSGC records with supplementary data using the plugin system (`psgc-aux-data` is enabled by default).
+
+## CLI
+
+```bash
+barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit 1
+```
+
+## Python
+
+```python
+from barangay.plugin_loader import PluginLoader
+
+loader = PluginLoader(env=True)
+loader.enable_plugin("psgc-aux-data")
+```
+
+## See also
+
+- [Plugins overview](../plugins/index.qmd)
+- [Plugin Python API](../plugins/python-api.qmd)
+- [Plugin configuration](../plugins/configuration.qmd)

@@ -1,0 +1,131 @@
+project:
+  type: website
+  output-dir: _site
+  preview:
+    port: 4444
+  resources:
+    - robots.txt
+    - llms.txt
+    - llms-full.txt
+    - BingSiteAuth.xml
+    - googledbcbd0d5a864f98f.html
+
+execute:
+  eval: false
+
+website:
+  title: "barangay"
+  site-url: "https://bendlikeabamboo.github.io/barangay/"
+  description: >-
+    Philippine Standard Geographic Code (PSGC) Python package with fuzzy search.
+    Access 42,011 barangays, municipalities, cities, provinces, and regions offline.
+  favicon: favicon.png
+  repo-url: https://github.com/bendlikeabamboo/barangay
+  repo-actions: [edit, issue, source]
+  page-navigation: true
+  bread-crumbs: true
+
+  open-graph: true
+  twitter-card: true
+
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Get Started
+        href: get-started/index.qmd
+      - text: Learn
+        href: learn/index.qmd
+      - text: How-To
+        href: how-to/index.qmd
+      - text: Reference
+        href: reference/index.qmd
+      - text: Plugins
+        href: plugins/index.qmd
+      - text: Community
+        href: community/index.qmd
+
+  sidebar:
+    - id: get-started
+      title: "Get Started"
+      contents:
+        - get-started/index.qmd
+        - get-started/installation.qmd
+        - get-started/first-lookup.qmd
+    - id: learn
+      title: "Learn"
+      contents:
+        - learn/index.qmd
+        - learn/database-api.qmd
+        - learn/address-validation.qmd
+        - learn/bulk-barangay-lookup.qmd
+    - id: how-to
+      title: "How-To"
+      contents:
+        - how-to/index.qmd
+        - how-to/search-misspellings.qmd
+        - how-to/validate-addresses.qmd
+        - how-to/export-to-csv-pandas.qmd
+        - how-to/traverse-hierarchy.qmd
+        - how-to/work-with-historical-data.qmd
+        - how-to/enrich-with-plugins.qmd
+        - how-to/geocode-batch-files.qmd
+        - how-to/migrate-from-legacy-api.qmd
+    - id: reference
+      title: "Reference"
+      contents:
+        - reference/index.qmd
+        - section: "Python API"
+          contents:
+            - reference/python-api/database.qmd
+            - reference/python-api/records.qmd
+            - reference/python-api/search.qmd
+            - reference/python-api/validation.qmd
+            - reference/python-api/versioning.qmd
+            - reference/python-api/fuzzbase.qmd
+            - reference/python-api/utilities.qmd
+            - reference/python-api/data-models.qmd
+            - reference/python-api/legacy.qmd
+        - reference/cli.qmd
+        - reference/configuration.qmd
+        - reference/comparisons.qmd
+        - reference/data-dictionary.qmd
+        - changelog.qmd
+    - id: concepts
+      title: "Concepts"
+      contents:
+        - concepts/index.qmd
+        - concepts/psgc-overview.qmd
+        - concepts/administrative-hierarchy.qmd
+        - concepts/hierarchy-indicator.qmd
+        - concepts/data-models-explained.qmd
+        - concepts/architecture.qmd
+    - id: plugins
+      title: "Plugins"
+      contents:
+        - plugins/index.qmd
+        - plugins/quickstart.qmd
+        - plugins/python-api.qmd
+        - plugins/cli.qmd
+        - plugins/configuration.qmd
+        - plugins/creating.qmd
+        - plugins/built-in.qmd
+    - id: community
+      title: "Community"
+      contents:
+        - community/index.qmd
+        - community/data-update.qmd
+        - community/development.qmd
+        - community/code-style.qmd
+        - community/release-process.qmd
+
+  page-footer:
+    center: |
+      [PyPI](https://pypi.org/project/barangay/) &middot; [GitHub](https://github.com/bendlikeabamboo/barangay) &middot; [Blog](https://bendlikeabamboo.github.io/barangay/blog/) &middot; [FAQ](https://bendlikeabamboo.github.io/barangay/faq.html) &middot; [Changelog](https://bendlikeabamboo.github.io/barangay/changelog.html)
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: right
+    smooth-scroll: true

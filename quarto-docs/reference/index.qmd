@@ -1,0 +1,37 @@
+---
+title: "Reference — barangay"
+description: "Reference hub for the barangay package: Python API, CLI, configuration, comparisons, data dictionary, and versioning."
+author: "bendlikeabamboo"
+---
+
+# Reference
+
+Precise technical descriptions — exact signatures, parameters, return types, and field dictionaries. Use these when you need the details, not a tutorial.
+
+> **Status:** Hub — quick-links to the reference pages.
+
+## Python API
+
+Split into focused modules under [Python API](python-api/database.qmd):
+
+- [Database](python-api/database.qmd) — views, `.get`, `.lookup`, `.search_fuzzy`, `.to_frame` / `.to_dicts`, iteration, errors.
+- [Records](python-api/records.qmd) — `EnrichedRecord` fields and hierarchy properties.
+- [Search](python-api/search.qmd) — `search_fuzzy()`, `SearchResult`.
+- [Validation](python-api/validation.qmd) — `validate()` / `validate_many()`, `ValidationResult`.
+- [Versioning](python-api/versioning.qmd) — `use_version()`, `use_plugins()`, `Database`, `AdminLevel`, module-level attributes.
+- [FuzzBase](python-api/fuzzbase.qmd) — `create_fuzz_base()`, `FuzzBase` (performance).
+- [Utilities](python-api/utilities.qmd) — sanitization, date resolution, env config.
+- [Data models](python-api/data-models.qmd) — pydantic `AdminDiv` family and `DataManager`.
+- [Legacy](python-api/legacy.qmd) — deprecated `search()`, `BARANGAY` dicts, `BarangayModel`.
+
+## Other reference
+
+- [CLI reference](cli.qmd)
+- [Configuration](configuration.qmd)
+- [Comparisons](comparisons.qmd) — `barangay` vs `psgc-api` vs raw PSA CSV.
+- [Data dictionary](data-dictionary.qmd) — every `to_frame()` / record field documented with provenance.
+
+## See also
+
+- [Concepts](../concepts/index.qmd) — the ideas behind the data
+- [How-To](../how-to/index.qmd) — task recipes
