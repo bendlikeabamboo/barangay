@@ -1,12 +1,8 @@
 ---
-title: "Installation — barangay"
+title: "Installation"
 description: "Install the barangay PSGC package with pip or uv, verify Python 3.13+, and troubleshoot common install issues."
 author: "bendlikeabamboo"
 ---
-
-# Installation
-
-> **Status:** Stub — content to be expanded.
 
 ## Overview
 
@@ -34,7 +30,59 @@ print(len(barangay.barangays))  # 42010
 
 ## Troubleshooting
 
-<!-- TODO: Python version errors, offline install, cache dir, plugin deps -->
+A short list of the install-time issues users hit most. For deeper runtime problems (`RecordNotFoundError`, historical-date resolution, plugin conflicts) see [Troubleshooting](../troubleshooting.qmd).
+
+### Wrong Python version
+
+The package requires Python 3.13 or newer (`requires-python = ">=3.13"`). `pip` refuses to install on an older interpreter; if it does install, you hit `ModuleNotFoundError: No module named 'barangay'` or a syntax error on import.
+
+```bash
+python --version
+# Python 3.13.x  (need >= 3.13)
+
+# Pin a supported interpreter with uv (recommended) or pyenv
+uv python install 3.13
+uv venv --python 3.13
+```
+
+### Offline / air-gapped install
+
+The complete PSGC masterlist is bundled inside the wheel, so core lookup, fuzzy search, validation, and export work with **no network at all**. Install the wheel directly and it just works:
+
+```bash
+pip install barangay-*.whl   # no internet needed afterwards
+```
+
+The one exception is **historical snapshots**: the first call to [`use_version(date)`](../reference/python-api/versioning.qmd) for a date that is not bundled downloads that snapshot from GitHub and caches it locally. Air-gapped environments should pre-populate the cache (see [Cache directory](#cache-directory)) or stay on the default bundled version.
+
+### Cache directory
+
+Downloaded historical snapshots (parquet/json) are stored in a platform cache directory:
+
+| Platform | Path |
+|----------|------|
+| Linux / macOS (default) | `~/.cache/barangay` |
+| Linux (XDG) | `$XDG_CACHE_HOME/barangay` |
+| Windows | `%LOCALAPPDATA%/barangay/cache` |
+
+Inspect the cache, clear it, or pre-download snapshots with the built-in CLI:
+
+```bash
+barangay cache info       # show cache location + stored snapshots
+barangay cache download   # pre-fetch all historical snapshots
+barangay cache clear      # wipe the cache
+```
+
+### Plugin dependency issues
+
+A plugin referenced in `plugins.yaml` may need its own Python package, which is **not** installed automatically. The symptom is a plugin load failure at startup or when you call [`use_plugins`](../reference/python-api/database.qmd):
+
+```bash
+# Plugin package not installed
+pip install <plugin-package>
+```
+
+If you cannot or do not want to install the package, disable the plugin by removing it from `plugins.yaml` or by not passing it to `use_plugins([...])`. See [Plugins](../plugins/index.qmd) for configuration details.
 
 ## See also
 

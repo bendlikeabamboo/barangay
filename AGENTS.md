@@ -2,7 +2,7 @@
 
 AI coding agent reference for the **barangay** project — a Philippine Standard Geographic Code (PSGC) Python package providing offline access to all 42,011 barangays with fuzzy search, address validation, CLI, plugin system, and historical data support.
 
-See [README.md](README.md) for user-facing documentation and [docs/](docs/) for the full docs site.
+See [README.md](README.md) for user-facing documentation and [quarto-docs/](quarto-docs/) for the full docs site.
 
 ## Repository Structure
 
@@ -13,7 +13,7 @@ See [README.md](README.md) for user-facing documentation and [docs/](docs/) for 
 | `barangay/plugins/` | Plugin system |
 | `tests/` | Test suite |
 | `parsers/` | PSGC data parsing scripts (excluded from ty checking) |
-| `docs/` | MkDocs documentation source |
+| `quarto-docs/` | Quarto documentation source |
 | `architecture/` | Architecture decision records |
 | `.github/workflows/` | CI: publish (PyPI), docs (GitHub Pages) |
 
@@ -28,7 +28,7 @@ See [README.md](README.md) for user-facing documentation and [docs/](docs/) for 
 | `ty` | Type checking (NOT mypy) |
 | `pytest` + `pytest-xdist` + `pytest-cov` | Testing |
 | `pre-commit` | Pre-commit hooks |
-| `mkdocs` + `mkdocs-shadcn` | Documentation |
+| `quarto` + `quarto-cli` | Documentation (Quarto) |
 | `click` + `rich` | CLI framework |
 | `poe` (poethepoet) | Task runner |
 
@@ -45,8 +45,7 @@ uv run pytest --cov              # Run tests with coverage
 uv run pre-commit run --all-files  # Run all pre-commit hooks manually
 uv build                         # Build package
 poe barpar                       # Run PSGC data parser (parsers/psgc/cli.py)
-mkdocs serve                     # Local docs preview
-```
+quarto preview quarto-docs       # Local docs preview (port 4444)```
 
 ## Code Conventions
 
@@ -91,7 +90,7 @@ mkdocs serve                     # Local docs preview
 | Workflow | Trigger | Purpose |
 |----------|---------|---------|
 | `publish.yaml` | Tag push (`*.*.*.*`) | Build and publish to PyPI |
-| `docs.yaml` | Push to `docs/**` or `mkdocs.yml` | Build and deploy docs to GitHub Pages (deploy only from `main`) |
+| `docs.yaml` | Push to `quarto-docs/**` or `quarto-docs/_quarto.yml` | Build and deploy docs to GitHub Pages (deploy only from `main`) |
 
 ## Hierarchy Level Indicator (`rphicmsgb`)
 

@@ -1,12 +1,8 @@
 ---
-title: "Administrative Hierarchy — barangay"
+title: "Administrative Hierarchy"
 description: "The Philippine administrative hierarchy from region to barangay, including highly urbanized cities, independent component cities, and component cities."
 author: "bendlikeabamboo"
 ---
-
-# Administrative Hierarchy
-
-> **Status:** Stub — content to be expanded.
 
 ## Overview
 
@@ -14,11 +10,93 @@ The Philippine administrative structure, from region down to barangay, and how t
 
 ## Levels
 
-<!-- TODO: region, province, HUC, ICC, component city, municipality, sub-municipality, barangay, special geographic area -->
+````{mermaid}
+flowchart TD
+  Region["Region<br/>e.g. BARMM"]
+  Province["Province<br/>e.g. Tawi-Tawi"]
+  HUC["Highly urbanized city"]
+  ICC["Independent component city"]
+  Comp["Component city"]
+  Muni["Municipality / Component city<br/>e.g. Sitangkai"]
+  Sub["Sub-municipality"]
+  SGA["Special geographic area"]
+  Brgy["Barangay<br/>e.g. Tongmageng"]
+
+  Region --> Province
+  Region --> HUC
+  Region --> ICC
+  Province --> Muni
+  HUC --> Sub
+  Muni --> Brgy
+  Sub --> Brgy
+  Region --> SGA
+
+  classDef path fill:#fde68a,stroke:#b45309,color:#1f2937;
+  class Region,Province,Muni,Brgy path;
+````
+
+The highlighted path shows how Tongmageng resolves: **BARMM → Tawi-Tawi (province) → Sitangkai (municipality) → Tongmageng (barangay)** — the same example used throughout the tutorials.
+
+### Level-by-level
+
+Each level in the hierarchy is a distinct administrative unit with its own PSGC segment and governing body. The table below uses real bundled-data examples.
+
+| Level | Administered by | Example (psgc_id) |
+|-------|-----------------|-------------------|
+| **Region** | National government — top-level grouping of provinces/cities | Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) `1900000000` |
+| **Province** | Provincial government, under a region | Tawi-Tawi `1907000000` |
+| **Highly urbanized city (HUC)** | Independent city government, chartered outside any province | City of Manila `1380600000` |
+| **Independent component city (ICC)** | Independent city government (fewer than HUCs) — 6 exist | City of Isabela (Not a Province) `0990100000` |
+| **Component city** | City government **under a province** | City of Lamitan `1900702000` |
+| **Municipality** | Municipal government, under a province | Sitangkai `1907005000` |
+| **Sub-municipality** | District-level division of a HUC | Binondo `1380602000` |
+| **Barangay** | Smallest unit — a barangay council | Tongmageng `1907005010` |
+| **Special geographic area (SGA)** | Special administrative unit, region-level | Special Geographic Area |
+
+Every record in the package knows its full parent chain, so you rarely need to reason about levels yourself:
+
+```python
+from barangay import Database
+
+brgy = Database().barangays.lookup("1907005010")
+for a in brgy.ancestors:
+    print(repr(a))
+# <municipality: Sitangkai (1907005000)>
+# <province: Tawi-Tawi (1907000000)>
+# <region: ... (BARMM) (1900000000)>
+```
 
 ## City distinctions
 
-<!-- TODO: highly urbanized city vs independent component city vs component city -->
+## City distinctions
+
+The Philippines has three city classes, and the difference trips up every newcomer: **administrative independence from a province**. HUCs and ICCs are chartered independently of any province and report directly to their region; component cities sit *inside* a province.
+
+| Class | Reports to | Count | Example (psgc_id) |
+|-------|-----------|-------|-------------------|
+| **Highly urbanized city (HUC)** | Region directly (no province) | many | City of Manila `1380600000`, City of Lapu-Lapu `0731100000` |
+| **Independent component city (ICC)** | Region directly (no province) | 6 | City of Isabela (Not a Province) `0990100000` |
+| **Component city** | A province | many | City of Lamitan `1900702000` |
+
+You can see this in the resolved hierarchy fields. A Manila barangay has `province = None` and `highly_urbanized_city = 'City of Manila'`, whereas a Lamitan barangay has a populated `province`:
+
+```python
+from barangay import Database
+
+db = Database()
+manila_brgy = db.barangays.lookup("1380602005")   # Barangay 291, Binondo
+lamitan_brgy = db.barangays.lookup("1900702001")  # Arco, City of Lamitan
+
+print(manila_brgy.province, "/", manila_brgy.highly_urbanized_city)
+# None / City of Manila
+
+print(lamitan_brgy.province, "/", lamitan_brgy.highly_urbanized_city)
+# Basilan / None
+```
+
+::: {.callout-tip title="The hierarchy navigation handles this for you"}
+You never need to special-case HUC vs ICC vs component city. `.parent`, `.ancestors`, and the nine resolved-name fields (`.region`, `.province`, `.municipality`, …) walk the real parent chain — which jumps straight from a Manila barangay to the HUC, skipping the (absent) province. See [Hierarchy indicator (`rphicmsgb`)](hierarchy-indicator.qmd) for how this is encoded compactly.
+:::
 
 ## See also
 

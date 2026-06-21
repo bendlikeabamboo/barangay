@@ -1,10 +1,8 @@
 ---
-title: "Plugin CLI Reference — barangay"
+title: "Plugin CLI Reference"
 description: "Use plugins from the barangay command line: the --plugin flag enriches search and export output with supplementary PSGC data fields."
 author: "bendlikeabamboo"
 ---
-
-# CLI Reference
 
 Plugins integrate directly into the `barangay search` and `barangay export` CLI commands via the `--plugin` flag.
 
@@ -204,3 +202,9 @@ Records contain fields from both plugins:
 | `barangay export --model basic` | No | Raises error |
 | `barangay history search-history` | No | Not supported |
 | `barangay history export-history` | No | Not supported |
+
+## See also
+
+- [CLI reference](../reference/cli.qmd) — full CLI command reference
+- [Plugins overview](index.qmd) — plugin shapes and entry points
+- [Plugin configuration](configuration.qmd) — `--plugin` vs config precedence

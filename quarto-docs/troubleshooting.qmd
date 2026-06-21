@@ -1,20 +1,116 @@
 ---
-title: "Troubleshooting — barangay"
+title: "Troubleshooting"
 description: "Solutions to common barangay package problems: RecordNotFoundError, MultipleResultsError, cache issues, and date resolution."
 author: "bendlikeabamboo"
 ---
 
-# Troubleshooting
-
-> **Status:** Stub — content to be expanded.
-
 ## Overview
 
-Solutions to common problems when using the `barangay` package.
+Solutions to common problems when using the `barangay` package. The quick install-time issues live in [Installation — Troubleshooting](get-started/installation.qmd#troubleshooting); this page goes deeper on runtime errors.
 
 ## Common errors
 
-<!-- TODO: RecordNotFoundError, MultipleResultsError, cache dir issues, date resolution, plugin loading -->
+### `RecordNotFoundError` — no match
+
+**Symptom.** `.get(name=...)` raises:
+
+```
+barangay.RecordNotFoundError: No barangay with name 'DoesNotExist'.
+```
+
+**Cause.** No record at the requested level matches the name exactly (`.get()` is an exact-match call, not fuzzy).
+
+**Fix.** Use `.lookup()` for a nullable variant that returns `None` instead of raising, or switch to fuzzy search to find the closest candidate:
+
+```python
+from barangay import Database, search_fuzzy
+
+db = Database()
+rec = db.barangays.lookup("9999999999")  # None, no exception
+candidates = search_fuzzy("Tongmagng", threshold=60.0)  # fuzzy fallback
+# [SearchResult(record=Tongmageng, score=94.74), ...]
+```
+
+Also confirm you are querying the right **level** — a municipality name won't be found in `db.barangays`.
+
+### `MultipleResultsError` — ambiguous name
+
+**Symptom.** `.get(name=...)` raises:
+
+```
+barangay.MultipleResultsError: Name 'San Jose' matched 244 records.
+```
+
+**Cause.** The name is genuinely ambiguous. The Philippines has 244 barangays named "San Jose" (and similar counts for "San Roque", "Poblacion").
+
+**Fix.** Disambiguate with a PSGC ID, filter by an ancestor, or iterate:
+
+```python
+from barangay import Database
+
+db = Database()
+# 1. PSGC ID is always unique
+rec = db.barangays.lookup("1380208005")
+
+# 2. Filter by ancestor name
+matches = [
+    r for r in db.barangays
+    if r.name == "San Jose" and r.province == "Cavite"
+]
+```
+
+See the [Database API tutorial §Handling errors](../learn/database-api.qmd#handling-errors) for the full disambiguation patterns.
+
+### Cache directory problems
+
+**Symptom.** Permission errors, "no space left on device", or stale/empty cache when fetching a historical snapshot.
+
+**Cause.** The cache dir isn't writable, is full, or holds a corrupt partial download.
+
+**Fix.** Inspect and clear the cache with the CLI, or remove the directory by hand:
+
+```bash
+barangay cache info       # shows location + contents
+barangay cache clear      # wipe and start fresh
+```
+
+Default locations: `~/.cache/barangay` (Linux/macOS), `$XDG_CACHE_HOME/barangay` (XDG), `%LOCALAPPDATA%/barangay/cache` (Windows). For a write-permission issue, ensure the owning user can write to that path.
+
+### "no snapshot for that date" — date resolution
+
+**Symptom.** [`use_version`](../reference/python-api/versioning.qmd) or an `as_of=` query can't resolve the requested date.
+
+**Cause.** The package only carries snapshots on the dates PSA published. An arbitrary date is resolved by [`resolve_date`](../reference/python-api/utilities.qmd) to the closest snapshot **at or before** the requested date (backward fill). If your date predates the earliest snapshot, the earliest is returned.
+
+```python
+from barangay import resolve_date, available_dates
+
+resolved, msg = resolve_date("2024-06-01", available_dates(), None)
+print(resolved, msg)
+# 2024-05-08 Using 2024-05-08 dataset (closest to 2024-06-01)
+
+print(available_dates())
+# ['2022-04-29', ..., '2026-04-13']  (18 snapshots)
+```
+
+### Plugin loading failures
+
+**Symptom.** A plugin fails to load at startup or when you call `use_plugins([...])`, with messages like "missing package", "manifest parse error", or *"Only one array plugin at a time"*.
+
+**Cause & fix.** Three common cases:
+
+- **Missing package** — the plugin's Python package isn't installed. `pip install <plugin-package>`.
+- **Corrupt manifest** — a plugin's `manifest.yaml` is malformed. Reinstall the plugin or remove it from `plugins.yaml`.
+- **Array-plugin conflict** — only one *array* (one-to-many) plugin can be active at once. Disable the others before enabling the new one.
+
+```python
+from barangay import Database
+
+db = Database()
+db.use_plugins(["psgc-aux-data"])  # scalar (1:1) plugin — safe to stack
+```
+
+See [Plugins](../plugins/index.qmd) for configuration and the scalar/array distinction.
 
 ## See also
 

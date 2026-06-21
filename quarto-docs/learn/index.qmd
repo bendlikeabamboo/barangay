@@ -1,14 +1,10 @@
 ---
-title: "Learn — barangay"
+title: "Learn"
 description: "Guided learning path for the barangay PSGC package: Database API, address validation, and bulk lookup tutorials."
 author: "bendlikeabamboo"
 ---
 
-# Learn
-
 Hands-on tutorials that teach the `barangay` package by example. Work through them in order if you are new to the library.
-
-> **Status:** Hub — learning path ordering.
 
 ## Learning path
 

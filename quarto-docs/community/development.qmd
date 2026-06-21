@@ -1,16 +1,10 @@
 ---
-title: "Development — barangay"
+title: "Development"
 description: "Set up a local development environment for the barangay package: uv sync, ruff, ty, pytest, and pre-commit hooks."
 author: "bendlikeabamboo"
 ---
 
-# Development
-
-> **Status:** Stub — content to be expanded.
-
-## Overview
-
-How to set up a local development environment for `barangay` and run the standard verification commands.
+Working on `barangay` locally is a standard `uv` workflow — sync dependencies, run `ruff` + `ty` + `pytest`, and let pre-commit enforce it all. This page covers setup, the verification commands, and a quick map of the codebase so you know where to put a change.
 
 ## Setup
 
@@ -19,14 +13,49 @@ uv sync
 uv run pre-commit install
 ```
 
+`uv` is the only tool you need installed; everything else (`ruff`, `ty`, `pytest`, the build backend) is managed as project dependencies. Python 3.13+ is required (`requires-python = ">=3.13"`).
+
 ## Verification
+
+Run these before pushing — they are exactly what pre-commit and CI enforce:
 
 ```bash
 uv run ruff check --fix --exit-non-zero-on-fix --ignore E741
 uv run ruff format
 uv run ty check
-uv run pytest
+uv run pytest -n auto
 ```
+
+::: {.callout-tip title="Ty is the type checker — not mypy"}
+This project uses `ty` for type checking (`uv run ty check`). The `parsers/` and `tests/` directories are excluded from `ty`, so type errors there won't fail the check — but everything in `barangay/` must be clean and fully type-hinted.
+:::
+
+## How the codebase is organized
+
+`barangay/` is a flat package; most modules map one-to-one to a concept:
+
+| Module / dir | Responsibility |
+|--------------|----------------|
+| `barangay/__init__.py` | Public API re-exports — check `__all__` for the full surface. |
+| `barangay/data_manager.py` | Snapshot loading + caching (`DataManager`, the memory → cache dir → bundled → GitHub fallback chain). |
+| `barangay/database.py` | `Database` (process-wide singleton), `DatabaseView`, `EnrichedRecord`, and the error classes. |
+| `barangay/search.py` | `search_fuzzy` and the fuzzy scoring / `match_hooks` logic. |
+| `barangay/validate.py` | `validate` / `validate_many` and the default 95.0 threshold. |
+| `barangay/plugin_loader.py` | `PluginLoader` — scalar/array joins by `psgc_id`. |
+| `barangay/cli.py` | The `barangay` CLI (Click + Rich). |
+| `barangay/data/` | Bundled PSGC data files + `CURRENT_VERSION`. |
+| `barangay/plugins/` | The plugin system and bundled plugin manifests. |
+| `barangay/date_resolver.py` | Historical-date resolution (`resolve_date`, closest-snapshot logic). |
+| `barangay/models.py` | Shared data models / types. |
+
+## Contribution tips
+
+- **Adding a level view or a record field** — start in `barangay/database.py`; the level views and the nine resolved-hierarchy fields live there, and everything downstream (search, validate, CLI export) reads from them.
+- **Updating the bundled PSGC data** — the parser is `parsers/psgc/cli.py`, run via `poe barpar`. See the [data update guide](data-update.qmd) for the full flow.
+- **Run tests in parallel** — pre-commit uses `uv run pytest -n auto` (pytest-xdist). For focused local iteration, `uv run pytest tests/test_<file>.py` runs a single file sequentially.
+- **Keep types strict** — every new public function needs annotations; `ty check` is enforced, not advisory. Use modern syntax (`str | None`, not `Optional[str]`).
+- **No comments** — follow the existing no-comment policy unless a comment is explicitly warranted; let the code and the docs carry the explanation.
+- **Branching** — short-lived branches off `main` (`feature/...`, `fix/...`, `docs/...`, `release/<ver>`); never commit to `main` directly. See [Branching strategy](../community/release-process.qmd).
 
 ## See also
 

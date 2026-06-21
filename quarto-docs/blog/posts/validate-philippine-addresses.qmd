@@ -5,8 +5,6 @@ author: "bendlikeabamboo"
 date: "2025-11-10"
 ---
 
-# Validate Philippine Addresses in Python with PSGC
-
 Address validation is one of the most common reasons teams adopt the
 **Philippine Standard Geographic Code (PSGC)**. Misspelled barangays, missing
 provinces, and inconsistent casing make user-entered Philippine addresses
@@ -15,7 +13,7 @@ fully offline — with the `barangay` package.
 
 ## Why address validation is hard in the Philippines
 
-- **42,011 barangays** with similar or duplicated names across provinces.
+- **42,010 barangays** with similar or duplicated names across provinces.
 - Users often omit the municipality or use abbreviations ("San", "Sta.").
 - Free-text fields mix barangay, city, and province in arbitrary order.
 - Spellings drift ("Tongmageng" vs "Tongmagen").

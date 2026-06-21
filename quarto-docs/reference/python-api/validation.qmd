@@ -1,10 +1,8 @@
 ---
-title: "Validation (`validate` / `validate_many`) — barangay"
+title: "Validation (`validate` / `validate_many`)"
 description: "Reference for validate() and validate_many(): validate Philippine address strings against the PSGC masterlist with fuzzy matching; ValidationResult properties."
 author: "bendlikeabamboo"
 ---
-
-# Validation (`validate` / `validate_many`)
 
 Validate address strings against the PSGC masterlist using fuzzy matching. Use `validate()` for a single address and `validate_many()` for a batch.
 

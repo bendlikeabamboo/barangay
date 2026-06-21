@@ -1,17 +1,14 @@
 ---
-title: "Plugin Quickstart — barangay"
+title: "Plugin Quickstart"
 description: "Get the psgc-aux-data plugin running in two minutes — from the CLI and from Python with PluginLoader."
 author: "bendlikeabamboo"
 ---
 
-# Plugin Quickstart
+Enable the `psgc-aux-data` plugin (supplementary PSGC metadata: correspondence codes, old names, city class, income classification, urban/rural, population, and status) in under two minutes — from both the CLI and Python.
 
-> **Status:** Stub — content to be expanded.
+## Enable the plugin
 
-## Overview
-
-Enable the `psgc-aux-data` plugin (supplementary PSGC metadata) in under two minutes, from both the CLI and Python.
-
+::: {.panel-tabset}
 ## CLI
 
 ```bash
@@ -21,11 +18,48 @@ barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit
 ## Python
 
 ```python
-from barangay.plugin_loader import PluginLoader
+from barangay import Database
 
-loader = PluginLoader(env=True)
-loader.enable_plugin("psgc-aux-data")
+db = Database()
+db.use_plugins(["psgc-aux-data"])
 ```
+
+`use_plugins(["psgc-aux-data"])` activates the plugin on the [Database](../reference/python-api/records.qmd) singleton; every record the level views return from then on carries the enriched fields. For the lower-level loader API, see [Plugin Python API](python-api.qmd).
+:::
+
+## Verify the enrichment
+
+After enabling, the supplementary fields appear on each record. For **Barangay 291, City of Manila** (`1380602005`), the enriched values are:
+
+```python
+#| eval: false
+from barangay import Database
+
+db = Database()
+db.use_plugins(["psgc-aux-data"])
+
+row = db.barangays.to_frame().loc[lambda d: d["psgc_id"] == "1380602005"].iloc[0]
+print(row.filter(like="psgc_aux_data"))
+# psgc_aux_data.correspondence_code      0133902005
+# psgc_aux_data.old_names                       None
+# psgc_aux_data.city_class                      None
+# psgc_aux_data.income_classification           None
+# psgc_aux_data.urban_rural                         U
+# psgc_aux_data.population                       2537
+# psgc_aux_data.status                          None
+```
+
+::: {.callout-note title="Seven keys, that's all"}
+`psgc-aux-data` exposes exactly seven keys: `correspondence_code`, `old_names`, `city_class`, `income_classification`, `urban_rural`, `population`, and `status`. In flattened form (via [`to_dicts()`](../learn/database-api.qmd)) they become `psgc_aux_data.<key>` columns; on a record object they live in the record's `extensions`. See the [data dictionary](../reference/data-dictionary.qmd) for the full per-field reference.
+:::
+
+The same enrichment shows up everywhere — `search_fuzzy` results, `validate` matches, and direct `.get()`/`.lookup()` calls all return enriched records once the plugin is active.
+
+## Next examples
+
+- **Configure plugins** — enable/disable via env vars or the loader config in [Plugin configuration](configuration.qmd).
+- **Use enriched data from Python** — read fields off `SearchResult` / `EnrichedRecord` and via `to_dicts()` in [Plugin Python API](python-api.qmd).
+- **Write your own plugin** — ship a manifest, point it at your data, and join by `psgc_id` in [Creating a plugin](creating.qmd).
 
 ## See also
 

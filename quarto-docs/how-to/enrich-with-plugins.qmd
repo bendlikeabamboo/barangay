@@ -1,31 +1,87 @@
 ---
-title: "Enrich with Plugins — barangay"
+title: "Enrich with Plugins"
 description: "Recipe: enrich PSGC records with supplementary data (population, income, old names) via psgc-aux-data, the --plugin CLI flag, and PluginLoader."
 author: "bendlikeabamboo"
 ---
 
-# Enrich with Plugins
-
-> **Status:** Stub — content to be expanded.
-
 ## Overview
 
-How to enrich PSGC records with supplementary data using the plugin system (`psgc-aux-data` is enabled by default).
+PSGC core data is administrative — names, codes, hierarchy. Supplementary facts (population, income class, former names, urban/rural) come from plugins. The bundled [`psgc-aux-data`](../plugins/index.qmd) plugin joins these onto every record by `psgc_id`.
 
-## CLI
+## Enable a plugin
 
-```bash
-barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit 1
+::: {.panel-tabset}
+## Python (Database API)
+
+```python
+from barangay import Database
+
+db = Database()
+db.use_plugins(["psgc-aux-data"])   # joins aux data onto every record
 ```
 
-## Python
+## PluginLoader (explicit)
 
 ```python
 from barangay.plugin_loader import PluginLoader
 
-loader = PluginLoader(env=True)
+loader = PluginLoader(env=True)            # reads env + config file
 loader.enable_plugin("psgc-aux-data")
 ```
+
+## Environment variable
+
+```bash
+export BARANGAY_PLUGINS=psgc-aux-data
+```
+:::
+
+`PluginLoader(env=True)` (the default) picks up plugins from the `BARANGAY_PLUGINS` env var and the plugins config file, so you can enable enrichment without code changes. See [plugin configuration](../plugins/configuration.qmd).
+
+## Read enriched fields
+
+Once enabled, each record carries an `extensions` list. Each entry has a `field_group` (`"psgc_aux_data"`) and a `data` dict with the seven aux fields:
+
+```python
+from barangay import Database
+
+db = Database()
+db.use_plugins(["psgc-aux-data"])
+
+rec = db.hucs.get(name="City of Lapu-Lapu")
+ext = rec.extensions[0].data
+print(ext["old_names"])              # Opon  (former name)
+print(ext["population"])             # 497813
+print(ext["income_classification"])  # 1st
+print(ext["city_class"])             # HUC
+```
+
+The seven `psgc-aux-data` keys:
+
+| Key | Type | Meaning |
+|-----|------|---------|
+| `correspondence_code` | str | Old 9-digit correspondence code |
+| `old_names` | str \| None | Former name(s) |
+| `city_class` | str \| None | City class (cities only) |
+| `income_classification` | str \| None | Income class |
+| `urban_rural` | `'U'` / `'R'` \| None | Urban / rural flag |
+| `population` | int | Population |
+| `status` | str \| None | Status |
+
+For bulk analysis, the view's `to_dicts()` flattens these into `psgc_aux_data.<key>` columns:
+
+```python
+rows = db.hucs.to_dicts()
+lapu = next(r for r in rows if r["psgc_id"] == "0731100000")
+print(lapu["psgc_aux_data.old_names"])    # Opon
+print(lapu["psgc_aux_data.population"])   # 497813
+```
+
+The same enrichment flows through `search_fuzzy()` results: each `SearchResult.record.extensions` carries the joined fields.
+
+::: {.callout-important title="One array plugin at a time"}
+`psgc-aux-data` is an array plugin (joins many records). Only one array plugin can be active at once — enabling a second raises a conflict error. Scalar (1:1) plugins have no such limit.
+:::
 
 ## See also
 

@@ -1,10 +1,8 @@
 ---
-title: "Built-in Plugins — barangay"
+title: "Built-in Plugins"
 description: "Reference for bundled barangay plugins: psgc-aux-data (population, income class, old names, city class) and sample plugins demonstrating CSV, JSON, and time-aware data formats."
 author: "bendlikeabamboo"
 ---
-
-# Built-in Plugins
 
 ## psgc-aux-data (enabled by default)
 
@@ -192,3 +190,9 @@ Elevation data with `YYYY-MM-DD/` folder layout. Demonstrates time-aware plugins
     }
 }
 ```
+
+## See also
+
+- [Plugins overview](index.qmd) — plugin shapes and entry points
+- [Creating a plugin](creating.qmd) — build your own
+- [Plugin Python API](python-api.qmd) — `PluginLoader` reference

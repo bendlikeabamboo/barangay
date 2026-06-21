@@ -1,13 +1,11 @@
 ---
 title: "barangay — Philippine PSGC Python Package"
-description: "Offline Python package for the Philippine Standard Geographic Code (PSGC): 42,011 barangays, municipalities, cities, provinces, and regions with fuzzy search and address validation. No API calls needed."
+description: "Offline Python package for the Philippine Standard Geographic Code (PSGC): 42,010 barangays, municipalities, cities, provinces, and regions with fuzzy search and address validation. No API calls needed."
 author: "bendlikeabamboo"
 ---
 
-# barangay — Philippine Geographic Data Python Package
-
 > Python package for accessing Philippine Standard Geographic Code (PSGC)
-> data covering all 42,011 barangays, 1,488 municipalities, 146 cities,
+> data covering all 42,010 barangays, 1,488 municipalities, 146 cities,
 > 82 provinces, and 17 regions — offline, no API calls needed.
 
 <script type="application/ld+json">
@@ -47,7 +45,7 @@ author: "bendlikeabamboo"
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "Philippine Standard Geographic Code (PSGC) — barangay dataset",
-  "description": "Offline Python-accessible dataset of the Philippine Standard Geographic Code (PSGC) covering all 42,011 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions, with hierarchy relationships and historical snapshots.",
+  "description": "Offline Python-accessible dataset of the Philippine Standard Geographic Code (PSGC) covering all 42,010 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions, with hierarchy relationships and historical snapshots.",
   "keywords": ["PSGC", "Philippines", "barangay", "geographic code", "administrative divisions", "geocoding", "open data"],
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
@@ -85,7 +83,7 @@ author: "bendlikeabamboo"
       "name": "What is the PSGC (Philippine Standard Geographic Code)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The PSGC is the official classification system of the Philippine Statistics Authority that assigns a unique 10-digit code to every administrative unit in the Philippines — regions, provinces, cities, municipalities, sub-municipalities, and the country's 42,011 barangays. The barangay package provides offline access to the complete PSGC masterlist."
+        "text": "The PSGC is the official classification system of the Philippine Statistics Authority that assigns a unique 10-digit code to every administrative unit in the Philippines — regions, provinces, cities, municipalities, sub-municipalities, and the country's 42,010 barangays. The barangay package provides offline access to the complete PSGC masterlist."
       }
     },
     {
@@ -156,28 +154,46 @@ pip install barangay
 ```python
 from barangay import barangays, search_fuzzy
 
-# Look up a barangay and read its hierarchy
-brgy = barangays.get(name="Tongmageng")
+brgy = barangays.get(name="Tongmageng")          # <1>
 print(brgy.region, brgy.province, brgy.psgc_id)
 # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) Tawi-Tawi 1907005010
 
-# Fuzzy search with typed results (tolerant of misspellings)
-for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+for r in search_fuzzy("Tongmagen, Tawi-Tawi"):    # <2>
     print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
 ```
+
+1. `.get(name=...)` returns a typed `EnrichedRecord` with resolved hierarchy fields (`.region`, `.province`, `.municipality`, ...).
+2. `search_fuzzy()` returns typed `SearchResult` objects ranked by a fuzzy score — tolerant of misspellings and non-standard formats.
 
 New here? Walk through the [First Lookup](get-started/first-lookup.qmd) tour (Python + CLI) in five minutes.
 
 ## Choose your path
 
-| Audience | Start here |
-|----------|------------|
-| **Data analyst / scientist** | [Export to CSV / pandas](how-to/export-to-csv-pandas.qmd) · [Bulk barangay lookup](learn/bulk-barangay-lookup.qmd) |
-| **App / backend developer** | [Address validation](how-to/validate-addresses.qmd) · [Database API tutorial](learn/database-api.qmd) |
-| **CLI / ops / non-Python** | [CLI reference](reference/cli.qmd) · [Geocode batch files](how-to/geocode-batch-files.qmd) |
-| **Researcher / GIS / academic** | [Concepts](concepts/index.qmd) · [Data dictionary](reference/data-dictionary.qmd) |
-| **Migrator (legacy code)** | [Migrate from the legacy API](how-to/migrate-from-legacy-api.qmd) |
-| **Contributor / maintainer** | [Community](community/index.qmd) |
+::: {layout-ncol="3"}
+### [Data analyst / scientist ›](how-to/export-to-csv-pandas.qmd)
+
+[Export to CSV / pandas](how-to/export-to-csv-pandas.qmd) · [Bulk barangay lookup](learn/bulk-barangay-lookup.qmd)
+
+### [App / backend developer ›](how-to/validate-addresses.qmd)
+
+[Address validation](how-to/validate-addresses.qmd) · [Database API tutorial](learn/database-api.qmd)
+
+### [CLI / ops / non-Python ›](reference/cli.qmd)
+
+[CLI reference](reference/cli.qmd) · [Geocode batch files](how-to/geocode-batch-files.qmd)
+
+### [Researcher / GIS / academic ›](concepts/index.qmd)
+
+[Concepts](concepts/index.qmd) · [Data dictionary](reference/data-dictionary.qmd)
+
+### [Migrator (legacy code) ›](how-to/migrate-from-legacy-api.qmd)
+
+[Migrate from the legacy API](how-to/migrate-from-legacy-api.qmd)
+
+### [Contributor / maintainer ›](community/index.qmd)
+
+[Community](community/index.qmd)
+:::
 
 ## Features
 

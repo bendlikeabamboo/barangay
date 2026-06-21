@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'docs/**'
-      - 'mkdocs.yaml'
-      - 'mkdocs.yml'
+      - 'quarto-docs/**'
+      - 'quarto-docs/_quarto.yml'
 
 permissions:
   contents: read
@@ -32,18 +31,30 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
-      - name: Install dependencies
+      - name: Install package
         run: |
-          pip install .
-          pip install .[docs]
+          uv pip install --system .
 
-      - name: Build documentation
-        run: mkdocs build
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.9.38
+
+      - name: Generate LGU landing pages
+        run: python quarto-docs/_generate_lgus.py
+
+      - name: Generate llms.txt entries
+        run: python quarto-docs/_generate_llms.py
+
+      - name: Render documentation
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: quarto-docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: quarto-docs/_site
 
   deploy:
     if: github.ref == 'refs/heads/main'

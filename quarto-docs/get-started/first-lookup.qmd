@@ -1,16 +1,17 @@
 ---
-title: "First Lookup — barangay"
+title: "First Lookup"
 description: "A 5-minute end-to-end tour of the barangay package: browse views, look up records, traverse hierarchy, fuzzy search, validate addresses, export to pandas, and switch historical versions (Python + CLI)."
 author: "bendlikeabamboo"
 ---
-
-# First Lookup
 
 A 5-minute end-to-end tour of what `barangay` can do. Assumes you have already [installed](installation.qmd) the package.
 
 ## Browse admin levels
 
 Pre-built views give direct access to every PSGC administrative level.
+
+::: {.panel-tabset}
+## Python
 
 ```python
 from barangay import regions, provinces, municipalities, cities, barangays
@@ -20,7 +21,23 @@ print(provinces)   # <PSGC province database: 82 records>
 print(barangays)   # <PSGC barangay database: 42010 records>
 ```
 
+## CLI
+
+```sh
+barangay info stats
+```
+
+| Model | Barangay Count |
+|-------|----------------|
+| Basic (nested) | 42010 |
+| Flat (list) | 42010 |
+| Extended (recursive) | 42010 |
+:::
+
 ## Look up a record
+
+::: {.panel-tabset}
+## Python
 
 ```python
 brgy = barangays.get(name="Tongmageng")
@@ -28,6 +45,13 @@ print(brgy.region)    # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
 print(brgy.province)  # Tawi-Tawi
 print(brgy.psgc_id)   # 1907005010
 ```
+
+## CLI
+
+```sh
+barangay lookup 1907005010
+```
+:::
 
 ## Pandas export
 
@@ -40,8 +64,16 @@ print(df.columns.tolist())
 #  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
 #  'component_city', 'municipality', 'submunicipality',
 #  'special_geographic_area', 'barangay']
-print(df.shape)  # (42010, 16)
+print(df.shape)  # (42010, 15)
 ```
+
+::: {.panel-tabset}
+## CLI
+
+```sh
+barangay export --model flat --format json --output data.json
+```
+:::
 
 ## Hierarchy traversal
 
@@ -57,6 +89,9 @@ for child in manila.children[:3]:
 
 ## Address validation
 
+::: {.panel-tabset}
+## Python
+
 ```python
 from barangay import validate, validate_many
 
@@ -68,7 +103,17 @@ for r in results:
     print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
 ```
 
+## CLI
+
+```sh
+barangay batch validate addresses.txt
+```
+:::
+
 ## Fuzzy search
+
+::: {.panel-tabset}
+## Python
 
 ```python
 from barangay import search_fuzzy
@@ -77,12 +122,9 @@ for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
     print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
 ```
 
-## CLI usage
-
-#### Search
+## CLI
 
 ```sh
-# Search
 barangay search "Tongmageng, Tawi-Tawi"
 ```
 
@@ -95,16 +137,22 @@ Output:
 | Tongbangkaw | Tandubas | Tawi-Tawi | 1907007042 | 82.1 |
 | Tongusong | Sitangkai | Tawi-Tawi | 1907005012 | 81.1 |
 | Tongehat | Sibutu | Tawi-Tawi | 1907011014 | 77.8 |
+:::
 
-**Note:** The `Score` column shows the maximum score across all matching patterns (barangay only, province+barangay, municipality+barangay, province+municipality+barangay).
+## Version
 
-#### Export data
+::: {.panel-tabset}
+## Python
 
-```sh
-barangay export --model flat --format json --output data.json
+```python
+import barangay
+
+barangay.use_version("2025-07-08")
+brgy = barangay.barangays.lookup("1907005010")
+barangay.use_version(None)  # back to latest
 ```
 
-#### Show info
+## CLI
 
 ```sh
 barangay info version
@@ -116,28 +164,7 @@ Output:
 Current version: 2026-04-13
 Available dates: 2023-01-25, 2023-04-18, 2023-08-15, 2023-10-24, 2024-01-23, 2024-04-23, 2024-05-08, 2024-07-12, 2024-10-18, 2025-01-30, 2025-04-23, 2025-07-08, 2025-08-29, 2025-10-13, 2026-01-13, 2026-04-13
 ```
-
-```sh
-barangay info stats
-```
-
-Output:
-
-| Model | Barangay Count |
-|-------|----------------|
-| Basic (nested) | 42011 |
-| Flat (list) | 42011 |
-| Extended (recursive) | 42011 |
-
-## Historical data
-
-```python
-import barangay
-
-barangay.use_version("2025-07-08")
-brgy = barangay.barangays.lookup("1907005010")
-barangay.use_version(None)  # back to latest
-```
+:::
 
 ## Next steps
 

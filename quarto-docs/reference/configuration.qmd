@@ -1,10 +1,8 @@
 ---
-title: "Configuration — barangay"
+title: "Configuration"
 description: "Configure the barangay PSGC package via environment variables: cache directory, data versions, plugins, and verbose logging options."
 author: "bendlikeabamboo"
 ---
-
-# Configuration
 
 ## Environment Variables
 
@@ -145,3 +143,9 @@ The cache directory stores downloaded historical data for faster subsequent load
 - `{date}_barangay_extended.json` - Extended recursive data for a specific date
 - `{date}_barangay_flat.json` - Flat list data for a specific date
 - `{date}_fuzzer_base.parquet` - Fuzzy matching base data for a specific date
+
+## See also
+
+- [Versioning reference](python-api/versioning.qmd) — `use_version()`, `as_of`, `available_dates`
+- [CLI reference](cli.qmd) — CLI flags that read this configuration
+- [Plugins configuration](../plugins/configuration.qmd) — plugin discovery and activation

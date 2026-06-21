@@ -1,10 +1,8 @@
 ---
-title: "Address Validation in the Philippines with Python — barangay"
+title: "Address Validation"
 description: "Tutorial: validate Philippine addresses against the official PSGC masterlist. Fuzzy matching handles misspellings, abbreviations, and unstandardized formats with validate() and validate_many()."
 author: "bendlikeabamboo"
 ---
-
-# Address Validation in the Philippines with Python
 
 Validate Philippine addresses against the official PSGC masterlist using the `barangay` package. Fuzzy matching handles common misspellings, abbreviations, and unstandardized address formats.
 
@@ -17,7 +15,7 @@ Philippine addresses are notoriously inconsistent. A single barangay might appea
 - "Barangay No. 291"
 - "Brgy 291"
 
-The `barangay` package solves this by matching addresses against the official Philippine Standard Geographic Code (PSGC) masterlist from the Philippine Statistics Authority (PSA), which covers all 42,011 barangays.
+The `barangay` package solves this by matching addresses against the official Philippine Standard Geographic Code (PSGC) masterlist from the Philippine Statistics Authority (PSA), which covers all 42,010 barangays.
 
 ## Installation
 
@@ -45,9 +43,46 @@ v = validate("Brgy 291, City of Manila", threshold=80.0)
 print(v.valid, v.matched_name, v.score)  # True Barangay 291 88.24
 ```
 
-### Batch Validation with `validate_many()`
+::: {.callout-tip title="Lower the threshold for abbreviations"}
+The default threshold of 95.0 is strict. Abbreviations like "Brgy." or "No." and non-standard formats ("Pob.", parentheticals) rarely clear it. Drop to `80.0` for lenient matching, or use `sanitize_input()` to normalize the text first.
+:::
 
-Validate multiple addresses at once:
+### ValidationResult Properties
+
+| Property | Type | Description |
+|-----------|------|-------------|
+| `.input` | `str` | Original input string |
+| `.valid` | `bool` | Whether a match was found above threshold |
+| `.matched_name` | `str \| None` | Name of the matched record |
+| `.matched_psgc_id` | `str \| None` | PSGC ID of the matched record |
+| `.matched_record` | `AdminDivRecord \| None` | Full matched record |
+| `.score` | `float \| None` | Confidence score |
+
+## Handling Misspellings with `search_fuzzy()`
+
+When you need more than a pass/fail verdict — for example, to show candidate matches for manual review — use `search_fuzzy()`. It tolerates typos and alternative spellings and returns typed `SearchResult` objects with a similarity score:
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("Tongmagen, Tawi-Tawi", threshold=60.0, limit=3)
+for r in results:
+    print(f"{r.name} — score: {r.score}")
+```
+
+Output:
+
+| Barangay | Municipality | Province | Score |
+|----------|--------------|----------|-------|
+| Tongmageng | Sitangkai | Tawi-Tawi | 95.2 |
+| Tonggosong | Simunul | Tawi-Tawi | 84.2 |
+| Tongbangkaw | Tandubas | Tawi-Tawi | 82.1 |
+
+Each `SearchResult` exposes `.name`, `.psgc_id`, `.score`, `.match_type`, and `.record` (see the [Search reference](../reference/python-api/search.qmd) for the full property list).
+
+## Batch Validation with `validate_many()`
+
+Validate many addresses in a single call and inspect each result programmatically:
 
 ```python
 from barangay import validate_many
@@ -65,60 +100,19 @@ for r in results:
 # 'Nonexistent Place' -> invalid
 ```
 
-### ValidationResult Properties
-
-| Property | Type | Description |
-|-----------|------|-------------|
-| `.input` | `str` | Original input string |
-| `.valid` | `bool` | Whether a match was found above threshold |
-| `.matched_name` | `str \| None` | Name of the matched record |
-| `.matched_psgc_id` | `str \| None` | PSGC ID of the matched record |
-| `.matched_record` | `AdminDivRecord \| None` | Full matched record |
-| `.score` | `float \| None` | Confidence score |
-
-## Using `search()` with Threshold
-
-::: {.callout-warning title="Deprecated"}
-`search()` returns raw dicts and will be removed in 2027.X.X.X. Use `validate()` or `search_fuzzy()` for typed results. See [Migrate from the legacy API](../how-to/migrate-from-legacy-api.qmd).
-:::
-
-Use the `search()` function with a high threshold to validate addresses:
+Lower the threshold once for the whole batch when your data uses abbreviations or non-standard formats:
 
 ```python
-from barangay import search
-
-address = "Brgy 291, City of Manila, Metro Manila"
-results = search(address, threshold=80.0)
-
-if results and results[0].get("f_0pmb_ratio_score", 0) >= 90:
-    print(f"Valid: {results[0]['barangay']}, {results[0]['province_or_huc']}")
-else:
-    print("Address not found or ambiguous")
+results = validate_many(
+    ["Brgy 291, Manila", "Tongmageng, Tawi-Tawi", "Poblacion, Davao City"],
+    threshold=80.0,
+)
+for r in results:
+    if r.valid:
+        print(f"{r.input!r} -> {r.matched_name} ({r.matched_psgc_id})")
+    else:
+        print(f"{r.input!r} -> NOT FOUND")
 ```
-
-## Handling Misspellings
-
-::: {.callout-warning title="Deprecated"}
-`search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` for typed results. See [Migrate from the legacy API](../how-to/migrate-from-legacy-api.qmd).
-:::
-
-Fuzzy search tolerates typos and alternative spellings:
-
-```python
-from barangay import search
-
-results = search("Tongmagen, Tawi-Tawi", threshold=70.0)
-for r in results[:3]:
-    print(f"{r['barangay']} — score: {r.get('f_0pmb_ratio_score', 'N/A')}")
-```
-
-Output:
-
-| Barangay | Municipality/City | Province | Score |
-|----------|-------------------|----------|-------|
-| Tongmageng | Sitangkai | Tawi-Tawi | 95.2 |
-| Tonggosong | Simunul | Tawi-Tawi | 84.2 |
-| Tongbangkaw | Tandubas | Tawi-Tawi | 82.1 |
 
 ## Batch Validation with CLI
 
@@ -130,49 +124,35 @@ barangay batch validate addresses.txt
 
 Each line in `addresses.txt` should contain one barangay name.
 
-## Batch Search with Python
-
-::: {.callout-warning title="Deprecated"}
-`search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` or `validate_many()` for typed results. See [Migrate from the legacy API](../how-to/migrate-from-legacy-api.qmd).
-:::
-
-For programmatic batch validation:
-
-```python
-from barangay import search, create_fuzz_base
-
-fuzz_base = create_fuzz_base()
-addresses = [
-    "Brgy 291, Manila",
-    "Tongmageng, Tawi-Tawi",
-    "Poblacion, Davao City",
-]
-
-for addr in addresses:
-    results = search(addr, fuzz_base=fuzz_base, threshold=70.0)
-    if results:
-        top = results[0]
-        print(f"{addr} → {top['barangay']}, {top['municipality_or_city']}")
-```
-
 ## Custom Sanitization
 
-::: {.callout-warning title="Deprecated"}
-`search()` returns raw dicts and will be removed in 2027.X.X.X. Use `search_fuzzy()` for typed results. See [Migrate from the legacy API](../how-to/migrate-from-legacy-api.qmd).
-:::
-
-Strip common prefixes and suffixes before matching:
+`sanitize_input()` strips common prefixes, suffixes, and noise tokens before matching. It is a plain helper — pair it with `validate()` or `search_fuzzy()` to clean free-text input:
 
 ```python
-from barangay import sanitize_input, search
+from barangay import sanitize_input, validate, search_fuzzy
 
 raw = "(Pob.) San Jose City"
 clean = sanitize_input(raw, exclude=["(pob.)", " city"])
-results = search(clean, threshold=80.0)
+
+# Feed the cleaned string into the recommended API
+v = validate(clean, threshold=80.0)
+print(v.valid, v.matched_name)
+
+# Or inspect candidates with search_fuzzy
+for r in search_fuzzy(clean, threshold=60.0, limit=5):
+    print(r.name, r.score)
 ```
+
+::: {.callout-tip title="Reuse across batches"}
+`sanitize_input()` is cheap and stateless. Run it over every row of your dataset before calling `validate_many()` to normalize inconsistent casing, parentheticals, and redundant qualifiers.
+:::
 
 ## Next Steps
 
-- [Search reference](../reference/python-api/search.qmd) — full `search()` parameter documentation
+- [Search reference](../reference/python-api/search.qmd) — full `search_fuzzy()` parameter documentation
 - [CLI Reference](../reference/cli.qmd) — `barangay batch validate` options
 - [Bulk Barangay Lookup](bulk-barangay-lookup.qmd) — batch processing at scale
+
+::: {.callout-note title="Migrating from the legacy `search()` API"}
+The deprecated `search()` function (raw dicts, `create_fuzz_base()`) is covered in [Migrate from the legacy API](../how-to/migrate-from-legacy-api.qmd). Use `validate()`, `validate_many()`, and `search_fuzzy()` for all new code.
+:::

@@ -1,6 +1,6 @@
 # barangay
 
-> Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions. Offline access to all 42,011 barangays — no API calls or database needed. Based on the official April 2026 PSGC masterlist from the Philippine Statistics Authority.
+> Philippine Standard Geographic Code (PSGC) Python package with fuzzy search for barangays, municipalities, cities, provinces, and regions. Offline access to all 42,010 barangays — no API calls or database needed. Based on the official April 2026 PSGC masterlist from the Philippine Statistics Authority.
 
 ## Installation
 
@@ -29,7 +29,7 @@ for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
 ## Key Features
 
 - **Fuzzy search** — handles misspellings and unstandardized addresses using rapidfuzz
-- **Bundled data** — all 42,011 barangays, 1,488 municipalities, 146 cities, 82 provinces, 17 regions included offline
+- **Bundled data** — all 42,010 barangays, 1,488 municipalities, 146 cities, 82 provinces, 17 regions included offline
 - **Hierarchy traversal** — navigate parent, children, and ancestors of any admin division
 - **Pandas export** — `to_frame()` and `to_dicts()` for immediate DataFrame access
 - **Address validation** — `validate()` and `validate_many()` with configurable thresholds

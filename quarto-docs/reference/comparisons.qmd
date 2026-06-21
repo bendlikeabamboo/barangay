@@ -1,10 +1,8 @@
 ---
-title: "barangay vs psgc-api vs raw PSA CSV — Comparison"
+title: "barangay vs psgc-api vs raw PSA CSV"
 description: "Compare the barangay Python package against psgc-api and raw PSA PSGC CSVs: offline access, fuzzy search, address validation, Python-native data models, and historical versions."
 author: "bendlikeabamboo"
 ---
-
-# Comparing PSGC Data Sources
 
 There are several ways to work with Philippine Standard Geographic Code (PSGC)
 data. This page compares the **`barangay` Python package** against a hosted
@@ -15,7 +13,7 @@ data. This page compares the **`barangay` Python package** against a hosted
 | Capability | `barangay` package | PSGC HTTP API | Raw PSA CSV |
 |------------|:------------------:|:-------------:|:-----------:|
 | Works fully **offline** | ✅ | ❌ (network required) | ⚠️ (download once) |
-| Bundled, queryable dataset | ✅ 42,011 barangays | ✅ | ❌ (parse yourself) |
+| Bundled, queryable dataset | ✅ 42,010 barangays | ✅ | ❌ (parse yourself) |
 | **Fuzzy search** (misspellings) | ✅ built-in | ⚠️ partial/limited | ❌ |
 | **Address validation** | ✅ `validate()` / `validate_many()` | ⚠️ build-your-own | ❌ |
 | Typed Python data models | ✅ pydantic | ❌ JSON over HTTP | ❌ |
@@ -63,3 +61,9 @@ No API key, no network — runs entirely from bundled data.
 Data source: [Philippine Statistics Authority — PSGC](https://psa.gov.ph/classification/psgc/).
 See the [full documentation](../index.qmd) for installation, tutorials, and the
 plugin system.
+
+## See also
+
+- [PSGC overview](../concepts/psgc-overview.qmd) — what the PSGC is and where it comes from
+- [Database reference](python-api/database.qmd) — the API behind these capabilities
+- [Changelog](../changelog.qmd) — data version history

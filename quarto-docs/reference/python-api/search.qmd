@@ -1,10 +1,8 @@
 ---
-title: "Search (`search_fuzzy`) — barangay"
+title: "Search (`search_fuzzy`)"
 description: "Reference for search_fuzzy(): typed fuzzy search returning SearchResult objects, with level, match_hooks, threshold, limit, and as_of parameters."
 author: "bendlikeabamboo"
 ---
-
-# Search (`search_fuzzy`)
 
 Typed fuzzy search returning `SearchResult` objects with rich attributes. Use this for misspelling-tolerant lookups across the PSGC masterlist.
 

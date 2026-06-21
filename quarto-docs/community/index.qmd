@@ -1,10 +1,8 @@
 ---
-title: "Community — barangay"
+title: "Community"
 description: "Contribute to the barangay PSGC package: data updates, local development, code style, and the release process."
 author: "bendlikeabamboo"
 ---
-
-# Community
 
 Thank you for your interest in contributing to `barangay`! These guides cover how to update the data, set up a local dev environment, follow the code style, and cut a release.
 

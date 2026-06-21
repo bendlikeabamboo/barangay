@@ -1,20 +1,73 @@
 ---
-title: "Architecture — barangay"
+title: "Architecture"
 description: "How the barangay package works internally: DataManager, the bundled PSGC cache, the plugin join, and fuzzy matching."
 author: "bendlikeabamboo"
 ---
 
-# Architecture
-
-> **Status:** Stub — content to be expanded.
-
-## Overview
-
-How the `barangay` package works internally — bundled data, the `DataManager` cache, the plugin join, and fuzzy matching.
+The `barangay` package is built around a small set of components that move data from a bundled PSGC masterlist up to typed, enriched records you can search and validate against. This page walks that pipeline end to end — useful when you want to know where caching happens, why the package works offline, or where to hook in a plugin.
 
 ## Components
 
-<!-- TODO: DataManager, bundled package data, local cache, GitHub fallback, Database singleton, plugin join -->
+````{mermaid}
+flowchart TD
+  Data["Bundled PSGC data<br/>(barangay/data/)"]
+  DM["DataManager<br/>loads + caches snapshots"]
+  Cache["Local cache<br/>(historical versions)"]
+  GH["GitHub fallback<br/>(missing snapshots)"]
+  DB["Database singleton<br/>(hierarchy index)"]
+  Views["Level views<br/>regions · provinces · barangays · ..."]
+  Plugins["PluginLoader<br/>(scalar / array join)"]
+  Result["EnrichedRecord<br/>SearchResult · ValidationResult"]
+
+  Data --> DM
+  Cache --> DM
+  GH -. "on miss" .-> Cache
+  DM --> DB
+  DB --> Views
+  Plugins -. "join by psgc_id" .-> Views
+  Views --> Result
+````
+
+### Bundled data
+
+The package ships its PSGC masterlist inside `barangay/data/` (42,010 barangays for the current version, dated in `barangay/data/CURRENT_VERSION`). Because the data is bundled, the package works fully offline for the current snapshot — no network call is made on import. The version on disk is also exposed as the module-level attributes [`barangay.current`](../reference/python-api/versioning.qmd) and [`barangay.available_dates`](../reference/python-api/utilities.qmd).
+
+### DataManager
+
+[`DataManager`](../reference/python-api/versioning.qmd) (`barangay/data_manager.py:35-159`) owns the snapshot lifecycle. When you ask for a snapshot it walks a fallback chain in order:
+
+1. **Memory cache** — if the snapshot is already loaded in this process, return it immediately.
+2. **Local cache dir** — look for a previously stored parquet/json snapshot on disk.
+3. **Bundled package data** — the default source; used for the current masterlist and any snapshot shipped inside the wheel.
+4. **GitHub download fallback** — only on a cache miss for a *historical* snapshot not present locally. The downloaded file is stored back into the cache dir so subsequent loads stay offline.
+
+The cache directory follows platform conventions (see [PSGC overview — source & provenance](psgc-overview.qmd) and the [troubleshooting page](../troubleshooting.qmd) for clearing it):
+
+- Windows: `%LOCALAPPDATA%/barangay/cache`
+- XDG: `$XDG_CACHE_HOME/barangay`
+- Default (Linux/macOS): `~/.cache/barangay`
+
+::: {.callout-tip title="Why this matters"}
+Historical queries (`use_version(date)` or per-query `as_of=`) are the only operations that ever need the network, and only the first time. After the GitHub fallback stores a snapshot locally, every later call for that date is served from disk. The current bundled masterlist never touches the network.
+:::
+
+### Database singleton and hierarchy index
+
+`DataManager` hands the active snapshot to the [`Database`](../reference/python-api/records.qmd) class, which builds the parent/child hierarchy index and the level views. `Database` is a **process-wide singleton**: every call to `Database()` returns the same instance, and it holds the *currently active* version state.
+
+The practical implication: `use_version(date)` mutates shared global state. In a long-running process (a web server, a notebook shared between cells), prefer the per-query `as_of=` argument on [`search_fuzzy`](../reference/python-api/search.qmd) / [`validate`](../reference/python-api/validate.qmd) — it queries a snapshot for a single call without touching the global version. Use `use_version(None)` to restore the latest.
+
+### Level views
+
+The singleton exposes one `DatabaseView` per administrative level: `regions`, `provinces`, `municipalities`, `cities` (HUC + ICC + component combined), `hucs`, `iccs`, `component_cities`, `submunicipalities`, `special_geographic_areas`, and `barangays`. Each view supports `.get(name=...)`, `.lookup(psgc_id=...)`, `.to_frame()`, `.to_dicts()`, and iteration. See the [Database API tutorial](../learn/database-api.qmd).
+
+### PluginLoader join
+
+When plugins are enabled, [`PluginLoader`](../plugins/python-api.qmd) joins supplementary datasets onto the views using `psgc_id` as the key. The `psgc-aux-data` plugin, for example, attaches correspondence codes, old names, city class, income classification, urban/rural, population, and status. Joins are either scalar (1:1) or array (1:N); because the key is `psgc_id`, enrichment happens transparently and every record a view returns is already an `EnrichedRecord`. See [Enrich with plugins](../how-to/enrich-with-plugins.qmd).
+
+### Typed results
+
+The views return typed objects — `EnrichedRecord` for direct lookups, `SearchResult` (carrying `.record`, `.score`, `.match_type`) from fuzzy search, and `ValidationResult` (`.input`, `.valid`, `.matched_record`, `.score`) from validation. The hierarchy indicator (`rphicmsgb`) is a documentation convention you can derive from any record's resolved-hierarchy fields; see [Hierarchy indicator](hierarchy-indicator.qmd).
 
 ## See also
 

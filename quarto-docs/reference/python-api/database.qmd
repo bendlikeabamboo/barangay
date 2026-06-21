@@ -1,10 +1,8 @@
 ---
-title: "Database — barangay"
+title: "Database"
 description: "Reference for the barangay Database API: the 10 admin-level views, get, lookup, view-level search_fuzzy, to_frame/to_dicts, iteration, and the RecordNotFoundError/MultipleResultsError exceptions."
 author: "bendlikeabamboo"
 ---
-
-# Database
 
 The Database API is the primary way to access PSGC data. Use the module-level views instead of instantiating `Database` directly.
 
@@ -83,7 +81,7 @@ print(df.columns.tolist())
 #  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
 #  'component_city', 'municipality', 'submunicipality',
 #  'special_geographic_area', 'barangay']
-print(df.shape)  # (42010, 16)
+print(df.shape)  # (42010, 15)
 
 data = barangays.to_dicts()
 print(len(data))  # 42010

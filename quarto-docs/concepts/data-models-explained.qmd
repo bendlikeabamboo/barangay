@@ -1,10 +1,8 @@
 ---
-title: "Data Models Explained — barangay"
+title: "Data Models Explained"
 description: "Overview of the three barangay PSGC data model shapes: nested (basic), flat (list), and extended (recursive tree). Choose the right model for your use case."
 author: "bendlikeabamboo"
 ---
-
-# Data Models Explained
 
 The barangay package provides three distinct data model formats, each optimized for specific use cases.
 
@@ -113,3 +111,9 @@ A denormalized array format optimized for database storage and bulk operations. 
     }
 ]
 ```
+
+## See also
+
+- [Data models reference](../reference/python-api/data-models.qmd) — pydantic `AdminDiv` family
+- [Data dictionary](../reference/data-dictionary.qmd) — field-by-field reference
+- [Database reference](../reference/python-api/database.qmd) — `to_frame()` / `to_dicts()` column list

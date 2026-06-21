@@ -1,10 +1,8 @@
 ---
-title: "Records (`EnrichedRecord`) — barangay"
+title: "Records (`EnrichedRecord`)"
 description: "Reference for EnrichedRecord: core fields, computed hierarchy properties, parent/children/ancestors, and to_dict serialization."
 author: "bendlikeabamboo"
 ---
-
-# Records (`EnrichedRecord`)
 
 Every record returned by the Database API is an `EnrichedRecord` with computed hierarchy properties. Use these when you need the resolved hierarchy names around a record, or to walk the tree.
 

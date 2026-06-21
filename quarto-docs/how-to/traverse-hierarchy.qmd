@@ -1,16 +1,12 @@
 ---
-title: "Traverse the Hierarchy — barangay"
+title: "Traverse the Hierarchy"
 description: "Recipe: navigate the PSGC hierarchy with parent, children, ancestors, and get records by region, province, or municipality."
 author: "bendlikeabamboo"
 ---
 
-# Traverse the Hierarchy
-
-> **Status:** Stub — content to be expanded.
-
 ## Overview
 
-How to move up and down the Philippine administrative hierarchy (region → province → city/municipality → barangay) using `EnrichedRecord` properties and the level views.
+Every record exposes resolved-hierarchy fields and `.ancestors` / `.children` properties, and the package ships one [level view](../reference/python-api/database.qmd) per PSGC level. This recipe moves up, down, and across the hierarchy.
 
 ## Upward traversal
 
@@ -21,6 +17,7 @@ brgy = barangays.get(name="Tongmageng")
 print(brgy.region)       # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
 print(brgy.province)     # Tawi-Tawi
 print([a.name for a in brgy.ancestors])
+# ['Sitangkai', 'Tawi-Tawi', 'Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)']
 ```
 
 ## Downward traversal
@@ -30,11 +27,63 @@ from barangay import cities
 
 manila = cities.get(name="City of Manila")
 print([c.name for c in manila.children[:3]])
+# ['Tondo I/II', 'Binondo', 'Quiapo']
 ```
 
 ## By level
 
-<!-- TODO: get-by-region / province / municipality patterns -->
+### Level views
+
+Each PSGC level has a dedicated view on the [`Database`](../reference/python-api/database.qmd): `regions`, `provinces`, `hucs`, `iccs`, `component_cities`, `cities` (HUC+ICC+component combined), `municipalities`, `submunicipalities`, `special_geographic_areas`, `barangays`. Every view supports `.get(name=...)` (raises on no/many matches), `.lookup(psgc_id=...)` (returns `None` on miss), iteration, and `.to_frame()` / `.to_dicts()`.
+
+```python
+from barangay import provinces, municipalities
+
+tawi = provinces.lookup("1907000000")          # Tawi-Tawi
+sitangkai = municipalities.get(name="Sitangkai")
+print(sitangkai.psgc_id)                        # 1907005000
+```
+
+### Filter by ancestor
+
+The resolved-hierarchy fields make ancestor filtering a one-liner — but it's a full scan over the view, so it's fine for ad-hoc queries and slow for large subsets:
+
+```python
+from barangay import barangays
+
+tawi_barangays = [r for r in barangays if r.province == "Tawi-Tawi"]
+print(len(tawi_barangays))   # 203
+```
+
+::: {.callout-tip title="Use pandas for big filters"}
+For anything beyond a few thousand rows, materialize once with `to_frame()` and let pandas do the filtering:
+
+```python
+import barangay
+
+df = barangay.barangays.to_frame()
+subset = df[df["province"] == "Tawi-Tawi"]   # vectorized, far faster than a Python loop
+```
+:::
+
+### Get all children
+
+`.children` returns the direct descendants of a record. Recurse for a whole subtree:
+
+```python
+from barangay import provinces
+
+def descendants(record):
+    out = []
+    for child in record.children:
+        out.append(child)
+        out.extend(descendants(child))
+    return out
+
+tawi = provinces.get(name="Tawi-Tawi")
+print(len(tawi.children))            # 11  (municipalities)
+print(len(descendants(tawi)))        # full subtree under Tawi-Tawi
+```
 
 ## See also
 

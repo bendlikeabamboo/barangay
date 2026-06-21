@@ -1,29 +1,81 @@
 ---
-title: "Search with Misspellings — barangay"
+title: "Search with Misspellings"
 description: "Recipe: tune fuzzy search for barangay names with typos, abbreviations, and unstandardized formats using search_fuzzy thresholds and match_hooks."
 author: "bendlikeabamboo"
 ---
 
-# Search with Misspellings
-
-> **Status:** Stub — content to be expanded.
-
 ## Overview
 
-How to use `search_fuzzy()` to match barangay names tolerant of typos, abbreviations, and non-standard formats.
+Real-world address data is messy: typos, dropped accents, missing levels. [`search_fuzzy()`](../reference/python-api/search.qmd) matches a free-text query against the PSGC masterlist and returns ranked typed [`SearchResult`](../reference/python-api/search.qmd)s. This recipe covers the four knobs that control what comes back.
 
 ## Canonical example
+
+A single typo (`Tongmagng` instead of `Tongmageng`) still resolves to the right barangay:
 
 ```python
 from barangay import search_fuzzy
 
-for r in search_fuzzy("Tongmagen, Tawi-Tawi", threshold=60.0, limit=5):
+for r in search_fuzzy("Tongmagng", threshold=60.0, limit=5):
     print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
+# Tongmageng (1907005010) — score: 94.74
+# Itomang (...)               — score: 75.0
+# Tonggasang (...)            — score: 73.68
 ```
 
 ## Tuning
 
-<!-- TODO: threshold selection, match_hooks levels, level filter, limit -->
+### Threshold
+
+Scores run 0–100 (RapidFuzz similarity). `search_fuzzy()` defaults to `threshold=60.0`; `validate()` is stricter at `95.0`. Raise the bar to cut noise, lower it to catch noisier input. The misspelling `Tongmagng` illustrates the curve cleanly:
+
+```python
+search_fuzzy("Tongmagng", threshold=60.0, limit=3)
+# Tongmageng 94.74, Itomang 75.0, Tonggasang 73.68
+search_fuzzy("Tongmagng", threshold=80.0, limit=3)
+# Tongmageng 94.74
+search_fuzzy("Tongmagng", threshold=95.0, limit=3)
+# (empty — 94.74 falls short)
+```
+
+::: {.callout-tip title="Start lenient, tighten to taste"}
+Begin at the default `60.0` to see the full candidate set, then raise the threshold to suppress weak matches. For automated pipelines where the top hit is enough, `80.0` is a good middle ground.
+:::
+
+### `match_hooks`
+
+`match_hooks` controls **which name-levels participate in scoring** — distinct from `level` (below). It defaults to `["barangay"]`, so a query is scored against barangay names. To match against municipality or province names instead, pass the matching hook:
+
+```python
+search_fuzzy("Sitangkai", limit=3)                              # default: barangay names
+# Silangkan 77.78, Silanga 75.0, Sangali 75.0  (no Sitangkai yet)
+search_fuzzy("Sitangkai", match_hooks=["municipality"], limit=3)
+# Sitangkai 100.0, Silang 66.67, Sinait 66.67  (municipality hit)
+search_fuzzy("Tawi-Tawi", match_hooks=["province"], limit=3)
+# Tawi-Tawi 100.0
+```
+
+Each result's `.match_type` reports the hook(s) that produced the score (`"barangay"`, `"municipality"`, `"province"`, or a `+`-joined combination).
+
+### `level`
+
+`level` is a **post-filter on the result record type**, applied after scoring. Combine it with the matching hook to find places rather than barangays:
+
+```python
+search_fuzzy("Sitangkai", level="municipality", match_hooks=["municipality"], limit=3)
+# Sitangkai 1907005000 100.0, Silang 0402118000 66.67, Sinait 0102930000 66.67
+```
+
+Without the matching hook, `level` alone filters an already-barangay-scored set and typically returns nothing — set `match_hooks` first.
+
+### `limit`
+
+`limit` caps the number of results (default `5`). Bump it for manual-review workflows where you want a ranked shortlist, not just the top hit:
+
+```python
+search_fuzzy("San Jose", limit=300)   # 300 rows; 244 barangays share the exact name "San Jose"
+```
+
+For a definitive pass/fail verdict on a single address, prefer [`validate()`](validate-addresses.qmd) over scrolling a long result list.
 
 ## See also
 

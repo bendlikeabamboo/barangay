@@ -1,10 +1,8 @@
 ---
-title: "Data Models (pydantic) — barangay"
+title: "Data Models (pydantic)"
 description: "Reference for the pydantic data models: barangay/AdminDiv, barangay_extended/AdminDivExtended, barangay_flat/AdminDivFlat, and the DataManager that loads/caches data."
 author: "bendlikeabamboo"
 ---
-
-# Data Models (pydantic)
 
 The package's pydantic data models for raw PSGC data. The Database API is recommended for most use cases; these models are for direct, low-level access to the nested / extended / flat shapes. See [Data Models Explained](../../concepts/data-models-explained.qmd) for a JSON shape comparison.
 

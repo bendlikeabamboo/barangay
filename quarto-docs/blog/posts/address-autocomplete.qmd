@@ -1,11 +1,9 @@
 ---
 title: "Build a Philippine Address Autocomplete with barangay"
-description: "Build a fast Philippine address autocomplete using the barangay package's offline fuzzy search. No API calls, no rate limits — instant suggestions across 42,011 barangays."
+description: "Build a fast Philippine address autocomplete using the barangay package's offline fuzzy search. No API calls, no rate limits — instant suggestions across 42,010 barangays."
 author: "bendlikeabamboo"
 date: "2025-12-01"
 ---
-
-# Build a Philippine Address Autocomplete with barangay
 
 A good address autocomplete turns messy free text into a canonical PSGC record.
 This post sketches a small, offline autocomplete backed by the `barangay`

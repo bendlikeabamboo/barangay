@@ -1,10 +1,8 @@
 ---
-title: "CLI Reference — barangay"
+title: "CLI Reference"
 description: "Command-line reference for the barangay PSGC tool: search, export, validate, batch operations, plugin enrichment, and info subcommands with examples."
 author: "bendlikeabamboo"
 ---
-
-# CLI Reference
 
 ## Search
 
@@ -304,3 +302,9 @@ barangay cache --help
 barangay batch --help
 barangay plugins --help
 ```
+
+## See also
+
+- [Python API reference](python-api/database.qmd) — the programmatic equivalent of these commands
+- [Configuration](configuration.qmd) — cache dir, plugin dirs, env vars
+- [Geocode batch files how-to](../how-to/geocode-batch-files.qmd) — batch commands in context

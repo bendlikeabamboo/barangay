@@ -1,10 +1,8 @@
 ---
-title: "Creating a Plugin — barangay"
+title: "Creating a Plugin"
 description: "Step-by-step guide to creating a custom barangay plugin: directory layout, manifest.yaml, CSV/JSON/Parquet data formats, time-aware versions, and remote repositories."
 author: "bendlikeabamboo"
 ---
-
-# Creating a Plugin
 
 ## Step 1: Create the Plugin Directory
 
@@ -239,3 +237,9 @@ dates:
     }
 }
 ```
+
+## See also
+
+- [Plugins overview](index.qmd) — scalar vs array shapes, manifest fields
+- [Built-in plugins](built-in.qmd) — reference plugins to model yours on
+- [Plugin configuration](configuration.qmd) — discovery and activation

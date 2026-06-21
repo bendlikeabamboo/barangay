@@ -1,14 +1,10 @@
 ---
-title: "Concepts — barangay"
+title: "Concepts"
 description: "Foundations of the Philippine Standard Geographic Code (PSGC): what it is, the administrative hierarchy, the rphicmsgb hierarchy indicator, data models, and package architecture."
 author: "bendlikeabamboo"
 ---
 
-# Concepts
-
 Explanations that deepen your understanding of the data and how the package works. Read these when you want the "why", not just the "how".
-
-> **Status:** Hub — foundations.
 
 ## Foundations
 

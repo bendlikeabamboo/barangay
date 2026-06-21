@@ -18,7 +18,7 @@ website:
   site-url: "https://bendlikeabamboo.github.io/barangay/"
   description: >-
     Philippine Standard Geographic Code (PSGC) Python package with fuzzy search.
-    Access 42,011 barangays, municipalities, cities, provinces, and regions offline.
+    Access 42,010 barangays, municipalities, cities, provinces, and regions offline.
   favicon: favicon.png
   repo-url: https://github.com/bendlikeabamboo/barangay
   repo-actions: [edit, issue, source]

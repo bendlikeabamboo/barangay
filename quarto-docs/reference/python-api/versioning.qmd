@@ -1,10 +1,8 @@
 ---
-title: "Versioning (`use_version`, `Database`, `AdminLevel`) — barangay"
+title: "Versioning (`use_version`, `Database`, `AdminLevel`)"
 description: "Reference for use_version/use_plugins, the Database class, the AdminLevel enum, and module-level attributes (current, as_of, available_dates)."
 author: "bendlikeabamboo"
 ---
-
-# Versioning, `Database`, `AdminLevel`
 
 Switch the global Database to a different data version or enable plugins, and inspect module-level attributes.
 
@@ -66,7 +64,7 @@ print(barangay.current)           # '2026-04-13'
 # Available dataset dates (historical + current)
 print(barangay.available_dates)    # List of available dates
 
-# Set default date for session (affects search() if no as_of parameter)
+# Set default date for session (affects search_fuzzy()/validate() if no as_of parameter)
 barangay.as_of = "2025-07-08"
 ```
 

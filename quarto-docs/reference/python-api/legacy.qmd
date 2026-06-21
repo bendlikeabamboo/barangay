@@ -1,10 +1,8 @@
 ---
-title: "Legacy API (deprecated) — barangay"
+title: "Legacy API (deprecated)"
 description: "Reference for the deprecated barangay dict-based API: search(), BARANGAY/BARANGAY_EXTENDED/BARANGAY_FLAT dict aliases, and BarangayModel. Migrate to the Database API before removal in 2027."
 author: "bendlikeabamboo"
 ---
-
-# Legacy API (deprecated)
 
 ::: {.callout-warning title="Deprecated"}
 Everything on this page is **deprecated** and will be removed in `2027.X.X.X`. Use the [Database API](database.qmd) for new code (e.g. `barangays.get(name="Tongmageng")`, `search_fuzzy("query")`). See [Migrate from the legacy API](../../how-to/migrate-from-legacy-api.qmd) for a full migration map.

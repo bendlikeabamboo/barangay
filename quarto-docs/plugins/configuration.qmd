@@ -1,10 +1,8 @@
 ---
-title: "Plugin Configuration — barangay"
+title: "Plugin Configuration"
 description: "Configure barangay plugins: plugin discovery, plugins.yaml, enabling built-in and remote plugins, and resolving plugin source directories."
 author: "bendlikeabamboo"
 ---
-
-# Configuration
 
 ## Plugin Discovery
 
@@ -116,3 +114,9 @@ When multiple `plugins.yaml` files exist across source directories, higher-prior
 5. `loader.enable_plugin()` / CLI `--plugin` (highest priority)
 
 This means a CLI flag or programmatic call can enable a plugin even if it's `enabled: false` in the config file.
+
+## See also
+
+- [Plugins overview](index.qmd) — plugin shapes and entry points
+- [Plugin Python API](python-api.qmd) — `PluginLoader` reference
+- [Enrich with plugins how-to](../how-to/enrich-with-plugins.qmd)

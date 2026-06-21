@@ -1,10 +1,8 @@
 ---
-title: "Plugin Python API — barangay"
+title: "Plugin Python API"
 description: "Programmatic plugin API: PluginLoader, use_plugins(), enable_plugin(), and low-level functions for enriching PSGC records with custom data extensions."
 author: "bendlikeabamboo"
 ---
-
-# Python API
 
 The plugin system exposes both a high-level `PluginLoader` class and low-level functions for programmatic use.
 
@@ -298,3 +296,9 @@ ext = PluginExtension(
 |-----------|-------------|
 | `PluginManifestError` | Manifest is missing required fields, not found, or invalid |
 | `PluginDataError` | Data file cannot be read or remote fetch fails |
+
+## See also
+
+- [Plugins overview](index.qmd) — plugin shapes and entry points
+- [Plugin configuration](configuration.qmd) — discovery and activation precedence
+- [Creating a plugin](creating.qmd) — manifest and data format guide

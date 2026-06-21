@@ -1,20 +1,72 @@
 ---
-title: "Release Process — barangay"
+title: "Release Process"
 description: "How barangay releases work: calendar versioning, tagging, and the GitHub Actions PyPI publish workflow."
 author: "bendlikeabamboo"
 ---
 
-# Release Process
+Releasing `barangay` is intentionally mechanical: bump the version, refresh the bundled data, tag, and let GitHub Actions publish to PyPI. This page documents each step and the CI that finishes the job.
 
-> **Status:** Stub — content to be expanded.
+## Versioning
 
-## Overview
+The package uses **calendar versioning** of the form `YYYY.M.D.PATCH`:
 
-How `barangay` releases work — calendar versioning (`YYYY.M.D.PATCH`), git tagging, and the PyPI publish workflow.
+- `YYYY.M.D` is the date of the bundled PSGC masterlist the release ships (e.g. `2026.4.13`).
+- `.PATCH` is a zero-based patch counter for successive code-only or fix releases on top of the same data date (`.0`, `.1`, `.2`, ...).
+
+A data update resets `D` (and therefore the base), while a code/fix change on top of the same data bumps `PATCH`. The bundled data date lives in `barangay/data/CURRENT_VERSION`.
+
+::: {.callout-note title="Tag format triggers CI"}
+The publish workflow matches tags shaped `*.*.*.*` — i.e. exactly four dot-separated components. Both the calendar form (`v2026.4.13.4`) and the early four-component tags match; the leading `v` is optional.
+:::
 
 ## Steps
 
-<!-- TODO: bump version, tag *.*.*.*, CI publish.yaml triggers PyPI -->
+1. **Bump the version** — update the version string in `pyproject.toml` (and any version references) to the new `YYYY.M.D.PATCH`.
+2. **Refresh the data** — for a data update, regenerate the bundled PSGC files and `CURRENT_VERSION` via `poe barpar` (see [data update guide](data-update.qmd)); for a patch, skip this.
+3. **Commit on a `release/<ver>` branch** — e.g. `release/2026-4-13-4`. Do not commit to `main` directly.
+4. **Tag** — create an annotated tag matching `*.*.*.*` (calendar form recommended: `git tag v2026.4.13.4`).
+5. **Push the tag** — `git push origin <tag>`. This is the single action that kicks off publishing.
+6. **CI builds and publishes** — `.github/workflows/publish.yaml` triggers on the tag push:
+    1. Checkout the code at the tag.
+    2. Set up Python 3.13 and `uv`.
+    3. `uv sync` to install dependencies.
+    4. `uv build` to build the wheel and sdist.
+    5. Publish the distributions to [PyPI](https://pypi.org/project/barangay/) using trusted publishing (`pypa/gh-action-pypi-publish`).
+7. **Merge to `main`** — open a PR from `release/<ver>` into `main`; once reviewed and merged, the release is reflected on the default branch.
+
+::: {.callout-important title="Order matters"}
+Tag the commit *after* it lands on (or is ready for) the release branch, and push the tag before merging the PR. The workflow fires on the tag push itself — there is no separate "publish" button. If `uv build` or the publish step fails, fix forward and create a new tag rather than force-pushing.
+:::
+
+## The publish workflow
+
+For reference, the full workflow that runs on a `*.*.*.*` tag is `.github/workflows/publish.yaml`:
+
+```yaml
+name: Release
+on:
+  push:
+    tags:
+      - '*.*.*.*'
+jobs:
+  pypi-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/barangay/
+    permissions:
+      id-token: write   # trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - uses: astral-sh/setup-uv@v4
+      - run: uv sync
+      - run: uv build
+      - uses: pypa/gh-action-pypi-publish@release/v1
+```
+
+Authentication is **trusted publishing (OIDC)** — there are no long-lived PyPI tokens in the repo. The `environment: pypi` gate on the job is where PyPI-side approval and the project URL are configured.
 
 ## See also
 

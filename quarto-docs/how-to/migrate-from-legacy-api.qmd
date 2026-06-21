@@ -1,12 +1,10 @@
 ---
-title: "Migrate from the Legacy API — barangay"
+title: "Migrate from the Legacy API"
 description: "Recipe: migrate deprecated search(), BARANGAY/BARANGAY_EXTENDED/BARANGAY_FLAT dict aliases, and BarangayModel onto the typed Database API before removal in 2027."
 author: "bendlikeabamboo"
 ---
 
-# Migrate from the Legacy API
-
-> **Status:** Stub — content to be expanded.
+Map each deprecated dict-based pattern onto its typed Database API replacement so your code keeps working after the `2027.X.X.X` removal.
 
 ## Overview
 
@@ -18,10 +16,148 @@ The dict-based API (`search()`, `BARANGAY` / `BARANGAY_EXTENDED` / `BARANGAY_FLA
 
 ## Migration map
 
-<!-- TODO: search() -> search_fuzzy(), BARANGAY dicts -> barangays view / to_frame(), BarangayModel -> EnrichedRecord -->
+| Legacy | Replacement | Notes |
+|--------|-------------|-------|
+| `search(query)` | `search_fuzzy(query)` | dict → typed `SearchResult` |
+| `search(..., match_hooks=[...])` | `search_fuzzy(..., match_hooks=[...])` | hook names changed (see below) |
+| `create_fuzz_base()` + reuse | `search_fuzzy()` directly | already cheap; pass `as_of` for history |
+| `BARANGAY` (nested dict) | `barangays` view + `to_frame()` / `to_dicts()` | |
+| `BARANGAY_EXTENDED` | iterate views / `EnrichedRecord.ancestors` | |
+| `BARANGAY_FLAT` | `barangays.to_dicts()` or `[r.to_dict() for r in barangays]` | |
+| `BarangayModel(...)` | `EnrichedRecord` via `barangays.get(...)` | read-only; use `.to_dict()` |
+
+::: {.callout-important title="match_hooks vocabulary changed"}
+Legacy `search()` used `["province", "municipality", "barangay"]`. The new `search_fuzzy()` uses the full `AdminLevel` names: `"region"`, `"province"`, `"highly_urbanized_city"`, `"independent_component_city"`, `"component_city"`, `"municipality"`, `"submunicipality"`, `"special_geographic_area"`, `"barangay"`. See the [Search reference](../reference/python-api/search.qmd) parameter table.
+:::
+
+## Before / after
+
+### `search()` → `search_fuzzy()`
+
+::: {.panel-tabset}
+## Before (deprecated)
+
+```python
+from barangay import search
+
+results = search("Tongmagen, Tawi-Tawi", threshold=70.0, n=3)
+for r in results:
+    print(r["barangay"], r["f_0pmb_ratio_score"])
+```
+
+## After (recommended)
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("Tongmagen, Tawi-Tawi", threshold=70.0, limit=3)
+for r in results:
+    print(r.name, r.score)
+```
+:::
+
+::: {.callout-tip title="Typed results"}
+`SearchResult` exposes `.name`, `.psgc_id`, `.score`, `.match_type`, and `.record` — no more magic dict keys like `f_0pmb_ratio_score`.
+:::
+
+### `create_fuzz_base()` + reuse → `search_fuzzy()` with `as_of`
+
+::: {.panel-tabset}
+## Before (deprecated)
+
+```python
+from barangay import search, create_fuzz_base
+
+fuzz_base = create_fuzz_base(as_of="2025-07-08")
+results = search("Tongmageng", fuzz_base=fuzz_base, threshold=70.0)
+```
+
+## After (recommended)
+
+```python
+from barangay import search_fuzzy
+
+results = search_fuzzy("Tongmageng", threshold=70.0, as_of="2025-07-08")
+```
+:::
+
+`search_fuzzy()` already caches its index, so there is no need to pre-build and thread a `FuzzBase` through every call. Pass `as_of` directly when you need a historical snapshot, or wrap a block in `use_version(...)`.
+
+### `BARANGAY` nested dict → `barangays` view
+
+::: {.panel-tabset}
+## Before (deprecated)
+
+```python
+from barangay import BARANGAY
+
+ncr = BARANGAY["National Capital Region (NCR)"]
+manila = ncr["City of Manila"]
+print(manila["Binondo"])
+```
+
+## After (recommended)
+
+```python
+from barangay import barangays
+
+df = barangays.to_frame()        # pandas, ready for analysis
+data = barangays.to_dicts()      # list of flat dicts
+```
+:::
+
+### `BARANGAY_FLAT` → `barangays.to_dicts()`
+
+::: {.panel-tabset}
+## Before (deprecated)
+
+```python
+from barangay import BARANGAY_FLAT
+
+barangays_list = [b for b in BARANGAY_FLAT if b["type"] == "barangay"]
+```
+
+## After (recommended)
+
+```python
+from barangay import barangays
+
+data = barangays.to_dicts()                       # list of dicts
+records = [r.to_dict() for r in barangays]        # equivalent
+```
+:::
+
+### `BarangayModel(...)` → `EnrichedRecord` via `.get()`
+
+::: {.panel-tabset}
+## Before (deprecated)
+
+```python
+from barangay import BarangayModel
+
+m = BarangayModel(
+    barangay="Tongmageng",
+    municipality_or_city="Sitangkai",
+    province_or_huc="Tawi-Tawi",
+    psgc_id="1907005010",
+)
+print(m.model_dump())
+```
+
+## After (recommended)
+
+```python
+from barangay import barangays
+
+rec = barangays.get(psgc_id="1907005010")   # EnrichedRecord (read-only)
+print(rec.to_dict())
+# {'name': 'Tongmageng', 'type': 'barangay', 'psgc_id': '1907005010', ...}
+```
+:::
 
 ## See also
 
 - [Legacy API reference](../reference/python-api/legacy.qmd)
 - [Database API tutorial](../learn/database-api.qmd)
 - [Database reference](../reference/python-api/database.qmd)
+- [Search reference](../reference/python-api/search.qmd) — `search_fuzzy()` parameters

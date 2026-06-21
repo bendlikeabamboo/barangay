@@ -1,10 +1,8 @@
 ---
-title: "Plugins — barangay"
+title: "Plugins"
 description: "Extend barangay PSGC records with supplementary data (population, income classification, old names) via the plugin system. Plugins join onto flat records keyed by psgc_id."
 author: "bendlikeabamboo"
 ---
-
-# Plugins
 
 Plugins extend `barangay` by enriching PSGC records with supplementary data. Each plugin is a data package keyed by `psgc_id` that is joined onto the flat data model — adding fields like population, income classification, old names, and more.
 
@@ -18,6 +16,29 @@ There are two plugin shapes:
 |------|-------------|-------|
 | **Scalar** | Each `psgc_id` maps to a single object. Fields are flattened as `plugin_name.field`. | No limit on simultaneous scalar plugins |
 | **Array** | Each `psgc_id` maps to a list of objects. Each element is cross-joined with the base record. | Only **one** array plugin active at a time |
+
+How each shape joins onto a base PSGC record:
+
+````{mermaid}
+flowchart LR
+  subgraph Base["PSGC base record"]
+    B["psgc_id: 0731100013\nname: Ibo"]
+  end
+  subgraph Scalar["Scalar plugin (1:1)"]
+    S["psgc_id: 0731100013\npopulation: 7453"]
+  end
+  subgraph Array["Array plugin (1:N cross-join)"]
+    A1["school: Ibo Elementary"]
+    A2["school: Ibo National HS"]
+  end
+  B -- "merge by psgc_id" --> R1["+ population"]
+  B -- "cross-join by psgc_id" --> R2["+ school row 1"]
+  B -- "cross-join by psgc_id" --> R3["+ school row 2"]
+````
+
+::: {.callout-important title="Only one array plugin at a time"}
+Because array plugins cross-join (one base record → many output rows), activating more than one array plugin at a time would multiply row counts combinatorially. The loader enforces a single active array plugin. Scalar plugins have no such limit.
+:::
 
 ## Entry Points
 
@@ -67,19 +88,23 @@ barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit
 ### Python API
 
 ```python
-from barangay import barangay_flat
+from barangay import barangays
 from barangay.plugin_loader import PluginLoader
 
-loader = PluginLoader(env=True)
-loader.enable_plugin("psgc-aux-data")
+loader = PluginLoader(env=True)            # <1>
+loader.enable_plugin("psgc-aux-data")      # <2>
 
-enriched = loader.enrich_flat([r.model_dump() for r in barangay_flat])
+enriched = loader.enrich_flat(barangays.to_dicts())  # <3>
 
 for r in enriched:
     if r.get("extensions"):
         print(r["name"], r["extensions"][0]["data"])
         break
 ```
+
+1. `env=True` picks up plugins from `BARANGAY_PLUGINS_DIR` / `barangay.yaml`.
+2. Activate a plugin by name. Multiple scalar plugins can be enabled together.
+3. `enrich_flat()` joins plugin data onto a list of flat dicts. `barangays.to_dicts()` is the recommended source for that list.
 
 ```text
 Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) {'correspondence_code': '0150000000', 'old_names': None, 'city_class': None, 'income_classification': None, 'urban_rural': None, 'population': 4545486, 'status': None}

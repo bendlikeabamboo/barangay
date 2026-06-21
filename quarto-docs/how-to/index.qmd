@@ -1,14 +1,10 @@
 ---
-title: "How-To — barangay"
+title: "How-To"
 description: "Task-oriented recipes for the barangay PSGC package: search misspellings, validate addresses, export to pandas/CSV, traverse hierarchy, historical data, plugins, batch files, and legacy migration."
 author: "bendlikeabamboo"
 ---
 
-# How-To
-
 Recipes for solving a specific task. Each page assumes you already know the basics — see [Learn](../learn/index.qmd) if you are just starting.
-
-> **Status:** Hub — recipe catalog.
 
 ## Recipes
 

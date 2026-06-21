@@ -1,11 +1,9 @@
 ---
-title: "Fuzzy Search Over 42,011 Philippine Barangays"
-description: "Fuzzy search the complete Philippine PSGC dataset of 42,011 barangays with the barangay package. Tolerant of misspellings, abbreviations, and unstandardized addresses using rapidfuzz."
+title: "Fuzzy Search Over 42,010 Philippine Barangays"
+description: "Fuzzy search the complete Philippine PSGC dataset of 42,010 barangays with the barangay package. Tolerant of misspellings, abbreviations, and unstandardized addresses using rapidfuzz."
 author: "bendlikeabamboo"
 date: "2025-11-17"
 ---
-
-# Fuzzy Search Over 42,011 Philippine Barangays
 
 Exact matching fails the moment a user types "Tongmagen" instead of
 "Tongmageng", or omits the municipality. **Fuzzy search** over the full PSGC

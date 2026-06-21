@@ -1,10 +1,8 @@
 ---
-title: "FuzzBase (`create_fuzz_base`, `FuzzBase`) — barangay"
+title: "FuzzBase (`create_fuzz_base`, `FuzzBase`)"
 description: "Reference for create_fuzz_base() and FuzzBase: pre-computed fuzzy matching functions for performance when running many searches."
 author: "bendlikeabamboo"
 ---
-
-# FuzzBase (`create_fuzz_base`, `FuzzBase`)
 
 Pre-compute fuzzy matching functions to avoid redundant data loading when running many searches. Use this for performance-sensitive batch workloads.
 

@@ -1,10 +1,8 @@
 ---
-title: "Getting Started with the Database API — barangay"
-description: "Tutorial: browse, look up, traverse hierarchy, fuzzy search, validate, and export Philippine PSGC data (42,011 barangays) using the typed barangay Database API."
+title: "Database API"
+description: "Tutorial: browse, look up, traverse hierarchy, fuzzy search, validate, and export Philippine PSGC data (42,010 barangays) using the typed barangay Database API."
 author: "bendlikeabamboo"
 ---
-
-# Getting Started with the Database API
 
 A quick walkthrough of the `barangay` Database API for browsing, searching, validating, and exporting Philippine geographic data.
 
@@ -68,14 +66,32 @@ brgy = barangays.get(name="Tongmageng")
 print(brgy.region)       # Bangsamoro Autonomous Region In Muslim Mindanao (BARMM)
 print(brgy.province)     # Tawi-Tawi
 print(brgy.municipality)  # Sitangkai
-print(brgy.parent)       # <municipality: Sitangkai (1907005000)>
+print(brgy.parent)       # <municipality: Sitangkai (1907005000)>  # <1>
 
-for ancestor in brgy.ancestors:
+for ancestor in brgy.ancestors:                                    # <2>
     print(repr(ancestor))
 # <municipality: Sitangkai (1907005000)>
 # <province: Tawi-Tawi (1907000000)>
 # <region: Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) (1900000000)>
 ```
+
+1. `.parent` returns the direct parent record (here, the municipality). The resolved-name properties (`.region`, `.province`, `.municipality`) are shortcuts derived from the same hierarchy walk.
+2. `.ancestors` walks all the way to the root, from nearest parent outward.
+
+Navigate downward with `.children`:
+
+```python
+manila = cities.get(name="City of Manila")
+for child in manila.children[:3]:
+    print(repr(child))
+# <submunicipality: Tondo I/II (1380601000)>
+# <submunicipality: Binondo (1380602000)>
+# <submunicipality: Quiapo (1380603000)>
+```
+
+::: {.callout-tip title="PSGC IDs are globally unique"}
+Prefer `.get(psgc_id=...)` / `.lookup(psgc_id)` over name-based lookups when you have a code. Names like "San Jose" match hundreds of records; a PSGC ID always resolves to exactly one.
+:::
 
 Navigate downward with `.children`:
 
@@ -96,8 +112,10 @@ Export any view directly to a DataFrame or list of dicts:
 df = barangays.to_frame()
 print(df.columns.tolist())
 # ['name', 'type', 'psgc_id', 'parent_psgc_id', 'nicknames', 'extensions',
-#  'region', 'province', 'municipality', 'city']
-print(df.shape)  # (42010, 10)
+#  'region', 'province', 'highly_urbanized_city', 'independent_component_city',
+#  'component_city', 'municipality', 'submunicipality',
+#  'special_geographic_area', 'barangay']
+print(df.shape)  # (42010, 15)
 
 data = barangays.to_dicts()
 print(len(data))  # 42010
@@ -105,7 +123,7 @@ print(data[0])
 # {'name': 'Arco', 'type': 'barangay', 'psgc_id': '1900702001', ...}
 ```
 
-Each record includes resolved hierarchy fields (`region`, `province`, `municipality`, `city`) for immediate use in analysis.
+Each record includes six base fields (`name`, `type`, `psgc_id`, `parent_psgc_id`, `nicknames`, `extensions`) plus nine resolved hierarchy fields (`region`, `province`, `highly_urbanized_city`, `independent_component_city`, `component_city`, `municipality`, `submunicipality`, `special_geographic_area`, `barangay`) for immediate use in analysis. See the [Database reference](../reference/python-api/database.qmd#to_frame-to_dicts) for the full column list.
 
 ## 5. Fuzzy Search
 

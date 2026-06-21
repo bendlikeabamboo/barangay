@@ -1,14 +1,10 @@
 ---
-title: "Reference — barangay"
+title: "Reference"
 description: "Reference hub for the barangay package: Python API, CLI, configuration, comparisons, data dictionary, and versioning."
 author: "bendlikeabamboo"
 ---
 
-# Reference
-
 Precise technical descriptions — exact signatures, parameters, return types, and field dictionaries. Use these when you need the details, not a tutorial.
-
-> **Status:** Hub — quick-links to the reference pages.
 
 ## Python API
 

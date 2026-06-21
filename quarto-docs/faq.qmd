@@ -1,12 +1,8 @@
 ---
-title: "FAQ — barangay"
+title: "FAQ"
 description: "Frequently asked questions about the barangay PSGC package: offline use, Python version, historical data, fuzzy search, and address validation."
 author: "bendlikeabamboo"
 ---
-
-# FAQ
-
-> **Status:** Stub — content to be expanded (seeded from the homepage JSON-LD FAQ).
 
 ## Overview
 
@@ -31,6 +27,57 @@ Python 3.13 or newer.
 ## Does it support historical PSGC data?
 
 Yes. Use `use_version('2025-07-08')` to switch to a previous PSGC masterlist release (2023–2026).
+
+## How is the fuzzy score computed?
+
+Every [`search_fuzzy`](../reference/python-api/search.qmd) result carries a `score` from 0 to 100 — a RapidFuzz similarity ratio between your query and the candidate's name(s). 100 is an exact match; lower scores mean more edit distance. Results are returned sorted by score descending, so the top hit is always the closest match.
+
+## What's the difference between `search_fuzzy` and `validate`?
+
+[`search_fuzzy`](../reference/python-api/search.qmd) returns ranked **candidates** with scores — use it when you want options to review. [`validate`](../reference/python-api/validation.qmd) returns a **pass/fail verdict** against a threshold (default 95.0) — use it when you need a yes/no answer for a data-cleaning pipeline.
+
+## Why did `validate()` say my real barangay is invalid?
+
+The default threshold of 95.0 is strict, so heavy abbreviations ("Brgy.", "Pob.", dropped municipality context) can fall short. Lower the threshold, or add more context (municipality, province) so the best candidate scores higher:
+
+```python
+from barangay import validate
+validate('Tongmageng, Sitangkai, Tawi-Tawi')                         # valid, score 100.0
+validate('Tongmagng, Sitangkai, Tawi-Tawi', threshold=80.0)          # valid, score 98.25
+```
+
+## How do I get a barangay's full hierarchy in one call?
+
+Use the resolved-name fields (`.region`, `.province`, `.municipality`, …) or `.ancestors`:
+
+```python
+from barangay import Database
+brgy = Database().barangays.lookup("1907005010")
+print(brgy.region, brgy.province, brgy.municipality, brgy.barangay)
+# BARMM | Tawi-Tawi | Sitangkai | Tongmageng
+```
+
+For bulk work, `to_frame()` returns all nine hierarchy columns flattened into one row per record.
+
+## Can I use this without internet?
+
+Yes. The full PSGC dataset is bundled with the package — all lookups, fuzzy search, validation, and export work offline. Only fetching a **historical** snapshot you haven't used before hits the network (and it's cached locally afterward). See [Installation — Troubleshooting](get-started/installation.qmd#cache-directory) for cache details.
+
+## How do I switch to an older PSGC masterlist?
+
+Use [`use_version(date)`](../reference/python-api/versioning.qmd) to switch globally, `as_of=` for a single query, or [`resolve_date`](../reference/python-api/utilities.qmd) to map an arbitrary date to the nearest available snapshot. `use_version(None)` restores the latest bundled masterlist.
+
+## How accurate is the data, and how often is it updated?
+
+Every record comes from the official PSA PSGC masterlist — no invented values. The currently bundled masterlist is `2026-04-13`. New masterlists are bundled whenever the PSA publishes one, as a calendar-versioned data-update release.
+
+## Does it include population or income classification?
+
+Not by default — the core dataset is the PSGC *code* masterlist. Population, income class, urban/rural flag, old names, and correspondence codes come from the [`psgc-aux-data`](../plugins/index.qmd) plugin. Enable it with `db.use_plugins(["psgc-aux-data"])`.
+
+## Is it thread-safe / can I use it in a web server?
+
+`Database()` is a process-wide singleton. It is safe to read concurrently, but the active version set by `use_version(...)` is shared global state — don't change it mid-request in a multi-threaded server. Use the per-query `as_of=` argument instead, which queries a snapshot without mutating global state.
 
 ## See also
 

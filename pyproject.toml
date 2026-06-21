@@ -61,9 +61,8 @@ dependencies = [
 
 [project.optional-dependencies]
 docs = [
-    "mkdocs>=1.6.1",
-    "mkdocs-shadcn>=0.9.9",
-    "mkdocs-badges>=0.5.2",
+    "quarto>=0.1.0",
+    "quarto-cli>=1.9.38",
 ]
 
 [project.urls]
@@ -103,9 +102,6 @@ dev = [
     "pip>=26.1.2",
 ]
 docs = [
-    "mkdocs>=1.6.1",
-    "mkdocs-shadcn>=0.9.9",
-    "mkdocs-badges>=0.5.2",
     "quarto>=0.1.0",
     "quarto-cli>=1.9.38",
 ]
@@ -118,7 +114,5 @@ exclude = [
 
 [tool.poe.tasks]
 barpar = "python parsers/psgc/cli.py"
-gen-lgus = "python docs/hooks/generate_lgu_pages.py"
-gen-llms = "python docs/hooks/generate_llms.py"
-gen-quarto-lgus = "python quarto-docs/_generate_lgus.py"
-gen-quarto-llms = "python quarto-docs/_generate_llms.py"
+gen-lgus = "python quarto-docs/_generate_lgus.py"
+gen-llms = "python quarto-docs/_generate_llms.py"

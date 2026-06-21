@@ -1,28 +1,82 @@
 ---
-title: "Data Dictionary — barangay"
+title: "Data Dictionary"
 description: "Field-by-field reference for every column in to_frame()/to_dicts() and every property on EnrichedRecord, with PSGC provenance and types."
 author: "bendlikeabamboo"
 ---
 
-# Data Dictionary
-
-> **Status:** Stub — content to be expanded.
-
 ## Overview
 
-A field-by-field reference for every column produced by `to_frame()` / `to_dicts()` and every property on `EnrichedRecord`, including type, source, and provenance from the official PSA PSGC masterlist.
+A field-by-field reference for every column produced by `to_frame()` / `to_dicts()` and every property on `EnrichedRecord`. **Use it when** you need the exact name, type, or meaning of a column you got back from a [level view](../reference/python-api/database.qmd), or when you are mapping records into your own schema.
 
 ## Base fields
 
-<!-- TODO: name, type, psgc_id, parent_psgc_id, nicknames, extensions -->
+The six base fields appear on every record regardless of level. They are the raw attributes carried straight from the bundled PSA masterlist.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `name` | `str` | Official name of the unit (e.g. `"Tongmageng"`, `"City of Manila"`). |
+| `type` | `AdminLevel` | The administrative level of this record, as an enum (`region`, `province`, `municipality`, `barangay`, …). |
+| `psgc_id` | `str` | The unique 10-digit PSGC code. Globally unique across all levels — the canonical identifier. |
+| `parent_psgc_id` | `str \| None` | The `psgc_id` of the direct parent in the hierarchy. `None` only for regions. |
+| `nicknames` | `str \| None` | Alternate / common names, when PSA records one. |
+| `extensions` | `list[Extension]` | List of plugin-provided extension groups. Empty when no plugins are enabled. |
 
 ## Hierarchy fields
 
-<!-- TODO: region, province, highly_urbanized_city, independent_component_city, component_city, municipality, submunicipality, special_geographic_area, barangay -->
+The nine resolved-hierarchy fields are derived from the parent chain at query time. Each holds the **name** of that ancestor level, or `None` if the record is not nested under one. A Manila barangay, for example, has `province = None` (it sits under a highly urbanized city, not a province).
+
+| Column | Description |
+|--------|-------------|
+| `region` | Name of the region ancestor. |
+| `province` | Name of the province ancestor, or `None` if the chain skips a province (HUCs, ICCs). |
+| `highly_urbanized_city` | Name of the HUC ancestor, or `None`. |
+| `independent_component_city` | Name of the ICC ancestor, or `None`. |
+| `component_city` | Name of the component-city ancestor, or `None`. |
+| `municipality` | Name of the municipality ancestor, or `None`. |
+| `submunicipality` | Name of the sub-municipality ancestor, or `None` (e.g. Manila's districts). |
+| `special_geographic_area` | Name of the SGA ancestor, or `None`. |
+| `barangay` | Name of the barangay ancestor, or `None` for non-barangay records. |
+
+Worked example — Tongmageng (`1907005010`) resolves with province + municipality populated, cities blank:
+
+```python
+from barangay import Database
+
+db = Database()
+d = db.barangays.lookup("1907005010").to_dict()
+print(d["region"], "|", d["province"], "|", d["municipality"], "|", d["barangay"])
+# Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) | Tawi-Tawi | Sitangkai | Tongmageng
+```
+
+These nine fields are exactly the columns that appear after the six base fields in `to_frame()` output (15 columns total).
 
 ## Plugin fields
 
-<!-- TODO: psgc-aux-data.* (population, income_classification, urban_rural, old_names, ...) -->
+Plugin-provided fields appear only when a plugin is enabled, and are flattened into the record's `extensions`. The bundled [`psgc-aux-data`](../plugins/index.qmd) plugin exposes exactly seven fields, joined one-to-one on `psgc_id`. In `to_dicts()` / `to_frame()` output each becomes a `psgc_aux_data.<key>` column.
+
+| Column (flattened) | Type | Description |
+|--------------------|------|-------------|
+| `psgc_aux_data.correspondence_code` | `str` | Legacy 9-digit correspondence code. |
+| `psgc_aux_data.old_names` | `str \| None` | Former names of the unit, when recorded. |
+| `psgc_aux_data.city_class` | `str \| None` | City class (e.g. income/urbanization tier); set only for cities. |
+| `psgc_aux_data.income_classification` | `str \| None` | Income classification of the LGU. |
+| `psgc_aux_data.urban_rural` | `str` | `'U'` (urban) or `'R'` (rural) flag. |
+| `psgc_aux_data.population` | `int` | Population figure from the PSA release. |
+| `psgc_aux_data.status` | `str \| None` | Administrative status note, when recorded. |
+
+```python
+from barangay import Database
+
+db = Database()
+db.use_plugins(["psgc-aux-data"])
+
+rec = db.barangays.lookup("1380602005")  # Barangay 291, Manila
+ext = next(e.data for e in rec.extensions if e.field_group == "psgc_aux_data")
+print(ext["urban_rural"], ext["population"])
+# U 2537
+```
+
+For the object form of these same fields see [Records reference](python-api/records.qmd).
 
 ## See also
 
