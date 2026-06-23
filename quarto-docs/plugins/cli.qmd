@@ -31,29 +31,35 @@ barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit
 ```json
 [
   {
-    "barangay": "Ibo",
-    "province_or_huc": "City of Lapu-Lapu",
-    "municipality_or_city": null,
-    "psgc_id": "0731100013",
-    "f_0p0b_ratio_score": 80.0,
-    "f_00mb_ratio_score": 0.0,
-    "f_0pmb_ratio_score": 64.0,
-    "000b": "ibo",
-    "0p0b": "lapulapu ibo",
-    "00mb": "none ibo",
-    "0pmb": "lapulapu none ibo",
-    "psgc-aux-data.correspondence_code": "0072226013",
-    "psgc-aux-data.old_names": null,
-    "psgc-aux-data.city_class": null,
-    "psgc-aux-data.income_classification": null,
-    "psgc-aux-data.urban_rural": "U",
-    "psgc-aux-data.population": 7453,
-    "psgc-aux-data.status": null
+    "name": "Lapu-lapu",
+    "type": "barangay",
+    "psgc_id": "0401010008",
+    "parent_psgc_id": "0401010000",
+    "nicknames": null,
+    "region": "Region IV-A (CALABARZON)",
+    "province": "Batangas",
+    "highly_urbanized_city": null,
+    "independent_component_city": null,
+    "component_city": null,
+    "municipality": "Ibaan",
+    "submunicipality": null,
+    "special_geographic_area": null,
+    "barangay": "Lapu-lapu",
+    "rphicmsgb": "rp000m00b",
+    "score": 100.0,
+    "match_type": "barangay",
+    "psgc_aux_data.correspondence_code": "0041010008",
+    "psgc_aux_data.old_names": null,
+    "psgc_aux_data.city_class": null,
+    "psgc_aux_data.income_classification": null,
+    "psgc_aux_data.urban_rural": "R",
+    "psgc_aux_data.population": 2187,
+    "psgc_aux_data.status": null
   }
 ]
 ```
 
-The `psgc-aux-data.*` fields are injected by the plugin. Fields that are not applicable for a given record (e.g., `city_class` on a barangay) appear as `null`.
+The `psgc_aux_data.*` fields are injected by the plugin. Fields that are not applicable for a given record (e.g., `city_class` on a barangay) appear as `null`.
 
 ### Table output
 
@@ -62,25 +68,19 @@ barangay search "Tondo" --plugin psgc-aux-data --format table --limit 5 --thresh
 ```
 
 ```
-                           Search Results for 'Tondo'                           
-┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━┳━━━━━━┓
-┃      ┃      ┃     ┃ PSGC ┃     ┃      ┃     ┃      ┃     ┃      ┃     ┃      ┃
-┃ Bar… ┃ Mun… ┃ Pr… ┃ ID   ┃ Sc… ┃ psg… ┃ ps… ┃ psg… ┃ ps… ┃ psg… ┃ ps… ┃ psg… ┃
-┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━╇━━━━━━┩
-│ Ton… │ Anda │ Pa… │ 010… │ 62… │ 001… │ No… │ None │ No… │ R    │ 35… │ None │
-│ Uni… │ Tago │ Su… │ 160… │ 62… │ 016… │ No… │ None │ No… │ R    │ 13… │ None │
-│      │      │ del │      │     │      │     │      │     │      │     │      │
-│      │      │ Sur │      │     │      │     │      │     │      │     │      │
-│ Pudo │ Nat… │ Mo… │ 140… │ 58… │ 014… │ No… │ None │ No… │ R    │ 572 │ None │
-│      │      │ Pr… │      │     │      │     │      │     │      │     │      │
-│ Ton… │ Tan… │ Ak… │ 060… │ 58… │ 006… │ No… │ None │ No… │ R    │ 21… │ None │
-│ Bato │      │ Ci… │ 113… │ 57… │ 011… │ No… │ None │ No… │ U    │ 12… │ None │
-│      │      │ of  │      │     │      │     │      │     │      │     │      │
-│      │      │ Da… │      │     │      │     │      │     │      │     │      │
-└──────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┘
+                                                                                             Search Results for 'Tondo'                                                                                             
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Region                      ┃ Province    ┃ Component City ┃ Municipality ┃ Barangay ┃ rphicmsgb ┃ PSGC ID    ┃ Score ┃ psgc_aux_data.correspondence_code ┃ psgc_aux_data.urban_rural ┃ psgc_aux_data.population ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Region III (Central Luzon)  │ Zambales    │                │ Cabangan     │ Tondo    │ rp000m00b │ 0307102025 │ 100.0 │ 0037102025                        │ R                         │ 1337                     │
+│ Region I (Ilocos Region)    │ Pangasinan  │                │ Anda         │ Tondol   │ rp000m00b │ 0105505020 │ 90.9  │ 0015505020                        │ R                         │ 3532                     │
+│ Region VI (Western Visayas) │ Aklan       │                │ Tangalan     │ Tondog   │ rp000m00b │ 0600417014 │ 90.9  │ 0060417014                        │ R                         │ 2178                     │
+│ Region III (Central Luzon)  │ Nueva Ecija │ San Jose City  │              │ Tondod   │ rp00c000b │ 0304926038 │ 90.9  │ 0034926038                        │ R                         │ 3633                     │
+│ Region V (Bicol Region)     │ Sorsogon    │                │ Donsol       │ Tongdol  │ rp000m00b │ 0506207047 │ 83.3  │ 0056207047                        │ R                         │ 589                      │
+└─────────────────────────────┴─────────────┴────────────────┴──────────────┴──────────┴───────────┴────────────┴───────┴───────────────────────────────────┴───────────────────────────┴──────────────────────────┘
 ```
 
-Plugin columns are automatically appended to the table. The columns shown are: `psgc-aux-data.correspondence_code`, `psgc-aux-data.old_names`, `psgc-aux-data.city_class`, `psgc-aux-data.income_classification`, `psgc-aux-data.urban_rural`, `psgc-aux-data.population`, `psgc-aux-data.status`.
+Plugin columns are automatically appended to the table. The columns shown are: `psgc_aux_data.correspondence_code`, `psgc_aux_data.urban_rural`, `psgc_aux_data.population`. Columns that are blank for every result (e.g., `city_class`, `old_names`) are omitted automatically.
 
 ::: {.callout-note}
 Only **scalar** plugins are supported with `barangay search`. Array plugins (like `sample_schools`) are ignored in search results.
@@ -88,7 +88,7 @@ Only **scalar** plugins are supported with `barangay search`. Array plugins (lik
 
 ## `barangay export` with Plugins
 
-Plugins are only supported with `--model flat`. Using `--plugin` with `--model extended` or `--model basic` will raise an error:
+Plugins are only supported with `--model flat`. Using `--plugin` with `--model extended` raises an error:
 
 ```bash
 barangay export --model extended --plugin psgc-aux-data
@@ -113,13 +113,13 @@ Each record includes plugin fields directly:
   "psgc_id": "0731100000",
   "parent_psgc_id": "0700000000",
   "nicknames": null,
-  "psgc-aux-data.correspondence_code": "0072226000",
-  "psgc-aux-data.old_names": "Opon",
-  "psgc-aux-data.city_class": "HUC",
-  "psgc-aux-data.income_classification": "1st",
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 497813,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0072226000",
+  "psgc_aux_data.old_names": "Opon",
+  "psgc_aux_data.city_class": "HUC",
+  "psgc_aux_data.income_classification": "1st",
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 497813,
+  "psgc_aux_data.status": null
 }
 ```
 
@@ -132,7 +132,7 @@ barangay export --model flat --plugin psgc-aux-data --format csv --output enrich
 CSV header:
 
 ```csv
-name,type,psgc_id,parent_psgc_id,nicknames,psgc-aux-data.correspondence_code,psgc-aux-data.old_names,psgc-aux-data.city_class,psgc-aux-data.income_classification,psgc-aux-data.urban_rural,psgc-aux-data.population,psgc-aux-data.status
+name,type,psgc_id,parent_psgc_id,nicknames,psgc_aux_data.correspondence_code,psgc_aux_data.old_names,psgc_aux_data.city_class,psgc_aux_data.income_classification,psgc_aux_data.urban_rural,psgc_aux_data.population,psgc_aux_data.status
 Bangsamoro Autonomous Region In Muslim Mindanao (BARMM),region,1900000000,0000000000,,0150000000,,,,,4545486,
 ```
 
@@ -153,13 +153,13 @@ Output (first record):
   "psgc_id": "1900000000",
   "parent_psgc_id": "0000000000",
   "nicknames": null,
-  "psgc-aux-data.correspondence_code": "0150000000",
-  "psgc-aux-data.old_names": null,
-  "psgc-aux-data.city_class": null,
-  "psgc-aux-data.income_classification": null,
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 4545486,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0150000000",
+  "psgc_aux_data.old_names": null,
+  "psgc_aux_data.city_class": null,
+  "psgc_aux_data.income_classification": null,
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 4545486,
+  "psgc_aux_data.status": null
 }
 ```
 
@@ -182,13 +182,13 @@ Records contain fields from both plugins:
   "nicknames": null,
   "sample_elevation.elevation_m": "16",
   "sample_elevation.terrain": "lowland",
-  "psgc-aux-data.correspondence_code": "0130000000",
-  "psgc-aux-data.old_names": null,
-  "psgc-aux-data.city_class": null,
-  "psgc-aux-data.income_classification": null,
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 14001751,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0130000000",
+  "psgc_aux_data.old_names": null,
+  "psgc_aux_data.city_class": null,
+  "psgc_aux_data.income_classification": null,
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 14001751,
+  "psgc_aux_data.status": null
 }
 ```
 
@@ -199,7 +199,6 @@ Records contain fields from both plugins:
 | `barangay search` | Yes (scalar only) | Enriches search results inline |
 | `barangay export --model flat` | Yes (scalar + array) | Full enrichment, supports cross-join for arrays |
 | `barangay export --model extended` | No | Raises error |
-| `barangay export --model basic` | No | Raises error |
 | `barangay history search-history` | No | Not supported |
 | `barangay history export-history` | No | Not supported |
 

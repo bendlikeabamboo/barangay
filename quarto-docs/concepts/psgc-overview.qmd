@@ -67,8 +67,8 @@ The PSA publishes new masterlists periodically (not on a fixed calendar). This p
 To see every snapshot you can switch to:
 
 ```python
-from barangay import available_dates
-print(available_dates())
+from barangay import get_available_dates
+print(get_available_dates())
 # ['2022-04-29', '2022-11-08', ..., '2026-01-13', '2026-04-13']
 ```
 

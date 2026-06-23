@@ -17,7 +17,7 @@ brgy = barangay.barangays.lookup("1907005010")
 barangay.use_version(None)  # back to latest
 
 # Enable plugins
-barangay.use_plugins(["population"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
+barangay.use_plugins(["psgc-aux-data"], levels=[barangay.AdminLevel.HIGHLY_URBANIZED_CITY])
 ```
 
 `use_version()` invalidates the cache and triggers a reload on next access.
@@ -33,7 +33,7 @@ from barangay import Database
 
 db = Database()  # returns the singleton
 print(db.barangays)  # <PSGC barangay database: 42010 records>
-print(db.all_records)  # <PSGC all database: 43363 records>
+print(db.all_records)  # <PSGC all database: 43768 records>
 ```
 
 **Properties:** `.regions`, `.provinces`, `.municipalities`, `.cities`, `.hucs`, `.iccs`, `.component_cities`, `.submunicipalities`, `.barangays`, `.special_geographic_areas`, `.all_records`

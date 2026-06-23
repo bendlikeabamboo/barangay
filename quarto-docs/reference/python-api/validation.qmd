@@ -9,20 +9,20 @@ Validate address strings against the PSGC masterlist using fuzzy matching. Use `
 ```python
 from barangay import validate, validate_many
 
-v = validate("Tongmageng, Tawi-Tawi")
+v = validate("Tongmageng, Sitangkai, Tawi-Tawi")
 print(v.valid)          # True
 print(v.matched_name)   # Tongmageng
 print(v.matched_psgc_id) # 1907005010
 print(v.score)          # 100.0
 
 results = validate_many([
-    "Tongmageng, Tawi-Tawi",
+    "Tongmageng, Sitangkai, Tawi-Tawi",
     "Brgy 291, City of Manila",
     "Nonexistent Place",
 ])
 for r in results:
     print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
-# 'Tongmageng, Tawi-Tawi' -> valid
+# 'Tongmageng, Sitangkai, Tawi-Tawi' -> valid
 # 'Brgy 291, City of Manila' -> invalid
 # 'Nonexistent Place' -> invalid
 ```

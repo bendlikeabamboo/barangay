@@ -21,7 +21,7 @@ website:
     Access 42,010 barangays, municipalities, cities, provinces, and regions offline.
   favicon: favicon.png
   repo-url: https://github.com/bendlikeabamboo/barangay
-  repo-actions: [edit, issue, source]
+  repo-actions: [issue, source]
   page-navigation: true
   bread-crumbs: true
 

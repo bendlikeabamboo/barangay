@@ -33,7 +33,7 @@ author: "bendlikeabamboo"
 ## Conventions worth knowing
 
 - **`rphicmsgb` indicator** — a 9-character documentation convention for which PSGC levels a record touches (`r`egion · `p`rovince · `h`UC · `i`CC · `c`omponent city · `m`unicipality · `s`ub-municipality · `g` SGA · `b`arangay). See [Hierarchy indicator](../concepts/hierarchy-indicator.qmd).
-- **Deprecated APIs stay importable but are not used in new code.** The dict-based `search()` / `BARANGAY` / `BARANGAY_FLAT` aliases and `create_fuzz_base` / `FuzzBase` are present for compatibility — new work uses [`search_fuzzy`](../reference/python-api/search.qmd) and the [`Database`](../reference/python-api/records.qmd) views.
+- **Deprecated APIs stay importable but are not used in new code.** The dict-based `search()`, the `BARANGAY` / `BARANGAY_EXTENDED` / `BARANGAY_FLAT` aliases, and `BarangayModel` are present for compatibility — new work uses [`search_fuzzy`](../reference/python-api/search.qmd) and the [`Database`](../reference/python-api/records.qmd) views.
 - **Data version comes from `barangay/data/CURRENT_VERSION`**, never hardcoded. Module-level attributes `barangay.current`, `barangay.as_of`, and `barangay.available_dates` expose it at runtime.
 
 ## Full reference

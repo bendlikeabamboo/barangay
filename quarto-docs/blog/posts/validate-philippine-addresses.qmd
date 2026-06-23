@@ -29,7 +29,7 @@ pip install barangay
 ```python
 from barangay import validate
 
-result = validate("Tongmageng, Tawi-Tawi")
+result = validate("Tongmageng, Sitangkai, Tawi-Tawi")
 print(result.valid, result.matched_name, result.score)
 # True Tongmageng 100.0
 ```

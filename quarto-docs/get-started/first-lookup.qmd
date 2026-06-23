@@ -49,7 +49,7 @@ print(brgy.psgc_id)   # 1907005010
 ## CLI
 
 ```sh
-barangay lookup 1907005010
+barangay search Tongmageng
 ```
 :::
 
@@ -95,10 +95,10 @@ for child in manila.children[:3]:
 ```python
 from barangay import validate, validate_many
 
-v = validate("Tongmageng, Tawi-Tawi")
+v = validate("Tongmageng, Sitangkai, Tawi-Tawi")
 print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
 
-results = validate_many(["Tongmageng, Tawi-Tawi", "Nonexistent Place"])
+results = validate_many(["Tongmageng, Sitangkai, Tawi-Tawi", "Nonexistent Place"])
 for r in results:
     print(f"{r.input!r} -> {'valid' if r.valid else 'invalid'}")
 ```
@@ -118,26 +118,28 @@ barangay batch validate addresses.txt
 ```python
 from barangay import search_fuzzy
 
-for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
+for r in search_fuzzy("Tongmageng"):
     print(f"{r.name} ({r.psgc_id}) — score: {r.score}")
 ```
 
 ## CLI
 
 ```sh
-barangay search "Tongmageng, Tawi-Tawi"
+barangay search "Tongmageng"
 ```
 
 Output:
 
-| Barangay | Municipality/City | Province/HUC | PSGC ID | Score |
-|----------|-------------------|--------------|---------|-------|
-| Tongmageng | Sitangkai | Tawi-Tawi | 1907005010 | 100.0 |
-| Tonggosong | Simunul | Tawi-Tawi | 1907004005 | 84.2 |
-| Tongbangkaw | Tandubas | Tawi-Tawi | 1907007042 | 82.1 |
-| Tongusong | Sitangkai | Tawi-Tawi | 1907005012 | 81.1 |
-| Tongehat | Sibutu | Tawi-Tawi | 1907011014 | 77.8 |
-:::
+| Region | Province | Municipality | Barangay | rphicmsgb | PSGC ID | Score |
+|--------|----------|--------------|----------|-----------|---------|-------|
+| Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) | Tawi-Tawi | Sitangkai | Tongmageng | rp000m00b | 1907005010 | 100.0 |
+| Region V (Bicol Region) | Camarines Norte | Talisay | Itomang | rp000m00b | 0501611007 | 70.6 |
+| Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) | Basilan | Sumisip | Tongsengal | rp000m00b | 1900705025 | 70.0 |
+| MIMAROPA Region | Palawan | Cuyo | Tenga-tenga | rp000m00b | 1705310017 | 70.0 |
+| Region IX (Zamboanga Peninsula) | Sulu | Pangutaran | Tonggasang | rp000m00b | 0906608017 | 70.0 |
+ :::
+
+The `rphicmsgb` column is a 9-character hierarchy indicator marking which levels resolve for each result (see the [CLI reference](../reference/cli.qmd)). Blank levels are omitted from the table automatically.
 
 ## Version
 
@@ -162,7 +164,7 @@ Output:
 
 ```txt
 Current version: 2026-04-13
-Available dates: 2023-01-25, 2023-04-18, 2023-08-15, 2023-10-24, 2024-01-23, 2024-04-23, 2024-05-08, 2024-07-12, 2024-10-18, 2025-01-30, 2025-04-23, 2025-07-08, 2025-08-29, 2025-10-13, 2026-01-13, 2026-04-13
+Available dates: 2022-04-29, 2022-11-08, 2023-01-25, 2023-04-18, 2023-08-15, 2023-10-24, 2024-01-23, 2024-04-23, 2024-05-08, 2024-07-12, 2024-10-18, 2025-01-30, 2025-04-23, 2025-07-08, 2025-08-29, 2025-10-13, 2026-01-13, 2026-04-13
 ```
 :::
 

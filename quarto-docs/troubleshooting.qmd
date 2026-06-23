@@ -50,7 +50,7 @@ from barangay import Database
 
 db = Database()
 # 1. PSGC ID is always unique
-rec = db.barangays.lookup("1380208005")
+rec = db.barangays.lookup("1907005010")
 
 # 2. Filter by ancestor name
 matches = [
@@ -85,11 +85,11 @@ Default locations: `~/.cache/barangay` (Linux/macOS), `$XDG_CACHE_HOME/barangay`
 ```python
 from barangay import resolve_date, available_dates
 
-resolved, msg = resolve_date("2024-06-01", available_dates(), None)
+resolved, msg = resolve_date("2024-06-01", available_dates, "2026-04-13")
 print(resolved, msg)
 # 2024-05-08 Using 2024-05-08 dataset (closest to 2024-06-01)
 
-print(available_dates())
+print(available_dates)
 # ['2022-04-29', ..., '2026-04-13']  (18 snapshots)
 ```
 

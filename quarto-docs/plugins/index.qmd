@@ -63,24 +63,30 @@ barangay search "City of Lapu-Lapu" --plugin psgc-aux-data --format json --limit
 ```json
 [
   {
-    "barangay": "Ibo",
-    "province_or_huc": "City of Lapu-Lapu",
-    "municipality_or_city": null,
-    "psgc_id": "0731100013",
-    "f_0p0b_ratio_score": 80.0,
-    "f_00mb_ratio_score": 0.0,
-    "f_0pmb_ratio_score": 64.0,
-    "000b": "ibo",
-    "0p0b": "lapulapu ibo",
-    "00mb": "none ibo",
-    "0pmb": "lapulapu none ibo",
-    "psgc-aux-data.correspondence_code": "0072226013",
-    "psgc-aux-data.old_names": null,
-    "psgc-aux-data.city_class": null,
-    "psgc-aux-data.income_classification": null,
-    "psgc-aux-data.urban_rural": "U",
-    "psgc-aux-data.population": 7453,
-    "psgc-aux-data.status": null
+    "name": "Lapu-lapu",
+    "type": "barangay",
+    "psgc_id": "0401010008",
+    "parent_psgc_id": "0401010000",
+    "nicknames": null,
+    "region": "Region IV-A (CALABARZON)",
+    "province": "Batangas",
+    "highly_urbanized_city": null,
+    "independent_component_city": null,
+    "component_city": null,
+    "municipality": "Ibaan",
+    "submunicipality": null,
+    "special_geographic_area": null,
+    "barangay": "Lapu-lapu",
+    "rphicmsgb": "rp000m00b",
+    "score": 100.0,
+    "match_type": "barangay",
+    "psgc_aux_data.correspondence_code": "0041010008",
+    "psgc_aux_data.old_names": null,
+    "psgc_aux_data.city_class": null,
+    "psgc_aux_data.income_classification": null,
+    "psgc_aux_data.urban_rural": "R",
+    "psgc_aux_data.population": 2187,
+    "psgc_aux_data.status": null
   }
 ]
 ```
@@ -107,7 +113,7 @@ for r in enriched:
 3. `enrich_flat()` joins plugin data onto a list of flat dicts. `barangays.to_dicts()` is the recommended source for that list.
 
 ```text
-Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) {'correspondence_code': '0150000000', 'old_names': None, 'city_class': None, 'income_classification': None, 'urban_rural': None, 'population': 4545486, 'status': None}
+Arco {'correspondence_code': '0150702001', 'old_names': None, 'city_class': None, 'income_classification': None, 'urban_rural': 'R', 'population': 1224, 'status': None}
 ```
 
 ## Plugin Directory Structure

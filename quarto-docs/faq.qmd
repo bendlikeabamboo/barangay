@@ -54,7 +54,7 @@ Use the resolved-name fields (`.region`, `.province`, `.municipality`, …) or `
 from barangay import Database
 brgy = Database().barangays.lookup("1907005010")
 print(brgy.region, brgy.province, brgy.municipality, brgy.barangay)
-# BARMM | Tawi-Tawi | Sitangkai | Tongmageng
+# Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) Tawi-Tawi Sitangkai Tongmageng
 ```
 
 For bulk work, `to_frame()` returns all nine hierarchy columns flattened into one row per record.

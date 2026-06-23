@@ -90,7 +90,7 @@ Each enriched record contains an `extensions` list. Each extension has:
 
 ```python
 {
-    "field_group": "psgc-aux-data",       # plugin name
+    "field_group": "psgc_aux_data",       # plugin name
     "metadata": PluginExtensionMetadata(  # Pydantic model
         name="psgc-aux-data",
         description="Supplementary PSGC data...",
