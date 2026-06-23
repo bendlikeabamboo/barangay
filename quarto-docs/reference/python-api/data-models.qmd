@@ -127,7 +127,7 @@ from barangay.models import AdminDivExtended
 region = AdminDivExtended(
     name="National Capital Region (NCR)",
     type="region",
-    psgc_id="130000000",
+    psgc_id="1300000000",
     parent_psgc_id="n/a",
     nicknames=["NCR", "Metro Manila"],
     components=[...]
@@ -156,7 +156,8 @@ This is a recursive model where each division can contain nested child divisions
 Flat model for administrative division data without nesting. Each record is self-contained with all necessary information.
 
 ```python
-from barangay.models import AdminDivFlat, barangay_flat
+from barangay import barangay_flat
+from barangay.models import AdminDivFlat
 
 # Find barangays by type
 barangays = [item for item in barangay_flat if item.type == "barangay"]

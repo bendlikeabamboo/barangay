@@ -148,14 +148,14 @@ model = BarangayModel(
     barangay="Tongmageng",
     municipality_or_city="Tongmagen",
     province_or_huc="Tawi-Tawi",
-    psgc_id="123456789"
+    psgc_id="1234567890"
 )
 
 # Access fields
 print(model.barangay)              # 'Tongmageng'
 print(model.municipality_or_city)  # 'Tongmagen'
 print(model.province_or_huc)       # 'Tawi-Tawi'
-print(model.psgc_id)               # '123456789'
+print(model.psgc_id)               # '1234567890'
 
 # Convert to dict
 model_dict = model.model_dump()

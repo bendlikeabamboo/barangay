@@ -68,8 +68,6 @@ for a in brgy.ancestors:
 
 ## City distinctions
 
-## City distinctions
-
 The Philippines has three city classes, and the difference trips up every newcomer: **administrative independence from a province**. HUCs and ICCs are chartered independently of any province and report directly to their region; component cities sit *inside* a province.
 
 | Class | Reports to | Count | Example (psgc_id) |

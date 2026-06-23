@@ -115,6 +115,7 @@ try:
 except RecordNotFoundError as e:
     print(e)
     # No barangay with name 'DoesNotExist'.
+    # See https://bendlikeabamboo.github.io/barangay/tutorials/database_api.html#handling-errors
 ```
 
 ### `MultipleResultsError`
@@ -128,7 +129,10 @@ try:
     result = barangays.get(name="San Roque")  # many barangays named San Roque
 except MultipleResultsError as e:
     print(e)
-    # Name 'San Roque' matched 42 records. Use psgc_id for exact lookup, or iterate.
+    # Name 'San Roque' matched 213 records.
+    # Use search_fuzzy() to include more context like province, etc.
+    # You can also use psgc_id for exact lookup, or iterate.
+    # See https://bendlikeabamboo.github.io/barangay/tutorials/database_api.html#handling-errors
 ```
 
 See [Handling Errors](../../learn/database-api.qmd#handling-errors) for a full guide on resolving these errors.

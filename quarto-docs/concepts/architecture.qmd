@@ -55,7 +55,7 @@ Historical queries (`use_version(date)` or per-query `as_of=`) are the only oper
 
 `DataManager` hands the active snapshot to the [`Database`](../reference/python-api/records.qmd) class, which builds the parent/child hierarchy index and the level views. `Database` is a **process-wide singleton**: every call to `Database()` returns the same instance, and it holds the *currently active* version state.
 
-The practical implication: `use_version(date)` mutates shared global state. In a long-running process (a web server, a notebook shared between cells), prefer the per-query `as_of=` argument on [`search_fuzzy`](../reference/python-api/search.qmd) / [`validate`](../reference/python-api/validate.qmd) — it queries a snapshot for a single call without touching the global version. Use `use_version(None)` to restore the latest.
+The practical implication: `use_version(date)` mutates shared global state. In a long-running process (a web server, a notebook shared between cells), prefer the per-query `as_of=` argument on [`search_fuzzy`](../reference/python-api/search.qmd) / [`validate`](../reference/python-api/validation.qmd) — it queries a snapshot for a single call without touching the global version. Use `use_version(None)` to restore the latest.
 
 ### Level views
 

@@ -29,11 +29,11 @@ for r in search_fuzzy("Tongmagen, Tawi-Tawi"):
 ## Key Features
 
 - **Fuzzy search** — handles misspellings and unstandardized addresses using rapidfuzz
-- **Bundled data** — all 42,010 barangays, 1,488 municipalities, 146 cities, 82 provinces, 17 regions included offline
+- **Bundled data** — all 42,010 barangays, 1,493 municipalities, 150 cities, 82 provinces, 18 regions included offline
 - **Hierarchy traversal** — navigate parent, children, and ancestors of any admin division
 - **Pandas export** — `to_frame()` and `to_dicts()` for immediate DataFrame access
 - **Address validation** — `validate()` and `validate_many()` with configurable thresholds
-- **Historical PSGC** — access previous masterlist releases by date (2023–2026)
+- **Historical PSGC** — access previous masterlist releases by date (2022–2026)
 - **Three data models** — nested (dict-like), flat (list), extended (recursive with metadata)
 - **CLI included** — search, export, validate, batch operations
 - **Smart caching** — automatic local caching for subsequent loads
@@ -101,7 +101,7 @@ for r in results:
 ```python
 from barangay import validate, validate_many
 
-v = validate("Tongmageng, Tawi-Tawi")  # default threshold 95.0
+v = validate("Tongmageng, Sitangkai, Tawi-Tawi")  # default threshold 95.0
 print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
 
 results = validate_many(["addr1", "addr2"])

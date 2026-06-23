@@ -32,7 +32,7 @@ The `validate()` function provides a simple interface for address validation wit
 ```python
 from barangay import validate
 
-v = validate("Tongmageng, Tawi-Tawi")
+v = validate("Tongmageng, Sitangkai, Tawi-Tawi")
 print(v.valid, v.matched_name, v.score)  # True Tongmageng 100.0
 ```
 
@@ -40,7 +40,7 @@ For addresses that use abbreviations or non-standard formats, lower the threshol
 
 ```python
 v = validate("Brgy 291, City of Manila", threshold=80.0)
-print(v.valid, v.matched_name, v.score)  # True Barangay 291 88.24
+print(v.valid, v.matched_name, v.score)  # False None None
 ```
 
 ::: {.callout-tip title="Lower the threshold for abbreviations"}
@@ -65,7 +65,7 @@ When you need more than a pass/fail verdict — for example, to show candidate m
 ```python
 from barangay import search_fuzzy
 
-results = search_fuzzy("Tongmagen, Tawi-Tawi", threshold=60.0, limit=3)
+results = search_fuzzy("Tongmagen", threshold=60.0, limit=3)
 for r in results:
     print(f"{r.name} — score: {r.score}")
 ```
@@ -74,9 +74,9 @@ Output:
 
 | Barangay | Municipality | Province | Score |
 |----------|--------------|----------|-------|
-| Tongmageng | Sitangkai | Tawi-Tawi | 95.2 |
-| Tonggosong | Simunul | Tawi-Tawi | 84.2 |
-| Tongbangkaw | Tandubas | Tawi-Tawi | 82.1 |
+| Tongmageng | Sitangkai | Tawi-Tawi | 94.7 |
+| Tagen | Sarangani | Davao Occidental | 71.4 |
+| Tonga | Balud | Masbate | 71.4 |
 
 Each `SearchResult` exposes `.name`, `.psgc_id`, `.score`, `.match_type`, and `.record` (see the [Search reference](../reference/python-api/search.qmd) for the full property list).
 
@@ -88,14 +88,14 @@ Validate many addresses in a single call and inspect each result programmaticall
 from barangay import validate_many
 
 results = validate_many([
-    "Tongmageng, Tawi-Tawi",
+    "Tongmageng, Sitangkai, Tawi-Tawi",
     "Brgy 291, City of Manila",
     "Nonexistent Place",
 ])
 for r in results:
     status = "valid" if r.valid else "invalid"
     print(f"{r.input!r} -> {status}")
-# 'Tongmageng, Tawi-Tawi' -> valid
+# 'Tongmageng, Sitangkai, Tawi-Tawi' -> valid
 # 'Brgy 291, City of Manila' -> invalid
 # 'Nonexistent Place' -> invalid
 ```
@@ -104,7 +104,7 @@ Lower the threshold once for the whole batch when your data uses abbreviations o
 
 ```python
 results = validate_many(
-    ["Brgy 291, Manila", "Tongmageng, Tawi-Tawi", "Poblacion, Davao City"],
+    ["Brgy 291, Manila", "Tongmageng, Sitangkai, Tawi-Tawi", "Poblacion, Davao City"],
     threshold=80.0,
 )
 for r in results:

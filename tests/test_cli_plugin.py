@@ -1,3 +1,12 @@
+"""Tests for plugin enrichment in the CLI (flat export + search).
+
+These exercise the CLI plumbing: that ``--plugin`` triggers
+``Database.use_plugins()`` before export, and that plugin fields on typed
+``SearchResult`` objects are flattened as ``plugin.field``. The actual
+explosion logic lives in the package (``DatabaseView.to_dicts`` /
+``explode_flat``) and is mocked here.
+"""
+
 import json
 from unittest.mock import MagicMock, patch
 
@@ -5,6 +14,14 @@ import pytest
 from click.testing import CliRunner
 
 from barangay.cli import app
+from barangay.database import HierarchyIndex
+from barangay.models import (
+    AdminDivRecord,
+    AdminLevel,
+    PluginExtension,
+    PluginExtensionMetadata,
+    SearchResult,
+)
 
 
 @pytest.fixture
@@ -21,6 +38,7 @@ def mock_flat_data():
             "psgc_id": "000000001",
             "parent_psgc_id": "000000010",
             "nicknames": None,
+            "pop.population": 1000,
         },
         {
             "name": "Barangay 2",
@@ -32,38 +50,35 @@ def mock_flat_data():
     ]
 
 
-@pytest.fixture
-def mock_search_results():
-    return [
-        {
-            "psgc_id": "000000001",
-            "province": "",
-            "highly_urbanized_city": "",
-            "independent_component_city": "",
-            "component_city": "",
-            "municipality": "Municipality A",
-            "submunicipality": "",
-            "special_geographic_area": "",
-            "barangay": "Barangay 1",
-            "max_score": 92.1,
-        },
-    ]
+def _make_db(to_dicts_data):
+    db = MagicMock()
+    db.all_records.to_dicts.return_value = to_dicts_data
+    db._version_state = MagicMock()
+    db.use_plugins = MagicMock()
+    db.invalidate_cache = MagicMock()
+    return db
+
+
+def _make_search_result(extensions):
+    rec = AdminDivRecord(
+        name="Barangay One",
+        type=AdminLevel.BARANGAY,
+        psgc_id="000000001",
+        parent_psgc_id="000000010",
+        extensions=extensions,
+    )
+    index = HierarchyIndex([rec])
+    sr = SearchResult(record=rec, score=92.1, match_type="barangay")
+    sr._index = index
+    return sr
 
 
 class TestExportWithPlugin:
-    @patch("barangay.cli.PluginLoader")
-    @patch("barangay.cli.DataManager")
+    @patch("barangay.cli.Database")
     def test_export_flat_with_scalar_plugin_json(
-        self, mock_dm, mock_loader_cls, runner, mock_flat_data
+        self, mock_db_cls, runner, mock_flat_data
     ):
-        mock_dm.return_value.get_data.return_value = mock_flat_data
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "pop": {"metadata": {"name": "pop"}, "data": {"population": 1000}},
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
+        mock_db_cls.return_value = _make_db(mock_flat_data)
 
         result = runner.invoke(
             app, ["export", "--model", "flat", "--plugin", "pop", "--format", "json"]
@@ -72,21 +87,13 @@ class TestExportWithPlugin:
         parsed = json.loads(result.output)
         assert isinstance(parsed, list)
         assert parsed[0]["pop.population"] == 1000
-        assert "000000001" in result.output
+        mock_db_cls.return_value.use_plugins.assert_called_with(["pop"])
 
-    @patch("barangay.cli.PluginLoader")
-    @patch("barangay.cli.DataManager")
+    @patch("barangay.cli.Database")
     def test_export_flat_with_scalar_plugin_csv(
-        self, mock_dm, mock_loader_cls, runner, mock_flat_data
+        self, mock_db_cls, runner, mock_flat_data
     ):
-        mock_dm.return_value.get_data.return_value = mock_flat_data
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "pop": {"metadata": {"name": "pop"}, "data": {"population": 1000}},
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
+        mock_db_cls.return_value = _make_db(mock_flat_data)
 
         result = runner.invoke(
             app, ["export", "--model", "flat", "--plugin", "pop", "--format", "csv"]
@@ -94,25 +101,25 @@ class TestExportWithPlugin:
         assert result.exit_code == 0
         assert "pop.population" in result.output
 
-    @patch("barangay.cli.PluginLoader")
-    @patch("barangay.cli.DataManager")
-    def test_export_flat_with_array_plugin_explodes(
-        self, mock_dm, mock_loader_cls, runner, mock_flat_data
-    ):
-        mock_dm.return_value.get_data.return_value = mock_flat_data
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "schools": {
-                    "metadata": {"name": "schools"},
-                    "data": [
-                        {"beiss_id": 1, "name": "School A"},
-                        {"beiss_id": 2, "name": "School B"},
-                    ],
-                },
+    @patch("barangay.cli.Database")
+    def test_export_flat_with_array_plugin_explodes(self, mock_db_cls, runner):
+        exploded = [
+            {
+                "name": "Barangay 1",
+                "type": "barangay",
+                "psgc_id": "000000001",
+                "parent_psgc_id": "000000010",
+                "schools.name": "School A",
             },
-        }
-        mock_loader_cls.return_value = mock_loader
+            {
+                "name": "Barangay 1",
+                "type": "barangay",
+                "psgc_id": "000000001",
+                "parent_psgc_id": "000000010",
+                "schools.name": "School B",
+            },
+        ]
+        mock_db_cls.return_value = _make_db(exploded)
 
         result = runner.invoke(
             app,
@@ -123,26 +130,15 @@ class TestExportWithPlugin:
         school_rows = [r for r in parsed if "schools.name" in r]
         assert len(school_rows) == 2
 
-    @patch("barangay.cli.PluginLoader")
-    @patch("barangay.cli.DataManager")
-    def test_export_flat_with_two_array_plugins_raises(
-        self, mock_dm, mock_loader_cls, runner, mock_flat_data
-    ):
-        mock_dm.return_value.get_data.return_value = mock_flat_data
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "schools": {
-                    "metadata": {"name": "schools"},
-                    "data": [{"name": "A"}],
-                },
-                "hospitals": {
-                    "metadata": {"name": "hospitals"},
-                    "data": [{"name": "H"}],
-                },
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
+    @patch("barangay.cli.Database")
+    def test_export_flat_with_two_array_plugins_raises(self, mock_db_cls, runner):
+        from barangay.explode import ExplodeError
+
+        db = _make_db([])
+        db.all_records.to_dicts.side_effect = ExplodeError(
+            "Cannot enable more than one array-type plugin (found: hospitals, schools)"
+        )
+        mock_db_cls.return_value = db
 
         result = runner.invoke(
             app,
@@ -161,30 +157,24 @@ class TestExportWithPlugin:
         assert result.exit_code != 0
         assert "Cannot enable more than one" in result.output
 
-    @patch("barangay.cli.DataManager")
-    def test_export_without_plugins_unchanged(self, mock_dm, runner, mock_flat_data):
-        mock_dm.return_value.get_data.return_value = mock_flat_data
+    @patch("barangay.cli.Database")
+    def test_export_without_plugins_unchanged(
+        self, mock_db_cls, runner, mock_flat_data
+    ):
+        mock_db_cls.return_value = _make_db(mock_flat_data)
 
         result = runner.invoke(app, ["export", "--model", "flat", "--format", "json"])
         assert result.exit_code == 0
         parsed = json.loads(result.output)
         assert len(parsed) == 2
-        assert "pop.population" not in str(parsed)
+        mock_db_cls.return_value.use_plugins.assert_not_called()
 
-    @patch("barangay.cli.PluginLoader")
-    @patch("barangay.cli.DataManager")
+    @patch("barangay.cli.Database")
     def test_export_with_plugin_writes_to_file(
-        self, mock_dm, mock_loader_cls, runner, mock_flat_data, tmp_path
+        self, mock_db_cls, runner, mock_flat_data, tmp_path
     ):
         output_file = tmp_path / "output.json"
-        mock_dm.return_value.get_data.return_value = mock_flat_data
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "pop": {"metadata": {"name": "pop"}, "data": {"population": 1000}},
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
+        mock_db_cls.return_value = _make_db(mock_flat_data)
 
         result = runner.invoke(
             app,
@@ -206,114 +196,107 @@ class TestExportWithPlugin:
             parsed = json.load(f)
         assert parsed[0]["pop.population"] == 1000
 
-    @patch("barangay.cli.DataManager")
-    def test_export_basic_model_with_plugin_raises(self, mock_dm, runner):
-        mock_dm.return_value.get_data.return_value = {"Region A": {"Mun A": ["B1"]}}
+    def test_export_extended_with_plugin_raises(self, runner):
+        result = runner.invoke(
+            app,
+            ["export", "--model", "extended", "--plugin", "pop", "--format", "json"],
+        )
+        assert result.exit_code != 0
+        assert "only supported with --model flat" in result.output
 
+    def test_export_basic_model_rejected(self, runner):
         result = runner.invoke(
             app,
             ["export", "--model", "basic", "--plugin", "pop", "--format", "json"],
         )
         assert result.exit_code != 0
-        assert "only supported with --model flat" in result.output
+        assert "basic" in result.output
 
 
 class TestSearchWithPlugin:
-    @patch("barangay.cli.PluginLoader")
-    def test_search_with_scalar_plugin_json(
-        self, mock_loader_cls, runner, mock_search_results
-    ):
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "pop": {"metadata": {"name": "pop"}, "data": {"population": 1000}},
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
-
-        with patch("barangay.cli.search", return_value=mock_search_results):
-            result = runner.invoke(
-                app,
-                ["search", "test", "--plugin", "pop", "--format", "json"],
+    @patch("barangay.cli.Database")
+    @patch("barangay.cli.search_fuzzy")
+    def test_search_with_scalar_plugin_json(self, mock_search, mock_db_cls, runner):
+        ext = [
+            PluginExtension(
+                field_group="pop",
+                metadata=PluginExtensionMetadata(name="pop"),
+                data={"population": 1000},
             )
+        ]
+        mock_search.return_value = [_make_search_result(ext)]
+        mock_db_cls.return_value.use_plugins = MagicMock()
+
+        result = runner.invoke(
+            app, ["search", "test", "--plugin", "pop", "--format", "json"]
+        )
         assert result.exit_code == 0
         parsed = json.loads(result.output)
         assert isinstance(parsed, list)
         assert parsed[0]["pop.population"] == 1000
+        assert parsed[0]["rphicmsgb"] == "00000000b"
+        mock_db_cls.return_value.use_plugins.assert_called_with(["pop"])
 
-    @patch("barangay.cli.PluginLoader")
-    def test_search_with_scalar_plugin_table(
-        self, mock_loader_cls, runner, mock_search_results
-    ):
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "pop": {"metadata": {"name": "pop"}, "data": {"population": 1000}},
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
-
-        with patch("barangay.cli.search", return_value=mock_search_results):
-            result = runner.invoke(
-                app,
-                ["search", "test", "--plugin", "pop", "--format", "table"],
+    @patch("barangay.cli.Database")
+    @patch("barangay.cli.search_fuzzy")
+    def test_search_with_scalar_plugin_table(self, mock_search, mock_db_cls, runner):
+        ext = [
+            PluginExtension(
+                field_group="pop",
+                metadata=PluginExtensionMetadata(name="pop"),
+                data={"population": 1000},
             )
-        assert result.exit_code == 0
-        assert "pop.populati" in result.output
+        ]
+        mock_search.return_value = [_make_search_result(ext)]
+        mock_db_cls.return_value.use_plugins = MagicMock()
 
-    @patch("barangay.cli.PluginLoader")
-    def test_search_without_plugin_unchanged(
-        self, mock_loader_cls, runner, mock_search_results
-    ):
-        with patch("barangay.cli.search", return_value=mock_search_results):
-            result = runner.invoke(app, ["search", "test"])
+        result = runner.invoke(
+            app,
+            ["search", "test", "--plugin", "pop", "--format", "table"],
+            env={"COLUMNS": "300"},
+        )
+        assert result.exit_code == 0
+        assert "pop.population" in result.output
+
+    @patch("barangay.cli.search_fuzzy")
+    def test_search_without_plugin_unchanged(self, mock_search, runner):
+        mock_search.return_value = [_make_search_result([])]
+
+        result = runner.invoke(app, ["search", "test"])
         assert result.exit_code == 0
         assert "pop.population" not in result.output
 
-    @patch("barangay.cli.PluginLoader")
-    def test_search_with_plugin_no_matching_data(
-        self, mock_loader_cls, runner, mock_search_results
-    ):
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {}
-        mock_loader_cls.return_value = mock_loader
+    @patch("barangay.cli.Database")
+    @patch("barangay.cli.search_fuzzy")
+    def test_search_with_multiple_plugins(self, mock_search, mock_db_cls, runner):
+        ext = [
+            PluginExtension(
+                field_group="pop",
+                metadata=PluginExtensionMetadata(name="pop"),
+                data={"population": 1000},
+            ),
+            PluginExtension(
+                field_group="elev",
+                metadata=PluginExtensionMetadata(name="elev"),
+                data={"elevation": 50},
+            ),
+        ]
+        mock_search.return_value = [_make_search_result(ext)]
+        mock_db_cls.return_value.use_plugins = MagicMock()
 
-        with patch("barangay.cli.search", return_value=mock_search_results):
-            result = runner.invoke(
-                app,
-                ["search", "test", "--plugin", "pop", "--format", "json"],
-            )
-        assert result.exit_code == 0
-        parsed = json.loads(result.output)
-        assert "pop.population" not in parsed[0]
-
-    @patch("barangay.cli.PluginLoader")
-    def test_search_with_multiple_plugins(
-        self, mock_loader_cls, runner, mock_search_results
-    ):
-        mock_loader = MagicMock()
-        mock_loader.build_index.return_value = {
-            "000000001": {
-                "pop": {"metadata": {"name": "pop"}, "data": {"population": 1000}},
-                "elev": {"metadata": {"name": "elev"}, "data": {"elevation": 50}},
-            },
-        }
-        mock_loader_cls.return_value = mock_loader
-
-        with patch("barangay.cli.search", return_value=mock_search_results):
-            result = runner.invoke(
-                app,
-                [
-                    "search",
-                    "test",
-                    "--plugin",
-                    "pop",
-                    "--plugin",
-                    "elev",
-                    "--format",
-                    "json",
-                ],
-            )
+        result = runner.invoke(
+            app,
+            [
+                "search",
+                "test",
+                "--plugin",
+                "pop",
+                "--plugin",
+                "elev",
+                "--format",
+                "json",
+            ],
+        )
         assert result.exit_code == 0
         parsed = json.loads(result.output)
         assert parsed[0]["pop.population"] == 1000

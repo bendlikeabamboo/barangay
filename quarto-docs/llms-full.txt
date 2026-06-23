@@ -97,7 +97,7 @@ Returns `List[SearchResult]` with properties: `.name`, `.psgc_id`, `.score`, `.m
 ```python
 from barangay import validate, validate_many
 
-v = validate("Tongmageng, Tawi-Tawi")  # default threshold 95.0
+v = validate("Tongmageng, Sitangkai, Tawi-Tawi")  # default threshold 95.0
 print(v.valid, v.matched_name, v.matched_psgc_id, v.score)
 # True Tongmageng 1907005010 100.0
 
@@ -288,7 +288,7 @@ cleaned = sanitize_input("City of San Jose", exclude=["city of ", " city"])
 # Result: "san jose"
 
 cleaned = sanitize_input("(pob.) San Jose City", exclude=["(pob.)", " city"])
-# Result: "san jose"
+# Result: " san jose"
 ```
 
 | Parameter | Type | Default | Description |
@@ -304,7 +304,7 @@ Resolve approximate dates to the closest available dataset.
 from barangay import resolve_date, get_available_dates
 
 resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
-print(resolved_date)  # '2025-07-08'
+print(resolved_date)  # '2025-04-23'
 ```
 
 ### get_available_dates()
@@ -315,7 +315,7 @@ Get list of available historical dataset dates.
 from barangay import get_available_dates
 
 dates = get_available_dates()
-# ['2023-01-25', '2023-04-18', ..., '2026-04-13']
+# ['2022-04-29', '2022-11-08', ..., '2026-04-13']
 ```
 
 ### DataManager
@@ -502,12 +502,12 @@ Access previous PSGC releases by date. Data is automatically cached after first 
 
 **Current Data Version:** `2026-04-13` (April 13 2026 PSGC masterlist)
 
-**Available Dates:** 2023-01-25 through 2026-04-13 (16 releases)
+**Available Dates:** 2022-04-29 through 2026-04-13 (18 releases)
 
 ```python
 import barangay
 print(barangay.current)           # '2026-04-13'
-print(barangay.available_dates)   # ['2023-01-25', ..., '2026-04-13']
+print(barangay.available_dates)   # ['2022-04-29', ..., '2026-04-13']
 ```
 
 ---

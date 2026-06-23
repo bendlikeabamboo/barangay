@@ -107,7 +107,7 @@ for r in enriched:
 3. `enrich_flat()` joins plugin data onto a list of flat dicts. `barangays.to_dicts()` is the recommended source for that list.
 
 ```text
-Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) {'correspondence_code': '0150000000', 'old_names': None, 'city_class': None, 'income_classification': None, 'urban_rural': None, 'population': 4545486, 'status': None}
+Arco {'correspondence_code': '0150702001', 'old_names': None, 'city_class': None, 'income_classification': None, 'urban_rural': 'R', 'population': 1224, 'status': None}
 ```
 
 ## Plugin Directory Structure

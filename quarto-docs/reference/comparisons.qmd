@@ -19,7 +19,7 @@ data. This page compares the **`barangay` Python package** against a hosted
 | Typed Python data models | ✅ pydantic | ❌ JSON over HTTP | ❌ |
 | Pandas export | ✅ `to_frame()` | ⚠️ manual | ⚠️ manual |
 | Hierarchy traversal (`parent`, `ancestors`, `children`) | ✅ | ⚠️ | ❌ |
-| Historical PSGC versions | ✅ bundled (2023–2026) | ⚠️ varies | ✅ manual |
+| Historical PSGC versions | ✅ bundled (2022–2026) | ⚠️ varies | ✅ manual |
 | CLI included | ✅ | ❌ | ❌ |
 | Plugin system (population, income, old names) | ✅ | ❌ | ❌ |
 | Rate limits / availability concerns | ✅ none | ⚠️ yes | ✅ none |

@@ -39,13 +39,13 @@ Supplementary PSGC data sourced from official PSA releases.
   "psgc_id": "0731100000",
   "parent_psgc_id": "0700000000",
   "nicknames": null,
-  "psgc-aux-data.correspondence_code": "0072226000",
-  "psgc-aux-data.old_names": "Opon",
-  "psgc-aux-data.city_class": "HUC",
-  "psgc-aux-data.income_classification": "1st",
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 497813,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0072226000",
+  "psgc_aux_data.old_names": "Opon",
+  "psgc_aux_data.city_class": "HUC",
+  "psgc_aux_data.income_classification": "1st",
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 497813,
+  "psgc_aux_data.status": null
 }
 ```
 

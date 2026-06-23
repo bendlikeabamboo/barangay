@@ -8,10 +8,12 @@ author: "bendlikeabamboo"
 
 ### `barangay search`
 
-Fuzzy search for barangays.
+Fuzzy search PSGC records. Results are reported along the full PSGC
+hierarchy: each of the nine administrative levels gets its own column,
+plus an `rphicmsgb` indicator summarising which levels resolved.
 
 ```bash
-barangay search "Tongmageng, Tawi-Tawi"
+barangay search "Tongmageng, Sitangkai, Tawi-Tawi"
 ```
 
 **Options:**
@@ -21,29 +23,69 @@ barangay search "Tongmageng, Tawi-Tawi"
 | `--limit`, `-l` | `int` | `5` | No | Maximum number of results |
 | `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
 | `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
+| `--level`, `-L` | `str` | - | No | Post-filter results to a specific admin level (e.g. `province`, `barangay`) |
+| `--match-hook` | `str` | - | No | Name-levels to score against (repeatable); defaults to `barangay` |
 | `--format`, `-f` | `str` | `table` | No | Output format - `json` or `table` |
 | `--plugin` | `str` | - | No | Enable a plugin for enrichment (repeatable) |
+
+**`--level` vs `--match-hook`.** These are distinct, mirroring the Python
+API. `--match-hook` controls which name-levels participate in *scoring*
+(the most granular one determines the searched record set); `--level` is a
+*post-filter* on the result's record type. To search provinces directly,
+use `--match-hook province`; to additionally restrict the returned record
+type, combine it with `--level`. Valid values for both are the nine PSGC
+levels: `region`, `province`, `highly_urbanized_city`,
+`independent_component_city`, `component_city`, `municipality`,
+`submunicipality`, `special_geographic_area`, `barangay`.
+
+**Table columns:** `Region`, `Province`, `HUC`, `ICC`, `Component City`,
+`Municipality`, `Sub-Mun`, `Special Geo`, `Barangay`, `rphicmsgb`,
+`PSGC ID`, `Score` (plus any `plugin.field` columns). Columns that are
+blank for every result are omitted; the `rphicmsgb` indicator always
+records which levels resolved.
 
 **Examples:**
 
 ```bash
 # Basic search
-barangay search "Tongmageng, Tawi-Tawi"
+barangay search "Tongmageng, Sitangkai, Tawi-Tawi"
 
 # With custom limit and threshold
 barangay search "Tongmageng" --limit 5 --threshold 70.0
 
-# JSON output
+# JSON output (resolved hierarchy + rphicmsgb + score + match_type)
 barangay search "Tongmageng" --format json
 
 # Historical data search
 barangay search "Tongmageng" --as-of "2025-07-08" --format table
 
+# Search a specific level (score provinces directly)
+barangay search "Tawi" --match-hook province --level province
+
+# Score against multiple name-levels
+barangay search "Tawi-Tawi" --match-hook province --match-hook barangay
+
 # With plugin enrichment
 barangay search "Tongmageng" --plugin psgc-aux-data --format json
 ```
 
-**Note:** Results include scores for each matching level (barangay only, province+barangay, municipality+barangay, province+municipality+barangay). Use `--format json` to see individual score fields.
+**`rphicmsgb` indicator.** A 9-character strip where each position holds
+the level's letter when that level resolves, else `0`:
+
+| Position | Letter | Level |
+|----------|--------|-------|
+| 1 | `r` | Region |
+| 2 | `p` | Province |
+| 3 | `h` | Highly urbanized city |
+| 4 | `i` | Independent component city |
+| 5 | `c` | Component city |
+| 6 | `m` | Municipality |
+| 7 | `s` | Sub-municipality |
+| 8 | `g` | Special geographic area |
+| 9 | `b` | Barangay |
+
+For example, `rp000m00b` means the result spans region, province,
+municipality, and barangay.
 
 ## Export
 
@@ -59,11 +101,15 @@ barangay export --model flat --format json --output data.json
 
 | Parameter | Type | Default | Required | Description |
 |-----------|------|---------|----------|-------------|
-| `--model` | `str` | `flat` | No | Data model - `flat`, `extended`, or `basic` |
-| `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` |
+| `--model` | `str` | `flat` | No | Data model - `flat` or `extended` (`basic` is no longer supported) |
+| `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` (CSV is flat-only) |
 | `--output`, `-o` | `str` | `stdout` | No | Output file |
 | `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
 | `--plugin` | `str` | - | No | Enable a plugin for enrichment (repeatable; only with `--model flat`) |
+
+**Note:** The legacy `--model basic` nested-2-level model has been
+removed. CSV export is only available with `--model flat`; CSV columns
+are derived from the actual records (no hardcoded 3-column header).
 
 **Examples:**
 
@@ -71,8 +117,8 @@ barangay export --model flat --format json --output data.json
 # Export flat data to JSON
 barangay export --model flat --format json --output data.json
 
-# Export basic data to CSV
-barangay export --model basic --format csv --output data.csv
+# Export flat data to CSV
+barangay export --model flat --format csv --output data.csv
 
 # Export historical data
 barangay export --model flat --format json --as-of "2025-07-08" --output historical.json
@@ -93,37 +139,47 @@ barangay info version
 
 ### `barangay info stats`
 
-Show data statistics.
+Show record counts per PSGC hierarchy level.
 
 ```bash
 barangay info stats
 ```
 
-### `barangay info list-regions`
+### `barangay info list`
 
-List all regions.
-
-```bash
-barangay info list-regions
-```
-
-### `barangay info list-municipalities`
-
-List municipalities in a region.
+List records at a given hierarchy level, optionally restricted to the
+descendants of a parent.
 
 ```bash
-barangay info list-municipalities "National Capital Region (NCR)"
+# List all barangays
+barangay info list barangay
+
+# List provinces within a region (name or PSGC ID; abbreviations resolve)
+barangay info list province --parent "BARMM"
+
+# List barangays under a municipality
+barangay info list barangay --parent "Sitangkai"
+
+# List all cities (HUC + ICC + component city)
+barangay info list cities
 ```
 
-**Note:** Region name must match exactly as shown in the data (e.g., "National Capital Region (NCR)", not just "NCR").
+**Argument:**
 
-### `barangay info list-barangays`
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `level` | `str` | Yes | One of `region`, `province`, `highly_urbanized_city`, `independent_component_city`, `component_city`, `municipality`, `submunicipality`, `special_geographic_area`, `barangay`, or `cities` |
 
-List barangays in a municipality.
+**Options:**
 
-```bash
-barangay info list-barangays "City of Manila"
-```
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--parent` | `str` | - | No | Ancestor name or PSGC ID to filter descendants |
+
+**Output columns:** `Name`, `Type`, `PSGC ID`.
+
+This generic command replaces the removed `list-regions`,
+`list-municipalities`, and `list-barangays` commands.
 
 ## History
 
@@ -137,7 +193,8 @@ barangay history list-dates
 
 ### `barangay history search-history`
 
-Search historical data.
+Search historical data. Uses the same hierarchy-loyal table/JSON shape
+as `barangay search`.
 
 ```bash
 barangay history search-history "Tongmageng" --as-of "2025-07-08"
@@ -150,6 +207,8 @@ barangay history search-history "Tongmageng" --as-of "2025-07-08"
 | `--as-of` | `str` | - | Yes | Historical date (YYYY-MM-DD) |
 | `--limit`, `-l` | `int` | `5` | No | Maximum number of results |
 | `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
+| `--level`, `-L` | `str` | - | No | Post-filter results to a specific admin level |
+| `--match-hook` | `str` | - | No | Name-levels to score against (repeatable); defaults to `barangay` |
 | `--format`, `-f` | `str` | `table` | No | Output format - `json` or `table` |
 
 **Example:**
@@ -171,8 +230,8 @@ barangay history export-history --as-of "2025-07-08" --model flat
 | Parameter | Type | Default | Required | Description |
 |-----------|------|---------|----------|-------------|
 | `--as-of` | `str` | - | Yes | Historical date (YYYY-MM-DD) |
-| `--model` | `str` | `flat` | No | Data model - `flat`, `extended`, or `basic` |
-| `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` |
+| `--model` | `str` | `flat` | No | Data model - `flat` or `extended` (`basic` removed) |
+| `--format`, `-f` | `str` | `json` | No | Output format - `json` or `csv` (CSV is flat-only) |
 | `--output`, `-o` | `str` | `stdout` | No | Output file |
 
 **Example:**
@@ -240,6 +299,8 @@ barangay batch batch-search queries.txt --limit 5 --output results.json
 | `--limit`, `-l` | `int` | `5` | No | Maximum number of results per query |
 | `--threshold`, `-t` | `float` | `60.0` | No | Minimum similarity score 0-100 |
 | `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
+| `--level`, `-L` | `str` | - | No | Post-filter results to a specific admin level |
+| `--match-hook` | `str` | - | No | Name-levels to score against (repeatable); defaults to `barangay` |
 | `--output`, `-o` | `str` | `stdout` | No | Output JSON file |
 
 **Example:**
@@ -251,19 +312,29 @@ barangay batch batch-search queries.txt --limit 5 --output results.json
 
 ### `barangay batch validate`
 
-Validate barangay names from file (one per line).
+Validate full addresses from file (one per line). Uses the same
+semantics as the Python `validate()` function (high threshold, full
+address match).
 
 ```bash
-barangay batch validate barangay_names.txt
+barangay batch validate addresses.txt
 ```
 
-**Note:** This command uses a high threshold (95.0) to validate exact matches. It displays whether each barangay name is valid or not found.
+**Options:**
+
+| Parameter | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `--as-of` | `str` | - | No | Historical date (YYYY-MM-DD) |
+| `--threshold`, `-t` | `float` | `95.0` | No | Minimum score for a valid match (0-100) |
+
+**Output columns:** `Input`, `Valid`, `Match`, `rphicmsgb`, `Score`.
 
 **Example:**
 
 ```bash
-# barangay_names.txt contains one barangay name per line
-barangay batch validate barangay_names.txt
+# addresses.txt contains one full address per line, e.g.
+# Tongmageng, Sitangkai, Tawi-Tawi
+barangay batch validate addresses.txt
 ```
 
 ## Plugins

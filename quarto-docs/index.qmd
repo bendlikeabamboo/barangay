@@ -5,8 +5,8 @@ author: "bendlikeabamboo"
 ---
 
 > Python package for accessing Philippine Standard Geographic Code (PSGC)
-> data covering all 42,010 barangays, 1,488 municipalities, 146 cities,
-> 82 provinces, and 17 regions — offline, no API calls needed.
+> data covering all 42,010 barangays, 1,493 municipalities, 150 cities,
+> 82 provinces, and 18 regions — offline, no API calls needed.
 
 <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@ author: "bendlikeabamboo"
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "Philippine Standard Geographic Code (PSGC) — barangay dataset",
-  "description": "Offline Python-accessible dataset of the Philippine Standard Geographic Code (PSGC) covering all 42,010 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions, with hierarchy relationships and historical snapshots.",
+  "description": "Offline Python-accessible dataset of the Philippine Standard Geographic Code (PSGC) covering all 42,010 barangays, 1,493 municipalities, 150 cities, 82 provinces, and 18 regions, with hierarchy relationships and historical snapshots.",
   "keywords": ["PSGC", "Philippines", "barangay", "geographic code", "administrative divisions", "geocoding", "open data"],
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
@@ -115,7 +115,7 @@ author: "bendlikeabamboo"
       "name": "Does it support historical PSGC data?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Use use_version('2025-07-08') to switch to a previous PSGC masterlist release. Historical snapshots from 2023 through 2026 are included, and use_version(None) returns to the latest."
+        "text": "Yes. Use use_version('2025-07-08') to switch to a previous PSGC masterlist release. Historical snapshots from 2022 through 2026 are included, and use_version(None) returns to the latest."
       }
     },
     {

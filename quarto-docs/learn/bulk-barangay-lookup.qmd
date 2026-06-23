@@ -4,7 +4,7 @@ description: "Tutorial: perform bulk lookups and searches across the complete PS
 author: "bendlikeabamboo"
 ---
 
-Perform bulk lookups and searches across the complete PSGC dataset of 42,010 barangays, 1,488 municipalities, 146 cities, 82 provinces, and 17 regions.
+Perform bulk lookups and searches across the complete PSGC dataset of 42,010 barangays, 1,493 municipalities, 150 cities, 82 provinces, and 18 regions.
 
 ## Why Bulk Lookup?
 
@@ -92,7 +92,7 @@ for query in queries:
     results = search_fuzzy(query, threshold=70.0, limit=3)
     if results:
         top = results[0]
-        print(f"{query} → {top.name}, {top.record.province} (score {top.score})")
+        print(f"{query} → {top.name}, {top.province} (score {top.score})")
     else:
         print(f"{query} → NOT FOUND")
 ```
@@ -201,17 +201,19 @@ for r in results:
     print(r.name, r.psgc_id, r.score)
 ```
 
-To switch the whole process to a historical snapshot for the duration of a block, use the `use_version()` context manager:
+To switch the whole process to a historical snapshot, call `use_version()` and remember to restore the latest when you are done:
 
 ```python
-from barangay import use_version, search_fuzzy
+import barangay
+from barangay import search_fuzzy
 
-with use_version("2025-07-08"):
-    results = search_fuzzy("Tongmageng", threshold=70.0)
+barangay.use_version("2025-07-08")
+results = search_fuzzy("Tongmageng", threshold=70.0)
+barangay.use_version(None)  # restore latest
 ```
 
 ::: {.callout-important title="`use_version(None)` restores the latest"}
-`use_version()` applies globally. When used as a context manager (`with use_version(...):`) it restores the previous version on exit. If you call it without a context, remember to restore the latest with `use_version(None)`.
+`use_version()` applies globally — it is not a context manager, so it does not restore the previous version automatically. After you are done querying a historical snapshot, call `use_version(None)` to switch back to the latest masterlist.
 :::
 
 ```bash

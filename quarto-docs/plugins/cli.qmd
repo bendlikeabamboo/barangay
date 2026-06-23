@@ -113,13 +113,13 @@ Each record includes plugin fields directly:
   "psgc_id": "0731100000",
   "parent_psgc_id": "0700000000",
   "nicknames": null,
-  "psgc-aux-data.correspondence_code": "0072226000",
-  "psgc-aux-data.old_names": "Opon",
-  "psgc-aux-data.city_class": "HUC",
-  "psgc-aux-data.income_classification": "1st",
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 497813,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0072226000",
+  "psgc_aux_data.old_names": "Opon",
+  "psgc_aux_data.city_class": "HUC",
+  "psgc_aux_data.income_classification": "1st",
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 497813,
+  "psgc_aux_data.status": null
 }
 ```
 
@@ -132,7 +132,7 @@ barangay export --model flat --plugin psgc-aux-data --format csv --output enrich
 CSV header:
 
 ```csv
-name,type,psgc_id,parent_psgc_id,nicknames,psgc-aux-data.correspondence_code,psgc-aux-data.old_names,psgc-aux-data.city_class,psgc-aux-data.income_classification,psgc-aux-data.urban_rural,psgc-aux-data.population,psgc-aux-data.status
+name,type,psgc_id,parent_psgc_id,nicknames,psgc_aux_data.correspondence_code,psgc_aux_data.old_names,psgc_aux_data.city_class,psgc_aux_data.income_classification,psgc_aux_data.urban_rural,psgc_aux_data.population,psgc_aux_data.status
 Bangsamoro Autonomous Region In Muslim Mindanao (BARMM),region,1900000000,0000000000,,0150000000,,,,,4545486,
 ```
 
@@ -153,13 +153,13 @@ Output (first record):
   "psgc_id": "1900000000",
   "parent_psgc_id": "0000000000",
   "nicknames": null,
-  "psgc-aux-data.correspondence_code": "0150000000",
-  "psgc-aux-data.old_names": null,
-  "psgc-aux-data.city_class": null,
-  "psgc-aux-data.income_classification": null,
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 4545486,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0150000000",
+  "psgc_aux_data.old_names": null,
+  "psgc_aux_data.city_class": null,
+  "psgc_aux_data.income_classification": null,
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 4545486,
+  "psgc_aux_data.status": null
 }
 ```
 
@@ -182,13 +182,13 @@ Records contain fields from both plugins:
   "nicknames": null,
   "sample_elevation.elevation_m": "16",
   "sample_elevation.terrain": "lowland",
-  "psgc-aux-data.correspondence_code": "0130000000",
-  "psgc-aux-data.old_names": null,
-  "psgc-aux-data.city_class": null,
-  "psgc-aux-data.income_classification": null,
-  "psgc-aux-data.urban_rural": null,
-  "psgc-aux-data.population": 14001751,
-  "psgc-aux-data.status": null
+  "psgc_aux_data.correspondence_code": "0130000000",
+  "psgc_aux_data.old_names": null,
+  "psgc_aux_data.city_class": null,
+  "psgc_aux_data.income_classification": null,
+  "psgc_aux_data.urban_rural": null,
+  "psgc_aux_data.population": 14001751,
+  "psgc_aux_data.status": null
 }
 ```
 
