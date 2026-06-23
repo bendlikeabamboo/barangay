@@ -130,14 +130,16 @@ barangay search "Tongmageng"
 
 Output:
 
-| Barangay | Municipality/City | Province/HUC | PSGC ID | Score |
-|----------|-------------------|--------------|---------|-------|
-| Tongmageng | Sitangkai | Tawi-Tawi | 1907005010 | 100.0 |
-| Itomang | Talisay | Camarines Norte | 0501611007 | 70.6 |
-| Tongsengal | Sumisip | Basilan | 1900705025 | 70.0 |
-| Tenga-tenga | Cuyo | Palawan | 1705310017 | 70.0 |
-| Tonggasang | Pangutaran | Sulu | 0906608017 | 70.0 |
-:::
+| Region | Province | Municipality | Barangay | rphicmsgb | PSGC ID | Score |
+|--------|----------|--------------|----------|-----------|---------|-------|
+| Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) | Tawi-Tawi | Sitangkai | Tongmageng | rp000m00b | 1907005010 | 100.0 |
+| Region V (Bicol Region) | Camarines Norte | Talisay | Itomang | rp000m00b | 0501611007 | 70.6 |
+| Bangsamoro Autonomous Region In Muslim Mindanao (BARMM) | Basilan | Sumisip | Tongsengal | rp000m00b | 1900705025 | 70.0 |
+| MIMAROPA Region | Palawan | Cuyo | Tenga-tenga | rp000m00b | 1705310017 | 70.0 |
+| Region IX (Zamboanga Peninsula) | Sulu | Pangutaran | Tonggasang | rp000m00b | 0906608017 | 70.0 |
+ :::
+
+The `rphicmsgb` column is a 9-character hierarchy indicator marking which levels resolve for each result (see the [CLI reference](../reference/cli.qmd)). Blank levels are omitted from the table automatically.
 
 ## Version
 

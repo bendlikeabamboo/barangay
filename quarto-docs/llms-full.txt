@@ -370,26 +370,28 @@ barangay search "Tongmageng" --plugin psgc-aux-data --format json
 
 ```bash
 barangay export --model flat --format json --output data.json
-barangay export --model basic --format csv --output data.csv
+barangay export --model flat --format csv --output data.csv
 barangay export --model flat --format json --as-of "2025-07-08" --output historical.json
 barangay export --model flat --plugin psgc-aux-data --format json --output enriched.json
 ```
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `--model` | `str` | `flat` | Data model: `flat`, `extended`, or `basic` |
-| `--format`, `-f` | `str` | `json` | Output format: `json` or `csv` |
+| `--model` | `str` | `flat` | Data model: `flat` or `extended` (`basic` is no longer supported) |
+| `--format`, `-f` | `str` | `json` | Output format: `json` or `csv` (CSV is flat-only) |
 | `--output`, `-o` | `str` | `stdout` | Output file |
 | `--as-of` | `str` | - | Historical date (YYYY-MM-DD) |
+| `--plugin` | `str` | - | Enable a plugin for enrichment (repeatable; only with `--model flat`) |
 
 ### Info
 
 ```bash
 barangay info version
 barangay info stats
-barangay info list-regions
-barangay info list-municipalities "National Capital Region (NCR)"
-barangay info list-barangays "City of Manila"
+barangay info list barangay
+barangay info list province --parent "BARMM"
+barangay info list barangay --parent "Sitangkai"
+barangay info list cities
 ```
 
 ### History
