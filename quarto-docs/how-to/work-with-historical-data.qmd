@@ -6,7 +6,7 @@ author: "bendlikeabamboo"
 
 ## Overview
 
-The package ships 18 bundled PSGC snapshots (2022-04-29 … 2026-04-13). You can switch the whole process to an older masterlist with `use_version()`, or query a single snapshot per call with `as_of=` — the per-call form is the thread-safe choice.
+The package ships 19 bundled PSGC snapshots (2022-04-29 … 2026-07-13). You can switch the whole process to an older masterlist with `use_version()`, or query a single snapshot per call with `as_of=` — the per-call form is the thread-safe choice.
 
 ## Switch the global version
 

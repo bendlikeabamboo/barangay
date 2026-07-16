@@ -85,12 +85,12 @@ Default locations: `~/.cache/barangay` (Linux/macOS), `$XDG_CACHE_HOME/barangay`
 ```python
 from barangay import resolve_date, available_dates
 
-resolved, msg = resolve_date("2024-06-01", available_dates, "2026-04-13")
+resolved, msg = resolve_date("2024-06-01", available_dates, "2026-07-13")
 print(resolved, msg)
 # 2024-05-08 Using 2024-05-08 dataset (closest to 2024-06-01)
 
 print(available_dates)
-# ['2022-04-29', ..., '2026-04-13']  (18 snapshots)
+# ['2022-04-29', ..., '2026-04-13', '2026-07-13']  (19 snapshots)
 ```
 
 ### Plugin loading failures

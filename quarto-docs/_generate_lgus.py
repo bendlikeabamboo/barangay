@@ -23,7 +23,7 @@ from pathlib import Path
 DOCS_DIR = Path(__file__).resolve().parent
 LGU_DIR = DOCS_DIR / "locations"
 SITE_URL = "https://bendlikeabamboo.github.io/barangay"
-DATA_VERSION = "2026-04-13"
+DATA_VERSION = "2026-07-13"
 
 _LGU_LEVELS = {
     "highly_urbanized_city",

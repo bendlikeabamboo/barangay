@@ -10,6 +10,10 @@ Release history for the `barangay` package. The package uses calendar versioning
 Each `## YYYY.M.D` heading groups every patch shipped against that bundled data date (`.0`, `.1`, ...). Sub-bullets summarize the human-readable highlights mined from `git log` between tags. Dates are the tag's commit date.
 :::
 
+## 2026.7.13
+
+- **v2026.7.13.0** — 2026-07-16. Updated the bundled PSGC resource to the 2026-07-13 masterlist; refreshed version references, defaults, and documentation.
+
 ## 2026.4.13
 
 - **v2026.4.13.4** — 2026-06-15. Roman-numeral standardization for barangay names; match hooks no longer require a barangay level (can match on other levels); PSGC-hierarchy-respecting database view; improved fuzzer; docs and type-hint polish.
