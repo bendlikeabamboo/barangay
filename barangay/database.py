@@ -475,7 +475,7 @@ class _VersionState:
             current_date = (
                 version_path.read_text().strip()
                 if version_path.exists()
-                else "2026-04-13"
+                else "2026-07-13"
             )
             available = get_available_dates() + [current_date]
             resolved, _ = resolve_date(as_of, available, current_date)

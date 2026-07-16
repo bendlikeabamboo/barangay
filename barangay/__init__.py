@@ -9,7 +9,7 @@ _current_version_path = Path(__file__).parent / "data" / "CURRENT_VERSION"
 _current = (
     _current_version_path.read_text().strip()
     if _current_version_path.exists()
-    else "2026-04-13"
+    else "2026-07-13"
 )
 
 # Module-level attributes

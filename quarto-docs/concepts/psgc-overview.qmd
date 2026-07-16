@@ -55,21 +55,21 @@ Codes are zero-padded per level, so every `psgc_id` is exactly 10 characters. Th
 
 The package's data is the **PSA PSGC masterlist** — the canonical Philippine administrative classification published by the Philippine Statistics Authority. Nothing in the dataset is invented or user-editable; every record traces back to a PSA release.
 
-The currently bundled masterlist is version **`2026-04-13`**:
+The currently bundled masterlist is version **`2026-07-13`**:
 
 ```python
 import barangay
-print(barangay.current)  # 2026-04-13
+print(barangay.current)  # 2026-07-13
 ```
 
-The PSA publishes new masterlists periodically (not on a fixed calendar). This package ships a new bundled masterlist whenever a new PSA release is incorporated — a *data-update* release, versioned under the calendar scheme `YYYY.M.D.PATCH`. Eighteen historical snapshots from `2022-04-29` through `2026-04-13` are also available via [`use_version`](../reference/python-api/versioning.qmd).
+The PSA publishes new masterlists periodically (not on a fixed calendar). This package ships a new bundled masterlist whenever a new PSA release is incorporated — a *data-update* release, versioned under the calendar scheme `YYYY.M.D.PATCH`. Nineteen historical snapshots from `2022-04-29` through `2026-07-13` are also available via [`use_version`](../reference/python-api/versioning.qmd).
 
 To see every snapshot you can switch to:
 
 ```python
 from barangay import get_available_dates
 print(get_available_dates())
-# ['2022-04-29', '2022-11-08', ..., '2026-01-13', '2026-04-13']
+# ['2022-04-29', '2022-11-08', ..., '2026-01-13', '2026-04-13', '2026-07-13']
 ```
 
 For the full process of bundling a new PSA masterlist into a release, see [How PSGC data updates work](../community/data-update.qmd).

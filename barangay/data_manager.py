@@ -8,7 +8,7 @@ import pandas as pd
 
 logger: logging.Logger = logging.getLogger(__name__)
 
-CURRENT_DATE = "2026-04-13"
+CURRENT_DATE = "2026-07-13"
 
 DATA_TYPE_MAPPING: Dict[str, str] = {
     "basic": "barangay.json",

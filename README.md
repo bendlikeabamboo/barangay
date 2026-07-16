@@ -272,7 +272,7 @@ Three data structures are available. Choose based on your use case:
 
 Access previous PSGC releases by date. Data is automatically cached after first download.
 
-**Current Data Version:** `2026-04-13` (April 13 2026 PSGC masterlist)
+**Current Data Version:** `2026-07-13` (July 13 2026 PSGC masterlist)
 
 **Available Dates:**
 - Current: `2026-07-13` (bundled)
@@ -282,7 +282,7 @@ Access previous PSGC releases by date. Data is automatically cached after first 
 # Sample only, actual values might differ
 import barangay
 print(barangay.current)           # '2026-07-13'
-print(barangay.available_dates)   # ['2026-04-13', '2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
+print(barangay.available_dates)   # ['2026-07-13', '2026-04-13', '2026-01-13', '2025-08-29', '2025-10-13', '2025-07-08']
 ```
 
 ---

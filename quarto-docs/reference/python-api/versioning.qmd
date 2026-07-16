@@ -59,7 +59,7 @@ print(AdminLevel.REGION.value)  # 'region'
 import barangay
 
 # Current dataset date (from bundled package)
-print(barangay.current)           # '2026-04-13'
+print(barangay.current)           # '2026-07-13'
 
 # Available dataset dates (historical + current)
 print(barangay.available_dates)    # List of available dates

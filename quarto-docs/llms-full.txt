@@ -303,7 +303,7 @@ Resolve approximate dates to the closest available dataset.
 ```python
 from barangay import resolve_date, get_available_dates
 
-resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-04-13")
+resolved_date, status = resolve_date("2025-07-01", get_available_dates(), "2026-07-13")
 print(resolved_date)  # '2025-04-23'
 ```
 
@@ -315,7 +315,7 @@ Get list of available historical dataset dates.
 from barangay import get_available_dates
 
 dates = get_available_dates()
-# ['2022-04-29', '2022-11-08', ..., '2026-04-13']
+# ['2022-04-29', '2022-11-08', ..., '2026-04-13', '2026-07-13']
 ```
 
 ### DataManager
@@ -340,7 +340,7 @@ data = dm.get_data(as_of="2025-07-08", data_type="flat")
 ```python
 import barangay
 
-print(barangay.current)           # '2026-04-13'
+print(barangay.current)           # '2026-07-13'
 print(barangay.available_dates)   # List of available dates
 barangay.as_of = "2025-07-08"     # Set default date for session
 ```
@@ -502,14 +502,14 @@ Flat array with parent references via `parent_psgc_id`. Best for database storag
 
 Access previous PSGC releases by date. Data is automatically cached after first download.
 
-**Current Data Version:** `2026-04-13` (April 13 2026 PSGC masterlist)
+**Current Data Version:** `2026-07-13` (July 13 2026 PSGC masterlist)
 
-**Available Dates:** 2022-04-29 through 2026-04-13 (18 releases)
+**Available Dates:** 2022-04-29 through 2026-07-13 (19 releases)
 
 ```python
 import barangay
-print(barangay.current)           # '2026-04-13'
-print(barangay.available_dates)   # ['2022-04-29', ..., '2026-04-13']
+print(barangay.current)           # '2026-07-13'
+print(barangay.available_dates)   # ['2022-04-29', ..., '2026-04-13', '2026-07-13']
 ```
 
 ---

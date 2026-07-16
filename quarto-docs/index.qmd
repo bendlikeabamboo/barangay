@@ -64,7 +64,7 @@ author: "bendlikeabamboo"
     "encodingFormat": "application/python-package",
     "name": "barangay (PyPI)"
   },
-  "temporalCoverage": "2026-04-13",
+  "temporalCoverage": "2026-07-13",
   "spatialCoverage": {
     "@type": "Place",
     "name": "Republic of the Philippines"
@@ -218,7 +218,7 @@ New here? Walk through the [First Lookup](get-started/first-lookup.qmd) tour (Py
 
 ## Data Version
 
-Current data version: [**2026-04-13** (April 13 2026 PSGC masterlist)](https://psa.gov.ph/classification/psgc/node/1684083211)
+Current data version: [**2026-07-13** (July 13 2026 PSGC masterlist)](https://psa.gov.ph/classification/psgc/node/1684083211)
 
 ::: {.callout-warning title="Deprecation Notice"}
 `BARANGAY`/`BARANGAY_EXTENDED`/`BARANGAY_FLAT` dict aliases and `search()` are deprecated and will be removed in 2027.X.X.X. Use the Database API for new code (e.g. `barangays.get(name="Tongmageng")`, `search_fuzzy("query")`). See [Migrate from the legacy API](how-to/migrate-from-legacy-api.qmd).
