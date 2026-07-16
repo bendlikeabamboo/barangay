@@ -85516,7 +85516,7 @@ components:
         parent_psgc_id: 0300809000
         nicknames: null
         components: []
-      - name: Parang Parang
+      - name: Parang-Parang
         type: barangay
         psgc_id: 0300809015
         parent_psgc_id: 0300809000
@@ -228028,7 +228028,7 @@ components:
         parent_psgc_id: '1001307000'
         nicknames: null
         components: []
-      - name: Baborawon
+      - name: Barorawon
         type: barangay
         psgc_id: '1001307002'
         parent_psgc_id: '1001307000'
@@ -228058,7 +228058,7 @@ components:
         parent_psgc_id: '1001307000'
         nicknames: null
         components: []
-      - name: Maca-opao
+      - name: Macaopao
         type: barangay
         psgc_id: '1001307007'
         parent_psgc_id: '1001307000'
@@ -228262,7 +228262,7 @@ components:
         parent_psgc_id: '1001309000'
         nicknames: null
         components: []
-      - name: Balukbukan
+      - name: Balocbocan
         type: barangay
         psgc_id: '1001309002'
         parent_psgc_id: '1001309000'
@@ -228712,7 +228712,7 @@ components:
         parent_psgc_id: '1001312000'
         nicknames: null
         components: []
-      - name: Indalaza
+      - name: Indalasa
         type: barangay
         psgc_id: '1001312018'
         parent_psgc_id: '1001312000'
@@ -228724,7 +228724,7 @@ components:
         parent_psgc_id: '1001312000'
         nicknames: null
         components: []
-      - name: Kabalabag
+      - name: Kibalabag
         type: barangay
         psgc_id: '1001312021'
         parent_psgc_id: '1001312000'
@@ -228982,7 +228982,7 @@ components:
         parent_psgc_id: '1001313000'
         nicknames: null
         components: []
-      - name: Santa Ines
+      - name: Sta. Ines
         type: barangay
         psgc_id: '1001313009'
         parent_psgc_id: '1001313000'
@@ -229480,7 +229480,7 @@ components:
         parent_psgc_id: '1001317000'
         nicknames: null
         components: []
-      - name: Merangerang
+      - name: Merangeran
         type: barangay
         psgc_id: '1001317019'
         parent_psgc_id: '1001317000'
@@ -229558,7 +229558,7 @@ components:
         parent_psgc_id: '1001317000'
         nicknames: null
         components: []
-      - name: Santa Cruz
+      - name: Sta. Cruz
         type: barangay
         psgc_id: '1001317034'
         parent_psgc_id: '1001317000'
@@ -229738,7 +229738,7 @@ components:
         parent_psgc_id: '1001319000'
         nicknames: null
         components: []
-      - name: Culasi
+      - name: Kulasi
         type: barangay
         psgc_id: '1001319002'
         parent_psgc_id: '1001319000'
@@ -229882,7 +229882,7 @@ components:
         parent_psgc_id: '1001320000'
         nicknames: null
         components: []
-      - name: "Santo Ni\xF1o"
+      - name: "Sto. Ni\xF1o"
         type: barangay
         psgc_id: '1001320016'
         parent_psgc_id: '1001320000'
@@ -230032,7 +230032,7 @@ components:
         parent_psgc_id: '1001321000'
         nicknames: null
         components: []
-      - name: Kahapunan
+      - name: Kahaponan
         type: barangay
         psgc_id: '1001321011'
         parent_psgc_id: '1001321000'
@@ -230068,7 +230068,7 @@ components:
         parent_psgc_id: '1001321000'
         nicknames: null
         components: []
-      - name: Lurogan
+      - name: Lurugan
         type: barangay
         psgc_id: '1001321017'
         parent_psgc_id: '1001321000'
@@ -230098,7 +230098,7 @@ components:
         parent_psgc_id: '1001321000'
         nicknames: null
         components: []
-      - name: Nabago
+      - name: Nabag-o
         type: barangay
         psgc_id: '1001321022'
         parent_psgc_id: '1001321000'
@@ -236530,7 +236530,7 @@ components:
         parent_psgc_id: '1004216000'
         nicknames: null
         components: []
-    - name: Don Victoriano Chiongbian
+    - name: Don Victoriano
       type: municipality
       psgc_id: '1004217000'
       parent_psgc_id: '1004200000'
@@ -241390,7 +241390,7 @@ components:
         parent_psgc_id: '1102323000'
         nicknames: null
         components: []
-    - name: San Isidro
+    - name: Sawata
       type: municipality
       psgc_id: '1102324000'
       parent_psgc_id: '1102300000'
@@ -241468,7 +241468,7 @@ components:
         parent_psgc_id: '1102324000'
         nicknames: null
         components: []
-      - name: Sawata
+      - name: Poblacion
         type: barangay
         psgc_id: '1102324013'
         parent_psgc_id: '1102324000'
