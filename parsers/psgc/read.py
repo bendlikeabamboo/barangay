@@ -1,5 +1,9 @@
+import re
+
 import pandas as pd
 from pathlib import Path
+
+_FOOTNOTE_MARKER = re.compile(r"\s*[a-z]/\s*$")
 
 
 def read(fp: Path) -> pd.DataFrame:
@@ -37,9 +41,12 @@ def read(fp: Path) -> pd.DataFrame:
             " None of ['psgc_id', 'name','geographic_level'] found"
         )
 
-    df: pd.DataFrame = df[~df["psgc_id"].isna()].copy()
+    df: pd.DataFrame = df[pd.to_numeric(df["psgc_id"], errors="coerce").notna()].copy()
     df["psgc_id"] = (
         df["psgc_id"].astype(dtype="int32").astype(dtype=str).str.zfill(width=10)
+    )
+    df["name"] = df["name"].map(
+        func=lambda x: _FOOTNOTE_MARKER.sub("", x) if isinstance(x, str) else x
     )
     df: pd.DataFrame = df.map(func=lambda x: x.strip() if isinstance(x, str) else x)
 
